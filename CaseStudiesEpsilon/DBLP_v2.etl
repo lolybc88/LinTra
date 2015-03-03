@@ -1,0 +1,16 @@
+
+operation DBLP!InProceedings booktitle() : String {
+  return self.bootitle;
+}
+		
+rule Author
+	transform a : DBLP!Author
+	to out : DBLP2!Author {
+	
+	guard : (a.records->select(r | r.isTypeOf(DBLP!InProceedings))->exists(ip | ip.booktitle().indexOf('ICMT')>=0))
+		out.name := a.name;				
+		out.numOfPapers := a.records->select(r | r.isTypeOf(DBLP!InProceedings))->select(ip | ip.booktitle().indexOf('ICMT')>=0)->size();
+}
+		 		
+
+		

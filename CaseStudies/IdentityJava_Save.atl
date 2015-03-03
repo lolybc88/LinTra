@@ -1,0 +1,1770 @@
+-- @path MM=/Java2Graph_CaseStudy/java.ecore
+-- @path MM1=/Java2Graph_CaseStudy/java.ecore
+
+module IdentityJava;
+create OUT: MM1 from IN: MM;
+
+rule Annotation {
+	from
+		inn: MM!Annotation
+	to
+		out: MM1!Annotation (
+			comments <- inn.comments,
+			originalCompilationUnit <- inn.originalCompilationUnit,
+			originalClassFile <- inn.originalClassFile,
+			type <- inn.type,
+			values <- inn.values
+		)
+}
+
+rule Archive {
+	from
+		inn: MM!Archive
+	to
+		out: MM1!Archive (
+			comments <- inn.comments,
+			originalCompilationUnit <- inn.originalCompilationUnit,
+			originalClassFile <- inn.originalClassFile,
+			name <- inn.name,
+			proxy <- inn.proxy,
+			usagesInImports <- inn.usagesInImports,
+			originalFilePath <- inn.originalFilePath,
+			classFiles <- inn.classFiles,
+			manifest <- inn.manifest
+		)
+}
+
+rule AssertStatement {
+	from
+		inn: MM!AssertStatement
+	to
+		out: MM1!AssertStatement (
+			comments <- inn.comments,
+			originalCompilationUnit <- inn.originalCompilationUnit,
+			originalClassFile <- inn.originalClassFile,
+			message <- inn.message,
+			expression <- inn.expression
+		)
+}
+
+rule AnnotationMemberValuePair {
+	from
+		inn: MM!AnnotationMemberValuePair
+	to
+		out: MM1!AnnotationMemberValuePair (
+			comments <- inn.comments,
+			originalCompilationUnit <- inn.originalCompilationUnit,
+			originalClassFile <- inn.originalClassFile,
+			name <- inn.name,
+			proxy <- inn.proxy,
+			usagesInImports <- inn.usagesInImports,
+			member <- inn.member,
+			value <- inn.value
+		)
+}
+
+rule AnnotationTypeDeclaration {
+	from
+		inn: MM!AnnotationTypeDeclaration
+	to
+		out: MM1!AnnotationTypeDeclaration (
+			comments <- inn.comments,
+			originalCompilationUnit <- inn.originalCompilationUnit,
+			originalClassFile <- inn.originalClassFile,
+			name <- inn.name,
+			proxy <- inn.proxy,
+			usagesInImports <- inn.usagesInImports,
+			abstractTypeDeclaration <- inn.abstractTypeDeclaration,
+			annotations <- inn.annotations,
+			anonymousClassDeclarationOwner <- inn.anonymousClassDeclarationOwner,
+			modifier <- inn.modifier,
+			usagesInTypeAccess <- inn.usagesInTypeAccess,
+			bodyDeclarations <- inn.bodyDeclarations,
+			commentsBeforeBody <- inn.commentsBeforeBody,
+			commentsAfterBody <- inn.commentsAfterBody,
+			package <- inn.package,
+			superInterfaces <- inn.superInterfaces
+		)
+}
+
+rule AnnotationTypeMemberDeclaration {
+	from
+		inn: MM!AnnotationTypeMemberDeclaration
+	to
+		out: MM1!AnnotationTypeMemberDeclaration (
+			comments <- inn.comments,
+			originalCompilationUnit <- inn.originalCompilationUnit,
+			originalClassFile <- inn.originalClassFile,
+			name <- inn.name,
+			proxy <- inn.proxy,
+			usagesInImports <- inn.usagesInImports,
+			abstractTypeDeclaration <- inn.abstractTypeDeclaration,
+			annotations <- inn.annotations,
+			anonymousClassDeclarationOwner <- inn.anonymousClassDeclarationOwner,
+			modifier <- inn.modifier,
+			default <- inn.default,
+			type <- inn.type,
+			usages <- inn.usages
+		)
+}
+
+rule AnonymousClassDeclaration {
+	from
+		inn: MM!AnonymousClassDeclaration
+	to
+		out: MM1!AnonymousClassDeclaration (
+			comments <- inn.comments,
+			originalCompilationUnit <- inn.originalCompilationUnit,
+			originalClassFile <- inn.originalClassFile,
+			bodyDeclarations <- inn.bodyDeclarations,
+			classInstanceCreation <- inn.classInstanceCreation
+		)
+}
+
+rule ArrayAccess {
+	from
+		inn: MM!ArrayAccess
+	to
+		out: MM1!ArrayAccess (
+			comments <- inn.comments,
+			originalCompilationUnit <- inn.originalCompilationUnit,
+			originalClassFile <- inn.originalClassFile,
+			array <- inn.array,
+			index <- inn.index
+		)
+}
+
+rule ArrayCreation {
+	from
+		inn: MM!ArrayCreation
+	to
+		out: MM1!ArrayCreation (
+			comments <- inn.comments,
+			originalCompilationUnit <- inn.originalCompilationUnit,
+			originalClassFile <- inn.originalClassFile,
+			dimensions <- inn.dimensions,
+			initializer <- inn.initializer,
+			type <- inn.type
+		)
+}
+
+rule ArrayInitializer {
+	from
+		inn: MM!ArrayInitializer
+	to
+		out: MM1!ArrayInitializer (
+			comments <- inn.comments,
+			originalCompilationUnit <- inn.originalCompilationUnit,
+			originalClassFile <- inn.originalClassFile,
+			expressions <- inn.expressions
+		)
+}
+
+rule ArrayLengthAccess {
+	from
+		inn: MM!ArrayLengthAccess
+	to
+		out: MM1!ArrayLengthAccess (
+			comments <- inn.comments,
+			originalCompilationUnit <- inn.originalCompilationUnit,
+			originalClassFile <- inn.originalClassFile,
+			array <- inn.array
+		)
+}
+
+rule ArrayType {
+	from
+		inn: MM!ArrayType
+	to
+		out: MM1!ArrayType (
+			comments <- inn.comments,
+			originalCompilationUnit <- inn.originalCompilationUnit,
+			originalClassFile <- inn.originalClassFile,
+			name <- inn.name,
+			proxy <- inn.proxy,
+			usagesInImports <- inn.usagesInImports,
+			usagesInTypeAccess <- inn.usagesInTypeAccess,
+			dimensions <- inn.dimensions,
+			elementType <- inn.elementType
+		)
+}
+
+rule Assignment {
+	from
+		inn: MM!Assignment
+	to
+		out: MM1!Assignment (
+			comments <- inn.comments,
+			originalCompilationUnit <- inn.originalCompilationUnit,
+			originalClassFile <- inn.originalClassFile,
+			leftHandSide <- inn.leftHandSide,
+			operator <- inn.operator,
+			rightHandSide <- inn.rightHandSide
+		)
+}
+
+rule BooleanLiteral {
+	from
+		inn: MM!BooleanLiteral
+	to
+		out: MM1!BooleanLiteral (
+			comments <- inn.comments,
+			originalCompilationUnit <- inn.originalCompilationUnit,
+			originalClassFile <- inn.originalClassFile,
+			value <- inn.value
+		)
+}
+
+rule BlockComment {
+	from
+		inn: MM!BlockComment
+	to
+		out: MM1!BlockComment (
+			comments <- inn.comments,
+			originalCompilationUnit <- inn.originalCompilationUnit,
+			originalClassFile <- inn.originalClassFile,
+			content <- inn.content,
+			enclosedByParent <- inn.enclosedByParent,
+			prefixOfParent <- inn.prefixOfParent
+		)
+}
+
+rule Block {
+	from
+		inn: MM!Block
+	to
+		out: MM1!Block (
+			comments <- inn.comments,
+			originalCompilationUnit <- inn.originalCompilationUnit,
+			originalClassFile <- inn.originalClassFile,
+			statements <- inn.statements
+		)
+}
+
+rule BreakStatement {
+	from
+		inn: MM!BreakStatement
+	to
+		out: MM1!BreakStatement (
+			comments <- inn.comments,
+			originalCompilationUnit <- inn.originalCompilationUnit,
+			originalClassFile <- inn.originalClassFile,
+			label <- inn.label
+		)
+}
+
+rule CastExpression {
+	from
+		inn: MM!CastExpression
+	to
+		out: MM1!CastExpression (
+			comments <- inn.comments,
+			originalCompilationUnit <- inn.originalCompilationUnit,
+			originalClassFile <- inn.originalClassFile,
+			expression <- inn.expression,
+			type <- inn.type
+		)
+}
+
+rule CatchClause {
+	from
+		inn: MM!CatchClause
+	to
+		out: MM1!CatchClause (
+			comments <- inn.comments,
+			originalCompilationUnit <- inn.originalCompilationUnit,
+			originalClassFile <- inn.originalClassFile,
+			exception <- inn.exception,
+			body <- inn.body
+		)
+}
+
+rule CharacterLiteral {
+	from
+		inn: MM!CharacterLiteral
+	to
+		out: MM1!CharacterLiteral (
+			comments <- inn.comments,
+			originalCompilationUnit <- inn.originalCompilationUnit,
+			originalClassFile <- inn.originalClassFile,
+			escapedValue <- inn.escapedValue
+		)
+}
+
+rule ClassFile {
+	from
+		inn: MM!ClassFile
+	to
+		out: MM1!ClassFile (
+			comments <- inn.comments,
+			originalCompilationUnit <- inn.originalCompilationUnit,
+			originalClassFile <- inn.originalClassFile,
+			name <- inn.name,
+			proxy <- inn.proxy,
+			usagesInImports <- inn.usagesInImports,
+			originalFilePath <- inn.originalFilePath,
+			type <- inn.type,
+			attachedSource <- inn.attachedSource,
+			package <- inn.package
+		)
+}
+
+rule ClassInstanceCreation {
+	from
+		inn: MM!ClassInstanceCreation
+	to
+		out: MM1!ClassInstanceCreation (
+			comments <- inn.comments,
+			originalCompilationUnit <- inn.originalCompilationUnit,
+			originalClassFile <- inn.originalClassFile,
+			method <- inn.method,
+			arguments <- inn.arguments,
+			typeArguments <- inn.typeArguments,
+			anonymousClassDeclaration <- inn.anonymousClassDeclaration,
+			expression <- inn.expression,
+			type <- inn.type
+		)
+}
+
+rule ConstructorDeclaration {
+	from
+		inn: MM!ConstructorDeclaration
+	to
+		out: MM1!ConstructorDeclaration (
+			comments <- inn.comments,
+			originalCompilationUnit <- inn.originalCompilationUnit,
+			originalClassFile <- inn.originalClassFile,
+			name <- inn.name,
+			proxy <- inn.proxy,
+			usagesInImports <- inn.usagesInImports,
+			abstractTypeDeclaration <- inn.abstractTypeDeclaration,
+			annotations <- inn.annotations,
+			anonymousClassDeclarationOwner <- inn.anonymousClassDeclarationOwner,
+			modifier <- inn.modifier,
+			body <- inn.body,
+			parameters <- inn.parameters,
+			thrownExceptions <- inn.thrownExceptions,
+			typeParameters <- inn.typeParameters,
+			usagesInDocComments <- inn.usagesInDocComments,
+			usages <- inn.usages
+		)
+}
+
+rule ConditionalExpression {
+	from
+		inn: MM!ConditionalExpression
+	to
+		out: MM1!ConditionalExpression (
+			comments <- inn.comments,
+			originalCompilationUnit <- inn.originalCompilationUnit,
+			originalClassFile <- inn.originalClassFile,
+			elseExpression <- inn.elseExpression,
+			expression <- inn.expression,
+			thenExpression <- inn.thenExpression
+		)
+}
+
+rule ConstructorInvocation {
+	from
+		inn: MM!ConstructorInvocation
+	to
+		out: MM1!ConstructorInvocation (
+			comments <- inn.comments,
+			originalCompilationUnit <- inn.originalCompilationUnit,
+			originalClassFile <- inn.originalClassFile,
+			method <- inn.method,
+			arguments <- inn.arguments,
+			typeArguments <- inn.typeArguments
+		)
+}
+
+rule ClassDeclaration {
+	from
+		inn: MM!ClassDeclaration
+	to
+		out: MM1!ClassDeclaration (
+			comments <- inn.comments,
+			originalCompilationUnit <- inn.originalCompilationUnit,
+			originalClassFile <- inn.originalClassFile,
+			name <- inn.name,
+			proxy <- inn.proxy,
+			usagesInImports <- inn.usagesInImports,
+			abstractTypeDeclaration <- inn.abstractTypeDeclaration,
+			annotations <- inn.annotations,
+			anonymousClassDeclarationOwner <- inn.anonymousClassDeclarationOwner,
+			modifier <- inn.modifier,
+			usagesInTypeAccess <- inn.usagesInTypeAccess,
+			bodyDeclarations <- inn.bodyDeclarations,
+			commentsBeforeBody <- inn.commentsBeforeBody,
+			commentsAfterBody <- inn.commentsAfterBody,
+			package <- inn.package,
+			superInterfaces <- inn.superInterfaces,
+			typeParameters <- inn.typeParameters,
+			superClass <- inn.superClass
+		)
+}
+
+rule CompilationUnit {
+	from
+		inn: MM!CompilationUnit
+	to
+		out: MM1!CompilationUnit (
+			comments <- inn.comments,
+			originalCompilationUnit <- inn.originalCompilationUnit,
+			originalClassFile <- inn.originalClassFile,
+			name <- inn.name,
+			proxy <- inn.proxy,
+			usagesInImports <- inn.usagesInImports,
+			originalFilePath <- inn.originalFilePath,
+			commentList <- inn.commentList,
+			imports <- inn.imports,
+			package <- inn.package,
+			types <- inn.types
+		)
+}
+
+rule ContinueStatement {
+	from
+		inn: MM!ContinueStatement
+	to
+		out: MM1!ContinueStatement (
+			comments <- inn.comments,
+			originalCompilationUnit <- inn.originalCompilationUnit,
+			originalClassFile <- inn.originalClassFile,
+			label <- inn.label
+		)
+}
+
+rule DoStatement {
+	from
+		inn: MM!DoStatement
+	to
+		out: MM1!DoStatement (
+			comments <- inn.comments,
+			originalCompilationUnit <- inn.originalCompilationUnit,
+			originalClassFile <- inn.originalClassFile,
+			expression <- inn.expression,
+			body <- inn.body
+		)
+}
+
+rule EmptyStatement {
+	from
+		inn: MM!EmptyStatement
+	to
+		out: MM1!EmptyStatement (
+			comments <- inn.comments,
+			originalCompilationUnit <- inn.originalCompilationUnit,
+			originalClassFile <- inn.originalClassFile
+		)
+}
+
+rule EnhancedForStatement {
+	from
+		inn: MM!EnhancedForStatement
+	to
+		out: MM1!EnhancedForStatement (
+			comments <- inn.comments,
+			originalCompilationUnit <- inn.originalCompilationUnit,
+			originalClassFile <- inn.originalClassFile,
+			body <- inn.body,
+			expression <- inn.expression,
+			parameter <- inn.parameter
+		)
+}
+
+rule EnumConstantDeclaration {
+	from
+		inn: MM!EnumConstantDeclaration
+	to
+		out: MM1!EnumConstantDeclaration (
+			comments <- inn.comments,
+			originalCompilationUnit <- inn.originalCompilationUnit,
+			originalClassFile <- inn.originalClassFile,
+			name <- inn.name,
+			proxy <- inn.proxy,
+			usagesInImports <- inn.usagesInImports,
+			abstractTypeDeclaration <- inn.abstractTypeDeclaration,
+			annotations <- inn.annotations,
+			anonymousClassDeclarationOwner <- inn.anonymousClassDeclarationOwner,
+			modifier <- inn.modifier,
+			extraArrayDimensions <- inn.extraArrayDimensions,
+			initializer <- inn.initializer,
+			usageInVariableAccess <- inn.usageInVariableAccess,
+			anonymousClassDeclaration <- inn.anonymousClassDeclaration,
+			arguments <- inn.arguments
+		)
+}
+
+rule EnumDeclaration {
+	from
+		inn: MM!EnumDeclaration
+	to
+		out: MM1!EnumDeclaration (
+			comments <- inn.comments,
+			originalCompilationUnit <- inn.originalCompilationUnit,
+			originalClassFile <- inn.originalClassFile,
+			name <- inn.name,
+			proxy <- inn.proxy,
+			usagesInImports <- inn.usagesInImports,
+			abstractTypeDeclaration <- inn.abstractTypeDeclaration,
+			annotations <- inn.annotations,
+			anonymousClassDeclarationOwner <- inn.anonymousClassDeclarationOwner,
+			modifier <- inn.modifier,
+			usagesInTypeAccess <- inn.usagesInTypeAccess,
+			bodyDeclarations <- inn.bodyDeclarations,
+			commentsBeforeBody <- inn.commentsBeforeBody,
+			commentsAfterBody <- inn.commentsAfterBody,
+			package <- inn.package,
+			superInterfaces <- inn.superInterfaces,
+			enumConstants <- inn.enumConstants
+		)
+}
+
+rule ExpressionStatement {
+	from
+		inn: MM!ExpressionStatement
+	to
+		out: MM1!ExpressionStatement (
+			comments <- inn.comments,
+			originalCompilationUnit <- inn.originalCompilationUnit,
+			originalClassFile <- inn.originalClassFile,
+			expression <- inn.expression
+		)
+}
+
+rule FieldAccess {
+	from
+		inn: MM!FieldAccess
+	to
+		out: MM1!FieldAccess (
+			comments <- inn.comments,
+			originalCompilationUnit <- inn.originalCompilationUnit,
+			originalClassFile <- inn.originalClassFile,
+			field <- inn.field,
+			expression <- inn.expression
+		)
+}
+
+rule FieldDeclaration {
+	from
+		inn: MM!FieldDeclaration
+	to
+		out: MM1!FieldDeclaration (
+			comments <- inn.comments,
+			originalCompilationUnit <- inn.originalCompilationUnit,
+			originalClassFile <- inn.originalClassFile,
+			name <- inn.name,
+			proxy <- inn.proxy,
+			usagesInImports <- inn.usagesInImports,
+			abstractTypeDeclaration <- inn.abstractTypeDeclaration,
+			annotations <- inn.annotations,
+			anonymousClassDeclarationOwner <- inn.anonymousClassDeclarationOwner,
+			modifier <- inn.modifier,
+			type <- inn.type,
+			fragments <- inn.fragments
+		)
+}
+
+rule ForStatement {
+	from
+		inn: MM!ForStatement
+	to
+		out: MM1!ForStatement (
+			comments <- inn.comments,
+			originalCompilationUnit <- inn.originalCompilationUnit,
+			originalClassFile <- inn.originalClassFile,
+			expression <- inn.expression,
+			updaters <- inn.updaters,
+			initializers <- inn.initializers,
+			body <- inn.body
+		)
+}
+
+rule IfStatement {
+	from
+		inn: MM!IfStatement
+	to
+		out: MM1!IfStatement (
+			comments <- inn.comments,
+			originalCompilationUnit <- inn.originalCompilationUnit,
+			originalClassFile <- inn.originalClassFile,
+			expression <- inn.expression,
+			thenStatement <- inn.thenStatement,
+			elseStatement <- inn.elseStatement
+		)
+}
+
+rule ImportDeclaration {
+	from
+		inn: MM!ImportDeclaration
+	to
+		out: MM1!ImportDeclaration (
+			comments <- inn.comments,
+			originalCompilationUnit <- inn.originalCompilationUnit,
+			originalClassFile <- inn.originalClassFile,
+			static <- inn.static,
+			importedElement <- inn.importedElement
+		)
+}
+
+rule InfixExpression {
+	from
+		inn: MM!InfixExpression
+	to
+		out: MM1!InfixExpression (
+			comments <- inn.comments,
+			originalCompilationUnit <- inn.originalCompilationUnit,
+			originalClassFile <- inn.originalClassFile,
+			operator <- inn.operator,
+			rightOperand <- inn.rightOperand,
+			leftOperand <- inn.leftOperand,
+			extendedOperands <- inn.extendedOperands
+		)
+}
+
+rule Initializer {
+	from
+		inn: MM!Initializer
+	to
+		out: MM1!Initializer (
+			comments <- inn.comments,
+			originalCompilationUnit <- inn.originalCompilationUnit,
+			originalClassFile <- inn.originalClassFile,
+			name <- inn.name,
+			proxy <- inn.proxy,
+			usagesInImports <- inn.usagesInImports,
+			abstractTypeDeclaration <- inn.abstractTypeDeclaration,
+			annotations <- inn.annotations,
+			anonymousClassDeclarationOwner <- inn.anonymousClassDeclarationOwner,
+			modifier <- inn.modifier,
+			body <- inn.body
+		)
+}
+
+rule InstanceofExpression {
+	from
+		inn: MM!InstanceofExpression
+	to
+		out: MM1!InstanceofExpression (
+			comments <- inn.comments,
+			originalCompilationUnit <- inn.originalCompilationUnit,
+			originalClassFile <- inn.originalClassFile,
+			rightOperand <- inn.rightOperand,
+			leftOperand <- inn.leftOperand
+		)
+}
+
+rule InterfaceDeclaration {
+	from
+		inn: MM!InterfaceDeclaration
+	to
+		out: MM1!InterfaceDeclaration (
+			comments <- inn.comments,
+			originalCompilationUnit <- inn.originalCompilationUnit,
+			originalClassFile <- inn.originalClassFile,
+			name <- inn.name,
+			proxy <- inn.proxy,
+			usagesInImports <- inn.usagesInImports,
+			abstractTypeDeclaration <- inn.abstractTypeDeclaration,
+			annotations <- inn.annotations,
+			anonymousClassDeclarationOwner <- inn.anonymousClassDeclarationOwner,
+			modifier <- inn.modifier,
+			usagesInTypeAccess <- inn.usagesInTypeAccess,
+			bodyDeclarations <- inn.bodyDeclarations,
+			commentsBeforeBody <- inn.commentsBeforeBody,
+			commentsAfterBody <- inn.commentsAfterBody,
+			package <- inn.package,
+			superInterfaces <- inn.superInterfaces,
+			typeParameters <- inn.typeParameters
+		)
+}
+
+rule Javadoc {
+	from
+		inn: MM!Javadoc
+	to
+		out: MM1!Javadoc (
+			comments <- inn.comments,
+			originalCompilationUnit <- inn.originalCompilationUnit,
+			originalClassFile <- inn.originalClassFile,
+			content <- inn.content,
+			enclosedByParent <- inn.enclosedByParent,
+			prefixOfParent <- inn.prefixOfParent,
+			tags <- inn.tags
+		)
+}
+
+rule LabeledStatement {
+	from
+		inn: MM!LabeledStatement (not inn.oclIsTypeOf(MM!UnresolvedLabeledStatement))
+	to
+		out: MM1!LabeledStatement (
+			comments <- inn.comments,
+			originalCompilationUnit <- inn.originalCompilationUnit,
+			originalClassFile <- inn.originalClassFile,
+			name <- inn.name,
+			proxy <- inn.proxy,
+			usagesInImports <- inn.usagesInImports,
+			body <- inn.body,
+			usagesInBreakStatements <- inn.usagesInBreakStatements,
+			usagesInContinueStatements <- inn.usagesInContinueStatements
+		)
+}
+
+rule LineComment {
+	from
+		inn: MM!LineComment
+	to
+		out: MM1!LineComment (
+			comments <- inn.comments,
+			originalCompilationUnit <- inn.originalCompilationUnit,
+			originalClassFile <- inn.originalClassFile,
+			content <- inn.content,
+			enclosedByParent <- inn.enclosedByParent,
+			prefixOfParent <- inn.prefixOfParent
+		)
+}
+
+rule Manifest {
+	from
+		inn: MM!Manifest
+	to
+		out: MM1!Manifest (
+			mainAttributes <- inn.mainAttributes,
+			entryAttributes <- inn.entryAttributes
+		)
+}
+
+rule ManifestAttribute {
+	from
+		inn: MM!ManifestAttribute
+	to
+		out: MM1!ManifestAttribute (
+			key <- inn.key,
+			value <- inn.value
+		)
+}
+
+rule ManifestEntry {
+	from
+		inn: MM!ManifestEntry
+	to
+		out: MM1!ManifestEntry (
+			name <- inn.name,
+			attributes <- inn.attributes
+		)
+}
+
+rule MemberRef {
+	from
+		inn: MM!MemberRef
+	to
+		out: MM1!MemberRef (
+			comments <- inn.comments,
+			originalCompilationUnit <- inn.originalCompilationUnit,
+			originalClassFile <- inn.originalClassFile,
+			member <- inn.member,
+			qualifier <- inn.qualifier
+		)
+}
+
+rule MethodDeclaration {
+	from
+		inn: MM!MethodDeclaration
+	to
+		out: MM1!MethodDeclaration (
+			comments <- inn.comments,
+			originalCompilationUnit <- inn.originalCompilationUnit,
+			originalClassFile <- inn.originalClassFile,
+			name <- inn.name,
+			proxy <- inn.proxy,
+			usagesInImports <- inn.usagesInImports,
+			abstractTypeDeclaration <- inn.abstractTypeDeclaration,
+			annotations <- inn.annotations,
+			anonymousClassDeclarationOwner <- inn.anonymousClassDeclarationOwner,
+			modifier <- inn.modifier,
+			body <- inn.body,
+			parameters <- inn.parameters,
+			thrownExceptions <- inn.thrownExceptions,
+			typeParameters <- inn.typeParameters,
+			usagesInDocComments <- inn.usagesInDocComments,
+			usages <- inn.usages,
+			extraArrayDimensions <- inn.extraArrayDimensions,
+			returnType <- inn.returnType,
+			redefinedMethodDeclaration <- inn.redefinedMethodDeclaration,
+			redefinitions <- inn.redefinitions
+		)
+}
+
+rule MethodInvocation {
+	from
+		inn: MM!MethodInvocation
+	to
+		out: MM1!MethodInvocation (
+			comments <- inn.comments,
+			originalCompilationUnit <- inn.originalCompilationUnit,
+			originalClassFile <- inn.originalClassFile,
+			method <- inn.method,
+			arguments <- inn.arguments,
+			typeArguments <- inn.typeArguments,
+			expression <- inn.expression
+		)
+}
+
+rule MethodRef {
+	from
+		inn: MM!MethodRef
+	to
+		out: MM1!MethodRef (
+			comments <- inn.comments,
+			originalCompilationUnit <- inn.originalCompilationUnit,
+			originalClassFile <- inn.originalClassFile,
+			method <- inn.method,
+			qualifier <- inn.qualifier,
+			parameters <- inn.parameters
+		)
+}
+
+rule MethodRefParameter {
+	from
+		inn: MM!MethodRefParameter
+	to
+		out: MM1!MethodRefParameter (
+			comments <- inn.comments,
+			originalCompilationUnit <- inn.originalCompilationUnit,
+			originalClassFile <- inn.originalClassFile,
+			name <- inn.name,
+			varargs <- inn.varargs,
+			type <- inn.type
+		)
+}
+
+rule Model {
+	from
+		inn: MM!Model
+	to
+		out: MM1!Model (
+			name <- inn.name,
+			ownedElements <- inn.ownedElements,
+			orphanTypes <- inn.orphanTypes,
+			unresolvedItems <- inn.unresolvedItems,
+			compilationUnits <- inn.compilationUnits,
+			classFiles <- inn.classFiles,
+			archives <- inn.archives
+		)
+}
+
+rule Modifier {
+	from
+		inn: MM!Modifier
+	to
+		out: MM1!Modifier (
+			comments <- inn.comments,
+			originalCompilationUnit <- inn.originalCompilationUnit,
+			originalClassFile <- inn.originalClassFile,
+			visibility <- inn.visibility,
+			inheritance <- inn.inheritance,
+			static <- inn.static,
+			transient <- inn.transient,
+			volatile <- inn.volatile,
+			native <- inn.native,
+			strictfp <- inn.strictfp,
+			synchronized <- inn.synchronized,
+			bodyDeclaration <- inn.bodyDeclaration,
+			singleVariableDeclaration <- inn.singleVariableDeclaration,
+			variableDeclarationStatement <- inn.variableDeclarationStatement,
+			variableDeclarationExpression <- inn.variableDeclarationExpression
+		)
+}
+
+rule NumberLiteral {
+	from
+		inn: MM!NumberLiteral
+	to
+		out: MM1!NumberLiteral (
+			comments <- inn.comments,
+			originalCompilationUnit <- inn.originalCompilationUnit,
+			originalClassFile <- inn.originalClassFile,
+			tokenValue <- inn.tokenValue
+		)
+}
+
+rule NullLiteral {
+	from
+		inn: MM!NullLiteral
+	to
+		out: MM1!NullLiteral (
+			comments <- inn.comments,
+			originalCompilationUnit <- inn.originalCompilationUnit,
+			originalClassFile <- inn.originalClassFile
+		)
+}
+
+rule Package {
+	from
+		inn: MM!Package
+	to
+		out: MM1!Package (
+			comments <- inn.comments,
+			originalCompilationUnit <- inn.originalCompilationUnit,
+			originalClassFile <- inn.originalClassFile,
+			name <- inn.name,
+			proxy <- inn.proxy,
+			usagesInImports <- inn.usagesInImports,
+			ownedElements <- inn.ownedElements,
+			model <- inn.model,
+			ownedPackages <- inn.ownedPackages,
+			package <- inn.package,
+			usagesInPackageAccess <- inn.usagesInPackageAccess
+		)
+}
+
+rule PackageAccess {
+	from
+		inn: MM!PackageAccess
+	to
+		out: MM1!PackageAccess (
+			comments <- inn.comments,
+			originalCompilationUnit <- inn.originalCompilationUnit,
+			originalClassFile <- inn.originalClassFile,
+			package <- inn.package,
+			qualifier <- inn.qualifier
+		)
+}
+
+rule ParameterizedType {
+	from
+		inn: MM!ParameterizedType
+	to
+		out: MM1!ParameterizedType (
+			comments <- inn.comments,
+			originalCompilationUnit <- inn.originalCompilationUnit,
+			originalClassFile <- inn.originalClassFile,
+			name <- inn.name,
+			proxy <- inn.proxy,
+			usagesInImports <- inn.usagesInImports,
+			usagesInTypeAccess <- inn.usagesInTypeAccess,
+			type <- inn.type,
+			typeArguments <- inn.typeArguments
+		)
+}
+
+rule ParenthesizedExpression {
+	from
+		inn: MM!ParenthesizedExpression
+	to
+		out: MM1!ParenthesizedExpression (
+			comments <- inn.comments,
+			originalCompilationUnit <- inn.originalCompilationUnit,
+			originalClassFile <- inn.originalClassFile,
+			expression <- inn.expression
+		)
+}
+
+rule PostfixExpression {
+	from
+		inn: MM!PostfixExpression
+	to
+		out: MM1!PostfixExpression (
+			comments <- inn.comments,
+			originalCompilationUnit <- inn.originalCompilationUnit,
+			originalClassFile <- inn.originalClassFile,
+			operator <- inn.operator,
+			operand <- inn.operand
+		)
+}
+
+rule PrefixExpression {
+	from
+		inn: MM!PrefixExpression
+	to
+		out: MM1!PrefixExpression (
+			comments <- inn.comments,
+			originalCompilationUnit <- inn.originalCompilationUnit,
+			originalClassFile <- inn.originalClassFile,
+			operator <- inn.operator,
+			operand <- inn.operand
+		)
+}
+
+rule PrimitiveType {
+	from
+		inn: MM!PrimitiveType (not inn.oclIsTypeOf(MM!PrimitiveTypeVoid) and 
+			not inn.oclIsTypeOf(MM!PrimitiveTypeByte) and
+			not inn.oclIsTypeOf(MM!PrimitiveTypeDouble) and
+			not inn.oclIsTypeOf(MM!PrimitiveTypeChar) and
+			not inn.oclIsTypeOf(MM!PrimitiveTypeFloat) and
+			not inn.oclIsTypeOf(MM!PrimitiveTypeLong) and
+			not inn.oclIsTypeOf(MM!PrimitiveTypeInt) and
+			not inn.oclIsTypeOf(MM!PrimitiveTypeBoolean) and
+			not inn.oclIsTypeOf(MM!PrimitiveTypeShort))
+	to
+		out: MM1!PrimitiveType (
+			comments <- inn.comments,
+			originalCompilationUnit <- inn.originalCompilationUnit,
+			originalClassFile <- inn.originalClassFile,
+			name <- inn.name,
+			proxy <- inn.proxy,
+			usagesInImports <- inn.usagesInImports,
+			usagesInTypeAccess <- inn.usagesInTypeAccess
+		)
+}
+
+rule PrimitiveTypeBoolean {
+	from
+		inn: MM!PrimitiveTypeBoolean
+	to
+		out: MM1!PrimitiveTypeBoolean (
+			comments <- inn.comments,
+			originalCompilationUnit <- inn.originalCompilationUnit,
+			originalClassFile <- inn.originalClassFile,
+			name <- inn.name,
+			proxy <- inn.proxy,
+			usagesInImports <- inn.usagesInImports,
+			usagesInTypeAccess <- inn.usagesInTypeAccess
+		)
+}
+
+rule PrimitiveTypeByte {
+	from
+		inn: MM!PrimitiveTypeByte
+	to
+		out: MM1!PrimitiveTypeByte (
+			comments <- inn.comments,
+			originalCompilationUnit <- inn.originalCompilationUnit,
+			originalClassFile <- inn.originalClassFile,
+			name <- inn.name,
+			proxy <- inn.proxy,
+			usagesInImports <- inn.usagesInImports,
+			usagesInTypeAccess <- inn.usagesInTypeAccess
+		)
+}
+
+rule PrimitiveTypeChar {
+	from
+		inn: MM!PrimitiveTypeChar
+	to
+		out: MM1!PrimitiveTypeChar (
+			comments <- inn.comments,
+			originalCompilationUnit <- inn.originalCompilationUnit,
+			originalClassFile <- inn.originalClassFile,
+			name <- inn.name,
+			proxy <- inn.proxy,
+			usagesInImports <- inn.usagesInImports,
+			usagesInTypeAccess <- inn.usagesInTypeAccess
+		)
+}
+
+rule PrimitiveTypeDouble {
+	from
+		inn: MM!PrimitiveTypeDouble
+	to
+		out: MM1!PrimitiveTypeDouble (
+			comments <- inn.comments,
+			originalCompilationUnit <- inn.originalCompilationUnit,
+			originalClassFile <- inn.originalClassFile,
+			name <- inn.name,
+			proxy <- inn.proxy,
+			usagesInImports <- inn.usagesInImports,
+			usagesInTypeAccess <- inn.usagesInTypeAccess
+		)
+}
+
+rule PrimitiveTypeShort {
+	from
+		inn: MM!PrimitiveTypeShort
+	to
+		out: MM1!PrimitiveTypeShort (
+			comments <- inn.comments,
+			originalCompilationUnit <- inn.originalCompilationUnit,
+			originalClassFile <- inn.originalClassFile,
+			name <- inn.name,
+			proxy <- inn.proxy,
+			usagesInImports <- inn.usagesInImports,
+			usagesInTypeAccess <- inn.usagesInTypeAccess
+		)
+}
+
+rule PrimitiveTypeFloat {
+	from
+		inn: MM!PrimitiveTypeFloat
+	to
+		out: MM1!PrimitiveTypeFloat (
+			comments <- inn.comments,
+			originalCompilationUnit <- inn.originalCompilationUnit,
+			originalClassFile <- inn.originalClassFile,
+			name <- inn.name,
+			proxy <- inn.proxy,
+			usagesInImports <- inn.usagesInImports,
+			usagesInTypeAccess <- inn.usagesInTypeAccess
+		)
+}
+
+rule PrimitiveTypeInt {
+	from
+		inn: MM!PrimitiveTypeInt
+	to
+		out: MM1!PrimitiveTypeInt (
+			comments <- inn.comments,
+			originalCompilationUnit <- inn.originalCompilationUnit,
+			originalClassFile <- inn.originalClassFile,
+			name <- inn.name,
+			proxy <- inn.proxy,
+			usagesInImports <- inn.usagesInImports,
+			usagesInTypeAccess <- inn.usagesInTypeAccess
+		)
+}
+
+rule PrimitiveTypeLong {
+	from
+		inn: MM!PrimitiveTypeLong
+	to
+		out: MM1!PrimitiveTypeLong (
+			comments <- inn.comments,
+			originalCompilationUnit <- inn.originalCompilationUnit,
+			originalClassFile <- inn.originalClassFile,
+			name <- inn.name,
+			proxy <- inn.proxy,
+			usagesInImports <- inn.usagesInImports,
+			usagesInTypeAccess <- inn.usagesInTypeAccess
+		)
+}
+
+rule PrimitiveTypeVoid {
+	from
+		inn: MM!PrimitiveTypeVoid
+	to
+		out: MM1!PrimitiveTypeVoid (
+			comments <- inn.comments,
+			originalCompilationUnit <- inn.originalCompilationUnit,
+			originalClassFile <- inn.originalClassFile,
+			name <- inn.name,
+			proxy <- inn.proxy,
+			usagesInImports <- inn.usagesInImports,
+			usagesInTypeAccess <- inn.usagesInTypeAccess
+		)
+}
+
+rule ReturnStatement {
+	from
+		inn: MM!ReturnStatement
+	to
+		out: MM1!ReturnStatement (
+			comments <- inn.comments,
+			originalCompilationUnit <- inn.originalCompilationUnit,
+			originalClassFile <- inn.originalClassFile,
+			expression <- inn.expression
+		)
+}
+
+rule SingleVariableAccess {
+	from
+		inn: MM!SingleVariableAccess
+	to
+		out: MM1!SingleVariableAccess (
+			comments <- inn.comments,
+			originalCompilationUnit <- inn.originalCompilationUnit,
+			originalClassFile <- inn.originalClassFile,
+			variable <- inn.variable,
+			qualifier <- inn.qualifier
+		)
+}
+
+rule SingleVariableDeclaration {
+	from
+		inn: MM!SingleVariableDeclaration
+	to
+		out: MM1!SingleVariableDeclaration (
+			comments <- inn.comments,
+			originalCompilationUnit <- inn.originalCompilationUnit,
+			originalClassFile <- inn.originalClassFile,
+			name <- inn.name,
+			proxy <- inn.proxy,
+			usagesInImports <- inn.usagesInImports,
+			extraArrayDimensions <- inn.extraArrayDimensions,
+			initializer <- inn.initializer,
+			usageInVariableAccess <- inn.usageInVariableAccess,
+			modifier <- inn.modifier,
+			varargs <- inn.varargs,
+			type <- inn.type,
+			annotations <- inn.annotations,
+			methodDeclaration <- inn.methodDeclaration,
+			catchClause <- inn.catchClause,
+			enhancedForStatement <- inn.enhancedForStatement
+		)
+}
+
+rule StringLiteral {
+	from
+		inn: MM!StringLiteral
+	to
+		out: MM1!StringLiteral (
+			comments <- inn.comments,
+			originalCompilationUnit <- inn.originalCompilationUnit,
+			originalClassFile <- inn.originalClassFile,
+			escapedValue <- inn.escapedValue
+		)
+}
+
+rule SuperConstructorInvocation {
+	from
+		inn: MM!SuperConstructorInvocation
+	to
+		out: MM1!SuperConstructorInvocation (
+			comments <- inn.comments,
+			originalCompilationUnit <- inn.originalCompilationUnit,
+			originalClassFile <- inn.originalClassFile,
+			method <- inn.method,
+			arguments <- inn.arguments,
+			typeArguments <- inn.typeArguments,
+			expression <- inn.expression
+		)
+}
+
+rule SuperFieldAccess {
+	from
+		inn: MM!SuperFieldAccess
+	to
+		out: MM1!SuperFieldAccess (
+			comments <- inn.comments,
+			originalCompilationUnit <- inn.originalCompilationUnit,
+			originalClassFile <- inn.originalClassFile,
+			qualifier <- inn.qualifier,
+			field <- inn.field
+		)
+}
+
+rule SuperMethodInvocation {
+	from
+		inn: MM!SuperMethodInvocation
+	to
+		out: MM1!SuperMethodInvocation (
+			comments <- inn.comments,
+			originalCompilationUnit <- inn.originalCompilationUnit,
+			originalClassFile <- inn.originalClassFile,
+			qualifier <- inn.qualifier,
+			method <- inn.method,
+			arguments <- inn.arguments,
+			typeArguments <- inn.typeArguments
+		)
+}
+
+rule SwitchCase {
+	from
+		inn: MM!SwitchCase
+	to
+		out: MM1!SwitchCase (
+			comments <- inn.comments,
+			originalCompilationUnit <- inn.originalCompilationUnit,
+			originalClassFile <- inn.originalClassFile,
+			default <- inn.default,
+			expression <- inn.expression
+		)
+}
+
+rule SwitchStatement {
+	from
+		inn: MM!SwitchStatement
+	to
+		out: MM1!SwitchStatement (
+			comments <- inn.comments,
+			originalCompilationUnit <- inn.originalCompilationUnit,
+			originalClassFile <- inn.originalClassFile,
+			expression <- inn.expression,
+			statements <- inn.statements
+		)
+}
+
+rule SynchronizedStatement {
+	from
+		inn: MM!SynchronizedStatement
+	to
+		out: MM1!SynchronizedStatement (
+			comments <- inn.comments,
+			originalCompilationUnit <- inn.originalCompilationUnit,
+			originalClassFile <- inn.originalClassFile,
+			body <- inn.body,
+			expression <- inn.expression
+		)
+}
+
+rule TagElement {
+	from
+		inn: MM!TagElement
+	to
+		out: MM1!TagElement (
+			comments <- inn.comments,
+			originalCompilationUnit <- inn.originalCompilationUnit,
+			originalClassFile <- inn.originalClassFile,
+			tagName <- inn.tagName,
+			fragments <- inn.fragments
+		)
+}
+
+rule TextElement {
+	from
+		inn: MM!TextElement
+	to
+		out: MM1!TextElement (
+			comments <- inn.comments,
+			originalCompilationUnit <- inn.originalCompilationUnit,
+			originalClassFile <- inn.originalClassFile,
+			text <- inn.text
+		)
+}
+
+rule ThisExpression {
+	from
+		inn: MM!ThisExpression
+	to
+		out: MM1!ThisExpression (
+			comments <- inn.comments,
+			originalCompilationUnit <- inn.originalCompilationUnit,
+			originalClassFile <- inn.originalClassFile,
+			qualifier <- inn.qualifier
+		)
+}
+
+rule ThrowStatement {
+	from
+		inn: MM!ThrowStatement
+	to
+		out: MM1!ThrowStatement (
+			comments <- inn.comments,
+			originalCompilationUnit <- inn.originalCompilationUnit,
+			originalClassFile <- inn.originalClassFile,
+			expression <- inn.expression
+		)
+}
+
+rule TryStatement {
+	from
+		inn: MM!TryStatement
+	to
+		out: MM1!TryStatement (
+			comments <- inn.comments,
+			originalCompilationUnit <- inn.originalCompilationUnit,
+			originalClassFile <- inn.originalClassFile,
+			body <- inn.body,
+			finally <- inn.finally,
+			catchClauses <- inn.catchClauses
+		)
+}
+
+rule TypeAccess {
+	from
+		inn: MM!TypeAccess
+	to
+		out: MM1!TypeAccess (
+			comments <- inn.comments,
+			originalCompilationUnit <- inn.originalCompilationUnit,
+			originalClassFile <- inn.originalClassFile,
+			type <- inn.type,
+			qualifier <- inn.qualifier
+		)
+}
+
+rule TypeDeclarationStatement {
+	from
+		inn: MM!TypeDeclarationStatement
+	to
+		out: MM1!TypeDeclarationStatement (
+			comments <- inn.comments,
+			originalCompilationUnit <- inn.originalCompilationUnit,
+			originalClassFile <- inn.originalClassFile,
+			declaration <- inn.declaration
+		)
+}
+
+rule TypeLiteral {
+	from
+		inn: MM!TypeLiteral
+	to
+		out: MM1!TypeLiteral (
+			comments <- inn.comments,
+			originalCompilationUnit <- inn.originalCompilationUnit,
+			originalClassFile <- inn.originalClassFile,
+			type <- inn.type
+		)
+}
+
+rule TypeParameter {
+	from
+		inn: MM!TypeParameter
+	to
+		out: MM1!TypeParameter (
+			comments <- inn.comments,
+			originalCompilationUnit <- inn.originalCompilationUnit,
+			originalClassFile <- inn.originalClassFile,
+			name <- inn.name,
+			proxy <- inn.proxy,
+			usagesInImports <- inn.usagesInImports,
+			usagesInTypeAccess <- inn.usagesInTypeAccess,
+			bounds <- inn.bounds
+		)
+}
+
+rule UnresolvedItem {
+	from
+		inn: MM!UnresolvedItem (not inn.oclIsTypeOf(MM!UnresolvedLabeledStatement) and 
+			not inn.oclIsTypeOf(MM!UnresolvedItemAccess) and
+			not inn.oclIsTypeOf(MM!UnresolvedAnnotationDeclaration) and
+			not inn.oclIsTypeOf(MM!UnresolvedClassDeclaration) and
+			not inn.oclIsTypeOf(MM!UnresolvedMethodDeclaration) and
+			not inn.oclIsTypeOf(MM!UnresolvedTypeDeclaration) and
+			not inn.oclIsTypeOf(MM!UnresolvedEnumDeclaration) and
+			not inn.oclIsTypeOf(MM!UnresolvedAnnotationTypeMemberDeclaration) and
+			not inn.oclIsTypeOf(MM!UnresolvedInterfaceDeclaration) and
+			not inn.oclIsTypeOf(MM!UnresolvedType) and
+			not inn.oclIsTypeOf(MM!UnresolvedVariableDeclarationFragment) and
+			not inn.oclIsTypeOf(MM!UnresolvedSingleVariableDeclaration)	)
+	to
+		out: MM1!UnresolvedItem (
+			comments <- inn.comments,
+			originalCompilationUnit <- inn.originalCompilationUnit,
+			originalClassFile <- inn.originalClassFile,
+			name <- inn.name,
+			proxy <- inn.proxy,
+			usagesInImports <- inn.usagesInImports
+		)
+}
+
+rule UnresolvedItemAccess {
+	from
+		inn: MM!UnresolvedItemAccess
+	to
+		out: MM1!UnresolvedItemAccess (
+			comments <- inn.comments,
+			originalCompilationUnit <- inn.originalCompilationUnit,
+			originalClassFile <- inn.originalClassFile,
+			element <- if inn.element.oclIsTypeOf(MM!UnresolvedItem) then inn.element else OclUndefined endif,
+			qualifier <- inn.qualifier
+		)
+}
+
+rule UnresolvedAnnotationDeclaration {
+	from
+		inn: MM!UnresolvedAnnotationDeclaration (not inn.oclIsTypeOf(MM!UnresolvedItem) and not inn.oclIsTypeOf(MM!AnnotationTypeDeclaration))
+	to
+		out: MM1!UnresolvedAnnotationDeclaration (
+			comments <- inn.comments,
+			originalCompilationUnit <- inn.originalCompilationUnit,
+			originalClassFile <- inn.originalClassFile,
+			name <- inn.name,
+			proxy <- inn.proxy,
+			usagesInImports <- inn.usagesInImports,
+			abstractTypeDeclaration <- inn.abstractTypeDeclaration,
+			annotations <- inn.annotations,
+			anonymousClassDeclarationOwner <- inn.anonymousClassDeclarationOwner,
+			modifier <- inn.modifier,
+			usagesInTypeAccess <- inn.usagesInTypeAccess,
+			bodyDeclarations <- inn.bodyDeclarations,
+			commentsBeforeBody <- inn.commentsBeforeBody,
+			commentsAfterBody <- inn.commentsAfterBody,
+			package <- inn.package,
+			superInterfaces <- inn.superInterfaces
+		)
+}
+
+rule UnresolvedAnnotationTypeMemberDeclaration {
+	from
+		inn: MM!UnresolvedAnnotationTypeMemberDeclaration (not inn.oclIsTypeOf(MM!UnresolvedItem) and not inn.oclIsTypeOf(MM!AnnotationTypeMemberDeclaration))
+	to
+		out: MM1!UnresolvedAnnotationTypeMemberDeclaration (
+			comments <- inn.comments,
+			originalCompilationUnit <- inn.originalCompilationUnit,
+			originalClassFile <- inn.originalClassFile,
+			name <- inn.name,
+			proxy <- inn.proxy,
+			usagesInImports <- inn.usagesInImports,
+			abstractTypeDeclaration <- inn.abstractTypeDeclaration,
+			annotations <- inn.annotations,
+			anonymousClassDeclarationOwner <- inn.anonymousClassDeclarationOwner,
+			modifier <- inn.modifier,
+			default <- inn.default,
+			type <- inn.type,
+			usages <- inn.usages
+		)
+}
+
+rule UnresolvedClassDeclaration {
+	from
+		inn: MM!UnresolvedClassDeclaration (not inn.oclIsTypeOf(MM!UnresolvedItem) and not inn.oclIsTypeOf(MM!ClassDeclaration))
+	to
+		out: MM1!UnresolvedClassDeclaration (
+			comments <- inn.comments,
+			originalCompilationUnit <- inn.originalCompilationUnit,
+			originalClassFile <- inn.originalClassFile,
+			name <- inn.name,
+			proxy <- inn.proxy,
+			usagesInImports <- inn.usagesInImports,
+			abstractTypeDeclaration <- inn.abstractTypeDeclaration,
+			annotations <- inn.annotations,
+			anonymousClassDeclarationOwner <- inn.anonymousClassDeclarationOwner,
+			modifier <- inn.modifier,
+			usagesInTypeAccess <- inn.usagesInTypeAccess,
+			bodyDeclarations <- inn.bodyDeclarations,
+			commentsBeforeBody <- inn.commentsBeforeBody,
+			commentsAfterBody <- inn.commentsAfterBody,
+			package <- inn.package,
+			superInterfaces <- inn.superInterfaces,
+			typeParameters <- inn.typeParameters,
+			superClass <- inn.superClass
+		)
+}
+
+rule UnresolvedEnumDeclaration {
+	from
+		inn: MM!UnresolvedEnumDeclaration (not inn.oclIsTypeOf(MM!UnresolvedItem) and not inn.oclIsTypeOf(MM!EnumDeclaration))
+	to
+		out: MM1!UnresolvedEnumDeclaration (
+			comments <- inn.comments,
+			originalCompilationUnit <- inn.originalCompilationUnit,
+			originalClassFile <- inn.originalClassFile,
+			name <- inn.name,
+			proxy <- inn.proxy,
+			usagesInImports <- inn.usagesInImports,
+			abstractTypeDeclaration <- inn.abstractTypeDeclaration,
+			annotations <- inn.annotations,
+			anonymousClassDeclarationOwner <- inn.anonymousClassDeclarationOwner,
+			modifier <- inn.modifier,
+			usagesInTypeAccess <- inn.usagesInTypeAccess,
+			bodyDeclarations <- inn.bodyDeclarations,
+			commentsBeforeBody <- inn.commentsBeforeBody,
+			commentsAfterBody <- inn.commentsAfterBody,
+			package <- inn.package,
+			superInterfaces <- inn.superInterfaces,
+			enumConstants <- inn.enumConstants
+		)
+}
+
+rule UnresolvedInterfaceDeclaration {
+	from
+		inn: MM!UnresolvedInterfaceDeclaration (not inn.oclIsTypeOf(MM!UnresolvedItem) and not inn.oclIsTypeOf(MM!InterfaceDeclaration))
+	to
+		out: MM1!UnresolvedInterfaceDeclaration (
+			comments <- inn.comments,
+			originalCompilationUnit <- inn.originalCompilationUnit,
+			originalClassFile <- inn.originalClassFile,
+			name <- inn.name,
+			proxy <- inn.proxy,
+			usagesInImports <- inn.usagesInImports,
+			abstractTypeDeclaration <- inn.abstractTypeDeclaration,
+			annotations <- inn.annotations,
+			anonymousClassDeclarationOwner <- inn.anonymousClassDeclarationOwner,
+			modifier <- inn.modifier,
+			usagesInTypeAccess <- inn.usagesInTypeAccess,
+			bodyDeclarations <- inn.bodyDeclarations,
+			commentsBeforeBody <- inn.commentsBeforeBody,
+			commentsAfterBody <- inn.commentsAfterBody,
+			package <- inn.package,
+			superInterfaces <- inn.superInterfaces,
+			typeParameters <- inn.typeParameters
+		)
+}
+
+rule UnresolvedLabeledStatement {
+	from
+		inn: MM!UnresolvedLabeledStatement (not inn.oclIsTypeOf(MM!UnresolvedItem) and not inn.oclIsTypeOf(MM!LabeledStatement))
+	to
+		out: MM1!UnresolvedLabeledStatement (
+			comments <- inn.comments,
+			originalCompilationUnit <- inn.originalCompilationUnit,
+			originalClassFile <- inn.originalClassFile,
+			name <- inn.name,
+			proxy <- inn.proxy,
+			usagesInImports <- inn.usagesInImports,
+			body <- inn.body,
+			usagesInBreakStatements <- inn.usagesInBreakStatements,
+			usagesInContinueStatements <- inn.usagesInContinueStatements
+		)
+}
+
+rule UnresolvedMethodDeclaration {
+	from
+		inn: MM!UnresolvedMethodDeclaration (not inn.oclIsTypeOf(MM!MethodDeclaration) and not inn.oclIsTypeOf(MM!UnresolvedMethodDeclaration))
+	to
+		out: MM1!UnresolvedMethodDeclaration (
+			comments <- inn.comments,
+			originalCompilationUnit <- inn.originalCompilationUnit,
+			originalClassFile <- inn.originalClassFile,
+			name <- inn.name,
+			proxy <- inn.proxy,
+			usagesInImports <- inn.usagesInImports,
+			abstractTypeDeclaration <- inn.abstractTypeDeclaration,
+			annotations <- inn.annotations,
+			anonymousClassDeclarationOwner <- inn.anonymousClassDeclarationOwner,
+			modifier <- inn.modifier,
+			body <- inn.body,
+			parameters <- inn.parameters,
+			thrownExceptions <- inn.thrownExceptions,
+			typeParameters <- inn.typeParameters,
+			usagesInDocComments <- inn.usagesInDocComments,
+			usages <- inn.usages,
+			extraArrayDimensions <- inn.extraArrayDimensions,
+			returnType <- inn.returnType,
+			redefinedMethodDeclaration <- inn.redefinedMethodDeclaration,
+			redefinitions <- inn.redefinitions
+		)
+}
+
+rule UnresolvedSingleVariableDeclaration {
+	from
+		inn: MM!UnresolvedSingleVariableDeclaration (not inn.oclIsTypeOf(MM!UnresolvedItem) and not inn.oclIsTypeOf(MM!SingleVariableDeclaration))
+	to
+		out: MM1!UnresolvedSingleVariableDeclaration (
+			comments <- inn.comments,
+			originalCompilationUnit <- inn.originalCompilationUnit,
+			originalClassFile <- inn.originalClassFile,
+			name <- inn.name,
+			proxy <- inn.proxy,
+			usagesInImports <- inn.usagesInImports,
+			extraArrayDimensions <- inn.extraArrayDimensions,
+			initializer <- inn.initializer,
+			usageInVariableAccess <- inn.usageInVariableAccess,
+			modifier <- inn.modifier,
+			varargs <- inn.varargs,
+			type <- inn.type,
+			annotations <- inn.annotations,
+			methodDeclaration <- inn.methodDeclaration,
+			catchClause <- inn.catchClause,
+			enhancedForStatement <- inn.enhancedForStatement
+		)
+}
+
+rule UnresolvedType {
+	from
+		inn: MM!UnresolvedType (not inn.oclIsTypeOf(MM!UnresolvedItem) and not inn.oclIsTypeOf(MM!Type))
+	to
+		out: MM1!UnresolvedType (
+			comments <- inn.comments,
+			originalCompilationUnit <- inn.originalCompilationUnit,
+			originalClassFile <- inn.originalClassFile,
+			name <- inn.name,
+			proxy <- inn.proxy,
+			usagesInImports <- inn.usagesInImports,
+			usagesInTypeAccess <- inn.usagesInTypeAccess
+		)
+}
+
+rule UnresolvedTypeDeclaration {
+	from
+		inn: MM!UnresolvedTypeDeclaration (not inn.oclIsTypeOf(MM!UnresolvedItem) and not inn.oclIsTypeOf(MM!AbstractTypeDeclaration))
+	to
+		out: MM1!UnresolvedTypeDeclaration (
+			comments <- inn.comments,
+			originalCompilationUnit <- inn.originalCompilationUnit,
+			originalClassFile <- inn.originalClassFile,
+			name <- inn.name,
+			proxy <- inn.proxy,
+			usagesInImports <- inn.usagesInImports,
+			abstractTypeDeclaration <- inn.abstractTypeDeclaration,
+			annotations <- inn.annotations,
+			anonymousClassDeclarationOwner <- inn.anonymousClassDeclarationOwner,
+			modifier <- inn.modifier,
+			usagesInTypeAccess <- inn.usagesInTypeAccess,
+			bodyDeclarations <- inn.bodyDeclarations,
+			commentsBeforeBody <- inn.commentsBeforeBody,
+			commentsAfterBody <- inn.commentsAfterBody,
+			package <- inn.package,
+			superInterfaces <- inn.superInterfaces
+		)
+}
+
+rule UnresolvedVariableDeclarationFragment {
+	from
+		inn: MM!UnresolvedVariableDeclarationFragment (not inn.oclIsTypeOf(MM!UnresolvedItem) and not inn.oclIsTypeOf(MM!VariableDeclarationFragment))
+	to
+		out: MM1!UnresolvedVariableDeclarationFragment (
+			comments <- inn.comments,
+			originalCompilationUnit <- inn.originalCompilationUnit,
+			originalClassFile <- inn.originalClassFile,
+			name <- inn.name,
+			proxy <- inn.proxy,
+			usagesInImports <- inn.usagesInImports,
+			extraArrayDimensions <- inn.extraArrayDimensions,
+			initializer <- inn.initializer,
+			usageInVariableAccess <- inn.usageInVariableAccess,
+			variablesContainer <- inn.variablesContainer
+		)
+}
+
+rule VariableDeclarationExpression {
+	from
+		inn: MM!VariableDeclarationExpression 
+	to
+		out: MM1!VariableDeclarationExpression (
+			comments <- inn.comments,
+			originalCompilationUnit <- inn.originalCompilationUnit,
+			originalClassFile <- inn.originalClassFile,
+			type <- inn.type,
+			fragments <- inn.fragments,
+			modifier <- inn.modifier,
+			annotations <- inn.annotations
+		)
+}
+
+rule VariableDeclarationFragment {
+	from
+		inn: MM!VariableDeclarationFragment (not inn.oclIsTypeOf(MM!UnresolvedVariableDeclarationFragment))
+	to
+		out: MM1!VariableDeclarationFragment (
+			comments <- inn.comments,
+			originalCompilationUnit <- inn.originalCompilationUnit,
+			originalClassFile <- inn.originalClassFile,
+			name <- inn.name,
+			proxy <- inn.proxy,
+			usagesInImports <- inn.usagesInImports,
+			extraArrayDimensions <- inn.extraArrayDimensions,
+			initializer <- inn.initializer,
+			usageInVariableAccess <- inn.usageInVariableAccess,
+			variablesContainer <- inn.variablesContainer
+		)
+}
+
+rule VariableDeclarationStatement {
+	from
+		inn: MM!VariableDeclarationStatement
+	to
+		out: MM1!VariableDeclarationStatement (
+			comments <- inn.comments,
+			originalCompilationUnit <- inn.originalCompilationUnit,
+			originalClassFile <- inn.originalClassFile,
+			type <- inn.type,
+			fragments <- inn.fragments,
+			extraArrayDimensions <- inn.extraArrayDimensions,
+			modifier <- inn.modifier,
+			annotations <- inn.annotations
+		)
+}
+
+rule WildCardType {
+	from
+		inn: MM!WildCardType
+	to
+		out: MM1!WildCardType (
+			comments <- inn.comments,
+			originalCompilationUnit <- inn.originalCompilationUnit,
+			originalClassFile <- inn.originalClassFile,
+			name <- inn.name,
+			proxy <- inn.proxy,
+			usagesInImports <- inn.usagesInImports,
+			usagesInTypeAccess <- inn.usagesInTypeAccess,
+			upperBound <- inn.upperBound,
+			bound <- inn.bound
+		)
+}
+
+rule WhileStatement {
+	from
+		inn: MM!WhileStatement
+	to
+		out: MM1!WhileStatement (
+			comments <- inn.comments,
+			originalCompilationUnit <- inn.originalCompilationUnit,
+			originalClassFile <- inn.originalClassFile,
+			expression <- inn.expression,
+			body <- inn.body
+		)
+}

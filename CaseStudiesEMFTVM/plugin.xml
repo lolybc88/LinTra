@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated ATL -->
+      <package
+            uri="ATLmm"
+            class="ATL.ATLPackage"
+            genModel="Metamodels/ATL.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated ATL -->
+      <package
+            uri="http://www.eclipse.org/gmt/2005/OCL"
+            class="OCL.OCLPackage"
+            genModel="Metamodels/ATL.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated ATL -->
+      <package
+            uri="http://www.eclipse.org/gmt/2005/ATL-PrimitiveTypes"
+            class="PrimitiveTypes.PrimitiveTypesPackage"
+            genModel="Metamodels/ATL.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated Ecore -->
+      <package
+            uri="http://www.eclipse.org/emf/2002/Ecore"
+            class="ecore.EcorePackage"
+            genModel="Metamodels/Ecore.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated movies -->
+      <package
+            uri="http://movies/1.0"
+            class="movies.MoviesPackage"
+            genModel="imdb/movies.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated DBLP -->
+      <package
+            uri="http://dblp.com"
+            class="DBLP.DBLPPackage"
+            genModel="dblp/DBLP.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated ICMTAuthor -->
+      <package
+            uri="http://ICMTAuthor"
+            class="ICMTAuthor.ICMTAuthorPackage"
+            genModel="dblp/ICMTAuthor.genmodel"/>
+   </extension>
+
+</plugin>

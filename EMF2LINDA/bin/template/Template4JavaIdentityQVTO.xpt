@@ -1,0 +1,32 @@
+«IMPORT ecore»
+
+«EXTENSION template::GeneratorExtensions»
+
+«DEFINE main FOR EPackage»
+«FILE "IdentityJava.qvto-"»
+modeltype JAVA uses java('http://www.eclipse.org/MoDisco/Java/0.2.incubation/java-CDO');
+
+transformation IdentityIMDb(in java : JAVA, out JAVA);
+
+main() {
+«EXPAND javaClass1 FOREACH this.eClassifiers.typeSelect(EClass)»
+}
+
+«EXPAND javaClass2 FOREACH this.eClassifiers.typeSelect(EClass)»
+«ENDFILE»
+«ENDDEFINE»
+
+«DEFINE javaClass1 FOR EClass»
+		«IF !this.abstract»java.objects()[JAVA::«name»]-> map «name.toFirstLower()»();«ENDIF» 		
+«ENDDEFINE»
+
+«DEFINE javaClass2 FOR EClass»
+		«IF !this.abstract»
+		mapping JAVA::«name»::«name.toFirstLower()»() : JAVA::«name» {
+				«FOREACH this.eAllStructuralFeatures AS f SEPARATOR '\n'-»
+				«IF f.metaType.name.matches("ecore::EAttribute")»«f.name()» := self.«f.name()»;«ENDIF-»
+				«IF f.metaType.name.matches("ecore::EReference")»«f.name()» := self.«f.name()»;«ENDIF»«ENDFOREACH-»
+				
+		}
+		«ENDIF» 		
+«ENDDEFINE»

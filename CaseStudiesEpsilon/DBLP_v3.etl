@@ -1,0 +1,24 @@
+
+operation DBLP!InProceedings booktitle() : String {
+  return self.bootitle;
+}
+
+operation DBLP!InProceedings year() : Integer {
+  return self.year;
+}
+
+operation DBLP!Author active() : Boolean {
+  return self.records->select(r | r.isTypeOf(DBLP!InProceedings))->select(ip | ip.booktitle().indexOf('ICMT')>=0 and ip.year()>2008)->size()>0;
+}
+		
+rule Author
+	transform a : DBLP!Author
+	to out : DBLP2!Author {
+	
+	guard : (a.records->select(r | r.isTypeOf(DBLP!InProceedings))->exists(ip | ip.booktitle().indexOf('ICMT')>=0))
+		out.name := a.name;				
+		out.active := a.active();
+}
+		 		
+
+		

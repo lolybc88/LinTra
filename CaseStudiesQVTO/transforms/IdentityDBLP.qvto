@@ -1,0 +1,154 @@
+modeltype DBLP uses DBLP('http://dblp.com');
+	
+transformation IdentityDBLP(in dblp : DBLP, out DBLP);
+
+main() {
+	 	dblp.objects()[DBLP::Article]-> map article(); 		
+		dblp.objects()[DBLP::Author]-> map author(); 		
+		dblp.objects()[DBLP::Journal]-> map journal(); 		
+		dblp.objects()[DBLP::Book]-> map book(); 		
+		dblp.objects()[DBLP::InCollection]-> map inCollection(); 		
+		dblp.objects()[DBLP::InProceedings]-> map inProceedings(); 		
+		dblp.objects()[DBLP::MastersThesis]-> map mastersThesis(); 		
+		dblp.objects()[DBLP::Proceedings]-> map proceedings(); 		
+		dblp.objects()[DBLP::PhDThesis]-> map phDThesis(); 		
+		dblp.objects()[DBLP::Www]-> map www(); 		
+		dblp.objects()[DBLP::Editor]-> map editor(); 		
+		dblp.objects()[DBLP::Organization]-> map organization(); 		
+		dblp.objects()[DBLP::Publisher]-> map publisher(); 		
+		dblp.objects()[DBLP::School]-> map school(); 	
+}
+
+		 		
+		mapping DBLP::Article::article() : DBLP::Article {
+				title := self.title;				
+				fromPage := self.fromPage;				
+				toPage := self.toPage;				
+				number := self.number;				
+				journal := self.journal.late resolveoneIn(DBLP::Journal::journal, DBLP::Journal);
+				volume := self.volume;				
+				month := self.month;				
+				year := self.year;								
+		}
+		 		
+
+		
+		mapping DBLP::Author::author() : DBLP::Author {
+				name := self.name;				
+				records := self.records;				
+		}
+		 		
+
+		
+		mapping DBLP::Journal::journal() : DBLP::Journal {
+				name := self.name;				
+				articles := self.articles.late resolveIn(DBLP::Article::article, DBLP::Article);				
+		}
+		 		
+
+		
+		mapping DBLP::Book::book() : DBLP::Book {
+				title := self.title;				
+				year := self.year;				
+				publisher := self.publisher;
+				month := self.month;				
+				volume := self.volume;				
+				series := self.series;				
+				edition := self.edition;				
+				isbn := self.isbn;								
+		}
+		 		
+
+		
+		mapping DBLP::InCollection::inCollection() : DBLP::InCollection {
+				title := self.title;				
+				bookTitle := self.bookTitle;				
+				year := self.year;				
+				editors := self.editors;
+				fromPage := self.fromPage;				
+				toPage := self.toPage;				
+				sponsoredBy := self.sponsoredBy;
+				publisher := self.publisher;
+				month := self.month;								
+		}
+		 		
+
+		
+		mapping DBLP::InProceedings::inProceedings() : DBLP::InProceedings {
+				title := self.title;				
+				bootitle := self.bootitle;				
+				year := self.year;				
+				fromPage := self.fromPage;				
+				toPage := self.toPage;				
+				month := self.month;				
+				editors := self.editors;
+				organization := self.organization;
+				publisher := self.publisher;				
+		}
+		 		
+
+		
+		mapping DBLP::MastersThesis::mastersThesis() : DBLP::MastersThesis {
+				title := self.title;				
+				year := self.year;				
+				school := self.school;
+				month := self.month;								
+		}
+		 		
+
+		
+		mapping DBLP::Proceedings::proceedings() : DBLP::Proceedings {
+				title := self.title;				
+				year := self.year;				
+				editors := self.editors;
+				publisher := self.publisher;
+				sponsoredBy := self.sponsoredBy;
+				month := self.month;				
+				isbn := self.isbn;								
+		}
+		 		
+
+		
+		mapping DBLP::PhDThesis::phDThesis() : DBLP::PhDThesis {
+				title := self.title;				
+				year := self.year;				
+				month := self.month;				
+				school := self.school;				
+		}
+		 		
+
+		
+		mapping DBLP::Www::www() : DBLP::Www {
+				editors := self.editors;
+				title := self.title;				
+				year := self.year;				
+				month := self.month;								
+		}
+		 		
+
+		
+		mapping DBLP::Editor::editor() : DBLP::Editor {
+				name := self.name;								
+		}
+		 		
+
+		
+		mapping DBLP::Organization::organization() : DBLP::Organization {
+				name := self.name;								
+		}
+		 		
+
+		
+		mapping DBLP::Publisher::publisher() : DBLP::Publisher {
+				name := self.name;				
+				address := self.address;								
+		}
+		 		
+
+		
+		mapping DBLP::School::school() : DBLP::School {
+				name := self.name;				
+				address := self.address;								
+		}
+		 		
+

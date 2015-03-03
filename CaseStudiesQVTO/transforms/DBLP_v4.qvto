@@ -1,0 +1,42 @@
+modeltype DBLP uses DBLP('http://dblp.com');
+modeltype AUTHORINFO uses AuthorInfo('http://AuthorInfo');
+	
+transformation IdentityDBLP(in dblp : DBLP, out AUTHORINFO);
+
+main() {	
+	dblp.objects()[DBLP::Author]-> map icmt();
+	allConferences-> map toConference();
+}
+
+property allConferences : Set(String) = Set{};
+
+mapping DBLP::Author::icmt() : AUTHORINFO::Author
+when { self.records->select(r | r.oclIsTypeOf(DBLP::InProceedings))
+			->exists(ip | ip.oclAsType(DBLP::InProceedings).bootitle.indexOf("ICMT")>0) and not self.active() } {
+	
+	name := self.name;
+	active := self.active();
+	publishesInC := self.nowPublishingIn().late resolveIn(String::toConference, AUTHORINFO::Conference);
+
+	self.nowPublishingIn()->forEach(Conf){
+		if Conf<>'' then
+			allConferences += Conf		
+		endif;
+	}
+}
+
+mapping String::toConference() : AUTHORINFO::Conference {
+	name := self;
+}
+
+query DBLP::Author::active() : Boolean {
+	var b := self.records->select(r | r.oclIsTypeOf(DBLP::InProceedings) and r.oclAsType(DBLP::InProceedings).bootitle.indexOf('ICMT')>0 and r.oclAsType(DBLP::InProceedings).year>2008)->size()>0;
+	return b;
+}
+
+query DBLP::Author::nowPublishingIn() : Sequence(String) {
+	var x := self.records->select(r | r.oclIsTypeOf(DBLP::InProceedings) and
+		 r.oclAsType(DBLP::InProceedings).bootitle.indexOf('ICMT')=0 and
+		 r.oclAsType(DBLP::InProceedings).year>2008)->collect(r | r.oclAsType(DBLP::InProceedings).bootitle);
+	return x;
+}

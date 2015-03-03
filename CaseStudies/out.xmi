@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:AuthorInfo="http://AuthorInfo">
+  <AuthorInfo:Author name="Oscar Cordon"/>
+  <AuthorInfo:Author name="Hisao Ishibuchi" publishesInC="/125"/>
+  <AuthorInfo:Author name="Andreas Stolcke"/>
+  <AuthorInfo:Author name="Stephan Wensveen"/>
+  <AuthorInfo:Author name="Sushmita Mitra" publishesInC="/126"/>
+  <AuthorInfo:Author name="Randy J. Pagulayan"/>
+  <AuthorInfo:Author name="Antonio Rizzo"/>
+  <AuthorInfo:Author name="John M. Carroll" publishesInC="/127"/>
+  <AuthorInfo:Author name="Paul Thursfield"/>
+  <AuthorInfo:Author name="Yeboon Yun"/>
+  <AuthorInfo:Author name="DaeEun Kim"/>
+  <AuthorInfo:Author name="Chi-Ho Tsang"/>
+  <AuthorInfo:Author name="Luiz S. Oliveira"/>
+  <AuthorInfo:Author name="Richard Wiseman"/>
+  <AuthorInfo:Author name="Shang-Ming Zhou"/>
+  <AuthorInfo:Author name="Kees Overbeeke"/>
+  <AuthorInfo:Author name="H. Martinez"/>
+  <AuthorInfo:Author name="Robert Sabourin"/>
+  <AuthorInfo:Author name="Ester Bernado i Mansilla"/>
+  <AuthorInfo:Author name="Xavier Llora" publishesInC="/128"/>
+  <AuthorInfo:Author name="Simon Beard"/>
+  <AuthorInfo:Author name="Manfred Burger"/>
+  <AuthorInfo:Author name="John Q. Gan"/>
+  <AuthorInfo:Author name="Keith Steury"/>
+  <AuthorInfo:Author name="Olaf Schreiner"/>
+  <AuthorInfo:Author name="Nobuhiko Kondo"/>
+  <AuthorInfo:Author name="Klaus Wissmann"/>
+  <AuthorInfo:Author name="Julia Handl"/>
+  <AuthorInfo:Author name="Maria Luque"/>
+  <AuthorInfo:Author name="Jennica Falk"/>
+  <AuthorInfo:Author name="Huanhuan Chen"/>
+  <AuthorInfo:Author name="David Gelbart"/>
+  <AuthorInfo:Author name="Laura Polazzi"/>
+  <AuthorInfo:Author name="Gary G. Yen"/>
+  <AuthorInfo:Author name="John Bryant"/>
+  <AuthorInfo:Author name="Job Rutgers"/>
+  <AuthorInfo:Author name="Ricardo H. C. Takahashi"/>
+  <AuthorInfo:Author name="Lars Erik Holmquist"/>
+  <AuthorInfo:Author name="Tom Djajadiningrat"/>
+  <AuthorInfo:Author name="Nelson Morgan"/>
+  <AuthorInfo:Author name="Naoyuki Kubota"/>
+  <AuthorInfo:Author name="Ivan Traus"/>
+  <AuthorInfo:Author name="Jonathan Sykes"/>
+  <AuthorInfo:Author name="Lisa Meekison"/>
+  <AuthorInfo:Author name="Hirotaka Nakayama" publishesInC="/129"/>
+  <AuthorInfo:Author name="Thomas Portele"/>
+  <AuthorInfo:Author name="Hugo de Garis"/>
+  <AuthorInfo:Author name="Francoise Decortis"/>
+  <AuthorInfo:Author name="Marcelo Azevedo Costa" publishesInC="/130"/>
+  <AuthorInfo:Author name="J. M. Lucas"/>
+  <AuthorInfo:Author name="Nicolas Garcia-Pedrajas" publishesInC="/131"/>
+  <AuthorInfo:Author name="Richard M. Everson"/>
+  <AuthorInfo:Author name="Roselito de Albuquerque Teixeira"/>
+  <AuthorInfo:Author name="Krystyna Mularczyk"/>
+  <AuthorInfo:Author name="Darren J. Reed"/>
+  <AuthorInfo:Author name="Marisa E. Morita"/>
+  <AuthorInfo:Author name="Peter Rockett"/>
+  <AuthorInfo:Author name="Ashish Anand"/>
+  <AuthorInfo:Author name="Peter C. Wright"/>
+  <AuthorInfo:Author name="Joep W. Frens"/>
+  <AuthorInfo:Author name="Jo Reid"/>
+  <AuthorInfo:Author name="Yusuke Nojima"/>
+  <AuthorInfo:Author name="Mary Beth Rosson" publishesInC="/127"/>
+  <AuthorInfo:Author name="Jonathan E. Fieldsend"/>
+  <AuthorInfo:Author name="Richard Hull"/>
+  <AuthorInfo:Author name="Antonio de Padua Braga" publishesInC="/130"/>
+  <AuthorInfo:Author name="Arjun Chandra"/>
+  <AuthorInfo:Author name="Christian Igel"/>
+  <AuthorInfo:Author name="Andre Berton"/>
+  <AuthorInfo:Author name="Chen Jian Ken Lee"/>
+  <AuthorInfo:Author name="Enrique Herrera-Viedma"/>
+  <AuthorInfo:Author name="Asbjorn Folstad"/>
+  <AuthorInfo:Author name="Andrew Marriott"/>
+  <AuthorInfo:Author name="Caroline Hummels"/>
+  <AuthorInfo:Author name="Phoebe Sengers"/>
+  <AuthorInfo:Author name="Michael Streit"/>
+  <AuthorInfo:Author name="Ramon L. Romero"/>
+  <AuthorInfo:Author name="Tobias Skog"/>
+  <AuthorInfo:Author name="Mohua Banerjee"/>
+  <AuthorInfo:Author name="John C. McCarthy"/>
+  <AuthorInfo:Author name="Thorsten Suttorp"/>
+  <AuthorInfo:Author name="Petter Bae Brandtzag"/>
+  <AuthorInfo:Author name="Erik Blankinship"/>
+  <AuthorInfo:Author name="Antonio Munoz San Roque"/>
+  <AuthorInfo:Author name="Alexander Gepperth"/>
+  <AuthorInfo:Author name="Marc Hassenzahl" publishesInC="/132"/>
+  <AuthorInfo:Author name="Sam Kwong"/>
+  <AuthorInfo:Author name="Patrizia Marti"/>
+  <AuthorInfo:Author name="Yang Zhang"/>
+  <AuthorInfo:Author name="John Karat"/>
+  <AuthorInfo:Author name="Sara Ljungblad"/>
+  <AuthorInfo:Author name="Katsuji Uosaki"/>
+  <AuthorInfo:Author name="Toshiharu Hatanaka"/>
+  <AuthorInfo:Author name="Xin Yao" publishesInC="/133 /134"/>
+  <AuthorInfo:Author name="Norbert Braun"/>
+  <AuthorInfo:Author name="Mark Blythe"/>
+  <AuthorInfo:Author name="Kristina Andersen"/>
+  <AuthorInfo:Author name="Manja Baudis"/>
+  <AuthorInfo:Author name="Anton Batliner"/>
+  <AuthorInfo:Author name="Edgar Korner"/>
+  <AuthorInfo:Author name="Alfred Kaltenmeier"/>
+  <AuthorInfo:Author name="Pilapa Esara"/>
+  <AuthorInfo:Author name="Hussein A. Abbass" publishesInC="/128"/>
+  <AuthorInfo:Author name="Robert Porzel"/>
+  <AuthorInfo:Author name="Clare-Marie Karat"/>
+  <AuthorInfo:Author name="Bernhard Sendhoff"/>
+  <AuthorInfo:Author name="Jakob Nielsen"/>
+  <AuthorInfo:Author name="Tomonari Furukawa"/>
+  <AuthorInfo:Author name="Hubertus Hohl"/>
+  <AuthorInfo:Author name="Stefan Roth"/>
+  <AuthorInfo:Author name="Margot Jacobs"/>
+  <AuthorInfo:Author name="Urszula Markowska-Kaczmar" publishesInC="/135"/>
+  <AuthorInfo:Author name="Alan Dix"/>
+  <AuthorInfo:Author name="Bill Fulton"/>
+  <AuthorInfo:Author name="Pieter Desmet" publishesInC="/132"/>
+  <AuthorInfo:Author name="John Michopoulos"/>
+  <AuthorInfo:Author name="Udo Haiber"/>
+  <AuthorInfo:Author name="Carlos Mate"/>
+  <AuthorInfo:Author name="F. Jimenez"/>
+  <AuthorInfo:Author name="Yaochu Jin" publishesInC="/136"/>
+  <AuthorInfo:Author name="Jan Heim"/>
+  <AuthorInfo:Author name="Hanli Wang"/>
+  <AuthorInfo:Author name="Aadjan van der Helm"/>
+  <AuthorInfo:Author name="Javier Arroyo"/>
+  <AuthorInfo:Author name="Joshua D. Knowles"/>
+  <AuthorInfo:Conference name="Handbook of Memetic Algorithms"/>
+  <AuthorInfo:Conference name="Human-Centric Information Processing Through Granular Modelling"/>
+  <AuthorInfo:Conference name="Learning in Communities"/>
+  <AuthorInfo:Conference name="Parallel and Distributed Computational Intelligence"/>
+  <AuthorInfo:Conference name="Computer and Information Science"/>
+  <AuthorInfo:Conference name="Foundations of Computational Intelligence (1)"/>
+  <AuthorInfo:Conference name="Modern Advances in Intelligent Systems and Tools"/>
+  <AuthorInfo:Conference name="Human-Computer Interaction: The Agency Perspective"/>
+  <AuthorInfo:Conference name="Metaheuristics for Dynamic Optimization"/>
+  <AuthorInfo:Conference name="Automated Scheduling and Planning"/>
+  <AuthorInfo:Conference name="Computational Intelligence for Technology Enhanced Learning"/>
+  <AuthorInfo:Conference name="Bio-Inspired Self-Organizing Robotic Systems"/>
+</xmi:XMI>

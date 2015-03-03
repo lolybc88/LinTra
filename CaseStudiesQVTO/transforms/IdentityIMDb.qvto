@@ -1,0 +1,42 @@
+modeltype IMDB uses movies('http://movies/1.0');
+	
+transformation IdentityIMDb(in movs : IMDB, out IMDB);
+
+main() {
+	movs.objects()[IMDB::Movie]-> map movie();
+	movs.objects()[IMDB::Actor]-> map actor();
+	movs.objects()[IMDB::Actress]-> map actress();
+	movs.objects()[IMDB::Couple]-> map couple();
+	movs.objects()[IMDB::Clique]-> map clique();
+}
+
+mapping IMDB::Movie::movie() : IMDB::Movie {
+	persons := self.persons;
+	title := self.title;
+	rating := self.rating;
+	year := self.year;
+	type := self.type;
+}
+
+mapping IMDB::Actor::actor() : IMDB::Actor {
+	movies := self.movies;
+	name := self.name;
+}
+
+mapping IMDB::Actress::actress() : IMDB::Actress {
+	movies := self.movies;
+	name := self.name;
+}
+
+mapping IMDB::Couple::couple() : IMDB::Couple {
+	commonMovies := self.commonMovies;
+	avgRating := self.avgRating;
+	p1 := self.p1;
+	p2 := self.p2;
+}
+
+mapping IMDB::Clique::clique() : IMDB::Clique {
+	commonMovies := self.commonMovies;
+	avgRating := self.avgRating;
+	persons := self.persons;
+}

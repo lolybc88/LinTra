@@ -1,0 +1,39 @@
+rule Movie
+	transform c : movies!Movie 
+	to t : movies2!Movie {
+	
+	t.title = c.title;
+	t.rating = c.rating;
+	t.year = c.year;
+	t.type = c.type;
+	t.persons = c.persons;
+		
+}
+
+rule Actor
+	transform a : movies!Actor
+	to b : movies2!Actor {
+		b.name = a.name;
+		b.movies = a.movies;
+}
+
+rule Actress
+	transform a : movies!Actress
+	to b : movies2!Actress {
+		b.name = a.name;
+		b.movies = a.movies;
+}
+
+rule Couple
+	transform c : movies!Couple
+	to cc : movies2!Couple {
+		cc.p1 = c.p1;
+		cc.p2 = c.p2;
+}
+
+rule Clique 
+	transform s : movies!Clique
+	to t : movies2!Clique {
+	t.avgRating = s.avgRating;
+	t.commonMovies = s.commonMovies;
+}

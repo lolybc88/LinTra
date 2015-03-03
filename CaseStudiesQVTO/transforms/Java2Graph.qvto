@@ -1,0 +1,56 @@
+modeltype JAVAMM uses javaMM('http://www.eclipse.org/MoDisco/Java/0.2.incubation/java');
+modeltype GRAPH uses GraphMM('http://graph');
+	
+
+transformation Java2Graph(in javamm : JAVAMM, out GRAPH);
+
+main() {
+	javamm.objects()[JAVAMM::ClassDeclaration]->map toNode();
+	javamm.objects()[JAVAMM::FieldDeclaration]->map toEdge();
+}
+
+mapping JAVAMM::ClassDeclaration::toNode() : GRAPH::Node 
+when { not self.package.oclIsUndefined() and self.package.rootPackage().name.indexOf('java')<=0 }
+{
+	name := self.package.rootPackage().name;--self.name;
+	type := self.type();
+	size := self.bodyDeclarations -> select(bd | bd.oclIsTypeOf(JAVAMM::FieldDeclaration)) -> size()
+}
+
+mapping JAVAMM::FieldDeclaration::toEdge() : GRAPH::Edge 
+when { not self.type.oclIsUndefined() and
+		not self.type.type.oclIsUndefined() and
+		self.type.type.oclIsTypeOf(JAVAMM::ClassDeclaration) and
+		not self.type.type.oclAsType(JAVAMM::ClassDeclaration).package.oclIsUndefined() and
+		self.type.type.oclAsType(JAVAMM::ClassDeclaration).package.rootPackage().name.indexOf('java')<=0 and
+		not self.abstractTypeDeclaration.oclIsUndefined() and
+		self.abstractTypeDeclaration.package.rootPackage().name.indexOf('java')<=0}
+{
+	source := self.abstractTypeDeclaration.late resolveoneIn(JAVAMM::ClassDeclaration::toNode, GRAPH::Node);
+	target := self.type.type.late resolveoneIn(JAVAMM::ClassDeclaration::toNode, GRAPH::Node);
+}
+
+query JAVAMM::Package::rootPackage() : JAVAMM::Package {
+	var x := if self.package.oclIsUndefined() then self else self.package.rootPackage() endif;
+	return x;
+}
+
+query JAVAMM::ClassDeclaration::type() : String {
+	var x :=
+	if not self.modifier.oclIsUndefined() then
+		if self.modifier.inheritance=InheritanceKind::final then
+			'F'
+		else
+			if self.modifier.inheritance=InheritanceKind::_abstract then
+				'A'
+			else
+				'N'
+			endif
+		endif
+	else
+		'N'
+	endif;
+	return x;
+}
+	 		
+

@@ -1,0 +1,42 @@
+modeltype DBLP uses DBLP('http://dblp.com');
+modeltype AUTHORINFO uses AuthorInfo('http://AuthorInfo');
+	
+transformation IdentityDBLP(in dblp : DBLP, out AUTHORINFO);
+
+main() {	
+	dblp.objects()[DBLP::Author]-> map icmt();
+	allJournals-> map toJournal();
+}
+
+property allJournals : Set(String) = Set{};
+
+mapping DBLP::Author::icmt() : AUTHORINFO::Author
+when { self.records->select(r | r.oclIsTypeOf(DBLP::Article))
+	->exists(ip | ip.oclAsType(DBLP::Article).journal.name.indexOf('Information & Software Technology')>0) and self.active()} {
+	
+	name := self.name;
+	active := self.active();
+	publishesInJ := self.nowPublishingIn().late resolveIn(String::toJournal, AUTHORINFO::Journal);
+
+	self.nowPublishingIn()->forEach(Jour){
+		if Jour<>'' then
+			allJournals += Jour		
+		endif;
+	}
+}
+
+mapping String::toJournal() : AUTHORINFO::Journal {
+	name := self;
+}
+
+query DBLP::Author::active() : Boolean {
+	var b := self.records->select(r | r.oclIsTypeOf(DBLP::Article) and r.oclAsType(DBLP::Article).journal.name.indexOf('Information & Software Technology')>0 and r.oclAsType(DBLP::Article).year>2005)->size()>0;
+	return b;
+}
+
+query DBLP::Author::nowPublishingIn() : Sequence(String) {
+	var x := self.records->select(r | r.oclIsTypeOf(DBLP::Article) and
+		 r.oclAsType(DBLP::Article).journal.name.indexOf('Information & Software Technology')=0 and
+		 r.oclAsType(DBLP::Article).year>2008)->collect(r | r.oclAsType(DBLP::Article).journal.name);
+	return x;
+}

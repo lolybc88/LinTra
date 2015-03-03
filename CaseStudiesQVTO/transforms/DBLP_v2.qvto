@@ -1,0 +1,14 @@
+modeltype DBLP uses DBLP('http://dblp.com');
+modeltype AUTHORINFO uses AuthorInfo('http://AuthorInfo');
+	
+transformation IdentityDBLP(in dblp : DBLP, out AUTHORINFO);
+
+main() {
+	dblp.objects()[DBLP::Author]-> map icmt();
+}
+
+mapping DBLP::Author::icmt() : AUTHORINFO::Author
+when { self.records->select(r | r.oclIsTypeOf(DBLP::InProceedings))->exists(ip | ip.oclAsType(DBLP::InProceedings).bootitle.indexOf("ICMT")>=0) } {
+	name := self.name;
+	numOfPapers := self.records->select(r | r.oclIsTypeOf(DBLP::InProceedings) and r.oclAsType(DBLP::InProceedings).bootitle.indexOf('ICMT')>=0)->size();
+}

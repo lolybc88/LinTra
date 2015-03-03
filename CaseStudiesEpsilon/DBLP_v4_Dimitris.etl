@@ -1,0 +1,39 @@
+pre {
+	var conferences : Set(DBLP2!Conference);
+}
+
+rule Author
+	transform a : DBLP!Author
+	to out : DBLP2!Author {
+	
+	guard : a.records->exists(r : DBLP!InProceedings|r.bootitle.indexOf('ICMT')>=0)
+	
+	out.name = a.name;
+	out.active = a.active();
+	
+	for (conf in a.nowPublishingIn()) {
+	
+		var conference = conferences.selectOne(c|c.name = conf.bootitle);
+		if (conference.isUndefined()) {
+			conference = conf.createConference();
+			conferences.add(conference);
+		}
+		
+		out.publishesInC.add(conference);
+	}
+}
+
+@cached
+operation DBLP!InProceedings createConference() {
+	var c = new DBLP2!Conference;
+	c.name = self.bootitle;
+	return c;
+}
+
+operation DBLP!Author nowPublishingIn() : OrderedSet(DBLP!InProceedings) {
+  return self.records->select(r : DBLP!InProceedings | r.year>2008 and r.bootitle.indexOf('ICMT')<0);
+}
+
+operation DBLP!Author active() : Boolean {
+  return self.records->exists(r : DBLP!InProceedings | r.year>2008 and r.bootitle.indexOf('ICMT')>=0);
+}

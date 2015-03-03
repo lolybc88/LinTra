@@ -1,0 +1,731 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:GraphMM="http://graph">
+  <GraphMM:Node name="BeanProperties" type="N" size="1.0"/>
+  <GraphMM:Node name="PojoObservables" type="F"/>
+  <GraphMM:Node name="PojoProperties" type="N"/>
+  <GraphMM:Node name="BeansObservables" type="F" size="1.0"/>
+  <GraphMM:Node name="NativePropertyListener" type="N"/>
+  <GraphMM:Node name="DelegatingListProperty" type="N"/>
+  <GraphMM:Node name="ListProperty" type="N"/>
+  <GraphMM:Node name="SimpleListProperty" type="N"/>
+  <GraphMM:Node name="SimpleSetProperty" type="N"/>
+  <GraphMM:Node name="SetProperty" type="N"/>
+  <GraphMM:Node name="DelegatingSetProperty" type="N"/>
+  <GraphMM:Node name="ValueProperty" type="N"/>
+  <GraphMM:Node name="SimpleValueProperty" type="N"/>
+  <GraphMM:Node name="DelegatingValueProperty" type="N"/>
+  <GraphMM:Node name="SimpleMapProperty" type="N"/>
+  <GraphMM:Node name="MapProperty" type="N"/>
+  <GraphMM:Node name="DelegatingMapProperty" type="N"/>
+  <GraphMM:Node name="Realm" type="N"/>
+  <GraphMM:Node name="DecoratingObservable" type="N"/>
+  <GraphMM:Node name="AbstractObservable" type="N"/>
+  <GraphMM:Node name="ChangeSupport" type="N"/>
+  <GraphMM:Node name="DecoratingObservableCollection" type="N"/>
+  <GraphMM:Node name="Diffs" type="N"/>
+  <GraphMM:Node name="ListDiff" type="N"/>
+  <GraphMM:Node name="DecoratingObservableList" type="N"/>
+  <GraphMM:Node name="DecoratingObservableMap" type="N"/>
+  <GraphMM:Node name="MapDiff" type="N"/>
+  <GraphMM:Node name="MasterDetailObservables" type="N"/>
+  <GraphMM:Node name="DecoratingObservableSet" type="N"/>
+  <GraphMM:Node name="SetDiff" type="N"/>
+  <GraphMM:Node name="DecoratingObservableValue" type="N"/>
+  <GraphMM:Node name="ValueDiff" type="N"/>
+  <GraphMM:Node name="Policy" type="N" size="1.0"/>
+  <GraphMM:Node name="PojoValuePropertyDecorator" type="N" size="2.0"/>
+  <GraphMM:Node name="BeanValuePropertyDecorator" type="N" size="2.0"/>
+  <GraphMM:Node name="Util" type="N"/>
+  <GraphMM:Node name="BeanObservableValueDecorator" type="N" size="1.0"/>
+  <GraphMM:Node name="AnonymousBeanListProperty" type="N" size="2.0"/>
+  <GraphMM:Node name="BeanObservableSetDecorator" type="N" size="1.0"/>
+  <GraphMM:Node name="BeanPropertyListener" type="A" size="1.0"/>
+  <GraphMM:Node name="BeanListPropertyDecorator" type="N" size="2.0"/>
+  <GraphMM:Node name="BeanObservableMapDecorator" type="N" size="1.0"/>
+  <GraphMM:Node name="AnonymousPojoListProperty" type="N" size="2.0"/>
+  <GraphMM:Node name="PojoValueProperty" type="N" size="2.0"/>
+  <GraphMM:Node name="BeanSetProperty" type="N" size="2.0"/>
+  <GraphMM:Node name="BeanValueProperty" type="N" size="2.0"/>
+  <GraphMM:Node name="AnonymousBeanSetProperty" type="N" size="2.0"/>
+  <GraphMM:Node name="PojoMapProperty" type="N" size="3.0"/>
+  <GraphMM:Node name="BeanPropertyListenerSupport" type="N"/>
+  <GraphMM:Node name="PojoMapPropertyDecorator" type="N" size="2.0"/>
+  <GraphMM:Node name="PojoListProperty" type="N" size="2.0"/>
+  <GraphMM:Node name="BeanObservableListDecorator" type="N" size="1.0"/>
+  <GraphMM:Node name="TypedSet" type="N" size="2.0"/>
+  <GraphMM:Node name="BeanPropertyHelper" type="N"/>
+  <GraphMM:Node name="BeanSetPropertyDecorator" type="N" size="2.0"/>
+  <GraphMM:Node name="BeanMapProperty" type="N" size="3.0"/>
+  <GraphMM:Node name="PojoSetPropertyDecorator" type="N" size="2.0"/>
+  <GraphMM:Node name="AnonymousPojoMapProperty" type="N" size="2.0"/>
+  <GraphMM:Node name="PojoListPropertyDecorator" type="N" size="2.0"/>
+  <GraphMM:Node name="AnonymousBeanMapProperty" type="N" size="2.0"/>
+  <GraphMM:Node name="AnonymousBeanValueProperty" type="N" size="2.0"/>
+  <GraphMM:Node name="BeanListProperty" type="N" size="2.0"/>
+  <GraphMM:Node name="BeanMapPropertyDecorator" type="N" size="2.0"/>
+  <GraphMM:Node name="AnonymousPojoValueProperty" type="N" size="2.0"/>
+  <GraphMM:Node name="AnonymousPojoSetProperty" type="N" size="2.0"/>
+  <GraphMM:Node name="PojoSetProperty" type="N" size="2.0"/>
+  <GraphMM:Node name="Status" type="N"/>
+  <GraphMM:Node name="Assert" type="N"/>
+  <GraphMM:Node name="String" type="N"/>
+  <GraphMM:Node name="Class" type="N"/>
+  <GraphMM:Node name="Object" type="N"/>
+  <GraphMM:Node name="IllegalArgumentException" type="N"/>
+  <GraphMM:Node name="RuntimeException" type="N"/>
+  <GraphMM:Node name="Exception" type="N"/>
+  <GraphMM:Node name="Throwable" type="N"/>
+  <GraphMM:Node name="Double" type="N"/>
+  <GraphMM:Node name="Number" type="N"/>
+  <GraphMM:Node name="Long" type="N"/>
+  <GraphMM:Node name="Boolean" type="N"/>
+  <GraphMM:Node name="Float" type="N"/>
+  <GraphMM:Node name="Integer" type="N"/>
+  <GraphMM:Node name="Character" type="N"/>
+  <GraphMM:Node name="Short" type="N"/>
+  <GraphMM:Node name="ReflectiveOperationException" type="N"/>
+  <GraphMM:Node name="NoSuchMethodException" type="N"/>
+  <GraphMM:Node name="SecurityException" type="N"/>
+  <GraphMM:Node name="IllegalAccessException" type="N"/>
+  <GraphMM:Node name="UnsupportedOperationException" type="N"/>
+  <GraphMM:Node name="Array" type="N"/>
+  <GraphMM:Node name="InvocationTargetException" type="N"/>
+  <GraphMM:Node name="Method" type="N"/>
+  <GraphMM:Node name="Executable" type="N"/>
+  <GraphMM:Node name="AccessibleObject" type="N"/>
+  <GraphMM:Node name="PropertyDescriptor" type="N"/>
+  <GraphMM:Node name="FeatureDescriptor" type="N"/>
+  <GraphMM:Node name="PropertyChangeEvent" type="N"/>
+  <GraphMM:Node name="IntrospectionException" type="N"/>
+  <GraphMM:Node name="Introspector" type="N"/>
+  <GraphMM:Node name="ArrayList" type="N"/>
+  <GraphMM:Node name="AbstractList" type="N"/>
+  <GraphMM:Node name="AbstractCollection" type="N"/>
+  <GraphMM:Node name="EventObject" type="N"/>
+  <GraphMM:Node name="HashMap" type="N"/>
+  <GraphMM:Node name="AbstractMap" type="N"/>
+  <GraphMM:Node name="Arrays" type="N"/>
+  <GraphMM:Node name="Collections" type="N"/>
+  <GraphMM:Node name="HashSet" type="N"/>
+  <GraphMM:Node name="AbstractSet" type="N"/>
+  <GraphMM:Node name="ObservableEvent" type="A" size="1.0"/>
+  <GraphMM:Node name="ChangeEvent" type="N" size="1.0"/>
+  <GraphMM:Node name="ChangeManager" type="N" size="1.0"/>
+  <GraphMM:Node name="DecoratingObservableCollection" type="N" size="1.0"/>
+  <GraphMM:Node name="DisposeEvent" type="N" size="2.0"/>
+  <GraphMM:Node name="ListenerList" type="N" size="4.0"/>
+  <GraphMM:Node name="StaleEvent" type="N" size="2.0"/>
+  <GraphMM:Node name="Realm" type="A" size="4.0"/>
+  <GraphMM:Node name="AbstractObservable" type="A" size="2.0"/>
+  <GraphMM:Node name="Diffs" type="N"/>
+  <GraphMM:Node name="Observables" type="N"/>
+  <GraphMM:Node name="AbstractChangeEvent" type="A" size="2.0"/>
+  <GraphMM:Node name="ListenerListCopy" type="N" size="1.0"/>
+  <GraphMM:Node name="DecoratingObservable" type="N" size="3.0"/>
+  <GraphMM:Node name="ObservableTracker" type="N" size="5.0"/>
+  <GraphMM:Node name="ChangeSupport" type="A" size="3.0"/>
+  <GraphMM:Node name="ListDiffVisitor" type="A"/>
+  <GraphMM:Node name="WritableList" type="N"/>
+  <GraphMM:Node name="ObservableList" type="A" size="5.0"/>
+  <GraphMM:Node name="ListListenerManager" type="A" size="2.0"/>
+  <GraphMM:Node name="ComputedList" type="A" size="8.0"/>
+  <GraphMM:Node name="MultiList" type="N" size="5.0"/>
+  <GraphMM:Node name="ListDiff" type="A"/>
+  <GraphMM:Node name="AbstractObservableList" type="A" size="3.0"/>
+  <GraphMM:Node name="DecoratingObservableList" type="N" size="3.0"/>
+  <GraphMM:Node name="ListDiffEntry" type="A"/>
+  <GraphMM:Node name="UnmodifiableObservableList" type="N" size="3.0"/>
+  <GraphMM:Node name="ListChangeEvent" type="N" size="4.0"/>
+  <GraphMM:Node name="MapDiff" type="A"/>
+  <GraphMM:Node name="MapChangeEvent" type="N" size="4.0"/>
+  <GraphMM:Node name="ObservableMap" type="N" size="3.0"/>
+  <GraphMM:Node name="CompositeMap" type="N" size="8.0"/>
+  <GraphMM:Node name="AbstractObservableMap" type="A" size="4.0"/>
+  <GraphMM:Node name="WritableMap" type="N" size="2.0"/>
+  <GraphMM:Node name="ComputedObservableMap" type="A" size="6.0"/>
+  <GraphMM:Node name="BidiObservableMap" type="N" size="2.0"/>
+  <GraphMM:Node name="BidirectionalMap" type="N" size="1.0"/>
+  <GraphMM:Node name="DecoratingObservableMap" type="N" size="6.0"/>
+  <GraphMM:Node name="MasterDetailObservables" type="N"/>
+  <GraphMM:Node name="WritableSet" type="N"/>
+  <GraphMM:Node name="SetChangeEvent" type="N" size="4.0"/>
+  <GraphMM:Node name="UnionSet" type="F" size="5.0"/>
+  <GraphMM:Node name="MappedSet" type="N" size="5.0"/>
+  <GraphMM:Node name="AbstractObservableSet" type="A" size="2.0"/>
+  <GraphMM:Node name="SetListenerManager" type="A" size="2.0"/>
+  <GraphMM:Node name="ComputedSet" type="A" size="8.0"/>
+  <GraphMM:Node name="DecoratingObservableSet" type="N" size="3.0"/>
+  <GraphMM:Node name="ListToSetAdapter" type="N" size="2.0"/>
+  <GraphMM:Node name="ObservableSet" type="A" size="5.0"/>
+  <GraphMM:Node name="SetDiff" type="A"/>
+  <GraphMM:Node name="ValueChangingEvent" type="N" size="4.0"/>
+  <GraphMM:Node name="ComputedValue" type="A" size="8.0"/>
+  <GraphMM:Node name="DateAndTimeObservableValue" type="N" size="8.0"/>
+  <GraphMM:Node name="ChangeVetoException" type="N" size="1.0"/>
+  <GraphMM:Node name="AbstractObservableValue" type="A" size="1.0"/>
+  <GraphMM:Node name="AbstractVetoableValue" type="A" size="1.0"/>
+  <GraphMM:Node name="ValueChangeEvent" type="N" size="4.0"/>
+  <GraphMM:Node name="ValueDiff" type="A"/>
+  <GraphMM:Node name="DuplexingObservableValue" type="A" size="7.0"/>
+  <GraphMM:Node name="SelectObservableValue" type="N" size="5.0"/>
+  <GraphMM:Node name="WritableValue" type="N" size="4.0"/>
+  <GraphMM:Node name="DecoratingVetoableValue" type="N" size="1.0"/>
+  <GraphMM:Node name="DecoratingObservableValue" type="N" size="3.0"/>
+  <GraphMM:Node name="Policy" type="N" size="3.0"/>
+  <GraphMM:Node name="IdentityMap" type="N" size="1.0"/>
+  <GraphMM:Node name="IdentityObservableSet" type="N" size="3.0"/>
+  <GraphMM:Node name="IdentitySet" type="N" size="1.0"/>
+  <GraphMM:Node name="IdentityWrapper" type="N" size="1.0"/>
+  <GraphMM:Node name="UnmodifiableObservableValue" type="N"/>
+  <GraphMM:Node name="EmptyObservableSet" type="N" size="4.0"/>
+  <GraphMM:Node name="Queue" type="N" size="2.0"/>
+  <GraphMM:Node name="EmptyObservableList" type="N" size="4.0"/>
+  <GraphMM:Node name="DelayedObservableValue" type="N" size="8.0"/>
+  <GraphMM:Node name="MapEntryObservableValue" type="N" size="5.0"/>
+  <GraphMM:Node name="UnmodifiableObservableMap" type="N" size="1.0"/>
+  <GraphMM:Node name="Util" type="N"/>
+  <GraphMM:Node name="Activator" type="N" size="2.0"/>
+  <GraphMM:Node name="StalenessObservableValue" type="N" size="4.0"/>
+  <GraphMM:Node name="ConstantObservableValue" type="N" size="4.0"/>
+  <GraphMM:Node name="StalenessTracker" type="N" size="5.0"/>
+  <GraphMM:Node name="UnmodifiableObservableSet" type="N" size="1.0"/>
+  <GraphMM:Node name="DetailObservableMap" type="N" size="8.0"/>
+  <GraphMM:Node name="DetailObservableSet" type="N" size="7.0"/>
+  <GraphMM:Node name="DetailObservableHelper" type="N"/>
+  <GraphMM:Node name="DetailObservableValue" type="N" size="8.0"/>
+  <GraphMM:Node name="SetDetailValueObservableMap" type="N" size="4.0"/>
+  <GraphMM:Node name="DetailObservableList" type="N" size="8.0"/>
+  <GraphMM:Node name="ListDetailValueObservableList" type="N" size="10.0"/>
+  <GraphMM:Node name="MapDetailValueObservableMap" type="N" size="9.0"/>
+  <GraphMM:Node name="SafeRunner" type="N"/>
+  <GraphMM:Node name="Status" type="N"/>
+  <GraphMM:Node name="Assert" type="N"/>
+  <GraphMM:Node name="AssertionFailedException" type="N"/>
+  <GraphMM:Node name="CoreException" type="N"/>
+  <GraphMM:Node name="FrameworkLogEntry" type="N"/>
+  <GraphMM:Node name="ServiceTracker" type="N"/>
+  <GraphMM:Node name="EventObject" type="N" size="1.0"/>
+  <GraphMM:Node name="ArrayList" type="N"/>
+  <GraphMM:Node name="AbstractList" type="N"/>
+  <GraphMM:Node name="AbstractCollection" type="N"/>
+  <GraphMM:Node name="Collections" type="N" size="1.0"/>
+  <GraphMM:Node name="Timer" type="N"/>
+  <GraphMM:Node name="TimerTask" type="N"/>
+  <GraphMM:Node name="Arrays" type="N"/>
+  <GraphMM:Node name="HashMap" type="N"/>
+  <GraphMM:Node name="AbstractMap" type="N"/>
+  <GraphMM:Node name="HashSet" type="N"/>
+  <GraphMM:Node name="AbstractSet" type="N"/>
+  <GraphMM:Node name="ConcurrentModificationException" type="N"/>
+  <GraphMM:Node name="NoSuchElementException" type="N"/>
+  <GraphMM:Node name="Calendar" type="N" size="7.0"/>
+  <GraphMM:Node name="Date" type="N"/>
+  <GraphMM:Node name="LinkedList" type="N"/>
+  <GraphMM:Node name="AbstractSequentialList" type="N"/>
+  <GraphMM:Node name="BitSet" type="N"/>
+  <GraphMM:Node name="IdentityHashMap" type="N"/>
+  <GraphMM:Node name="PrintStream" type="N"/>
+  <GraphMM:Node name="FilterOutputStream" type="N"/>
+  <GraphMM:Node name="OutputStream" type="N"/>
+  <GraphMM:Node name="Object" type="N"/>
+  <GraphMM:Node name="Class" type="N"/>
+  <GraphMM:Node name="CloneNotSupportedException" type="N"/>
+  <GraphMM:Node name="Exception" type="N"/>
+  <GraphMM:Node name="Throwable" type="N"/>
+  <GraphMM:Node name="String" type="N"/>
+  <GraphMM:Node name="IllegalArgumentException" type="N"/>
+  <GraphMM:Node name="RuntimeException" type="N"/>
+  <GraphMM:Node name="ThreadLocal" type="N"/>
+  <GraphMM:Node name="Thread" type="N"/>
+  <GraphMM:Node name="InterruptedException" type="N"/>
+  <GraphMM:Node name="Boolean" type="N" size="3.0"/>
+  <GraphMM:Node name="Integer" type="N"/>
+  <GraphMM:Node name="Number" type="N"/>
+  <GraphMM:Node name="IllegalStateException" type="N"/>
+  <GraphMM:Node name="System" type="N" size="1.0"/>
+  <GraphMM:Node name="IndexOutOfBoundsException" type="N"/>
+  <GraphMM:Node name="UnsupportedOperationException" type="N"/>
+  <GraphMM:Node name="StringBuffer" type="N"/>
+  <GraphMM:Node name="AbstractStringBuilder" type="N"/>
+  <GraphMM:Node name="Array" type="N"/>
+  <GraphMM:Node name="ValidationStatusProvider" type="A" size="1.0"/>
+  <GraphMM:Node name="UpdateValueStrategy" type="N" size="13.0"/>
+  <GraphMM:Node name="UpdateSetStrategy" type="N" size="6.0"/>
+  <GraphMM:Node name="BindingProperties" type="N"/>
+  <GraphMM:Node name="UpdateStrategy" type="N" size="11.0"/>
+  <GraphMM:Node name="ObservablesManager" type="N" size="3.0"/>
+  <GraphMM:Node name="Binding" type="A" size="4.0"/>
+  <GraphMM:Node name="BindingException" type="N" size="2.0"/>
+  <GraphMM:Node name="AggregateValidationStatus" type="F" size="4.0"/>
+  <GraphMM:Node name="DataBindingContext" type="N" size="6.0"/>
+  <GraphMM:Node name="ListBinding" type="N" size="7.0"/>
+  <GraphMM:Node name="ValueBinding" type="N" size="9.0"/>
+  <GraphMM:Node name="UpdateListStrategy" type="N" size="6.0"/>
+  <GraphMM:Node name="SetBinding" type="N" size="7.0"/>
+  <GraphMM:Node name="StringToNumberConverter" type="N" size="20.0"/>
+  <GraphMM:Node name="NumberToStringConverter" type="N" size="8.0"/>
+  <GraphMM:Node name="Converter" type="A" size="2.0"/>
+  <GraphMM:Node name="MultiValidator" type="A" size="9.0"/>
+  <GraphMM:Node name="ValidationStatus" type="N"/>
+  <GraphMM:Node name="ObservableTracker" type="N"/>
+  <GraphMM:Node name="DisposeEvent" type="N"/>
+  <GraphMM:Node name="ObservableEvent" type="N"/>
+  <GraphMM:Node name="Observables" type="N"/>
+  <GraphMM:Node name="Realm" type="N"/>
+  <GraphMM:Node name="AbstractObservable" type="N"/>
+  <GraphMM:Node name="ChangeSupport" type="N"/>
+  <GraphMM:Node name="Diffs" type="N"/>
+  <GraphMM:Node name="ChangeEvent" type="N"/>
+  <GraphMM:Node name="AbstractChangeEvent" type="N"/>
+  <GraphMM:Node name="StaleEvent" type="N"/>
+  <GraphMM:Node name="WritableList" type="N"/>
+  <GraphMM:Node name="ObservableList" type="N" size="1.0"/>
+  <GraphMM:Node name="ListChangeEvent" type="N" size="1.0"/>
+  <GraphMM:Node name="ListDiff" type="N"/>
+  <GraphMM:Node name="ListDiffVisitor" type="N"/>
+  <GraphMM:Node name="ListDiffEntry" type="N"/>
+  <GraphMM:Node name="ComputedValue" type="N"/>
+  <GraphMM:Node name="AbstractObservableValue" type="N"/>
+  <GraphMM:Node name="WritableValue" type="N"/>
+  <GraphMM:Node name="ValueChangeEvent" type="N" size="1.0"/>
+  <GraphMM:Node name="ValueDiff" type="N"/>
+  <GraphMM:Node name="ValueChangingEvent" type="N"/>
+  <GraphMM:Node name="SetChangeEvent" type="N" size="1.0"/>
+  <GraphMM:Node name="SetDiff" type="N"/>
+  <GraphMM:Node name="ObservableSet" type="N" size="1.0"/>
+  <GraphMM:Node name="MapDiff" type="N"/>
+  <GraphMM:Node name="ObservableMap" type="N" size="1.0"/>
+  <GraphMM:Node name="MapChangeEvent" type="N" size="1.0"/>
+  <GraphMM:Node name="Properties" type="N"/>
+  <GraphMM:Node name="ListProperty" type="N"/>
+  <GraphMM:Node name="ValueProperty" type="N"/>
+  <GraphMM:Node name="SimpleValueProperty" type="N"/>
+  <GraphMM:Node name="Policy" type="N" size="1.0"/>
+  <GraphMM:Node name="ValidationStatusProviderTargetsProperty" type="N"/>
+  <GraphMM:Node name="Util" type="N"/>
+  <GraphMM:Node name="Activator" type="N" size="2.0"/>
+  <GraphMM:Node name="ClassLookupSupport" type="N" size="1.0"/>
+  <GraphMM:Node name="ConverterValueProperty" type="N" size="1.0"/>
+  <GraphMM:Node name="BindingModelProperty" type="N"/>
+  <GraphMM:Node name="BindingStatus" type="N"/>
+  <GraphMM:Node name="BindingMessages" type="N" size="17.0"/>
+  <GraphMM:Node name="Queue" type="N" size="2.0"/>
+  <GraphMM:Node name="ValidationStatusProviderValidationStatusProperty" type="F"/>
+  <GraphMM:Node name="ValidationStatusProviderModelsProperty" type="N"/>
+  <GraphMM:Node name="IdentitySet" type="N" size="2.0"/>
+  <GraphMM:Node name="IdentityWrapper" type="N" size="1.0"/>
+  <GraphMM:Node name="ValidationStatusMap" type="N" size="4.0"/>
+  <GraphMM:Node name="Pair" type="N" size="2.0"/>
+  <GraphMM:Node name="BindingTargetProperty" type="N"/>
+  <GraphMM:Node name="DataBindingContextBindingsProperty" type="F"/>
+  <GraphMM:Node name="DataBindingContextValidationStatusProvidersProperty" type="F"/>
+  <GraphMM:Node name="StringToCharacterConverter" type="N" size="1.0"/>
+  <GraphMM:Node name="DateToStringConverter" type="N"/>
+  <GraphMM:Node name="NumberToBigDecimalConverter" type="N"/>
+  <GraphMM:Node name="IdentityConverter" type="N" size="3.0"/>
+  <GraphMM:Node name="NumberToLongConverter" type="N"/>
+  <GraphMM:Node name="NumberToByteConverter" type="N"/>
+  <GraphMM:Node name="StringToBooleanPrimitiveConverter" type="N" size="2.0"/>
+  <GraphMM:Node name="NumberToDoubleConverter" type="N"/>
+  <GraphMM:Node name="NumberToNumberConverter" type="A" size="3.0"/>
+  <GraphMM:Node name="StatusToStringConverter" type="N"/>
+  <GraphMM:Node name="NumberToBigIntegerConverter" type="N"/>
+  <GraphMM:Node name="ObjectToStringConverter" type="N" size="1.0"/>
+  <GraphMM:Node name="StringToDateConverter" type="N"/>
+  <GraphMM:Node name="CharacterToStringConverter" type="N" size="1.0"/>
+  <GraphMM:Node name="StringToBooleanConverter" type="N"/>
+  <GraphMM:Node name="NumberToIntegerConverter" type="N"/>
+  <GraphMM:Node name="IntegerToStringConverter" type="N" size="3.0"/>
+  <GraphMM:Node name="StringToByteConverter" type="N" size="3.0"/>
+  <GraphMM:Node name="StringToShortConverter" type="N" size="3.0"/>
+  <GraphMM:Node name="NumberToFloatConverter" type="N"/>
+  <GraphMM:Node name="NumberToShortConverter" type="N"/>
+  <GraphMM:Node name="StringToNumberParser" type="N" size="4.0"/>
+  <GraphMM:Node name="DateConversionSupport" type="A" size="4.0"/>
+  <GraphMM:Node name="OneWayBinding" type="A" size="1.0"/>
+  <GraphMM:Node name="OneWayConversionBinding" type="N" size="2.0"/>
+  <GraphMM:Node name="Bind" type="N"/>
+  <GraphMM:Node name="TwoWayConversionBinding" type="N" size="2.0"/>
+  <GraphMM:Node name="TwoWayBinding" type="A" size="2.0"/>
+  <GraphMM:Node name="TwoWayValidationBinding" type="N" size="2.0"/>
+  <GraphMM:Node name="DefaultValueBinding" type="N" size="2.0"/>
+  <GraphMM:Node name="TwoWayTrackedConversionBinding" type="N" size="4.0"/>
+  <GraphMM:Node name="OneWayTrackedConversionBinding" type="N" size="4.0"/>
+  <GraphMM:Node name="NumberToLongValidator" type="N" size="2.0"/>
+  <GraphMM:Node name="StringToCharacterValidator" type="N" size="1.0"/>
+  <GraphMM:Node name="ReadOnlyValidator" type="N" size="1.0"/>
+  <GraphMM:Node name="ValidatedObservableList" type="N" size="8.0"/>
+  <GraphMM:Node name="NumberToUnboundedNumberValidator" type="N"/>
+  <GraphMM:Node name="NumberToByteValidator" type="N" size="2.0"/>
+  <GraphMM:Node name="NumberToDoubleValidator" type="N" size="2.0"/>
+  <GraphMM:Node name="StringToIntegerValidator" type="N" size="2.0"/>
+  <GraphMM:Node name="ObjectToPrimitiveValidator" type="N" size="2.0"/>
+  <GraphMM:Node name="StringToDateValidator" type="N" size="1.0"/>
+  <GraphMM:Node name="StringToDoubleValidator" type="N" size="2.0"/>
+  <GraphMM:Node name="NumberToIntegerValidator" type="N" size="2.0"/>
+  <GraphMM:Node name="AbstractStringToNumberValidator" type="A" size="5.0"/>
+  <GraphMM:Node name="StringToLongValidator" type="N" size="2.0"/>
+  <GraphMM:Node name="StringToShortValidator" type="N" size="2.0"/>
+  <GraphMM:Node name="StringToFloatValidator" type="N" size="2.0"/>
+  <GraphMM:Node name="NumberToNumberValidator" type="A" size="5.0"/>
+  <GraphMM:Node name="StringToByteValidator" type="N" size="2.0"/>
+  <GraphMM:Node name="NumberToFloatValidator" type="N" size="2.0"/>
+  <GraphMM:Node name="NumberToShortValidator" type="N" size="2.0"/>
+  <GraphMM:Node name="ValidatedObservableMap" type="N" size="8.0"/>
+  <GraphMM:Node name="ValidatedObservableSet" type="N" size="8.0"/>
+  <GraphMM:Node name="NumberFormatConverter" type="A" size="1.0"/>
+  <GraphMM:Node name="ValidatedObservableValue" type="N" size="8.0"/>
+  <GraphMM:Node name="Status" type="N" size="1.0"/>
+  <GraphMM:Node name="MultiStatus" type="N"/>
+  <GraphMM:Node name="Assert" type="N"/>
+  <GraphMM:Node name="CoreException" type="N"/>
+  <GraphMM:Node name="FrameworkLogEntry" type="N"/>
+  <GraphMM:Node name="ServiceTracker" type="N"/>
+  <GraphMM:Node name="Date" type="N"/>
+  <GraphMM:Node name="HashMap" type="N"/>
+  <GraphMM:Node name="AbstractMap" type="N"/>
+  <GraphMM:Node name="Collections" type="N"/>
+  <GraphMM:Node name="EventObject" type="N"/>
+  <GraphMM:Node name="ArrayList" type="N"/>
+  <GraphMM:Node name="AbstractList" type="N"/>
+  <GraphMM:Node name="AbstractCollection" type="N"/>
+  <GraphMM:Node name="Arrays" type="N"/>
+  <GraphMM:Node name="HashSet" type="N"/>
+  <GraphMM:Node name="AbstractSet" type="N"/>
+  <GraphMM:Node name="MissingResourceException" type="N"/>
+  <GraphMM:Node name="ResourceBundle" type="N"/>
+  <GraphMM:Node name="LinkedList" type="N"/>
+  <GraphMM:Node name="AbstractSequentialList" type="N"/>
+  <GraphMM:Node name="StringTokenizer" type="N"/>
+  <GraphMM:Node name="Object" type="N"/>
+  <GraphMM:Node name="String" type="N"/>
+  <GraphMM:Node name="Integer" type="N" size="3.0"/>
+  <GraphMM:Node name="Number" type="N"/>
+  <GraphMM:Node name="Long" type="N" size="3.0"/>
+  <GraphMM:Node name="Float" type="N" size="3.0"/>
+  <GraphMM:Node name="Double" type="N" size="5.0"/>
+  <GraphMM:Node name="Byte" type="N" size="3.0"/>
+  <GraphMM:Node name="Short" type="N" size="3.0"/>
+  <GraphMM:Node name="Character" type="N" size="1.0"/>
+  <GraphMM:Node name="Exception" type="N"/>
+  <GraphMM:Node name="Throwable" type="N"/>
+  <GraphMM:Node name="Boolean" type="N" size="3.0"/>
+  <GraphMM:Node name="Class" type="N"/>
+  <GraphMM:Node name="IllegalArgumentException" type="N"/>
+  <GraphMM:Node name="RuntimeException" type="N"/>
+  <GraphMM:Node name="ReflectiveOperationException" type="N"/>
+  <GraphMM:Node name="ClassNotFoundException" type="N"/>
+  <GraphMM:Node name="NoSuchMethodException" type="N"/>
+  <GraphMM:Node name="IllegalAccessException" type="N"/>
+  <GraphMM:Node name="InstantiationException" type="N"/>
+  <GraphMM:Node name="UnsupportedOperationException" type="N"/>
+  <GraphMM:Node name="System" type="N" size="1.0"/>
+  <GraphMM:Node name="IllegalStateException" type="N"/>
+  <GraphMM:Node name="NumberFormatException" type="N"/>
+  <GraphMM:Node name="IndexOutOfBoundsException" type="N"/>
+  <GraphMM:Node name="StringBuffer" type="N"/>
+  <GraphMM:Node name="AbstractStringBuilder" type="N"/>
+  <GraphMM:Node name="InvocationTargetException" type="N"/>
+  <GraphMM:Node name="Method" type="N"/>
+  <GraphMM:Node name="Executable" type="N"/>
+  <GraphMM:Node name="AccessibleObject" type="N"/>
+  <GraphMM:Node name="Constructor" type="N"/>
+  <GraphMM:Node name="Array" type="N"/>
+  <GraphMM:Node name="PrintStream" type="N"/>
+  <GraphMM:Node name="FilterOutputStream" type="N"/>
+  <GraphMM:Node name="OutputStream" type="N"/>
+  <GraphMM:Node name="PrintWriter" type="N"/>
+  <GraphMM:Node name="Writer" type="N"/>
+  <GraphMM:Node name="BigDecimal" type="N"/>
+  <GraphMM:Node name="BigInteger" type="N"/>
+  <GraphMM:Node name="Format" type="N"/>
+  <GraphMM:Node name="ParsePosition" type="N"/>
+  <GraphMM:Node name="NumberFormat" type="N"/>
+  <GraphMM:Node name="UFormat" type="N"/>
+  <GraphMM:Node name="DecimalFormat" type="N"/>
+  <GraphMM:Node name="MessageFormat" type="N"/>
+  <GraphMM:Node name="DateFormat" type="N" size="2.0"/>
+  <GraphMM:Node name="SimpleDateFormat" type="N"/>
+  <GraphMM:Node name="DeepLinkExtensionPointTypeHandler" type="N" size="1.0"/>
+  <GraphMM:Node name="Activator" type="N" size="3.0"/>
+  <GraphMM:Node name="AbstractDeepLinkTypeHandler" type="N"/>
+  <GraphMM:Node name="ParameterProcessResults" type="N"/>
+  <GraphMM:Node name="Plugin" type="N"/>
+  <GraphMM:Node name="Display" type="N"/>
+  <GraphMM:Node name="Device" type="N"/>
+  <GraphMM:Node name="IOException" type="N"/>
+  <GraphMM:Node name="Exception" type="N"/>
+  <GraphMM:Node name="Throwable" type="N"/>
+  <GraphMM:Node name="String" type="N"/>
+  <GraphMM:Node name="Configuration" type="N"/>
+  <GraphMM:Node name="Activator" type="N" size="4.0"/>
+  <GraphMM:Node name="Application" type="N"/>
+  <GraphMM:Node name="Perspective" type="N"/>
+  <GraphMM:Node name="ApplicationActionBarAdvisor" type="N" size="1.0"/>
+  <GraphMM:Node name="ApplicationWorkbenchAdvisor" type="N" size="1.0"/>
+  <GraphMM:Node name="ApplicationWorkbenchWindowAdvisor" type="N"/>
+  <GraphMM:Node name="View" type="N" size="1.0"/>
+  <GraphMM:Node name="ImageDescriptor" type="N"/>
+  <GraphMM:Node name="DeviceResourceDescriptor" type="N"/>
+  <GraphMM:Node name="MenuManager" type="N"/>
+  <GraphMM:Node name="ContributionManager" type="N"/>
+  <GraphMM:Node name="PlatformUI" type="N" size="1.0"/>
+  <GraphMM:Node name="AbstractUIPlugin" type="N"/>
+  <GraphMM:Node name="WorkbenchAdvisor" type="N"/>
+  <GraphMM:Node name="ActionBarAdvisor" type="N"/>
+  <GraphMM:Node name="WorkbenchWindowAdvisor" type="N"/>
+  <GraphMM:Node name="ActionFactory" type="N" size="1.0"/>
+  <GraphMM:Node name="ViewPart" type="N"/>
+  <GraphMM:Node name="WorkbenchPart" type="N"/>
+  <GraphMM:Node name="Plugin" type="N"/>
+  <GraphMM:Node name="EventManager" type="N"/>
+  <GraphMM:Node name="SWT" type="N" size="6.0"/>
+  <GraphMM:Node name="Display" type="N"/>
+  <GraphMM:Node name="Layout" type="N"/>
+  <GraphMM:Node name="Button" type="N"/>
+  <GraphMM:Node name="Control" type="N"/>
+  <GraphMM:Node name="Widget" type="N"/>
+  <GraphMM:Node name="Composite" type="N"/>
+  <GraphMM:Node name="Scrollable" type="N"/>
+  <GraphMM:Node name="Text" type="N"/>
+  <GraphMM:Node name="Device" type="N"/>
+  <GraphMM:Node name="Point" type="N"/>
+  <GraphMM:Node name="SWTEventObject" type="N"/>
+  <GraphMM:Node name="SelectionAdapter" type="N"/>
+  <GraphMM:Node name="SelectionEvent" type="N"/>
+  <GraphMM:Node name="TypedEvent" type="N"/>
+  <GraphMM:Node name="GridData" type="N"/>
+  <GraphMM:Node name="GridLayout" type="N"/>
+  <GraphMM:Node name="ServiceTracker" type="N"/>
+  <GraphMM:Node name="String" type="N"/>
+  <GraphMM:Node name="Exception" type="N"/>
+  <GraphMM:Node name="Throwable" type="N"/>
+  <GraphMM:Node name="Class" type="N"/>
+  <GraphMM:Node name="Object" type="N"/>
+  <GraphMM:Node name="EventObject" type="N"/>
+  <GraphMM:Node name="Hashtable" type="N"/>
+  <GraphMM:Node name="Dictionary" type="N"/>
+  <GraphMM:Node name="ServicesActivator" type="N" size="5.0"/>
+  <GraphMM:Node name="EclipseAdapter" type="N" size="2.0"/>
+  <GraphMM:Node name="BundleTranslationProvider" type="N" size="5.0"/>
+  <GraphMM:Node name="EclipseWorkScheduler" type="N"/>
+  <GraphMM:Node name="Adapter" type="A"/>
+  <GraphMM:Node name="Logger" type="A" size="1.0"/>
+  <GraphMM:Node name="StatusReporter" type="A" size="8.0"/>
+  <GraphMM:Node name="TranslationProviderFactory" type="F"/>
+  <GraphMM:Node name="TranslationService" type="A" size="2.0"/>
+  <GraphMM:Node name="JSONObject" type="F" size="3.0"/>
+  <GraphMM:Node name="WorkListener" type="N"/>
+  <GraphMM:Node name="AsyncFuture" type="N"/>
+  <GraphMM:Node name="WorkRunnable" type="A"/>
+  <GraphMM:Node name="WorkScheduler" type="A"/>
+  <GraphMM:Node name="WorkContext" type="A" size="1.0"/>
+  <GraphMM:Node name="ContextInjectionFactory" type="N"/>
+  <GraphMM:Node name="Assert" type="N"/>
+  <GraphMM:Node name="ServiceTracker" type="N"/>
+  <GraphMM:Node name="Exception" type="N"/>
+  <GraphMM:Node name="Throwable" type="N"/>
+  <GraphMM:Node name="Class" type="N"/>
+  <GraphMM:Node name="Object" type="N"/>
+  <GraphMM:Node name="String" type="N"/>
+  <GraphMM:Node name="RuntimeException" type="N"/>
+  <GraphMM:Node name="StringBuffer" type="N"/>
+  <GraphMM:Node name="AbstractStringBuilder" type="N"/>
+  <GraphMM:Node name="Integer" type="N"/>
+  <GraphMM:Node name="Number" type="N"/>
+  <GraphMM:Node name="NumberFormatException" type="N"/>
+  <GraphMM:Node name="IllegalArgumentException" type="N"/>
+  <GraphMM:Node name="IllegalStateException" type="N"/>
+  <GraphMM:Node name="Character" type="N"/>
+  <GraphMM:Node name="Boolean" type="N" size="2.0"/>
+  <GraphMM:Node name="URI" type="N"/>
+  <GraphMM:Node name="URISyntaxException" type="N"/>
+  <GraphMM:Node name="MissingResourceException" type="N"/>
+  <GraphMM:Node name="ResourceBundle" type="N"/>
+  <GraphMM:Node name="Dictionary" type="N"/>
+  <GraphMM:Node name="ArrayList" type="N"/>
+  <GraphMM:Node name="AbstractList" type="N"/>
+  <GraphMM:Node name="AbstractCollection" type="N"/>
+  <GraphMM:Node name="Arrays" type="N"/>
+  <GraphMM:Node name="Collections" type="N" size="2.0"/>
+  <GraphMM:Node name="HashMap" type="N"/>
+  <GraphMM:Node name="AbstractMap" type="N"/>
+  <GraphMM:Node name="BigDecimal" type="N"/>
+  <GraphMM:Node name="StringCharacterIterator" type="N"/>
+  <GraphMM:Node name="BundleActivatorImpl" type="N" size="6.0"/>
+  <GraphMM:Node name="AggregateNameObservableValue" type="N" size="4.0"/>
+  <GraphMM:Node name="SaveHandler" type="N"/>
+  <GraphMM:Node name="SwitchThemeHandler" type="N"/>
+  <GraphMM:Node name="ExitHandler" type="N"/>
+  <GraphMM:Node name="ThemeUtil" type="N"/>
+  <GraphMM:Node name="DeleteContactHandler" type="N"/>
+  <GraphMM:Node name="ContactsRepositoryFactory" type="N" size="1.0"/>
+  <GraphMM:Node name="Contact" type="N" size="20.0"/>
+  <GraphMM:Node name="ModelLifeCycleExtension" type="N"/>
+  <GraphMM:Node name="BinaryTranslatorProvider" type="N"/>
+  <GraphMM:Node name="VCardContactsRepository" type="N" size="1.0"/>
+  <GraphMM:Node name="AbstractThemeProcessor" type="A"/>
+  <GraphMM:Node name="MenuThemeProcessor" type="N" size="2.0"/>
+  <GraphMM:Node name="ToolbarThemeProcessor" type="N" size="1.0"/>
+  <GraphMM:Node name="ContactViewerComparator" type="N"/>
+  <GraphMM:Node name="DetailComposite" type="N" size="10.0"/>
+  <GraphMM:Node name="ListView" type="N" size="2.0"/>
+  <GraphMM:Node name="DetailsView" type="N" size="6.0"/>
+  <GraphMM:Node name="ContextInjectionFactory" type="N"/>
+  <GraphMM:Node name="TranslationService" type="N"/>
+  <GraphMM:Node name="Path" type="N"/>
+  <GraphMM:Node name="FileLocator" type="N"/>
+  <GraphMM:Node name="Platform" type="N"/>
+  <GraphMM:Node name="RegistryFactory" type="N"/>
+  <GraphMM:Node name="NullProgressMonitor" type="N"/>
+  <GraphMM:Node name="DataBindingContext" type="N"/>
+  <GraphMM:Node name="UpdateValueStrategy" type="N" size="1.0"/>
+  <GraphMM:Node name="UpdateStrategy" type="N"/>
+  <GraphMM:Node name="PojoObservables" type="N"/>
+  <GraphMM:Node name="BeansObservables" type="N"/>
+  <GraphMM:Node name="Diffs" type="N"/>
+  <GraphMM:Node name="AbstractObservable" type="N"/>
+  <GraphMM:Node name="ChangeSupport" type="N"/>
+  <GraphMM:Node name="ObservableEvent" type="N"/>
+  <GraphMM:Node name="AbstractObservableValue" type="N"/>
+  <GraphMM:Node name="ValueChangeEvent" type="N"/>
+  <GraphMM:Node name="WritableValue" type="N"/>
+  <GraphMM:Node name="ValueDiff" type="N"/>
+  <GraphMM:Node name="ComputedValue" type="N"/>
+  <GraphMM:Node name="WritableList" type="N"/>
+  <GraphMM:Node name="ObservableList" type="N"/>
+  <GraphMM:Node name="ParameterizedCommand" type="N"/>
+  <GraphMM:Node name="EventManager" type="N"/>
+  <GraphMM:Node name="Base64" type="N"/>
+  <GraphMM:Node name="ProgressMonitorDialog" type="N"/>
+  <GraphMM:Node name="IconAndMessageDialog" type="N"/>
+  <GraphMM:Node name="Dialog" type="N"/>
+  <GraphMM:Node name="MessageDialog" type="N" size="1.0"/>
+  <GraphMM:Node name="Window" type="N" size="1.0"/>
+  <GraphMM:Node name="Viewer" type="N"/>
+  <GraphMM:Node name="ViewerComparator" type="N"/>
+  <GraphMM:Node name="LabelProvider" type="N"/>
+  <GraphMM:Node name="BaseLabelProvider" type="N"/>
+  <GraphMM:Node name="ColumnWeightData" type="N"/>
+  <GraphMM:Node name="ColumnLayoutData" type="N"/>
+  <GraphMM:Node name="SelectionChangedEvent" type="N"/>
+  <GraphMM:Node name="TableViewer" type="N"/>
+  <GraphMM:Node name="AbstractTableViewer" type="N"/>
+  <GraphMM:Node name="ColumnViewer" type="N"/>
+  <GraphMM:Node name="StructuredViewer" type="N"/>
+  <GraphMM:Node name="ContentViewer" type="N"/>
+  <GraphMM:Node name="TableViewerColumn" type="N"/>
+  <GraphMM:Node name="ViewerColumn" type="N"/>
+  <GraphMM:Node name="SWTObservables" type="N"/>
+  <GraphMM:Node name="ObservableListContentProvider" type="N"/>
+  <GraphMM:Node name="ObservableMapLabelProvider" type="N"/>
+  <GraphMM:Node name="ImageDescriptor" type="N"/>
+  <GraphMM:Node name="DeviceResourceDescriptor" type="N"/>
+  <GraphMM:Node name="GridLayoutFactory" type="N"/>
+  <GraphMM:Node name="TableColumnLayout" type="N"/>
+  <GraphMM:Node name="AbstractColumnLayout" type="N"/>
+  <GraphMM:Node name="SWT" type="N" size="9.0"/>
+  <GraphMM:Node name="Shell" type="N"/>
+  <GraphMM:Node name="Decorations" type="N"/>
+  <GraphMM:Node name="Canvas" type="N"/>
+  <GraphMM:Node name="Composite" type="N"/>
+  <GraphMM:Node name="Scrollable" type="N"/>
+  <GraphMM:Node name="Control" type="N"/>
+  <GraphMM:Node name="Widget" type="N"/>
+  <GraphMM:Node name="Display" type="N"/>
+  <GraphMM:Node name="Layout" type="N"/>
+  <GraphMM:Node name="Label" type="N"/>
+  <GraphMM:Node name="Text" type="N"/>
+  <GraphMM:Node name="Table" type="N"/>
+  <GraphMM:Node name="TableColumn" type="N"/>
+  <GraphMM:Node name="Item" type="N"/>
+  <GraphMM:Node name="Image" type="N"/>
+  <GraphMM:Node name="Resource" type="N"/>
+  <GraphMM:Node name="ImageData" type="N" size="2.0"/>
+  <GraphMM:Node name="Device" type="N"/>
+  <GraphMM:Node name="SWTEventObject" type="N"/>
+  <GraphMM:Node name="DisposeEvent" type="N"/>
+  <GraphMM:Node name="TypedEvent" type="N"/>
+  <GraphMM:Node name="ModifyEvent" type="N"/>
+  <GraphMM:Node name="GridData" type="N" size="5.0"/>
+  <GraphMM:Node name="GridLayout" type="N" size="1.0"/>
+  <GraphMM:Node name="InvalidSyntaxException" type="N"/>
+  <GraphMM:Node name="FrameworkUtil" type="N"/>
+  <GraphMM:Node name="ServiceTracker" type="N"/>
+  <GraphMM:Node name="Exception" type="N"/>
+  <GraphMM:Node name="Throwable" type="N"/>
+  <GraphMM:Node name="String" type="N"/>
+  <GraphMM:Node name="Object" type="N"/>
+  <GraphMM:Node name="Class" type="N"/>
+  <GraphMM:Node name="StringBuilder" type="N"/>
+  <GraphMM:Node name="AbstractStringBuilder" type="N"/>
+  <GraphMM:Node name="ReflectiveOperationException" type="N"/>
+  <GraphMM:Node name="InterruptedException" type="N"/>
+  <GraphMM:Node name="CloneNotSupportedException" type="N"/>
+  <GraphMM:Node name="StringBuffer" type="N"/>
+  <GraphMM:Node name="Integer" type="N"/>
+  <GraphMM:Node name="Number" type="N"/>
+  <GraphMM:Node name="IllegalArgumentException" type="N"/>
+  <GraphMM:Node name="RuntimeException" type="N"/>
+  <GraphMM:Node name="Thread" type="N"/>
+  <GraphMM:Node name="InvocationTargetException" type="N"/>
+  <GraphMM:Node name="File" type="N"/>
+  <GraphMM:Node name="BufferedReader" type="N"/>
+  <GraphMM:Node name="Reader" type="N"/>
+  <GraphMM:Node name="ByteArrayInputStream" type="N"/>
+  <GraphMM:Node name="InputStream" type="N"/>
+  <GraphMM:Node name="FileInputStream" type="N"/>
+  <GraphMM:Node name="FileNotFoundException" type="N"/>
+  <GraphMM:Node name="IOException" type="N"/>
+  <GraphMM:Node name="FileOutputStream" type="N"/>
+  <GraphMM:Node name="OutputStream" type="N"/>
+  <GraphMM:Node name="InputStreamReader" type="N"/>
+  <GraphMM:Node name="PrintWriter" type="N"/>
+  <GraphMM:Node name="Writer" type="N"/>
+  <GraphMM:Node name="URL" type="N"/>
+  <GraphMM:Node name="EventObject" type="N"/>
+  <GraphMM:Node name="ArrayList" type="N"/>
+  <GraphMM:Node name="AbstractList" type="N"/>
+  <GraphMM:Node name="AbstractCollection" type="N"/>
+  <GraphMM:Node name="Collections" type="N" size="1.0"/>
+  <GraphMM:Node name="PropertyChangeSupport" type="N"/>
+  <GraphMM:Node name="Charset" type="N"/>
+  <GraphMM:Edge source="/115" target="/178"/>
+  <GraphMM:Edge source="/116" target="/115"/>
+  <GraphMM:Edge source="/131" target="/115"/>
+  <GraphMM:Edge source="/140" target="/115"/>
+  <GraphMM:Edge source="/149" target="/187"/>
+  <GraphMM:Edge source="/177" target="/115"/>
+  <GraphMM:Edge source="/179" target="/115"/>
+  <GraphMM:Edge source="/186" target="/115"/>
+  <GraphMM:Edge source="/254" target="/257"/>
+  <GraphMM:Edge source="/257" target="/271"/>
+  <GraphMM:Edge source="/262" target="/440"/>
+  <GraphMM:Edge source="/263" target="/440"/>
+  <GraphMM:Edge source="/265" target="/271"/>
+  <GraphMM:Edge source="/327" target="/440"/>
+  <GraphMM:Edge source="/335" target="/440"/>
+  <GraphMM:Edge source="/336" target="/440"/>
+  <GraphMM:Edge source="/337" target="/440"/>
+  <GraphMM:Edge source="/352" target="/319"/>
+  <GraphMM:Edge source="/353" target="/353"/>
+  <GraphMM:Edge source="/360" target="/331"/>
+  <GraphMM:Edge source="/363" target="/373"/>
+  <GraphMM:Edge source="/367" target="/327"/>
+  <GraphMM:Edge source="/373" target="/440"/>
+  <GraphMM:Edge source="/447" target="/447"/>
+  <GraphMM:Edge source="/458" target="/458"/>
+  <GraphMM:Edge source="/458" target="/496"/>
+  <GraphMM:Edge source="/505" target="/505"/>
+  <GraphMM:Edge source="/552" target="/552"/>
+  <GraphMM:Edge source="/552" target="/651"/>
+  <GraphMM:Edge source="/560" target="/639"/>
+  <GraphMM:Edge source="/568" target="/560"/>
+  <GraphMM:Edge source="/568" target="/560"/>
+  <GraphMM:Edge source="/568" target="/634"/>
+  <GraphMM:Edge source="/568" target="/639"/>
+  <GraphMM:Edge source="/568" target="/578"/>
+  <GraphMM:Edge source="/568" target="/589"/>
+  <GraphMM:Edge source="/569" target="/609"/>
+  <GraphMM:Edge source="/570" target="/568"/>
+</xmi:XMI>

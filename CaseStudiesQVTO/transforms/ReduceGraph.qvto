@@ -1,0 +1,23 @@
+modeltype GRAPH uses GraphMM('http://graph');
+
+transformation Java2Graph(in graph : GRAPH, out GRAPH);
+
+main() {
+	graph.objects()[GRAPH::Node]->map node();
+	graph.objects()[GRAPH::Edge]->map edge();
+}
+
+mapping GRAPH::Node::node() : GRAPH::Node 
+when { self.size>5 }
+{
+	name := self.name;
+	type := self.type;
+	size := self.size;
+}
+ 		
+mapping GRAPH::Edge::edge() : GRAPH::Edge 
+when { not self.source.oclIsUndefined() and not self.target.oclIsUndefined() and self.source.size>5 and self.target.size>5 }
+{
+	source := self.source;
+	target := self.target;
+}

@@ -1,0 +1,46 @@
+modeltype IMDB uses movies('http://movies/1.0');
+	
+transformation FindCouples(in movs : IMDB, out IMDB);
+
+property couples : Set(IMDB::Couple) = Set{};
+
+main() {
+	movs.objects()[IMDB::Movie]-> map movie();
+	movs.objects()[IMDB::Actor]-> map actor();
+	movs.objects()[IMDB::Actress]-> map actress();
+}
+
+mapping IMDB::Movie::movie() : IMDB::Movie {
+	persons := self.persons;
+	title := self.title;
+	rating := self.rating;
+	year := self.year;
+	type := self.type;
+}
+
+mapping IMDB::Actor::actor() : IMDB::Actor {
+	movies := self.movies;
+	name := self.name;
+	
+	self.coactors()->select(co | self.name < co.name and self.areCouple(co))-> map toCouple(self); 
+		
+}
+
+mapping IMDB::Actress::actress() : IMDB::Actress {
+	movies := self.movies;
+	name := self.name;
+}
+
+mapping IMDB::Person::toCouple(p : IMDB::Actor) : IMDB::Couple {
+	if self.oclIsTypeOf(IMDB::Actor) then p1 := self.late resolveoneIn(IMDB::Actor::actor, IMDB::Actor) else  p1:= self.late resolveoneIn(IMDB::Actress::actress, IMDB::Actress) endif;
+	if p.oclIsTypeOf(IMDB::Actor) then p2 := p.late resolveoneIn(IMDB::Actor::actor, IMDB::Actor) else p2 := p.late resolveoneIn(IMDB::Actress::actress, IMDB::Actress) endif;
+}
+
+query IMDB::Person::coactors() : Sequence(IMDB::Person) {
+	var b := self.movies->collect(m | m.persons)->flatten(); 
+	return b;
+}
+
+query IMDB::Person::areCouple(p : IMDB::Person) : Boolean {
+  return (self.movies->select(m | p.movies->includes(m)))->size()>3;
+}

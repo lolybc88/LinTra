@@ -1,0 +1,49 @@
+rule Movie
+	transform c : movies!Movie 
+	to t : movies2!Movie {
+	
+	t.title = c.title;
+	t.rating = c.rating;
+	t.year = c.year;
+	t.type = c.type;
+	t.persons = c.persons;
+		
+}
+
+rule Actor
+	transform a : movies!Actor
+	to b : movies2!Actor {
+		b.name = a.name;
+		b.movies = a.movies;
+		
+	for (t in a.coactors()) {
+		if (a.areCouple(t) and a.name.compareTo(t.name)<0){
+			var couple : new movies2!Couple;
+			couple.p1 = a;
+			couple.p2 = t;	
+		}
+	}
+}
+
+rule Actress
+	transform a : movies!Actress
+	to b : movies2!Actress {
+		b.name = a.name;
+		b.movies = a.movies;
+		
+	for (t in a.coactors()) {
+		if (a.areCouple(t) and a.name.compareTo(t.name)<0){
+			var couple : new movies2!Couple;
+			couple.p1 = a;
+			couple.p2 = t;	
+		}
+	}
+}
+
+operation movies!Person coactors() : Set(movies!Person) {
+  return self.movies->collect(m | m.persons)->flatten()->asSet();
+}
+
+operation movies!Person areCouple(p:movies!Person) : Boolean {
+  return (self.movies->select(m | p.movies->includes(m)))->size()>3;
+}

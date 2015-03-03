@@ -1,0 +1,27 @@
+-- @path MM=/Java2Graph_CaseStudy/graph.ecore
+-- @path MM1=/Java2Graph_CaseStudy/graph.ecore
+
+
+module ReduceGraph;
+create OUT: MM1 from IN: MM;
+
+rule node {
+	from
+		n : MM!Node (n.size>5)
+	to 
+		n1 : MM1!Node (
+			name <- n.name,
+			size <- n.size,
+			type <- n.type
+		)
+}
+
+rule edge {
+	from
+		e : MM!Edge (if not e.source.oclIsUndefined() and not e.target.oclIsUndefined() then e.source.size>5 and e.target.size>5 else false endif)
+	to 
+		e1 : MM1!Edge (
+			source <- e.source,
+			target <- e.target
+		)
+}

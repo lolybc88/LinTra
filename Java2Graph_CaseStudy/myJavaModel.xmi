@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="ASCII"?>
+<javaMM:Model
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:javaMM="http:/javaMM"
+    xsi:schemaLocation="http:/javaMM javaMM.ecore">
+  <ownedElements
+      name="myPack">
+    <ownedElements
+        xsi:type="javaMM:ClassDeclaration"
+        name="myClass1">
+      <bodyDeclarations
+          xsi:type="javaMM:AnnotationTypeDeclaration"
+          name="type1"/>
+      <bodyDeclarations
+          xsi:type="javaMM:AnnotationTypeDeclaration"
+          name="anothertype"/>
+      <bodyDeclarations
+          xsi:type="javaMM:MethodDeclaration"
+          name="method1"/>
+    </ownedElements>
+  </ownedElements>
+  <compilationUnits
+      name="compUnit"
+      originalFilePath="path"/>
+</javaMM:Model>

@@ -1,0 +1,10 @@
+import ecore;
+
+context EPackage WARNING "No multiple inheritance supported" :
+	this.eAllContents.typeSelect(EClass).notExists(e|e.eSuperTypes.size > 1);
+	
+context EPackage WARNING "Only String, Int, Boolean as Data Types are supported" +  this.eAllContents.typeSelect(EAttribute).select(e| e.eType.name!="EInt" && e.eType.name!="EString" && e.eType.name!="EBoolean").collect(e|e.eType) :
+	this.eAllContents.typeSelect(EAttribute).forAll(e|{"EInt", "EString", "EBoolean"}.contains(e.eType.name));
+	
+//context EPackage WARNING "Only single-valued features supported" :
+//	this.eAllContents.typeSelect(EStructuralFeature).forAll(e|e.upperBound == 1);

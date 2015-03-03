@@ -1,0 +1,25 @@
+«IMPORT ecore»
+
+«EXTENSION template::GeneratorExtensions»
+
+«DEFINE main FOR EPackage»
+«FILE "IdentityJava.etl"»
+«EXPAND javaClass FOREACH this.eClassifiers.typeSelect(EClass)»
+«ENDFILE»
+«ENDDEFINE»
+
+«DEFINE javaClass FOR EClass»
+		«IF !this.abstract»
+		rule «name.toFirstUpper()»
+			transform inn : javaMM!«name.toFirstUpper()»
+			to out : javaMM2!«name.toFirstUpper()» {
+				«FOREACH this.eAllStructuralFeatures AS f SEPARATOR '\n'-»
+				«IF f.metaType.name.matches("ecore::EAttribute")»out.«f.name()» := inn.«f.name()»;«ENDIF-»«ENDFOREACH-»
+				«FOREACH this.eReferences AS r SEPARATOR '\n'-»
+				«IF r.eContainer!=null»if (inn.«r.name()».isDefined() and inn.«r.name()».equivalent().isDefined()) {«ENDIF»
+				out.«r.name()» := inn.«r.name()».equivalent(); «IF r.eContainer!=null»}«ENDIF»
+				«ENDFOREACH-»
+		
+		}
+		«ENDIF» 		
+«ENDDEFINE»

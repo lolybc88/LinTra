@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:Graph="http://graph">
+  <Graph:Node name="ComputedList" type="A" size="8.0"/>
+  <Graph:Node name="CompositeMap" type="N" size="8.0"/>
+  <Graph:Node name="ComputedObservableMap" type="A" size="6.0"/>
+  <Graph:Node name="DecoratingObservableMap" type="N" size="6.0"/>
+  <Graph:Node name="ComputedSet" type="A" size="8.0"/>
+  <Graph:Node name="ComputedValue" type="A" size="8.0"/>
+  <Graph:Node name="DateAndTimeObservableValue" type="N" size="8.0"/>
+  <Graph:Node name="DuplexingObservableValue" type="A" size="7.0"/>
+  <Graph:Node name="DelayedObservableValue" type="N" size="8.0"/>
+  <Graph:Node name="DetailObservableMap" type="N" size="8.0"/>
+  <Graph:Node name="DetailObservableSet" type="N" size="7.0"/>
+  <Graph:Node name="DetailObservableValue" type="N" size="8.0"/>
+  <Graph:Node name="DetailObservableList" type="N" size="8.0"/>
+  <Graph:Node name="ListDetailValueObservableList" type="N" size="10.0"/>
+  <Graph:Node name="MapDetailValueObservableMap" type="N" size="9.0"/>
+  <Graph:Node name="SimplePropertyEvent" type="F" size="6.0"/>
+  <Graph:Node name="SimplePropertyObservableList" type="N" size="7.0"/>
+  <Graph:Node name="SimplePropertyObservableMap" type="N" size="8.0"/>
+  <Graph:Node name="SimplePropertyObservableSet" type="N" size="7.0"/>
+  <Graph:Node name="SetDelegatingValueObservableMap" type="N" size="6.0"/>
+  <Graph:Node name="SimplePropertyObservableValue" type="N" size="6.0"/>
+  <Graph:Node name="MapSimpleValueObservableMap" type="N" size="10.0"/>
+  <Graph:Node name="ListSimpleValueObservableList" type="N" size="9.0"/>
+  <Graph:Node name="MapDelegatingValueObservableMap" type="N" size="6.0"/>
+  <Graph:Node name="UpdateValueStrategy" type="N" size="13.0"/>
+  <Graph:Node name="UpdateSetStrategy" type="N" size="6.0"/>
+  <Graph:Node name="UpdateStrategy" type="N" size="11.0"/>
+  <Graph:Node name="DataBindingContext" type="N" size="6.0"/>
+  <Graph:Node name="ListBinding" type="N" size="7.0"/>
+  <Graph:Node name="ValueBinding" type="N" size="9.0"/>
+  <Graph:Node name="UpdateListStrategy" type="N" size="6.0"/>
+  <Graph:Node name="SetBinding" type="N" size="7.0"/>
+  <Graph:Node name="StringToNumberConverter" type="N" size="20.0"/>
+  <Graph:Node name="NumberToStringConverter" type="N" size="8.0"/>
+  <Graph:Node name="MultiValidator" type="A" size="9.0"/>
+  <Graph:Node name="BindingMessages" type="N" size="17.0"/>
+  <Graph:Node name="ValidatedObservableList" type="N" size="8.0"/>
+  <Graph:Node name="ValidatedObservableMap" type="N" size="8.0"/>
+  <Graph:Node name="ValidatedObservableSet" type="N" size="8.0"/>
+  <Graph:Node name="ValidatedObservableValue" type="N" size="8.0"/>
+  <Graph:Node name="Messages" type="N" size="23.0"/>
+  <Graph:Node name="RemoteFile" type="N" size="6.0"/>
+  <Graph:Node name="Messages" type="N" size="28.0"/>
+  <Graph:Node name="RemoteItem" type="A" size="6.0"/>
+  <Graph:Node name="RemoteStore" type="N" size="8.0"/>
+  <Graph:Node name="PropType" type="N" size="7.0"/>
+  <Graph:Node name="WebDAVUtil" type="N" size="6.0"/>
+  <Graph:Node name="Messages" type="N" size="7.0"/>
+  <Graph:Node name="HandlerTest" type="N" size="6.0"/>
+  <Graph:Node name="ContextData" type="N" size="14.0"/>
+  <Graph:Node name="ContextsView" type="N" size="11.0"/>
+  <Graph:Node name="ContextMessages" type="N" size="22.0"/>
+  <Graph:Node name="ContextAllocation" type="N" size="6.0"/>
+  <Graph:Node name="SWT" type="N" size="16.0"/>
+  <Graph:Node name="ContextChangeEvent" type="F" size="11.0"/>
+  <Graph:Node name="DebugHelper" type="F" size="7.0"/>
+  <Graph:Node name="EclipseContext" type="N" size="13.0"/>
+  <Graph:Node name="ValueComputation" type="N" size="7.0"/>
+  <Graph:Node name="SWT" type="N" size="6.0"/>
+  <Graph:Node name="Configuration" type="N" size="6.0"/>
+  <Graph:Node name="StatusReporter" type="A" size="8.0"/>
+  <Graph:Node name="OptionalAnnotations" type="N" size="6.0"/>
+  <Graph:Node name="ObjectSubClass" type="N" size="9.0"/>
+  <Graph:Node name="ObjectBasic" type="N" size="10.0"/>
+  <Graph:Node name="ObjectSuperClass" type="N" size="9.0"/>
+  <Graph:Node name="InjectionPreferencesTest" type="N" size="7.0"/>
+  <Graph:Node name="BundleActivatorImpl" type="N" size="6.0"/>
+  <Graph:Node name="Contact" type="N" size="20.0"/>
+  <Graph:Node name="DetailComposite" type="N" size="10.0"/>
+  <Graph:Node name="DetailsView" type="N" size="6.0"/>
+  <Graph:Node name="SWT" type="N" size="9.0"/>
+  <Graph:Node name="PagedTable" type="N" size="8.0"/>
+  <Graph:Node name="SWT" type="N" size="10.0"/>
+  <Graph:Node name="GridData" type="N" size="6.0"/>
+  <Graph:Node name="Messages" type="N" size="33.0"/>
+  <Graph:Node name="AddFileOrFolderFromRemotePage" type="N" size="15.0"/>
+  <Graph:Node name="SWT" type="N" size="8.0"/>
+  <Graph:Node name="Preview" type="N" size="11.0"/>
+  <Graph:Node name="Exif" type="N" size="23.0"/>
+  <Graph:Node name="Thumbnails" type="N" size="6.0"/>
+  <Graph:Node name="Library" type="N" size="6.0"/>
+  <Graph:Node name="ExifTable" type="N" size="9.0"/>
+  <Graph:Node name="SWT" type="N" size="9.0"/>
+  <Graph:Edge source="/52" target="/50"/>
+  <Graph:Edge source="/56" target="/57"/>
+  <Graph:Edge source="/66" target="/66"/>
+  <Graph:Edge source="/67" target="/68"/>
+  <Graph:Edge source="/67" target="/68"/>
+  <Graph:Edge source="/68" target="/69"/>
+</xmi:XMI>

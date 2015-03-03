@@ -1,0 +1,56 @@
+
+pre {
+	var journals : Set(DBLP2!Journal);
+}
+
+operation DBLP!Article year() : Integer {
+  return self.year;
+}
+
+operation DBLP!Article journal() : DBLP!Journal {
+  return self.journal;
+}
+
+operation DBLP!Author nowPublishingIn() : Sequence(DBLP!Article) {
+  return self.records->select(r | r.isTypeOf(DBLP!Article))->select(a | not a.journal().isUndefined() and a.journal().name.indexOf('Information & Software Technology')<0 and a.year()>2005)->asSequence();
+}
+
+operation DBLP!Author active() : Boolean {
+  return self.records->select(r | r.isTypeOf(DBLP!Article))->select(a | not a.journal().isUndefined() and a.journal().name.indexOf('Information & Software Technology')>=0 and a.year()>2005)->size()>0;
+}
+
+operation DBLP!Article publishedInIST() : Boolean {
+	if (self.journal().isUndefined()) {
+		return false;
+	} else {
+		return self.journal().name.indexOf('Information & Software Technology')>=0;
+	}
+}
+		
+rule Author
+	transform a : DBLP!Author
+	to out : DBLP2!Author {
+	
+	guard : (a.records->select(r | r.isTypeOf(DBLP!Article))->exists(a | a.publishedInIST() ))
+		out.name := a.name;				
+		out.active := a.active();
+		
+		for (article in a.nowPublishingIn()) {
+			if (not journals->exists(j | j.name = article.journal.name)) {
+				journals->add(article.equivalent());
+			}
+			for (jour2 in journals->select(j | j.name = j.name)){
+				out.publishesInJ->add(jour2);
+			}		
+		}
+}
+
+@lazy
+rule Journal
+	transform s : DBLP!Article
+	to c : DBLP2!Journal {
+	 	c.name := s.journal.name;	 
+}
+		 		
+
+		

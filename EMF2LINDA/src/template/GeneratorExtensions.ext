@@ -1,0 +1,25 @@
+import ecore;
+
+getter(EStructuralFeature this) :
+	"get"+name.toFirstUpper();
+	
+setter(EStructuralFeature this) :
+	"set"+name.toFirstUpper();
+	
+
+name(EStructuralFeature this) :
+	if({"super", "abstract", "interface", "class", "package", "public", "private", "volatile", "transient", "enum"}.contains(this.name) && this.eType.name == "EAttribute") 
+		then this.name + '_' 
+		else this.name;
+name(EPackage this) :
+	if({"super", "abstract", "interface", "class", "package", "public", "private", "volatile", "transient", "enum"}.contains(this.name)) then this.name + '_' else this.name;
+
+type(EStructuralFeature this) :
+	if(this.upperBound > 1) then this.baseType()+"[]" else this.baseType();
+
+baseType(EStructuralFeature this) :
+	if({"EString", "EBoolean"}.contains(this.eType.name)) then this.eType.name.replaceFirst("E", "") else if this.eType.name.matches("EInt") then "int" else "String";
+	
+refType(EStructuralFeature this) :
+	if(this.upperBound > 1 || this.upperBound == -1) then "String[]" else "String";
+	

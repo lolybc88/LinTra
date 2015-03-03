@@ -1,0 +1,20 @@
+
+rule toNode
+	transform inn : GraphMM1!Node 
+	to out : GraphMM2!Node {
+		
+		guard : inn.size > 5
+		
+		out.name := inn.name;
+		out.type := inn.type;
+		out.size := inn.size;
+		
+}
+
+rule toEdge
+	transform e : GraphMM1!Edge
+	to out : GraphMM2!Edge {
+		guard : not e.source.isUndefined() and not e.target.isUndefined() and e.source.size>5 and e.target.size>5	
+		out.source := e.source.equivalent();
+		out.target := e.target.equivalent();
+	}
