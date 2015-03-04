@@ -3,19 +3,14 @@ package MavenPrj.MavenPrj;
 import java.io.IOException;
 import java.util.Collection;
 import java.util.LinkedList;
-import java.util.Map;
-import java.util.Properties;
 import java.util.Set;
 import java.util.concurrent.Semaphore;
 
 import org.infinispan.Cache;
-import org.infinispan.configuration.cache.CacheMode;
 import org.infinispan.configuration.cache.Configuration;
 import org.infinispan.configuration.cache.ConfigurationBuilder;
 import org.infinispan.context.Flag;
-import org.infinispan.eviction.EvictionStrategy;
 import org.infinispan.loaders.mongodb.configuration.MongoDBCacheStoreConfigurationBuilder;
-import org.infinispan.manager.DefaultCacheManager;
 import org.infinispan.manager.EmbeddedCacheManager;
 
 import blackboard.BlackboardException;
@@ -37,13 +32,13 @@ public class InfinispanArea implements IArea {
 		
 		
 		ConfigurationBuilder b = new ConfigurationBuilder();
-		b.persistence().addStore(MongoDBCacheStoreConfigurationBuilder.class)
+		b.loaders().addStore(MongoDBCacheStoreConfigurationBuilder.class)
 		   .host("localhost")
 		   .port(27017)
 		   .timeout(1500)
 		   .acknowledgment(0)
-//		   .username("mongoDBUSer")
-//		   .password("mongoBDPassword")
+//		   .username("")
+//		   .password("")
 		   .database("InfinispanBlackboard")
 		   .collection("BlackboardCollection");
 		final Configuration c = b.build();
