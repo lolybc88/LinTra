@@ -4,6 +4,7 @@
 module DBLPv2;
 create OUT : MM1 from IN : MM;
 
+
 helper context MM!InProceedings def : booktitle() : String = self.bootitle;
 
 
@@ -16,5 +17,3 @@ rule icmt {
 			numOfPapers <-  a.records->select(r | r.oclIsTypeOf(MM!InProceedings))->select(ip | ip.booktitle().indexOf('ICMT')>=0)->size()
 		)
 }
-
-

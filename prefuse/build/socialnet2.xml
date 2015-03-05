@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--  An excerpt of an egocentric social network  -->
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns">
+<graph edgedefault="undirected">
+ 
+<!-- data schema -->
+<key id="name" for="node" attr.name="name" attr.type="string"/>
+<key id="type" for="node" attr.name="type" attr.type="string"/>
+<key id="size" for="node" attr.name="size" attr.type="double"/>
+  
+<!-- nodes -->  
+<node id="1">
+ <data key="name">Jeff</data>
+ <data key="type">A</data>
+ <data key="size">1.0</data>
+ </node>
+<node id="2">
+ <data key="name">Ed</data>
+ <data key="type">N</data>
+ <data key="size">1.0</data>
+</node>
+<node id="3">
+ <data key="name">Christiaan</data>
+ <data key="type">A</data>
+ <data key="size">3.0</data>
+</node>
+<node id="4">
+ <data key="name">Emily</data>
+ <data key="type">N</data>
+ <data key="size">4.0</data>
+</node>
+<node id="5">
+ <data key="name">Adam</data>
+ <data key="type">N</data>
+ <data key="size">20.0</data>
+</node>
+<node id="6">
+ <data key="name">Cynthia</data>
+ <data key="type">I</data>
+ <data key="size">7.0</data>
+</node>
+<node id="7">
+ <data key="name">Joylette</data>
+ <data key="type">I</data>
+ <data key="size">1.0</data>
+</node>
+<node id="8">
+ <data key="name">Amanda</data>
+ <data key="type">N</data>
+ <data key="size">1.0</data>
+</node>
+
+<!-- edges -->
+<edge source="1" target="2"></edge>
+<edge source="1" target="3"></edge>
+<edge source="1" target="4"></edge>
+<edge source="1" target="5"></edge>
+<edge source="1" target="6"></edge>
+<edge source="1" target="7"></edge>
+<edge source="1" target="8"></edge>
+<!-- ed's friends -->
+<edge source="2" target="5"></edge>
+<edge source="2" target="8"></edge>
+<!-- christiaan's friends -->
+<edge source="3" target="5"></edge>
+<edge source="3" target="8"></edge>
+<!-- emily's friends -->
+<edge source="4" target="2"></edge>
+<!-- adam's friends -->
+<edge source="5" target="8"></edge>
+<edge source="5" target="3"></edge>
+<!-- cynthia's friends -->
+<edge source="6" target="4"></edge>
+<!-- joylette's friends -->
+<edge source="7" target="8"></edge>
+<edge source="7" target="5"></edge>
+<!-- amanda's friends -->
+<edge source="8" target="7"></edge>
+</graph>
+</graphml>
