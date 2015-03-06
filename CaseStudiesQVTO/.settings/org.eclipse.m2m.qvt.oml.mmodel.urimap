@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="ASCII"?>
-<uriMap:MappingContainer xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:uriMap="http:///www.eclipse.org/m2m/qvt/oml/MModelUriMap/1.0.0">
-  <mapping sourceURI="http://movies/1.0" targetURI="platform:/resource/IMDb_EcoreModProj/model/movies.ecore"/>
-  <mapping sourceURI="http://dblp.com" targetURI="platform:/resource/DBLP_CaseStudy/DBLP.ecore"/>
-  <mapping sourceURI="http://AuthorInfo" targetURI="platform:/resource/DBLP_CaseStudy/AuthorInfo.ecore"/>
-  <mapping sourceURI="http://graph" targetURI="platform:/resource/Java2Graph_CaseStudy/Graph.ecore"/>
-  <mapping sourceURI="http://www.eclipse.org/MoDisco/Java/0.2.incubation/java" targetURI="platform:/resource/Java2Graph_CaseStudy/java.ecore"/>
-</uriMap:MappingContainer>
