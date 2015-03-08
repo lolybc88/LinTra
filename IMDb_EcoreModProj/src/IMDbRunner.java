@@ -29,11 +29,11 @@ public class IMDbRunner {
 
 	public static void main(String[] args) throws Exception {
 		
-		String modelPath = "/home/loli/IST_2014/imdb/ser/";
-//		String modelPath = "C:/Users/Atenea/Desktop/IMDb_/models/";
+//		String modelPath = "/home/loli/IST_2014/imdb/ser/";
+		String modelPath = "C:/Users/Atenea/Desktop/IMDb_/models/";
 		
 		String[] model = {
-//				"imdb-0010400-100024",
+				"imdb-0010400-100024"//,
 //				"imdb-0027800-200319",
 //				"imdb-0084400-500716",
 //				"imdb-0200000-1013510",
@@ -41,17 +41,17 @@ public class IMDbRunner {
 //				"imdb-0492000-2019707",
 //				"imdb-0650000-2509987",
 //				"imdb-0820000-3017435",
-				"imdb-all-3531618"
+//				"imdb-all-3531618"
 				};
 		
 		MTLauncher1Input1Output mtLauncher = new MTLauncher1Input1Output();
 		mtLauncher.createBlackboard();
 		
-//		for (int k=0; k<model.length; k++){
-//			System.out.println(model[k]);
+		for (int k=0; k<model.length; k++){
+			System.out.println(model[k]);
 			
-			createSyntheticData(750000, mtLauncher.getSrcArea());
-//			mtLauncher.loadModel(modelPath+model[k]+".ser");
+//			createSyntheticData(750000, mtLauncher.getSrcArea());
+			mtLauncher.loadModel(modelPath+model[k]+".ser");
 			System.out.println("MoDel loaDeD");
 			
 			for (int i=0;i<1;i++) {
@@ -64,7 +64,7 @@ public class IMDbRunner {
 				System.out.println(time);
 			
 				mtLauncher.getTrgArea().clear();
-//			}
+			}
 			mtLauncher.getSrcArea().clear();
 		}
 		mtLauncher.destroy();
