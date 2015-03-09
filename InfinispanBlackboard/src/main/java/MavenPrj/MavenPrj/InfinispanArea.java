@@ -10,6 +10,7 @@ import org.infinispan.Cache;
 import org.infinispan.configuration.cache.Configuration;
 import org.infinispan.configuration.cache.ConfigurationBuilder;
 import org.infinispan.context.Flag;
+import org.infinispan.eviction.EvictionStrategy;
 import org.infinispan.manager.EmbeddedCacheManager;
 
 import blackboard.BlackboardException;
@@ -30,7 +31,9 @@ public class InfinispanArea implements IArea {
 			throws IOException {
 
 		ConfigurationBuilder b = new ConfigurationBuilder();
-		b.persistence().passivation(false).addSingleFileStore();
+		b.persistence().passivation(true).addSingleFileStore()
+				.location("/tmp/inifinspanData");
+		b.eviction().strategy(EvictionStrategy.LRU).maxEntries(2000000);
 		final Configuration c = b.build();
 
 		// Configuration c = new ConfigurationBuilder()
