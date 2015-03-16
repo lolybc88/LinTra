@@ -35,8 +35,8 @@ public class MTLauncher1Input1Output {
 //		blackboard = new HazelcastBlackboard();
 //		blackboard = new EhcacheBlackboard();
 //		blackboard = new GigaSpacesBlackboard();
-//		blackboard = new InfinispanBlackboard();
-		blackboard = new CoherenceBlackboard();
+		blackboard = new InfinispanBlackboard();
+//		blackboard = new CoherenceBlackboard();
 		workTODOArea = blackboard.createArea("processorSpace", Policy.LOCK_TO_READ);
 		srcModelArea = blackboard.createArea("processorSpace_Src", Policy.NEVER_LOCK);
 		trgModelArea = blackboard.createArea("processorSpace_Trg", Policy.NEVER_LOCK);
