@@ -14,7 +14,7 @@ public class RunDBLPParser {
 		Xml2Model xml2M = new Xml2Model(pathXML);
 		xml2M.getXml();
 		xml2M.writeXMI("src/dblp-simplified.xmi");
-//		xml2M.writeSer("src/dblp.ser");
+		xml2M.writeSer("src/dblp.ser");
 		
 		System.out.println("Time spent: " + (System.currentTimeMillis()-time0)/1000);
 	}

@@ -1,5 +1,12 @@
 package runners;
 
+import java.io.EOFException;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.Collection;
 import java.util.LinkedList;
 import java.util.List;
@@ -31,11 +38,11 @@ public class MTLauncher1Input1Output {
 	}
 
 	public void createBlackboard(){
-//		blackboard = new HashMapBlackboard();
+		blackboard = new HashMapBlackboard();
 //		blackboard = new HazelcastBlackboard();
 //		blackboard = new EhcacheBlackboard();
 //		blackboard = new GigaSpacesBlackboard();
-		blackboard = new InfinispanBlackboard();
+//		blackboard = new InfinispanBlackboard();
 //		blackboard = new CoherenceBlackboard();
 		workTODOArea = blackboard.createArea("processorSpace", Policy.LOCK_TO_READ);
 		srcModelArea = blackboard.createArea("processorSpace_Src", Policy.NEVER_LOCK);
@@ -93,13 +100,20 @@ public class MTLauncher1Input1Output {
 		blackboard.clearArea(workTODOArea);
 	}
 
-	public void serialize(IArea trgArea) throws BlackboardException {
+	public void serialize(IArea trgArea, String modelPath) throws BlackboardException, IOException {
+		
+		FileOutputStream fis = new FileOutputStream(modelPath);
+		ObjectOutputStream ois = new ObjectOutputStream(fis);
 		
 		Collection<IdentifiableElement> elems;
 		while(trgArea.size()!=0){
-			elems = trgArea.take(100);
-			
+			elems = trgArea.take(1000);
+			for (IdentifiableElement ie : elems){
+				ois.writeObject(ie);
+			}
 		}
+		ois.close();
+		fis.close();
 	}
 	
 }

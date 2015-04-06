@@ -30,50 +30,30 @@ public class InfinispanArea implements IArea {
 
 	public InfinispanArea(String name, Policy p, EmbeddedCacheManager manager)
 			throws IOException {
+		
+		/** No persistence */
+		ConfigurationBuilder b = new ConfigurationBuilder();
 
+		/** SingleFileStore */
 //		ConfigurationBuilder b = new ConfigurationBuilder();
 //		b.persistence().passivation(true).addSingleFileStore().purgeOnStartup(true)
 //				.location("/tmp/inifinspanData")
 //				.eviction().eviction().strategy(EvictionStrategy.LRU).maxEntries(10000);
 		
-		LevelDBStoreConfigurationBuilder b = new ConfigurationBuilder()
-		.eviction().strategy(EvictionStrategy.LRU).maxEntries(100000)
-		.persistence().addStore(LevelDBStoreConfigurationBuilder.class).purgeOnStartup(true)
-		.location("../InfinispanBlackboard/temp/level/").expiredLocation("../InfinispanBlackboard/temp/levelexpire/");
+		/** LeveDB */
+//		LevelDBStoreConfigurationBuilder b = new ConfigurationBuilder()
+//		.eviction().strategy(EvictionStrategy.LRU).maxEntries(100000)
+//		.persistence().addStore(LevelDBStoreConfigurationBuilder.class).purgeOnStartup(true)
+//		.location("../InfinispanBlackboard/temp/level/").expiredLocation("../InfinispanBlackboard/temp/levelexpire/");
+		
 		
 		final Configuration c = b.build();
-
-		// Configuration c = new ConfigurationBuilder()
-		// .persistence()
-		// .passivation(true)
-		// .addSingleFileStore()
-		// .preload(false)
-		// .shared(false)
-		// .fetchPersistentState(false)
-		// .ignoreModifications(false)
-		// .purgeOnStartup(true)
-		// // .location(System.getProperty("java.io.tmpdir"))
-		// .location("C:/infinispan")
-		// .async()
-		// .enabled(false)
-		// .threadPoolSize(5)
-		// .singleton()
-		// .enabled(false)
-		// .pushStateWhenCoordinator(true)
-		// .pushStateTimeout(20000)
-		// .eviction()
-		// .strategy(EvictionStrategy.LRU).maxEntries(1000)
-		// // .expiration().wakeUpInterval(5000l).lifespan(1000l).maxIdle(500l)
-		// .clustering()
-		// .build();
-
 		manager.defineConfiguration(name, c);
 
 		area = manager.getCache(name);
 		this.name = name;
 		this.policy = p;
 		semaphore = new Semaphore(1, true);
-
 	}
 
 	public Cache<String, IdentifiableElement> getArea() {

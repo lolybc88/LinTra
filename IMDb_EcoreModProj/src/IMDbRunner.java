@@ -50,7 +50,7 @@ public class IMDbRunner {
 //		for (int k=0; k<model.length; k++){
 //			System.out.println(model[k]);
 			
-			createSyntheticData(1*10000, mtLauncher.getSrcArea());
+			createSyntheticData(100, mtLauncher.getSrcArea());
 //			mtLauncher.loadModel(modelPath+model[k]+".ser");
 			System.out.println("MoDel loaDeD");
 			

@@ -19,12 +19,10 @@ public class InfinispanBlackboard implements IBlackboard {
 	EmbeddedCacheManager manager;
 
 	public InfinispanBlackboard() {
-		try {
-			manager = new DefaultCacheManager("../Blackboard/infinispan-config-file.xml");
+
+			manager = new DefaultCacheManager();
 			areas = new LinkedList<IArea>();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+		
 	}
 	
 	
