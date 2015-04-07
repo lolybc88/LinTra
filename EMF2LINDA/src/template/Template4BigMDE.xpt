@@ -1,0 +1,96 @@
+«IMPORT ecore»
+
+«EXTENSION template::GeneratorExtensions»
+
+«DEFINE main FOR EPackage»
+«EXPAND javaClass FOREACH this.eClassifiers.typeSelect(EClass)»
+«ENDDEFINE»
+
+«DEFINE javaClass FOR EClass»
+	«FILE this.ePackage.name()+"/"+name+".java"»
+		package «this.ePackage.name()»;
+		
+		import blackboard.IdentifiableElement;
+		import java.io.Serializable;
+	
+		public «IF this.abstract»abstract«ENDIF» class «name» «IF !this.eSuperTypes.isEmpty» extends «this.eSuperTypes.first().name»«ENDIF» implements Serializable, IdentifiableElement {
+			
+			private static final long serialVersionUID = 1L;
+			
+			«IF !this.abstract»String id, trgId;«ENDIF»
+			
+			«FOREACH this.eStructuralFeatures.typeSelect(EAttribute) AS f»
+			«f.type()» «f.name()»;«ENDFOREACH»
+			
+			«FOREACH this.eStructuralFeatures.typeSelect(EReference) AS f»
+			«f.eReferenceType.name» «f.name()»; Boolean «f.name»IsComposed = «f.containment»;
+			«ENDFOREACH»
+			
+			public «name»(){ }
+			
+			«IF this.eAllStructuralFeatures.size > 0»
+			public «name»(
+				«IF !this.abstract»String id«IF !this.eAllStructuralFeatures.isEmpty»,«ENDIF»«ENDIF-» 
+				«IF this.eAllStructuralFeatures.typeSelect(EAttribute).size>0»
+				«FOREACH this.eAllStructuralFeatures.typeSelect(EAttribute) AS f SEPARATOR ','-»
+				«f.type()» «f.name()»«ENDFOREACH-»«ENDIF»
+				«IF this.eAllStructuralFeatures.typeSelect(EReference).size>0»,
+				«FOREACH this.eAllStructuralFeatures.typeSelect(EReference) AS f SEPARATOR ','-»
+				«f.eReferenceType.name» «f.name()»«ENDFOREACH-»«ENDIF» ){
+				
+				super(«FOREACH this.eAllStructuralFeatures.without(this.eStructuralFeatures).typeSelect(EAttribute) AS f SEPARATOR ','-»
+				«f.name()»«ENDFOREACH-»
+				«IF this.eAllStructuralFeatures.without(this.eStructuralFeatures).typeSelect(EReference).size>0»,
+				«FOREACH this.eAllStructuralFeatures.without(this.eStructuralFeatures).typeSelect(EReference) AS f SEPARATOR ','-»
+				«f.name()»
+				«ENDFOREACH-»«ENDIF»);
+				
+				«IF !this.abstract»this.id = id;«ENDIF»
+				
+				«FOREACH this.eStructuralFeatures.typeSelect(EAttribute) AS f»
+				this.«f.name()» = «f.name()» ;«ENDFOREACH»
+				«FOREACH this.eStructuralFeatures.typeSelect(EReference) AS f»
+				this.«f.name()» = «f.name()» ;«ENDFOREACH»
+			}
+			«ENDIF»
+			
+			«IF !this.abstract»
+			public String getId() {
+   				return id;
+			}
+
+			public void setId(String id) {
+   				this.id = id;
+			}
+			
+			public String getTrgId() {
+   				return trgId;
+			}
+
+			public void setTrgId(String trgId) {
+   				this.trgId = trgId;
+			}
+			«ENDIF»
+			
+			«FOREACH this.eStructuralFeatures.typeSelect(EAttribute) AS f»
+			public void «f.setter()»(«f.type()» «f.name()») {
+				this.«f.name()» = «f.name()»;
+			}
+				
+			public «f.type()» «f.getter()»() {
+				return «f.name()»;
+			}
+			«ENDFOREACH»
+			
+			«FOREACH this.eStructuralFeatures.typeSelect(EReference) AS f»
+			public void «f.setter()»(«f.eReferenceType.name» «f.name()») {
+				this.«f.name()» = «f.name()»;
+			}
+				
+			public «f.eReferenceType.name» «f.getter()»() {
+				return «f.name()»;
+			}
+			«ENDFOREACH»
+		}
+	«ENDFILE»
+«ENDDEFINE»
