@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated javaMM -->
+      <package
+            uri="http:/javaMM"
+            class="javaMM.JavaMMPackage"
+            genModel="javaMM.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated myMM -->
+      <package
+            uri="http://myMM"
+            class="myMM.MyMMPackage"
+            genModel="myMM.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated graph -->
+      <package
+            uri="http://graph"
+            class="GraphMM.GraphMMPackage"
+            genModel="graph.genmodel"/>
+   </extension>
+
+</plugin>

@@ -106,6 +106,46 @@ public class Package extends NamedElement implements Serializable, IdentifiableE
 		return usagesInPackageAccessID;
 	}
 
+	public String[] getOwnedElementsID() {
+		return ownedElementsID;
+	}
+
+	public void setOwnedElementsID(String[] ownedElementsID) {
+		this.ownedElementsID = ownedElementsID;
+	}
+
+	public String getModelID() {
+		return modelID;
+	}
+
+	public void setModelID(String modelID) {
+		this.modelID = modelID;
+	}
+
+	public String[] getOwnedPackagesID() {
+		return ownedPackagesID;
+	}
+
+	public void setOwnedPackagesID(String[] ownedPackagesID) {
+		this.ownedPackagesID = ownedPackagesID;
+	}
+
+	public String getPackageID() {
+		return packageID;
+	}
+
+	public void setPackageID(String packageID) {
+		this.packageID = packageID;
+	}
+
+	public String[] getUsagesInPackageAccessID() {
+		return usagesInPackageAccessID;
+	}
+
+	public void setUsagesInPackageAccessID(String[] usagesInPackageAccessID) {
+		this.usagesInPackageAccessID = usagesInPackageAccessID;
+	}
+
 	@Override
 	public String toString() {
 		return "Package [id=" + id + ", ownedElementsID="

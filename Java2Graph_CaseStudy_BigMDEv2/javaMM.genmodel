@@ -1,0 +1,496 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/java/src" modelPluginID="java" modelName="JavaMM"
+    rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="8.0" copyrightFields="false" operationReflection="true" importOrganizing="true">
+  <foreignModel>javaMM.ecore</foreignModel>
+  <genPackages prefix="JavaMM" disposableProviderFactory="true" ecorePackage="javaMM.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="javaMM.ecore#//AssignmentKind">
+      <genEnumLiterals ecoreEnumLiteral="javaMM.ecore#//AssignmentKind/ASSIGN"/>
+      <genEnumLiterals ecoreEnumLiteral="javaMM.ecore#//AssignmentKind/PLUS_ASSIGN"/>
+      <genEnumLiterals ecoreEnumLiteral="javaMM.ecore#//AssignmentKind/MINUS_ASSIGN"/>
+      <genEnumLiterals ecoreEnumLiteral="javaMM.ecore#//AssignmentKind/TIMES_ASSIGN"/>
+      <genEnumLiterals ecoreEnumLiteral="javaMM.ecore#//AssignmentKind/DIVIDE_ASSIGN"/>
+      <genEnumLiterals ecoreEnumLiteral="javaMM.ecore#//AssignmentKind/BIT_AND_ASSIGN"/>
+      <genEnumLiterals ecoreEnumLiteral="javaMM.ecore#//AssignmentKind/BIT_OR_ASSIGN"/>
+      <genEnumLiterals ecoreEnumLiteral="javaMM.ecore#//AssignmentKind/BIT_XOR_ASSIGN"/>
+      <genEnumLiterals ecoreEnumLiteral="javaMM.ecore#//AssignmentKind/REMAINDER_ASSIGN"/>
+      <genEnumLiterals ecoreEnumLiteral="javaMM.ecore#//AssignmentKind/LEFT_SHIFT_ASSIGN"/>
+      <genEnumLiterals ecoreEnumLiteral="javaMM.ecore#//AssignmentKind/RIGHT_SHIFT_SIGNED_ASSIGN"/>
+      <genEnumLiterals ecoreEnumLiteral="javaMM.ecore#//AssignmentKind/RIGHT_SHIFT_UNSIGNED_ASSIGN"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="javaMM.ecore#//InfixExpressionKind">
+      <genEnumLiterals ecoreEnumLiteral="javaMM.ecore#//InfixExpressionKind/TIMES"/>
+      <genEnumLiterals ecoreEnumLiteral="javaMM.ecore#//InfixExpressionKind/DIVIDE"/>
+      <genEnumLiterals ecoreEnumLiteral="javaMM.ecore#//InfixExpressionKind/REMAINDER"/>
+      <genEnumLiterals ecoreEnumLiteral="javaMM.ecore#//InfixExpressionKind/PLUS"/>
+      <genEnumLiterals ecoreEnumLiteral="javaMM.ecore#//InfixExpressionKind/MINUS"/>
+      <genEnumLiterals ecoreEnumLiteral="javaMM.ecore#//InfixExpressionKind/LEFT_SHIFT"/>
+      <genEnumLiterals ecoreEnumLiteral="javaMM.ecore#//InfixExpressionKind/RIGHT_SHIFT_SIGNED"/>
+      <genEnumLiterals ecoreEnumLiteral="javaMM.ecore#//InfixExpressionKind/RIGHT_SHIFT_UNSIGNED"/>
+      <genEnumLiterals ecoreEnumLiteral="javaMM.ecore#//InfixExpressionKind/LESS"/>
+      <genEnumLiterals ecoreEnumLiteral="javaMM.ecore#//InfixExpressionKind/GREATER"/>
+      <genEnumLiterals ecoreEnumLiteral="javaMM.ecore#//InfixExpressionKind/LESS_EQUALS"/>
+      <genEnumLiterals ecoreEnumLiteral="javaMM.ecore#//InfixExpressionKind/GREATER_EQUALS"/>
+      <genEnumLiterals ecoreEnumLiteral="javaMM.ecore#//InfixExpressionKind/EQUALS"/>
+      <genEnumLiterals ecoreEnumLiteral="javaMM.ecore#//InfixExpressionKind/NOT_EQUALS"/>
+      <genEnumLiterals ecoreEnumLiteral="javaMM.ecore#//InfixExpressionKind/XOR"/>
+      <genEnumLiterals ecoreEnumLiteral="javaMM.ecore#//InfixExpressionKind/AND"/>
+      <genEnumLiterals ecoreEnumLiteral="javaMM.ecore#//InfixExpressionKind/OR"/>
+      <genEnumLiterals ecoreEnumLiteral="javaMM.ecore#//InfixExpressionKind/CONDITIONAL_AND"/>
+      <genEnumLiterals ecoreEnumLiteral="javaMM.ecore#//InfixExpressionKind/CONDITIONAL_OR"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="javaMM.ecore#//InheritanceKind">
+      <genEnumLiterals ecoreEnumLiteral="javaMM.ecore#//InheritanceKind/none"/>
+      <genEnumLiterals ecoreEnumLiteral="javaMM.ecore#//InheritanceKind/abstract"/>
+      <genEnumLiterals ecoreEnumLiteral="javaMM.ecore#//InheritanceKind/final"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="javaMM.ecore#//PostfixExpressionKind">
+      <genEnumLiterals ecoreEnumLiteral="javaMM.ecore#//PostfixExpressionKind/INCREMENT"/>
+      <genEnumLiterals ecoreEnumLiteral="javaMM.ecore#//PostfixExpressionKind/DECREMENT"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="javaMM.ecore#//PrefixExpressionKind">
+      <genEnumLiterals ecoreEnumLiteral="javaMM.ecore#//PrefixExpressionKind/INCREMENT"/>
+      <genEnumLiterals ecoreEnumLiteral="javaMM.ecore#//PrefixExpressionKind/DECREMENT"/>
+      <genEnumLiterals ecoreEnumLiteral="javaMM.ecore#//PrefixExpressionKind/PLUS"/>
+      <genEnumLiterals ecoreEnumLiteral="javaMM.ecore#//PrefixExpressionKind/MINUS"/>
+      <genEnumLiterals ecoreEnumLiteral="javaMM.ecore#//PrefixExpressionKind/COMPLEMENT"/>
+      <genEnumLiterals ecoreEnumLiteral="javaMM.ecore#//PrefixExpressionKind/NOT"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="javaMM.ecore#//VisibilityKind">
+      <genEnumLiterals ecoreEnumLiteral="javaMM.ecore#//VisibilityKind/none"/>
+      <genEnumLiterals ecoreEnumLiteral="javaMM.ecore#//VisibilityKind/public"/>
+      <genEnumLiterals ecoreEnumLiteral="javaMM.ecore#//VisibilityKind/private"/>
+      <genEnumLiterals ecoreEnumLiteral="javaMM.ecore#//VisibilityKind/protected"/>
+    </genEnums>
+    <genClasses image="false" ecoreClass="javaMM.ecore#//AbstractMethodDeclaration">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference javaMM.ecore#//AbstractMethodDeclaration/body"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference javaMM.ecore#//AbstractMethodDeclaration/parameters"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference javaMM.ecore#//AbstractMethodDeclaration/thrownExceptions"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference javaMM.ecore#//AbstractMethodDeclaration/typeParameters"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference javaMM.ecore#//AbstractMethodDeclaration/usagesInDocComments"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference javaMM.ecore#//AbstractMethodDeclaration/usages"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="javaMM.ecore#//AbstractMethodInvocation">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference javaMM.ecore#//AbstractMethodInvocation/method"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference javaMM.ecore#//AbstractMethodInvocation/arguments"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference javaMM.ecore#//AbstractMethodInvocation/typeArguments"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="javaMM.ecore#//AbstractTypeDeclaration">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference javaMM.ecore#//AbstractTypeDeclaration/bodyDeclarations"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference javaMM.ecore#//AbstractTypeDeclaration/commentsBeforeBody"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference javaMM.ecore#//AbstractTypeDeclaration/commentsAfterBody"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference javaMM.ecore#//AbstractTypeDeclaration/package"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference javaMM.ecore#//AbstractTypeDeclaration/superInterfaces"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="javaMM.ecore#//AbstractTypeQualifiedExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference javaMM.ecore#//AbstractTypeQualifiedExpression/qualifier"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="javaMM.ecore#//AbstractVariablesContainer">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference javaMM.ecore#//AbstractVariablesContainer/type"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference javaMM.ecore#//AbstractVariablesContainer/fragments"/>
+    </genClasses>
+    <genClasses ecoreClass="javaMM.ecore#//Annotation">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference javaMM.ecore#//Annotation/type"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference javaMM.ecore#//Annotation/values"/>
+    </genClasses>
+    <genClasses ecoreClass="javaMM.ecore#//Archive">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute javaMM.ecore#//Archive/originalFilePath"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference javaMM.ecore#//Archive/classFiles"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference javaMM.ecore#//Archive/manifest"/>
+    </genClasses>
+    <genClasses ecoreClass="javaMM.ecore#//AssertStatement">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference javaMM.ecore#//AssertStatement/message"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference javaMM.ecore#//AssertStatement/expression"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="javaMM.ecore#//ASTNode">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference javaMM.ecore#//ASTNode/comments"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference javaMM.ecore#//ASTNode/originalCompilationUnit"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference javaMM.ecore#//ASTNode/originalClassFile"/>
+    </genClasses>
+    <genClasses ecoreClass="javaMM.ecore#//AnnotationMemberValuePair">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference javaMM.ecore#//AnnotationMemberValuePair/member"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference javaMM.ecore#//AnnotationMemberValuePair/value"/>
+    </genClasses>
+    <genClasses ecoreClass="javaMM.ecore#//AnnotationTypeDeclaration"/>
+    <genClasses ecoreClass="javaMM.ecore#//AnnotationTypeMemberDeclaration">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference javaMM.ecore#//AnnotationTypeMemberDeclaration/default"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference javaMM.ecore#//AnnotationTypeMemberDeclaration/type"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference javaMM.ecore#//AnnotationTypeMemberDeclaration/usages"/>
+    </genClasses>
+    <genClasses ecoreClass="javaMM.ecore#//AnonymousClassDeclaration">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference javaMM.ecore#//AnonymousClassDeclaration/bodyDeclarations"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference javaMM.ecore#//AnonymousClassDeclaration/classInstanceCreation"/>
+    </genClasses>
+    <genClasses ecoreClass="javaMM.ecore#//ArrayAccess">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference javaMM.ecore#//ArrayAccess/array"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference javaMM.ecore#//ArrayAccess/index"/>
+    </genClasses>
+    <genClasses ecoreClass="javaMM.ecore#//ArrayCreation">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference javaMM.ecore#//ArrayCreation/dimensions"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference javaMM.ecore#//ArrayCreation/initializer"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference javaMM.ecore#//ArrayCreation/type"/>
+    </genClasses>
+    <genClasses ecoreClass="javaMM.ecore#//ArrayInitializer">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference javaMM.ecore#//ArrayInitializer/expressions"/>
+    </genClasses>
+    <genClasses ecoreClass="javaMM.ecore#//ArrayLengthAccess">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference javaMM.ecore#//ArrayLengthAccess/array"/>
+    </genClasses>
+    <genClasses ecoreClass="javaMM.ecore#//ArrayType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute javaMM.ecore#//ArrayType/dimensions"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference javaMM.ecore#//ArrayType/elementType"/>
+    </genClasses>
+    <genClasses ecoreClass="javaMM.ecore#//Assignment">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference javaMM.ecore#//Assignment/leftHandSide"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute javaMM.ecore#//Assignment/operator"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference javaMM.ecore#//Assignment/rightHandSide"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="javaMM.ecore#//BodyDeclaration">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference javaMM.ecore#//BodyDeclaration/abstractTypeDeclaration"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference javaMM.ecore#//BodyDeclaration/annotations"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference javaMM.ecore#//BodyDeclaration/anonymousClassDeclarationOwner"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference javaMM.ecore#//BodyDeclaration/modifier"/>
+    </genClasses>
+    <genClasses ecoreClass="javaMM.ecore#//BooleanLiteral">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute javaMM.ecore#//BooleanLiteral/value"/>
+    </genClasses>
+    <genClasses ecoreClass="javaMM.ecore#//BlockComment"/>
+    <genClasses ecoreClass="javaMM.ecore#//Block">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference javaMM.ecore#//Block/statements"/>
+    </genClasses>
+    <genClasses ecoreClass="javaMM.ecore#//BreakStatement">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference javaMM.ecore#//BreakStatement/label"/>
+    </genClasses>
+    <genClasses ecoreClass="javaMM.ecore#//CastExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference javaMM.ecore#//CastExpression/expression"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference javaMM.ecore#//CastExpression/type"/>
+    </genClasses>
+    <genClasses ecoreClass="javaMM.ecore#//CatchClause">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference javaMM.ecore#//CatchClause/exception"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference javaMM.ecore#//CatchClause/body"/>
+    </genClasses>
+    <genClasses ecoreClass="javaMM.ecore#//CharacterLiteral">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute javaMM.ecore#//CharacterLiteral/escapedValue"/>
+    </genClasses>
+    <genClasses ecoreClass="javaMM.ecore#//ClassFile">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute javaMM.ecore#//ClassFile/originalFilePath"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference javaMM.ecore#//ClassFile/type"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference javaMM.ecore#//ClassFile/attachedSource"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference javaMM.ecore#//ClassFile/package"/>
+    </genClasses>
+    <genClasses ecoreClass="javaMM.ecore#//ClassInstanceCreation">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference javaMM.ecore#//ClassInstanceCreation/anonymousClassDeclaration"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference javaMM.ecore#//ClassInstanceCreation/expression"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference javaMM.ecore#//ClassInstanceCreation/type"/>
+    </genClasses>
+    <genClasses ecoreClass="javaMM.ecore#//ConstructorDeclaration"/>
+    <genClasses ecoreClass="javaMM.ecore#//ConditionalExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference javaMM.ecore#//ConditionalExpression/elseExpression"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference javaMM.ecore#//ConditionalExpression/expression"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference javaMM.ecore#//ConditionalExpression/thenExpression"/>
+    </genClasses>
+    <genClasses ecoreClass="javaMM.ecore#//ConstructorInvocation"/>
+    <genClasses ecoreClass="javaMM.ecore#//ClassDeclaration">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference javaMM.ecore#//ClassDeclaration/superClass"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="javaMM.ecore#//Comment">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute javaMM.ecore#//Comment/content"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute javaMM.ecore#//Comment/enclosedByParent"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute javaMM.ecore#//Comment/prefixOfParent"/>
+    </genClasses>
+    <genClasses ecoreClass="javaMM.ecore#//CompilationUnit">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute javaMM.ecore#//CompilationUnit/originalFilePath"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference javaMM.ecore#//CompilationUnit/commentList"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference javaMM.ecore#//CompilationUnit/imports"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference javaMM.ecore#//CompilationUnit/package"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference javaMM.ecore#//CompilationUnit/types"/>
+    </genClasses>
+    <genClasses ecoreClass="javaMM.ecore#//ContinueStatement">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference javaMM.ecore#//ContinueStatement/label"/>
+    </genClasses>
+    <genClasses ecoreClass="javaMM.ecore#//DoStatement">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference javaMM.ecore#//DoStatement/expression"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference javaMM.ecore#//DoStatement/body"/>
+    </genClasses>
+    <genClasses ecoreClass="javaMM.ecore#//EmptyStatement"/>
+    <genClasses ecoreClass="javaMM.ecore#//EnhancedForStatement">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference javaMM.ecore#//EnhancedForStatement/body"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference javaMM.ecore#//EnhancedForStatement/expression"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference javaMM.ecore#//EnhancedForStatement/parameter"/>
+    </genClasses>
+    <genClasses ecoreClass="javaMM.ecore#//EnumConstantDeclaration">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference javaMM.ecore#//EnumConstantDeclaration/anonymousClassDeclaration"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference javaMM.ecore#//EnumConstantDeclaration/arguments"/>
+    </genClasses>
+    <genClasses ecoreClass="javaMM.ecore#//EnumDeclaration">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference javaMM.ecore#//EnumDeclaration/enumConstants"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="javaMM.ecore#//Expression"/>
+    <genClasses ecoreClass="javaMM.ecore#//ExpressionStatement">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference javaMM.ecore#//ExpressionStatement/expression"/>
+    </genClasses>
+    <genClasses ecoreClass="javaMM.ecore#//FieldAccess">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference javaMM.ecore#//FieldAccess/field"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference javaMM.ecore#//FieldAccess/expression"/>
+    </genClasses>
+    <genClasses ecoreClass="javaMM.ecore#//FieldDeclaration"/>
+    <genClasses ecoreClass="javaMM.ecore#//ForStatement">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference javaMM.ecore#//ForStatement/expression"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference javaMM.ecore#//ForStatement/updaters"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference javaMM.ecore#//ForStatement/initializers"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference javaMM.ecore#//ForStatement/body"/>
+    </genClasses>
+    <genClasses ecoreClass="javaMM.ecore#//IfStatement">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference javaMM.ecore#//IfStatement/expression"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference javaMM.ecore#//IfStatement/thenStatement"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference javaMM.ecore#//IfStatement/elseStatement"/>
+    </genClasses>
+    <genClasses ecoreClass="javaMM.ecore#//ImportDeclaration">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute javaMM.ecore#//ImportDeclaration/static"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference javaMM.ecore#//ImportDeclaration/importedElement"/>
+    </genClasses>
+    <genClasses ecoreClass="javaMM.ecore#//InfixExpression">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute javaMM.ecore#//InfixExpression/operator"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference javaMM.ecore#//InfixExpression/rightOperand"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference javaMM.ecore#//InfixExpression/leftOperand"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference javaMM.ecore#//InfixExpression/extendedOperands"/>
+    </genClasses>
+    <genClasses ecoreClass="javaMM.ecore#//Initializer">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference javaMM.ecore#//Initializer/body"/>
+    </genClasses>
+    <genClasses ecoreClass="javaMM.ecore#//InstanceofExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference javaMM.ecore#//InstanceofExpression/rightOperand"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference javaMM.ecore#//InstanceofExpression/leftOperand"/>
+    </genClasses>
+    <genClasses ecoreClass="javaMM.ecore#//InterfaceDeclaration"/>
+    <genClasses ecoreClass="javaMM.ecore#//Javadoc">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference javaMM.ecore#//Javadoc/tags"/>
+    </genClasses>
+    <genClasses ecoreClass="javaMM.ecore#//LabeledStatement">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference javaMM.ecore#//LabeledStatement/body"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference javaMM.ecore#//LabeledStatement/usagesInBreakStatements"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference javaMM.ecore#//LabeledStatement/usagesInContinueStatements"/>
+    </genClasses>
+    <genClasses ecoreClass="javaMM.ecore#//LineComment"/>
+    <genClasses ecoreClass="javaMM.ecore#//Manifest">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference javaMM.ecore#//Manifest/mainAttributes"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference javaMM.ecore#//Manifest/entryAttributes"/>
+    </genClasses>
+    <genClasses ecoreClass="javaMM.ecore#//ManifestAttribute">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute javaMM.ecore#//ManifestAttribute/key"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute javaMM.ecore#//ManifestAttribute/value"/>
+    </genClasses>
+    <genClasses ecoreClass="javaMM.ecore#//ManifestEntry">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute javaMM.ecore#//ManifestEntry/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference javaMM.ecore#//ManifestEntry/attributes"/>
+    </genClasses>
+    <genClasses ecoreClass="javaMM.ecore#//MemberRef">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference javaMM.ecore#//MemberRef/member"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference javaMM.ecore#//MemberRef/qualifier"/>
+    </genClasses>
+    <genClasses ecoreClass="javaMM.ecore#//MethodDeclaration">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute javaMM.ecore#//MethodDeclaration/extraArrayDimensions"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference javaMM.ecore#//MethodDeclaration/returnType"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference javaMM.ecore#//MethodDeclaration/redefinedMethodDeclaration"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference javaMM.ecore#//MethodDeclaration/redefinitions"/>
+    </genClasses>
+    <genClasses ecoreClass="javaMM.ecore#//MethodInvocation">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference javaMM.ecore#//MethodInvocation/expression"/>
+    </genClasses>
+    <genClasses ecoreClass="javaMM.ecore#//MethodRef">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference javaMM.ecore#//MethodRef/method"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference javaMM.ecore#//MethodRef/qualifier"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference javaMM.ecore#//MethodRef/parameters"/>
+    </genClasses>
+    <genClasses ecoreClass="javaMM.ecore#//MethodRefParameter">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute javaMM.ecore#//MethodRefParameter/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute javaMM.ecore#//MethodRefParameter/varargs"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference javaMM.ecore#//MethodRefParameter/type"/>
+    </genClasses>
+    <genClasses ecoreClass="javaMM.ecore#//Model">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute javaMM.ecore#//Model/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference javaMM.ecore#//Model/ownedElements"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference javaMM.ecore#//Model/orphanTypes"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference javaMM.ecore#//Model/unresolvedItems"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference javaMM.ecore#//Model/compilationUnits"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference javaMM.ecore#//Model/classFiles"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference javaMM.ecore#//Model/archives"/>
+    </genClasses>
+    <genClasses ecoreClass="javaMM.ecore#//Modifier">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute javaMM.ecore#//Modifier/visibility"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute javaMM.ecore#//Modifier/inheritance"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute javaMM.ecore#//Modifier/staticc"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute javaMM.ecore#//Modifier/transientt"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute javaMM.ecore#//Modifier/volatilee"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute javaMM.ecore#//Modifier/nativee"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute javaMM.ecore#//Modifier/strictfpp"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute javaMM.ecore#//Modifier/synchronizedd"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference javaMM.ecore#//Modifier/bodyDeclaration"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference javaMM.ecore#//Modifier/singleVariableDeclaration"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference javaMM.ecore#//Modifier/variableDeclarationStatement"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference javaMM.ecore#//Modifier/variableDeclarationExpression"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="javaMM.ecore#//NamedElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute javaMM.ecore#//NamedElement/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute javaMM.ecore#//NamedElement/proxy"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference javaMM.ecore#//NamedElement/usagesInImports"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="javaMM.ecore#//NamespaceAccess"/>
+    <genClasses ecoreClass="javaMM.ecore#//NumberLiteral">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute javaMM.ecore#//NumberLiteral/tokenValue"/>
+    </genClasses>
+    <genClasses ecoreClass="javaMM.ecore#//NullLiteral"/>
+    <genClasses ecoreClass="javaMM.ecore#//Package">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference javaMM.ecore#//Package/ownedElements"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference javaMM.ecore#//Package/model"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference javaMM.ecore#//Package/ownedPackages"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference javaMM.ecore#//Package/package"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference javaMM.ecore#//Package/usagesInPackageAccess"/>
+    </genClasses>
+    <genClasses ecoreClass="javaMM.ecore#//PackageAccess">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference javaMM.ecore#//PackageAccess/package"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference javaMM.ecore#//PackageAccess/qualifier"/>
+    </genClasses>
+    <genClasses ecoreClass="javaMM.ecore#//ParameterizedType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference javaMM.ecore#//ParameterizedType/type"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference javaMM.ecore#//ParameterizedType/typeArguments"/>
+    </genClasses>
+    <genClasses ecoreClass="javaMM.ecore#//ParenthesizedExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference javaMM.ecore#//ParenthesizedExpression/expression"/>
+    </genClasses>
+    <genClasses ecoreClass="javaMM.ecore#//PostfixExpression">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute javaMM.ecore#//PostfixExpression/operator"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference javaMM.ecore#//PostfixExpression/operand"/>
+    </genClasses>
+    <genClasses ecoreClass="javaMM.ecore#//PrefixExpression">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute javaMM.ecore#//PrefixExpression/operator"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference javaMM.ecore#//PrefixExpression/operand"/>
+    </genClasses>
+    <genClasses ecoreClass="javaMM.ecore#//PrimitiveType"/>
+    <genClasses ecoreClass="javaMM.ecore#//PrimitiveTypeBoolean"/>
+    <genClasses ecoreClass="javaMM.ecore#//PrimitiveTypeByte"/>
+    <genClasses ecoreClass="javaMM.ecore#//PrimitiveTypeChar"/>
+    <genClasses ecoreClass="javaMM.ecore#//PrimitiveTypeDouble"/>
+    <genClasses ecoreClass="javaMM.ecore#//PrimitiveTypeShort"/>
+    <genClasses ecoreClass="javaMM.ecore#//PrimitiveTypeFloat"/>
+    <genClasses ecoreClass="javaMM.ecore#//PrimitiveTypeInt"/>
+    <genClasses ecoreClass="javaMM.ecore#//PrimitiveTypeLong"/>
+    <genClasses ecoreClass="javaMM.ecore#//PrimitiveTypeVoid"/>
+    <genClasses ecoreClass="javaMM.ecore#//ReturnStatement">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference javaMM.ecore#//ReturnStatement/expression"/>
+    </genClasses>
+    <genClasses ecoreClass="javaMM.ecore#//SingleVariableAccess">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference javaMM.ecore#//SingleVariableAccess/variable"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference javaMM.ecore#//SingleVariableAccess/qualifier"/>
+    </genClasses>
+    <genClasses ecoreClass="javaMM.ecore#//SingleVariableDeclaration">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference javaMM.ecore#//SingleVariableDeclaration/modifier"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute javaMM.ecore#//SingleVariableDeclaration/varargs"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference javaMM.ecore#//SingleVariableDeclaration/type"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference javaMM.ecore#//SingleVariableDeclaration/annotations"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference javaMM.ecore#//SingleVariableDeclaration/methodDeclaration"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference javaMM.ecore#//SingleVariableDeclaration/catchClause"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference javaMM.ecore#//SingleVariableDeclaration/enhancedForStatement"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="javaMM.ecore#//Statement"/>
+    <genClasses ecoreClass="javaMM.ecore#//StringLiteral">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute javaMM.ecore#//StringLiteral/escapedValue"/>
+    </genClasses>
+    <genClasses ecoreClass="javaMM.ecore#//SuperConstructorInvocation">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference javaMM.ecore#//SuperConstructorInvocation/expression"/>
+    </genClasses>
+    <genClasses ecoreClass="javaMM.ecore#//SuperFieldAccess">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference javaMM.ecore#//SuperFieldAccess/field"/>
+    </genClasses>
+    <genClasses ecoreClass="javaMM.ecore#//SuperMethodInvocation"/>
+    <genClasses ecoreClass="javaMM.ecore#//SwitchCase">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute javaMM.ecore#//SwitchCase/default"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference javaMM.ecore#//SwitchCase/expression"/>
+    </genClasses>
+    <genClasses ecoreClass="javaMM.ecore#//SwitchStatement">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference javaMM.ecore#//SwitchStatement/expression"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference javaMM.ecore#//SwitchStatement/statements"/>
+    </genClasses>
+    <genClasses ecoreClass="javaMM.ecore#//SynchronizedStatement">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference javaMM.ecore#//SynchronizedStatement/body"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference javaMM.ecore#//SynchronizedStatement/expression"/>
+    </genClasses>
+    <genClasses ecoreClass="javaMM.ecore#//TagElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute javaMM.ecore#//TagElement/tagName"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference javaMM.ecore#//TagElement/fragments"/>
+    </genClasses>
+    <genClasses ecoreClass="javaMM.ecore#//TextElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute javaMM.ecore#//TextElement/text"/>
+    </genClasses>
+    <genClasses ecoreClass="javaMM.ecore#//ThisExpression"/>
+    <genClasses ecoreClass="javaMM.ecore#//ThrowStatement">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference javaMM.ecore#//ThrowStatement/expression"/>
+    </genClasses>
+    <genClasses ecoreClass="javaMM.ecore#//TryStatement">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference javaMM.ecore#//TryStatement/body"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference javaMM.ecore#//TryStatement/finally"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference javaMM.ecore#//TryStatement/catchClauses"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="javaMM.ecore#//Type">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference javaMM.ecore#//Type/usagesInTypeAccess"/>
+    </genClasses>
+    <genClasses ecoreClass="javaMM.ecore#//TypeAccess">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference javaMM.ecore#//TypeAccess/type"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference javaMM.ecore#//TypeAccess/qualifier"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="javaMM.ecore#//TypeDeclaration">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference javaMM.ecore#//TypeDeclaration/typeParameters"/>
+    </genClasses>
+    <genClasses ecoreClass="javaMM.ecore#//TypeDeclarationStatement">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference javaMM.ecore#//TypeDeclarationStatement/declaration"/>
+    </genClasses>
+    <genClasses ecoreClass="javaMM.ecore#//TypeLiteral">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference javaMM.ecore#//TypeLiteral/type"/>
+    </genClasses>
+    <genClasses ecoreClass="javaMM.ecore#//TypeParameter">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference javaMM.ecore#//TypeParameter/bounds"/>
+    </genClasses>
+    <genClasses ecoreClass="javaMM.ecore#//UnresolvedItem"/>
+    <genClasses ecoreClass="javaMM.ecore#//UnresolvedItemAccess">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference javaMM.ecore#//UnresolvedItemAccess/element"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference javaMM.ecore#//UnresolvedItemAccess/qualifier"/>
+    </genClasses>
+    <genClasses ecoreClass="javaMM.ecore#//UnresolvedAnnotationDeclaration"/>
+    <genClasses ecoreClass="javaMM.ecore#//UnresolvedAnnotationTypeMemberDeclaration"/>
+    <genClasses ecoreClass="javaMM.ecore#//UnresolvedClassDeclaration"/>
+    <genClasses ecoreClass="javaMM.ecore#//UnresolvedEnumDeclaration"/>
+    <genClasses ecoreClass="javaMM.ecore#//UnresolvedInterfaceDeclaration"/>
+    <genClasses ecoreClass="javaMM.ecore#//UnresolvedLabeledStatement"/>
+    <genClasses ecoreClass="javaMM.ecore#//UnresolvedMethodDeclaration"/>
+    <genClasses ecoreClass="javaMM.ecore#//UnresolvedSingleVariableDeclaration"/>
+    <genClasses ecoreClass="javaMM.ecore#//UnresolvedType"/>
+    <genClasses ecoreClass="javaMM.ecore#//UnresolvedTypeDeclaration"/>
+    <genClasses ecoreClass="javaMM.ecore#//UnresolvedVariableDeclarationFragment"/>
+    <genClasses image="false" ecoreClass="javaMM.ecore#//VariableDeclaration">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute javaMM.ecore#//VariableDeclaration/extraArrayDimensions"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference javaMM.ecore#//VariableDeclaration/initializer"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference javaMM.ecore#//VariableDeclaration/usageInVariableAccess"/>
+    </genClasses>
+    <genClasses ecoreClass="javaMM.ecore#//VariableDeclarationExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference javaMM.ecore#//VariableDeclarationExpression/modifier"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference javaMM.ecore#//VariableDeclarationExpression/annotations"/>
+    </genClasses>
+    <genClasses ecoreClass="javaMM.ecore#//VariableDeclarationFragment">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference javaMM.ecore#//VariableDeclarationFragment/variablesContainer"/>
+    </genClasses>
+    <genClasses ecoreClass="javaMM.ecore#//VariableDeclarationStatement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute javaMM.ecore#//VariableDeclarationStatement/extraArrayDimensions"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference javaMM.ecore#//VariableDeclarationStatement/modifier"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference javaMM.ecore#//VariableDeclarationStatement/annotations"/>
+    </genClasses>
+    <genClasses ecoreClass="javaMM.ecore#//WildCardType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute javaMM.ecore#//WildCardType/upperBound"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference javaMM.ecore#//WildCardType/bound"/>
+    </genClasses>
+    <genClasses ecoreClass="javaMM.ecore#//WhileStatement">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference javaMM.ecore#//WhileStatement/expression"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference javaMM.ecore#//WhileStatement/body"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

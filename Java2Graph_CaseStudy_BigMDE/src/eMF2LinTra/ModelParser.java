@@ -1209,23 +1209,16 @@ public class ModelParser {
 		if (elem instanceof javaMM.Package) {
 			javaMM.Package e = (javaMM.Package) elem;
 			return new javaMMinJava.Package(map.get(e), e.getName(),
-					e.isProxy(), (javaMMinJava.Comment[]) transformEMF2Java(
-							e.getComments(), map),
-					(javaMMinJava.CompilationUnit) transformEMF2Java(
-							e.getOriginalCompilationUnit(), map),
-					(javaMMinJava.ClassFile) transformEMF2Java(
-							e.getOriginalClassFile(), map),
-					(javaMMinJava.ImportDeclaration[]) transformEMF2Java(
-							e.getUsagesInImports(), map),
-					(javaMMinJava.AbstractTypeDeclaration[]) transformEMF2Java(
-							e.getOwnedElements(), map),
+					e.isProxy(),
+					(javaMMinJava.Comment[]) transformEMF2Java(e.getComments(), map),
+					(javaMMinJava.CompilationUnit) transformEMF2Java(e.getOriginalCompilationUnit(), map),
+					(javaMMinJava.ClassFile) transformEMF2Java(e.getOriginalClassFile(), map),
+					(javaMMinJava.ImportDeclaration[]) transformEMF2Java(e.getUsagesInImports(), map),
+					(javaMMinJava.AbstractTypeDeclaration[]) transformEMF2Java(e.getOwnedElements(), map),
 					(javaMMinJava.Model) transformEMF2Java(e.getModel(), map),
-					(javaMMinJava.Package[]) transformEMF2Java(
-							e.getOwnedPackages(), map),
-					(javaMMinJava.Package) transformEMF2Java(e.getPackage(),
-							map),
-					(javaMMinJava.PackageAccess[]) transformEMF2Java(
-							e.getUsagesInPackageAccess(), map));
+					(javaMMinJava.Package[]) transformEMF2Java(e.getOwnedPackages(), map),
+					(javaMMinJava.Package) transformEMF2Java(e.getPackage(),map),
+					(javaMMinJava.PackageAccess[]) transformEMF2Java(e.getUsagesInPackageAccess(), map));
 		}
 
 		if (elem instanceof javaMM.PackageAccess) {
