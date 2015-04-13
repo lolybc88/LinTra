@@ -10,7 +10,7 @@ public class ArrayCreation extends Expression implements Serializable,
 
 	String id, trgId;
 
-	Expression dimensions;
+	Expression[] dimensions;
 	Boolean dimensionsIsComposed = true;
 
 	ArrayInitializer initializer;
@@ -24,8 +24,8 @@ public class ArrayCreation extends Expression implements Serializable,
 
 	public ArrayCreation(String id,
 
-	Comment comments, CompilationUnit originalCompilationUnit,
-			ClassFile originalClassFile, Expression dimensions,
+	Comment[] comments, CompilationUnit originalCompilationUnit,
+			ClassFile originalClassFile, Expression[] dimensions,
 			ArrayInitializer initializer, TypeAccess type) {
 
 		super(comments, originalCompilationUnit, originalClassFile);
@@ -53,11 +53,11 @@ public class ArrayCreation extends Expression implements Serializable,
 		this.trgId = trgId;
 	}
 
-	public void setDimensions(Expression dimensions) {
+	public void setDimensions(Expression[] dimensions) {
 		this.dimensions = dimensions;
 	}
 
-	public Expression getDimensions() {
+	public Expression[] getDimensions() {
 		return dimensions;
 	}
 

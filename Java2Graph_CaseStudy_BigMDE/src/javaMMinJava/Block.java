@@ -10,7 +10,7 @@ public class Block extends Statement implements Serializable,
 
 	String id, trgId;
 
-	Statement statements;
+	Statement[] statements;
 	Boolean statementsIsComposed = true;
 
 	public Block() {
@@ -18,8 +18,8 @@ public class Block extends Statement implements Serializable,
 
 	public Block(String id,
 
-	Comment comments, CompilationUnit originalCompilationUnit,
-			ClassFile originalClassFile, Statement statements) {
+	Comment[] comments, CompilationUnit originalCompilationUnit,
+			ClassFile originalClassFile, Statement[] statements) {
 
 		super(comments, originalCompilationUnit, originalClassFile);
 
@@ -44,11 +44,11 @@ public class Block extends Statement implements Serializable,
 		this.trgId = trgId;
 	}
 
-	public void setStatements(Statement statements) {
+	public void setStatements(Statement[] statements) {
 		this.statements = statements;
 	}
 
-	public Statement getStatements() {
+	public Statement[] getStatements() {
 		return statements;
 	}
 

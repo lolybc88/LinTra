@@ -20,7 +20,7 @@
 			public EmptyStatement(
 				String id,				
 				
-				Comment comments,				CompilationUnit originalCompilationUnit,				ClassFile originalClassFile ){
+				Comment[] comments,				CompilationUnit originalCompilationUnit,				ClassFile originalClassFile ){
 				
 				super(				
 				comments

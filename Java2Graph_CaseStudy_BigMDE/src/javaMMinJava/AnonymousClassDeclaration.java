@@ -10,7 +10,7 @@ public class AnonymousClassDeclaration extends ASTNode implements Serializable,
 
 	String id, trgId;
 
-	BodyDeclaration bodyDeclarations;
+	BodyDeclaration[] bodyDeclarations;
 	Boolean bodyDeclarationsIsComposed = true;
 
 	ClassInstanceCreation classInstanceCreation;
@@ -21,8 +21,8 @@ public class AnonymousClassDeclaration extends ASTNode implements Serializable,
 
 	public AnonymousClassDeclaration(String id,
 
-	Comment comments, CompilationUnit originalCompilationUnit,
-			ClassFile originalClassFile, BodyDeclaration bodyDeclarations,
+	Comment[] comments, CompilationUnit originalCompilationUnit,
+			ClassFile originalClassFile, BodyDeclaration[] bodyDeclarations,
 			ClassInstanceCreation classInstanceCreation) {
 
 		super(comments, originalCompilationUnit, originalClassFile);
@@ -49,11 +49,11 @@ public class AnonymousClassDeclaration extends ASTNode implements Serializable,
 		this.trgId = trgId;
 	}
 
-	public void setBodyDeclarations(BodyDeclaration bodyDeclarations) {
+	public void setBodyDeclarations(BodyDeclaration[] bodyDeclarations) {
 		this.bodyDeclarations = bodyDeclarations;
 	}
 
-	public BodyDeclaration getBodyDeclarations() {
+	public BodyDeclaration[] getBodyDeclarations() {
 		return bodyDeclarations;
 	}
 

@@ -22,7 +22,7 @@
 			public TypeLiteral(
 				String id,				
 				
-				Comment comments,				CompilationUnit originalCompilationUnit,				ClassFile originalClassFile,				TypeAccess type ){
+				Comment[] comments,				CompilationUnit originalCompilationUnit,				ClassFile originalClassFile,				TypeAccess type ){
 				
 				super(				
 				comments

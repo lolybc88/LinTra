@@ -11,7 +11,7 @@ public abstract class Statement extends ASTNode implements Serializable,
 	public Statement() {
 	}
 
-	public Statement(Comment comments, CompilationUnit originalCompilationUnit,
+	public Statement(Comment[] comments, CompilationUnit originalCompilationUnit,
 			ClassFile originalClassFile) {
 
 		super(comments, originalCompilationUnit, originalClassFile);

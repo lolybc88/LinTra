@@ -21,7 +21,7 @@ public class TextElement extends ASTNode
 				String id,				
 				String text
 				,
-				Comment comments,				CompilationUnit originalCompilationUnit,				ClassFile originalClassFile ){
+				Comment[] comments,				CompilationUnit originalCompilationUnit,				ClassFile originalClassFile ){
 				
 				super(				
 				comments

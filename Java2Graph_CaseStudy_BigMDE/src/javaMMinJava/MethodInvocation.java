@@ -14,10 +14,10 @@ public class MethodInvocation extends Expression implements Serializable,
 	AbstractMethodDeclaration method;
 	Boolean methodIsComposed = false;
 
-	Expression arguments;
+	Expression[] arguments;
 	Boolean argumentsIsComposed = true;
 
-	TypeAccess typeArguments;
+	TypeAccess[] typeArguments;
 	Boolean typeArgumentsIsComposed = true;
 
 	Expression expression;
@@ -28,9 +28,9 @@ public class MethodInvocation extends Expression implements Serializable,
 
 	public MethodInvocation(String id,
 
-	Comment comments, CompilationUnit originalCompilationUnit,
+	Comment[] comments, CompilationUnit originalCompilationUnit,
 			ClassFile originalClassFile, AbstractMethodDeclaration method,
-			Expression arguments, TypeAccess typeArguments,
+			Expression[] arguments, TypeAccess[] typeArguments,
 			Expression expression) {
 
 		super(comments, originalCompilationUnit, originalClassFile);
@@ -76,19 +76,19 @@ public class MethodInvocation extends Expression implements Serializable,
 		return method;
 	}
 
-	public void setArguments(Expression arguments) {
+	public void setArguments(Expression[] arguments) {
 		this.arguments = arguments;
 	}
 
-	public Expression getArguments() {
+	public Expression[] getArguments() {
 		return arguments;
 	}
 
-	public void setTypeArguments(TypeAccess typeArguments) {
+	public void setTypeArguments(TypeAccess[] typeArguments) {
 		this.typeArguments = typeArguments;
 	}
 
-	public TypeAccess getTypeArguments() {
+	public TypeAccess[] getTypeArguments() {
 		return typeArguments;
 	}
 

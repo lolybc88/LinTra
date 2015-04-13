@@ -26,7 +26,7 @@
 			public ConditionalExpression(
 				String id,				
 				
-				Comment comments,				CompilationUnit originalCompilationUnit,				ClassFile originalClassFile,				Expression elseExpression,				Expression expression,				Expression thenExpression ){
+				Comment[] comments,				CompilationUnit originalCompilationUnit,				ClassFile originalClassFile,				Expression elseExpression,				Expression expression,				Expression thenExpression ){
 				
 				super(				
 				comments

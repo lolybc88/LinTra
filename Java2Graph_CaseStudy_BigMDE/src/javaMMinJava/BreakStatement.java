@@ -18,7 +18,7 @@ public class BreakStatement extends Statement implements Serializable,
 
 	public BreakStatement(String id,
 
-	Comment comments, CompilationUnit originalCompilationUnit,
+	Comment[] comments, CompilationUnit originalCompilationUnit,
 			ClassFile originalClassFile, LabeledStatement label) {
 
 		super(comments, originalCompilationUnit, originalClassFile);

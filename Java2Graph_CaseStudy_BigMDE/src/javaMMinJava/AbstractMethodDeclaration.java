@@ -13,19 +13,19 @@ public abstract class AbstractMethodDeclaration extends BodyDeclaration
 	Block body;
 	Boolean bodyIsComposed = true;
 
-	SingleVariableDeclaration parameters;
+	SingleVariableDeclaration[] parameters;
 	Boolean parametersIsComposed = true;
 
-	TypeAccess thrownExceptions;
+	TypeAccess[] thrownExceptions;
 	Boolean thrownExceptionsIsComposed = true;
 
-	TypeParameter typeParameters;
+	TypeParameter[] typeParameters;
 	Boolean typeParametersIsComposed = true;
 
-	MethodRef usagesInDocComments;
+	MethodRef[] usagesInDocComments;
 	Boolean usagesInDocCommentsIsComposed = false;
 
-	AbstractMethodInvocation usages;
+	AbstractMethodInvocation[] usages;
 	Boolean usagesIsComposed = false;
 
 	public AbstractMethodDeclaration() {
@@ -33,16 +33,16 @@ public abstract class AbstractMethodDeclaration extends BodyDeclaration
 
 	public AbstractMethodDeclaration(
 
-	String name, Boolean proxy, Comment comments,
+	String name, Boolean proxy, Comment[] comments,
 			CompilationUnit originalCompilationUnit,
-			ClassFile originalClassFile, ImportDeclaration usagesInImports,
+			ClassFile originalClassFile, ImportDeclaration[] usagesInImports,
 			AbstractTypeDeclaration abstractTypeDeclaration,
-			Annotation annotations,
+			Annotation[] annotations,
 			AnonymousClassDeclaration anonymousClassDeclarationOwner,
 			Modifier modifier, Block body,
-			SingleVariableDeclaration parameters, TypeAccess thrownExceptions,
-			TypeParameter typeParameters, MethodRef usagesInDocComments,
-			AbstractMethodInvocation usages) {
+			SingleVariableDeclaration[] parameters, TypeAccess[] thrownExceptions,
+			TypeParameter[] typeParameters, MethodRef[] usagesInDocComments,
+			AbstractMethodInvocation[] usages) {
 
 		super(name, proxy, comments, originalCompilationUnit,
 				originalClassFile, usagesInImports, abstractTypeDeclaration,
@@ -64,43 +64,43 @@ public abstract class AbstractMethodDeclaration extends BodyDeclaration
 		return body;
 	}
 
-	public void setParameters(SingleVariableDeclaration parameters) {
+	public void setParameters(SingleVariableDeclaration[] parameters) {
 		this.parameters = parameters;
 	}
 
-	public SingleVariableDeclaration getParameters() {
+	public SingleVariableDeclaration[] getParameters() {
 		return parameters;
 	}
 
-	public void setThrownExceptions(TypeAccess thrownExceptions) {
+	public void setThrownExceptions(TypeAccess[] thrownExceptions) {
 		this.thrownExceptions = thrownExceptions;
 	}
 
-	public TypeAccess getThrownExceptions() {
+	public TypeAccess[] getThrownExceptions() {
 		return thrownExceptions;
 	}
 
-	public void setTypeParameters(TypeParameter typeParameters) {
+	public void setTypeParameters(TypeParameter[] typeParameters) {
 		this.typeParameters = typeParameters;
 	}
 
-	public TypeParameter getTypeParameters() {
+	public TypeParameter[] getTypeParameters() {
 		return typeParameters;
 	}
 
-	public void setUsagesInDocComments(MethodRef usagesInDocComments) {
+	public void setUsagesInDocComments(MethodRef[] usagesInDocComments) {
 		this.usagesInDocComments = usagesInDocComments;
 	}
 
-	public MethodRef getUsagesInDocComments() {
+	public MethodRef[] getUsagesInDocComments() {
 		return usagesInDocComments;
 	}
 
-	public void setUsages(AbstractMethodInvocation usages) {
+	public void setUsages(AbstractMethodInvocation[] usages) {
 		this.usages = usages;
 	}
 
-	public AbstractMethodInvocation getUsages() {
+	public AbstractMethodInvocation[] getUsages() {
 		return usages;
 	}
 

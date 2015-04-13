@@ -15,17 +15,17 @@ public class ParameterizedType extends Type
 	TypeAccess type;
 	Boolean typeIsComposed = true;
 
-	TypeAccess typeArguments;
+	TypeAccess[] typeArguments;
 	Boolean typeArgumentsIsComposed = true;
 
 	public ParameterizedType() {
 	}
 
 	public ParameterizedType(String id, String name, Boolean proxy,
-			Comment comments, CompilationUnit originalCompilationUnit,
-			ClassFile originalClassFile, ImportDeclaration usagesInImports,
-			TypeAccess usagesInTypeAccess, TypeAccess type,
-			TypeAccess typeArguments) {
+			Comment[] comments, CompilationUnit originalCompilationUnit,
+			ClassFile originalClassFile, ImportDeclaration[] usagesInImports,
+			TypeAccess[] usagesInTypeAccess, TypeAccess type,
+			TypeAccess[] typeArguments) {
 
 		super(name, proxy, comments, originalCompilationUnit,
 				originalClassFile, usagesInImports, usagesInTypeAccess);
@@ -60,11 +60,11 @@ public class ParameterizedType extends Type
 		return type;
 	}
 
-	public void setTypeArguments(TypeAccess typeArguments) {
+	public void setTypeArguments(TypeAccess[] typeArguments) {
 		this.typeArguments = typeArguments;
 	}
 
-	public TypeAccess getTypeArguments() {
+	public TypeAccess[] getTypeArguments() {
 		return typeArguments;
 	}
 

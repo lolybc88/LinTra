@@ -13,7 +13,7 @@ public abstract class Expression extends ASTNode implements Serializable,
 
 	public Expression(
 
-	Comment comments, CompilationUnit originalCompilationUnit,
+	Comment[] comments, CompilationUnit originalCompilationUnit,
 			ClassFile originalClassFile) {
 
 		super(comments, originalCompilationUnit, originalClassFile);

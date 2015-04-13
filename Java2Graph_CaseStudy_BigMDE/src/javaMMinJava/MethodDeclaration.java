@@ -20,25 +20,25 @@ public class MethodDeclaration extends AbstractMethodDeclaration
 	MethodDeclaration redefinedMethodDeclaration;
 	Boolean redefinedMethodDeclarationIsComposed = false;
 
-	MethodDeclaration redefinitions;
+	MethodDeclaration[] redefinitions;
 	Boolean redefinitionsIsComposed = false;
 
 	public MethodDeclaration() {
 	}
 
 	public MethodDeclaration(String id, String name, Boolean proxy,
-			int extraArrayDimensions, Comment comments,
+			int extraArrayDimensions, Comment[] comments,
 			CompilationUnit originalCompilationUnit,
-			ClassFile originalClassFile, ImportDeclaration usagesInImports,
+			ClassFile originalClassFile, ImportDeclaration[] usagesInImports,
 			AbstractTypeDeclaration abstractTypeDeclaration,
-			Annotation annotations,
+			Annotation[] annotations,
 			AnonymousClassDeclaration anonymousClassDeclarationOwner,
 			Modifier modifier, Block body,
-			SingleVariableDeclaration parameters, TypeAccess thrownExceptions,
-			TypeParameter typeParameters, MethodRef usagesInDocComments,
-			AbstractMethodInvocation usages, TypeAccess returnType,
+			SingleVariableDeclaration[] parameters, TypeAccess[] thrownExceptions,
+			TypeParameter[] typeParameters, MethodRef[] usagesInDocComments,
+			AbstractMethodInvocation[] usages, TypeAccess returnType,
 			MethodDeclaration redefinedMethodDeclaration,
-			MethodDeclaration redefinitions) {
+			MethodDeclaration[] redefinitions) {
 
 		super(name, proxy, comments, originalCompilationUnit,
 				originalClassFile, usagesInImports, abstractTypeDeclaration,
@@ -96,11 +96,11 @@ public class MethodDeclaration extends AbstractMethodDeclaration
 		return redefinedMethodDeclaration;
 	}
 
-	public void setRedefinitions(MethodDeclaration redefinitions) {
+	public void setRedefinitions(MethodDeclaration[] redefinitions) {
 		this.redefinitions = redefinitions;
 	}
 
-	public MethodDeclaration getRedefinitions() {
+	public MethodDeclaration[] getRedefinitions() {
 		return redefinitions;
 	}
 

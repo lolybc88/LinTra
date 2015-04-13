@@ -22,7 +22,7 @@
 			public TypeDeclarationStatement(
 				String id,				
 				
-				Comment comments,				CompilationUnit originalCompilationUnit,				ClassFile originalClassFile,				AbstractTypeDeclaration declaration ){
+				Comment[] comments,				CompilationUnit originalCompilationUnit,				ClassFile originalClassFile,				AbstractTypeDeclaration declaration ){
 				
 				super(				
 				comments

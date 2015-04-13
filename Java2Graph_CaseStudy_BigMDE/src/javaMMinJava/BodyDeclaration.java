@@ -13,7 +13,7 @@ public abstract class BodyDeclaration extends NamedElement
 	AbstractTypeDeclaration abstractTypeDeclaration;
 	Boolean abstractTypeDeclarationIsComposed = false;
 
-	Annotation annotations;
+	Annotation[] annotations;
 	Boolean annotationsIsComposed = true;
 
 	AnonymousClassDeclaration anonymousClassDeclarationOwner;
@@ -25,11 +25,11 @@ public abstract class BodyDeclaration extends NamedElement
 	public BodyDeclaration() {
 	}
 
-	public BodyDeclaration(String name, Boolean proxy, Comment comments,
+	public BodyDeclaration(String name, Boolean proxy, Comment[] comments,
 			CompilationUnit originalCompilationUnit,
-			ClassFile originalClassFile, ImportDeclaration usagesInImports,
+			ClassFile originalClassFile, ImportDeclaration[] usagesInImports,
 			AbstractTypeDeclaration abstractTypeDeclaration,
-			Annotation annotations,
+			Annotation[] annotations,
 			AnonymousClassDeclaration anonymousClassDeclarationOwner,
 			Modifier modifier) {
 
@@ -51,11 +51,11 @@ public abstract class BodyDeclaration extends NamedElement
 		return abstractTypeDeclaration;
 	}
 
-	public void setAnnotations(Annotation annotations) {
+	public void setAnnotations(Annotation[] annotations) {
 		this.annotations = annotations;
 	}
 
-	public Annotation getAnnotations() {
+	public Annotation[] getAnnotations() {
 		return annotations;
 	}
 

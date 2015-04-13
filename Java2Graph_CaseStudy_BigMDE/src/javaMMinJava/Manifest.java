@@ -13,9 +13,9 @@
 			
 			
 			
-			ManifestAttribute mainAttributes; Boolean mainAttributesIsComposed = true;
+			ManifestAttribute[] mainAttributes; Boolean mainAttributesIsComposed = true;
 			
-			ManifestEntry entryAttributes; Boolean entryAttributesIsComposed = true;
+			ManifestEntry[] entryAttributes; Boolean entryAttributesIsComposed = true;
 			
 			
 			public Manifest(){ }
@@ -24,7 +24,7 @@
 			public Manifest(
 				String id,				
 				
-				ManifestAttribute mainAttributes,				ManifestEntry entryAttributes ){
+				ManifestAttribute[] mainAttributes,				ManifestEntry[] entryAttributes ){
 				
 				super(				);
 				
@@ -58,19 +58,19 @@
 			
 			
 			
-			public void setMainAttributes(ManifestAttribute mainAttributes) {
+			public void setMainAttributes(ManifestAttribute[] mainAttributes) {
 				this.mainAttributes = mainAttributes;
 			}
 				
-			public ManifestAttribute getMainAttributes() {
+			public ManifestAttribute[] getMainAttributes() {
 				return mainAttributes;
 			}
 			
-			public void setEntryAttributes(ManifestEntry entryAttributes) {
+			public void setEntryAttributes(ManifestEntry[] entryAttributes) {
 				this.entryAttributes = entryAttributes;
 			}
 				
-			public ManifestEntry getEntryAttributes() {
+			public ManifestEntry[] getEntryAttributes() {
 				return entryAttributes;
 			}
 			

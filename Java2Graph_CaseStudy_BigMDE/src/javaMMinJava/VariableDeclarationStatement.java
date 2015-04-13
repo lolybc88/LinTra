@@ -16,13 +16,13 @@ public class VariableDeclarationStatement extends Statement implements
 	Modifier modifier;
 	Boolean modifierIsComposed = true;
 
-	Annotation annotations;
+	Annotation[] annotations;
 	Boolean annotationsIsComposed = true;
 	
 	TypeAccess type;
 	Boolean typeIsComposed = true;
 
-	VariableDeclarationFragment fragments;
+	VariableDeclarationFragment[] fragments;
 	Boolean fragmentsIsComposed = true;
 
 
@@ -30,10 +30,10 @@ public class VariableDeclarationStatement extends Statement implements
 	}
 
 	public VariableDeclarationStatement(String id, int extraArrayDimensions,
-			Comment comments, CompilationUnit originalCompilationUnit,
+			Comment[] comments, CompilationUnit originalCompilationUnit,
 			ClassFile originalClassFile, TypeAccess type,
-			VariableDeclarationFragment fragments, Modifier modifier,
-			Annotation annotations) {
+			VariableDeclarationFragment[] fragments, Modifier modifier,
+			Annotation[] annotations) {
 
 		super(comments, originalCompilationUnit, originalClassFile);
 
@@ -79,11 +79,11 @@ public class VariableDeclarationStatement extends Statement implements
 		return modifier;
 	}
 
-	public void setAnnotations(Annotation annotations) {
+	public void setAnnotations(Annotation[] annotations) {
 		this.annotations = annotations;
 	}
 
-	public Annotation getAnnotations() {
+	public Annotation[] getAnnotations() {
 		return annotations;
 	}
 	
@@ -95,11 +95,11 @@ public class VariableDeclarationStatement extends Statement implements
 		return type;
 	}
 
-	public void setFragments(VariableDeclarationFragment fragments) {
+	public void setFragments(VariableDeclarationFragment[] fragments) {
 		this.fragments = fragments;
 	}
 
-	public VariableDeclarationFragment getFragments() {
+	public VariableDeclarationFragment[] getFragments() {
 		return fragments;
 	}
 

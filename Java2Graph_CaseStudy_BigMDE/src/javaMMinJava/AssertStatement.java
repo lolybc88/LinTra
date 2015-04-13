@@ -21,7 +21,7 @@ public class AssertStatement extends Statement implements Serializable,
 
 	public AssertStatement(String id,
 
-	Comment comments, CompilationUnit originalCompilationUnit,
+	Comment[] comments, CompilationUnit originalCompilationUnit,
 			ClassFile originalClassFile, Expression message,
 			Expression expression) {
 

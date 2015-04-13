@@ -37,7 +37,7 @@
 				String id,				
 				String visibility,				String inheritance,				Boolean static_,				Boolean transient_,				Boolean volatile_,				Boolean native_,				Boolean strictfp_,				Boolean synchronized_
 				,
-				Comment comments,				CompilationUnit originalCompilationUnit,				ClassFile originalClassFile,				BodyDeclaration bodyDeclaration,				SingleVariableDeclaration singleVariableDeclaration,				VariableDeclarationStatement variableDeclarationStatement,				VariableDeclarationExpression variableDeclarationExpression ){
+				Comment[] comments,				CompilationUnit originalCompilationUnit,				ClassFile originalClassFile,				BodyDeclaration bodyDeclaration,				SingleVariableDeclaration singleVariableDeclaration,				VariableDeclarationStatement variableDeclarationStatement,				VariableDeclarationExpression variableDeclarationExpression ){
 				
 				super(				
 				comments

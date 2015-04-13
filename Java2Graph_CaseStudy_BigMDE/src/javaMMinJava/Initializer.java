@@ -18,11 +18,11 @@ public class Initializer extends BodyDeclaration
 	public Initializer() {
 	}
 
-	public Initializer(String id, String name, Boolean proxy, Comment comments,
+	public Initializer(String id, String name, Boolean proxy, Comment[] comments,
 			CompilationUnit originalCompilationUnit,
-			ClassFile originalClassFile, ImportDeclaration usagesInImports,
+			ClassFile originalClassFile, ImportDeclaration[] usagesInImports,
 			AbstractTypeDeclaration abstractTypeDeclaration,
-			Annotation annotations,
+			Annotation[] annotations,
 			AnonymousClassDeclaration anonymousClassDeclarationOwner,
 			Modifier modifier, Block body) {
 

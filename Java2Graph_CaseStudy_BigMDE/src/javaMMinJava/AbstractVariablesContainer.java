@@ -19,7 +19,7 @@ public abstract class AbstractVariablesContainer extends ASTNode implements
 
 	public AbstractVariablesContainer(
 
-	Comment comments, CompilationUnit originalCompilationUnit,
+	Comment[] comments, CompilationUnit originalCompilationUnit,
 			ClassFile originalClassFile, TypeAccess type,
 			VariableDeclarationFragment fragments) {
 

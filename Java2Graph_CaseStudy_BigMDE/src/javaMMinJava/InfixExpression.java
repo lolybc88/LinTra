@@ -3,10 +3,8 @@ package javaMMinJava;
 import blackboard.IdentifiableElement;
 import java.io.Serializable;
 
-public class InfixExpression extends Expression
-		implements
-			Serializable,
-			IdentifiableElement {
+public class InfixExpression extends Expression implements Serializable,
+		IdentifiableElement {
 
 	private static final long serialVersionUID = 1L;
 
@@ -20,33 +18,27 @@ public class InfixExpression extends Expression
 	Expression leftOperand;
 	Boolean leftOperandIsComposed = true;
 
-	Expression extendedOperands;
+	Expression[] extendedOperands;
 	Boolean extendedOperandsIsComposed = true;
 
 	public InfixExpression() {
 	}
 
-	public InfixExpression(
-				String id,				
-				String operator
-				,
-				Comment comments,				CompilationUnit originalCompilationUnit,				ClassFile originalClassFile,				Expression rightOperand,				Expression leftOperand,				Expression extendedOperands ){
-				
-				super(				
-				comments
-				,				originalCompilationUnit
-				,				originalClassFile
-);
-				
-				this.id = id;
-				
-				
-				this.operator = operator ;
-				
-				this.rightOperand = rightOperand ;
-				this.leftOperand = leftOperand ;
-				this.extendedOperands = extendedOperands ;
-			}
+	public InfixExpression(String id, String operator, Comment[] comments,
+			CompilationUnit originalCompilationUnit,
+			ClassFile originalClassFile, Expression rightOperand,
+			Expression leftOperand, Expression[] extendedOperands) {
+
+		super(comments, originalCompilationUnit, originalClassFile);
+
+		this.id = id;
+
+		this.operator = operator;
+
+		this.rightOperand = rightOperand;
+		this.leftOperand = leftOperand;
+		this.extendedOperands = extendedOperands;
+	}
 
 	public String getId() {
 		return id;
@@ -88,11 +80,11 @@ public class InfixExpression extends Expression
 		return leftOperand;
 	}
 
-	public void setExtendedOperands(Expression extendedOperands) {
+	public void setExtendedOperands(Expression[] extendedOperands) {
 		this.extendedOperands = extendedOperands;
 	}
 
-	public Expression getExtendedOperands() {
+	public Expression[] getExtendedOperands() {
 		return extendedOperands;
 	}
 

@@ -3,10 +3,8 @@ package javaMMinJava;
 import blackboard.IdentifiableElement;
 import java.io.Serializable;
 
-public class MethodRefParameter extends ASTNode
-		implements
-			Serializable,
-			IdentifiableElement {
+public class MethodRefParameter extends ASTNode implements Serializable,
+		IdentifiableElement {
 
 	private static final long serialVersionUID = 1L;
 
@@ -21,26 +19,19 @@ public class MethodRefParameter extends ASTNode
 	public MethodRefParameter() {
 	}
 
-	public MethodRefParameter(
-				String id,				
-				String name,				Boolean varargs
-				,
-				Comment comments,				CompilationUnit originalCompilationUnit,				ClassFile originalClassFile,				TypeAccess type ){
-				
-				super(				
-				comments
-				,				originalCompilationUnit
-				,				originalClassFile
-);
-				
-				this.id = id;
-				
-				
-				this.name = name ;
-				this.varargs = varargs ;
-				
-				this.type = type ;
-			}
+	public MethodRefParameter(String id, String name, Boolean varargs,
+			Comment[] comments, CompilationUnit originalCompilationUnit,
+			ClassFile originalClassFile, TypeAccess type) {
+
+		super(comments, originalCompilationUnit, originalClassFile);
+
+		this.id = id;
+
+		this.name = name;
+		this.varargs = varargs;
+
+		this.type = type;
+	}
 
 	public String getId() {
 		return id;

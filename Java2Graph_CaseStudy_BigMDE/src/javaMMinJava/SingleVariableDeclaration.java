@@ -20,7 +20,7 @@ public class SingleVariableDeclaration extends VariableDeclaration
 	TypeAccess type;
 	Boolean typeIsComposed = true;
 
-	Annotation annotations;
+	Annotation[] annotations;
 	Boolean annotationsIsComposed = true;
 
 	AbstractMethodDeclaration methodDeclaration;
@@ -36,11 +36,11 @@ public class SingleVariableDeclaration extends VariableDeclaration
 	}
 
 	public SingleVariableDeclaration(String id, String name, Boolean proxy,
-			int extraArrayDimensions, Boolean varargs, Comment comments,
+			int extraArrayDimensions, Boolean varargs, Comment[] comments,
 			CompilationUnit originalCompilationUnit,
-			ClassFile originalClassFile, ImportDeclaration usagesInImports,
-			Expression initializer, SingleVariableAccess usageInVariableAccess,
-			Modifier modifier, TypeAccess type, Annotation annotations,
+			ClassFile originalClassFile, ImportDeclaration[] usagesInImports,
+			Expression initializer, SingleVariableAccess[] usageInVariableAccess,
+			Modifier modifier, TypeAccess type, Annotation[] annotations,
 			AbstractMethodDeclaration methodDeclaration,
 			CatchClause catchClause, EnhancedForStatement enhancedForStatement) {
 
@@ -100,11 +100,11 @@ public class SingleVariableDeclaration extends VariableDeclaration
 		return type;
 	}
 
-	public void setAnnotations(Annotation annotations) {
+	public void setAnnotations(Annotation[] annotations) {
 		this.annotations = annotations;
 	}
 
-	public Annotation getAnnotations() {
+	public Annotation[] getAnnotations() {
 		return annotations;
 	}
 

@@ -15,7 +15,7 @@ public class CharacterLiteral extends Expression implements Serializable,
 	public CharacterLiteral() {
 	}
 
-	public CharacterLiteral(String id, String escapedValue, Comment comments,
+	public CharacterLiteral(String id, String escapedValue, Comment[] comments,
 			CompilationUnit originalCompilationUnit, ClassFile originalClassFile) {
 
 		super(comments, originalCompilationUnit, originalClassFile);

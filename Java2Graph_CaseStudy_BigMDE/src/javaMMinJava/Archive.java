@@ -1,7 +1,11 @@
 package javaMMinJava;
 
 import blackboard.IdentifiableElement;
+
 import java.io.Serializable;
+import java.util.Map;
+
+import org.eclipse.emf.ecore.EObject;
 
 public class Archive extends NamedElement
 		implements
@@ -14,20 +18,17 @@ public class Archive extends NamedElement
 
 	String originalFilePath;
 
-	ClassFile classFiles;
+	ClassFile[] classFiles;
 	Boolean classFilesIsComposed = true;
 
 	Manifest manifest;
 	Boolean manifestIsComposed = true;
 
-	public Archive() {
-	}
-
 	public Archive(String id, String name, Boolean proxy,
-			String originalFilePath, Comment comments,
+			String originalFilePath, Comment[] comments,
 			CompilationUnit originalCompilationUnit,
-			ClassFile originalClassFile, ImportDeclaration usagesInImports,
-			ClassFile classFiles, Manifest manifest) {
+			ClassFile originalClassFile, ImportDeclaration[] usagesInImports,
+			ClassFile[] classFiles, Manifest manifest) {
 
 		super(name, proxy, comments, originalCompilationUnit,
 				originalClassFile, usagesInImports);
@@ -64,11 +65,11 @@ public class Archive extends NamedElement
 		return originalFilePath;
 	}
 
-	public void setClassFiles(ClassFile classFiles) {
+	public void setClassFiles(ClassFile[] classFiles) {
 		this.classFiles = classFiles;
 	}
 
-	public ClassFile getClassFiles() {
+	public ClassFile[] getClassFiles() {
 		return classFiles;
 	}
 

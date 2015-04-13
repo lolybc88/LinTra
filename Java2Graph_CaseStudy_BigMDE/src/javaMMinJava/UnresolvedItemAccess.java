@@ -24,7 +24,7 @@
 			public UnresolvedItemAccess(
 				String id,				
 				
-				Comment comments,				CompilationUnit originalCompilationUnit,				ClassFile originalClassFile,				UnresolvedItem element,				ASTNode qualifier ){
+				Comment[] comments,				CompilationUnit originalCompilationUnit,				ClassFile originalClassFile,				UnresolvedItem element,				ASTNode qualifier ){
 				
 				super(				
 				comments

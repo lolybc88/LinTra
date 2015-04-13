@@ -16,7 +16,7 @@ public class EnumConstantDeclaration extends BodyDeclaration
 	AnonymousClassDeclaration anonymousClassDeclaration;
 	Boolean anonymousClassDeclarationIsComposed = true;
 
-	Expression arguments;
+	Expression[] arguments;
 	Boolean argumentsIsComposed = true;
 	
 	int extraArrayDimensions;
@@ -24,23 +24,23 @@ public class EnumConstantDeclaration extends BodyDeclaration
 	Expression initializer;
 	Boolean initializerIsComposed = true;
 
-	SingleVariableAccess usageInVariableAccess;
+	SingleVariableAccess[] usageInVariableAccess;
 	Boolean usageInVariableAccessIsComposed = false;
 
 	public EnumConstantDeclaration() {
 	}
 
 	public EnumConstantDeclaration(String id, String name, Boolean proxy,
-			int extraArrayDimensions, Comment comments,
+			int extraArrayDimensions, Comment[] comments,
 			CompilationUnit originalCompilationUnit,
-			ClassFile originalClassFile, ImportDeclaration usagesInImports,
+			ClassFile originalClassFile, ImportDeclaration[] usagesInImports,
 			AbstractTypeDeclaration abstractTypeDeclaration,
-			Annotation annotations,
+			Annotation[] annotations,
 			AnonymousClassDeclaration anonymousClassDeclarationOwner,
 			Modifier modifier, Expression initializer,
-			SingleVariableAccess usageInVariableAccess,
+			SingleVariableAccess[] usageInVariableAccess,
 			AnonymousClassDeclaration anonymousClassDeclaration,
-			Expression arguments) {
+			Expression[] arguments) {
 
 		super(name, proxy, comments,
 				originalCompilationUnit, originalClassFile, usagesInImports,
@@ -82,11 +82,11 @@ public class EnumConstantDeclaration extends BodyDeclaration
 		return anonymousClassDeclaration;
 	}
 
-	public void setArguments(Expression arguments) {
+	public void setArguments(Expression[] arguments) {
 		this.arguments = arguments;
 	}
 
-	public Expression getArguments() {
+	public Expression[] getArguments() {
 		return arguments;
 	}
 	
@@ -99,11 +99,11 @@ public class EnumConstantDeclaration extends BodyDeclaration
 	}
 
 	public void setUsageInVariableAccess(
-			SingleVariableAccess usageInVariableAccess) {
+			SingleVariableAccess[] usageInVariableAccess) {
 		this.usageInVariableAccess = usageInVariableAccess;
 	}
 
-	public SingleVariableAccess getUsageInVariableAccess() {
+	public SingleVariableAccess[] getUsageInVariableAccess() {
 		return usageInVariableAccess;
 	}
 

@@ -1,7 +1,10 @@
 package javaMMinJava;
 
 import blackboard.IdentifiableElement;
+
 import java.io.Serializable;
+
+import org.eclipse.emf.ecore.EObject;
 
 public class Annotation extends Expression implements Serializable,
 		IdentifiableElement {
@@ -13,15 +16,12 @@ public class Annotation extends Expression implements Serializable,
 	TypeAccess type;
 	Boolean typeIsComposed = true;
 
-	AnnotationMemberValuePair values;
+	AnnotationMemberValuePair[] values;
 	Boolean valuesIsComposed = true;
 
-	public Annotation() {
-	}
-
-	public Annotation(String id, Comment comments, CompilationUnit originalCompilationUnit,
+	public Annotation(String id, Comment[] comments, CompilationUnit originalCompilationUnit,
 			ClassFile originalClassFile, TypeAccess type,
-			AnnotationMemberValuePair values) {
+			AnnotationMemberValuePair[] values) {
 
 		super(comments, originalCompilationUnit, originalClassFile);
 
@@ -55,11 +55,11 @@ public class Annotation extends Expression implements Serializable,
 		return type;
 	}
 
-	public void setValues(AnnotationMemberValuePair values) {
+	public void setValues(AnnotationMemberValuePair[] values) {
 		this.values = values;
 	}
 
-	public AnnotationMemberValuePair getValues() {
+	public AnnotationMemberValuePair[] getValues() {
 		return values;
 	}
 

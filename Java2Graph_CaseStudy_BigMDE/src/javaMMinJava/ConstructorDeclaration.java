@@ -16,15 +16,15 @@ public class ConstructorDeclaration extends AbstractMethodDeclaration
 	}
 
 	public ConstructorDeclaration(String id, String name, Boolean proxy,
-			Comment comments, CompilationUnit originalCompilationUnit,
-			ClassFile originalClassFile, ImportDeclaration usagesInImports,
+			Comment[] comments, CompilationUnit originalCompilationUnit,
+			ClassFile originalClassFile, ImportDeclaration[] usagesInImports,
 			AbstractTypeDeclaration abstractTypeDeclaration,
-			Annotation annotations,
+			Annotation[] annotations,
 			AnonymousClassDeclaration anonymousClassDeclarationOwner,
 			Modifier modifier, Block body,
-			SingleVariableDeclaration parameters, TypeAccess thrownExceptions,
-			TypeParameter typeParameters, MethodRef usagesInDocComments,
-			AbstractMethodInvocation usages) {
+			SingleVariableDeclaration[] parameters, TypeAccess[] thrownExceptions,
+			TypeParameter[] typeParameters, MethodRef[] usagesInDocComments,
+			AbstractMethodInvocation[] usages) {
 
 		super(name, proxy, comments, originalCompilationUnit,
 				originalClassFile, usagesInImports, abstractTypeDeclaration,

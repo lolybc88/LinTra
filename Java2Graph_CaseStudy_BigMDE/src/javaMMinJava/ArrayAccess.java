@@ -21,7 +21,7 @@ public class ArrayAccess extends Expression implements Serializable,
 
 	public ArrayAccess(String id,
 
-	Comment comments, CompilationUnit originalCompilationUnit,
+	Comment[] comments, CompilationUnit originalCompilationUnit,
 			ClassFile originalClassFile, Expression array, Expression index) {
 
 		super(comments, originalCompilationUnit, originalClassFile);

@@ -20,7 +20,7 @@
 			public NamespaceAccess(
 				
 				
-				Comment comments,				CompilationUnit originalCompilationUnit,				ClassFile originalClassFile ){
+				Comment[] comments,				CompilationUnit originalCompilationUnit,				ClassFile originalClassFile ){
 				
 				super(				
 				comments

@@ -16,7 +16,7 @@ public class LineComment extends Comment
 	}
 
 	public LineComment(String id, String content, Boolean enclosedByParent,
-			Boolean prefixOfParent, Comment comments,
+			Boolean prefixOfParent, Comment[] comments,
 			CompilationUnit originalCompilationUnit, ClassFile originalClassFile) {
 
 		super(content, enclosedByParent, prefixOfParent, comments,

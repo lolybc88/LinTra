@@ -16,10 +16,10 @@ public class UnresolvedLabeledStatement extends LabeledStatement
 	}
 
 	public UnresolvedLabeledStatement(String id, String name, Boolean proxy,
-			Comment comments, CompilationUnit originalCompilationUnit,
-			ClassFile originalClassFile, ImportDeclaration usagesInImports,
-			Statement body, BreakStatement usagesInBreakStatements,
-			ContinueStatement usagesInContinueStatements) {
+			Comment[] comments, CompilationUnit originalCompilationUnit,
+			ClassFile originalClassFile, ImportDeclaration[] usagesInImports,
+			Statement body, BreakStatement[] usagesInBreakStatements,
+			ContinueStatement[] usagesInContinueStatements) {
 
 		super(id,name, proxy, comments, originalCompilationUnit,
 				originalClassFile, usagesInImports, body,

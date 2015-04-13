@@ -22,7 +22,7 @@
 			public ExpressionStatement(
 				String id,				
 				
-				Comment comments,				CompilationUnit originalCompilationUnit,				ClassFile originalClassFile,				Expression expression ){
+				Comment[] comments,				CompilationUnit originalCompilationUnit,				ClassFile originalClassFile,				Expression expression ){
 				
 				super(				
 				comments

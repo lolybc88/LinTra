@@ -10,7 +10,7 @@ public abstract class Type extends NamedElement
 
 	private static final long serialVersionUID = 1L;
 
-	TypeAccess usagesInTypeAccess;
+	TypeAccess[] usagesInTypeAccess;
 	Boolean usagesInTypeAccessIsComposed = false;
 
 	public Type() {
@@ -18,10 +18,10 @@ public abstract class Type extends NamedElement
 
 	public Type(
 
-	String name, Boolean proxy, Comment comments,
+	String name, Boolean proxy, Comment[] comments,
 			CompilationUnit originalCompilationUnit,
-			ClassFile originalClassFile, ImportDeclaration usagesInImports,
-			TypeAccess usagesInTypeAccess) {
+			ClassFile originalClassFile, ImportDeclaration[] usagesInImports,
+			TypeAccess[] usagesInTypeAccess) {
 
 		super(name, proxy, comments, originalCompilationUnit,
 				originalClassFile, usagesInImports);
@@ -29,11 +29,11 @@ public abstract class Type extends NamedElement
 		this.usagesInTypeAccess = usagesInTypeAccess;
 	}
 
-	public void setUsagesInTypeAccess(TypeAccess usagesInTypeAccess) {
+	public void setUsagesInTypeAccess(TypeAccess[] usagesInTypeAccess) {
 		this.usagesInTypeAccess = usagesInTypeAccess;
 	}
 
-	public TypeAccess getUsagesInTypeAccess() {
+	public TypeAccess[] getUsagesInTypeAccess() {
 		return usagesInTypeAccess;
 	}
 

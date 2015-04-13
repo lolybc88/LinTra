@@ -18,10 +18,10 @@ public class UnresolvedVariableDeclarationFragment
 	}
 
 	public UnresolvedVariableDeclarationFragment(String id, String name,
-			Boolean proxy, int extraArrayDimensions, Comment comments,
+			Boolean proxy, int extraArrayDimensions, Comment[] comments,
 			CompilationUnit originalCompilationUnit,
-			ClassFile originalClassFile, ImportDeclaration usagesInImports,
-			Expression initializer, SingleVariableAccess usageInVariableAccess,
+			ClassFile originalClassFile, ImportDeclaration[] usagesInImports,
+			Expression initializer, SingleVariableAccess[] usageInVariableAccess,
 			AbstractVariablesContainer variablesContainer) {
 
 		super(id,name, proxy, extraArrayDimensions, comments,

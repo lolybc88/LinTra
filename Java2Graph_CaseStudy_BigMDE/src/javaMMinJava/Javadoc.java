@@ -12,16 +12,16 @@ public class Javadoc extends Comment
 
 	String id, trgId;
 
-	TagElement tags;
+	TagElement[] tags;
 	Boolean tagsIsComposed = true;
 
 	public Javadoc() {
 	}
 
 	public Javadoc(String id, String content, Boolean enclosedByParent,
-			Boolean prefixOfParent, Comment comments,
+			Boolean prefixOfParent, Comment[] comments,
 			CompilationUnit originalCompilationUnit,
-			ClassFile originalClassFile, TagElement tags) {
+			ClassFile originalClassFile, TagElement[] tags) {
 
 		super(content, enclosedByParent, prefixOfParent, comments,
 				originalCompilationUnit, originalClassFile);
@@ -47,11 +47,11 @@ public class Javadoc extends Comment
 		this.trgId = trgId;
 	}
 
-	public void setTags(TagElement tags) {
+	public void setTags(TagElement[] tags) {
 		this.tags = tags;
 	}
 
-	public TagElement getTags() {
+	public TagElement[] getTags() {
 		return tags;
 	}
 

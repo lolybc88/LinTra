@@ -16,7 +16,7 @@ public class BlockComment extends Comment
 	}
 
 	public BlockComment(String id, String content, Boolean enclosedByParent,
-			Boolean prefixOfParent, Comment comments,
+			Boolean prefixOfParent, Comment[] comments,
 			CompilationUnit originalCompilationUnit, ClassFile originalClassFile) {
 
 		super(content, enclosedByParent, prefixOfParent, comments,

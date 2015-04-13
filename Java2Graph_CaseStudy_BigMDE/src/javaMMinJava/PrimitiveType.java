@@ -16,9 +16,9 @@ public class PrimitiveType extends Type
 	}
 
 	public PrimitiveType(String id, String name, Boolean proxy,
-			Comment comments, CompilationUnit originalCompilationUnit,
-			ClassFile originalClassFile, ImportDeclaration usagesInImports,
-			TypeAccess usagesInTypeAccess) {
+			Comment[] comments, CompilationUnit originalCompilationUnit,
+			ClassFile originalClassFile, ImportDeclaration[] usagesInImports,
+			TypeAccess[] usagesInTypeAccess) {
 
 		super(name, proxy, comments, originalCompilationUnit,
 				originalClassFile, usagesInImports, usagesInTypeAccess);

@@ -3,10 +3,8 @@ package javaMMinJava;
 import blackboard.IdentifiableElement;
 import java.io.Serializable;
 
-public class TagElement extends ASTNode
-		implements
-			Serializable,
-			IdentifiableElement {
+public class TagElement extends ASTNode implements Serializable,
+		IdentifiableElement {
 
 	private static final long serialVersionUID = 1L;
 
@@ -14,31 +12,24 @@ public class TagElement extends ASTNode
 
 	String tagName;
 
-	ASTNode fragments;
+	ASTNode[] fragments;
 	Boolean fragmentsIsComposed = true;
 
 	public TagElement() {
 	}
 
-	public TagElement(
-				String id,				
-				String tagName
-				,
-				Comment comments,				CompilationUnit originalCompilationUnit,				ClassFile originalClassFile,				ASTNode fragments ){
-				
-				super(				
-				comments
-				,				originalCompilationUnit
-				,				originalClassFile
-);
-				
-				this.id = id;
-				
-				
-				this.tagName = tagName ;
-				
-				this.fragments = fragments ;
-			}
+	public TagElement(String id, String tagName, Comment[] comments,
+			CompilationUnit originalCompilationUnit,
+			ClassFile originalClassFile, ASTNode[] fragments) {
+
+		super(comments, originalCompilationUnit, originalClassFile);
+
+		this.id = id;
+
+		this.tagName = tagName;
+
+		this.fragments = fragments;
+	}
 
 	public String getId() {
 		return id;
@@ -64,11 +55,11 @@ public class TagElement extends ASTNode
 		return tagName;
 	}
 
-	public void setFragments(ASTNode fragments) {
+	public void setFragments(ASTNode[] fragments) {
 		this.fragments = fragments;
 	}
 
-	public ASTNode getFragments() {
+	public ASTNode[] getFragments() {
 		return fragments;
 	}
 

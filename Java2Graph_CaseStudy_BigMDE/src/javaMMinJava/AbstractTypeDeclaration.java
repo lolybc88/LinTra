@@ -9,22 +9,22 @@ public abstract class AbstractTypeDeclaration extends BodyDeclaration implements
 
 	private static final long serialVersionUID = 1L;
 
-	BodyDeclaration bodyDeclarations;
+	BodyDeclaration[] bodyDeclarations;
 	Boolean bodyDeclarationsIsComposed = true;
 
-	Comment commentsBeforeBody;
+	Comment[] commentsBeforeBody;
 	Boolean commentsBeforeBodyIsComposed = true;
 
-	Comment commentsAfterBody;
+	Comment[] commentsAfterBody;
 	Boolean commentsAfterBodyIsComposed = true;
 
 	Package package_;
 	Boolean packageIsComposed = false;
 
-	TypeAccess superInterfaces;
+	TypeAccess[] superInterfaces;
 	Boolean superInterfacesIsComposed = true;
 	
-	TypeAccess usagesInTypeAccess;
+	TypeAccess[] usagesInTypeAccess;
 	Boolean usagesInTypeAccessIsComposed = false;
 
 
@@ -33,16 +33,16 @@ public abstract class AbstractTypeDeclaration extends BodyDeclaration implements
 
 	public AbstractTypeDeclaration(
 
-	String name, Boolean proxy, Comment comments,
+	String name, Boolean proxy, Comment[] comments,
 			CompilationUnit originalCompilationUnit,
-			ClassFile originalClassFile, ImportDeclaration usagesInImports,
+			ClassFile originalClassFile, ImportDeclaration[] usagesInImports,
 			AbstractTypeDeclaration abstractTypeDeclaration,
-			Annotation annotations,
+			Annotation[] annotations,
 			AnonymousClassDeclaration anonymousClassDeclarationOwner,
-			Modifier modifier, TypeAccess usagesInTypeAccess,
-			BodyDeclaration bodyDeclarations, Comment commentsBeforeBody,
-			Comment commentsAfterBody, Package package_,
-			TypeAccess superInterfaces) {
+			Modifier modifier, TypeAccess[] usagesInTypeAccess,
+			BodyDeclaration[] bodyDeclarations, Comment[] commentsBeforeBody,
+			Comment[] commentsAfterBody, Package package_,
+			TypeAccess[] superInterfaces) {
 
 		super(name, proxy, comments, originalCompilationUnit,
 				originalClassFile, usagesInImports, abstractTypeDeclaration,
@@ -56,27 +56,27 @@ public abstract class AbstractTypeDeclaration extends BodyDeclaration implements
 		this.usagesInTypeAccess = usagesInTypeAccess;
 	}
 
-	public void setBodyDeclarations(BodyDeclaration bodyDeclarations) {
+	public void setBodyDeclarations(BodyDeclaration[] bodyDeclarations) {
 		this.bodyDeclarations = bodyDeclarations;
 	}
 
-	public BodyDeclaration getBodyDeclarations() {
+	public BodyDeclaration[] getBodyDeclarations() {
 		return bodyDeclarations;
 	}
 
-	public void setCommentsBeforeBody(Comment commentsBeforeBody) {
+	public void setCommentsBeforeBody(Comment[] commentsBeforeBody) {
 		this.commentsBeforeBody = commentsBeforeBody;
 	}
 
-	public Comment getCommentsBeforeBody() {
+	public Comment[] getCommentsBeforeBody() {
 		return commentsBeforeBody;
 	}
 
-	public void setCommentsAfterBody(Comment commentsAfterBody) {
+	public void setCommentsAfterBody(Comment[] commentsAfterBody) {
 		this.commentsAfterBody = commentsAfterBody;
 	}
 
-	public Comment getCommentsAfterBody() {
+	public Comment[] getCommentsAfterBody() {
 		return commentsAfterBody;
 	}
 
@@ -88,19 +88,19 @@ public abstract class AbstractTypeDeclaration extends BodyDeclaration implements
 		return package_;
 	}
 
-	public void setSuperInterfaces(TypeAccess superInterfaces) {
+	public void setSuperInterfaces(TypeAccess[] superInterfaces) {
 		this.superInterfaces = superInterfaces;
 	}
 
-	public TypeAccess getSuperInterfaces() {
+	public TypeAccess[] getSuperInterfaces() {
 		return superInterfaces;
 	}
 	
-	public void setUsagesInTypeAccess(TypeAccess usagesInTypeAccess) {
+	public void setUsagesInTypeAccess(TypeAccess[] usagesInTypeAccess) {
 		this.usagesInTypeAccess = usagesInTypeAccess;
 	}
 
-	public TypeAccess getUsagesInTypeAccess() {
+	public TypeAccess[] getUsagesInTypeAccess() {
 		return usagesInTypeAccess;
 	}
 

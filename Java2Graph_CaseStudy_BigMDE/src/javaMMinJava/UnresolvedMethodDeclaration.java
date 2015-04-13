@@ -16,18 +16,18 @@ public class UnresolvedMethodDeclaration extends MethodDeclaration
 	}
 
 	public UnresolvedMethodDeclaration(String id, String name, Boolean proxy,
-			int extraArrayDimensions, Comment comments,
+			int extraArrayDimensions, Comment[] comments,
 			CompilationUnit originalCompilationUnit,
-			ClassFile originalClassFile, ImportDeclaration usagesInImports,
+			ClassFile originalClassFile, ImportDeclaration[] usagesInImports,
 			AbstractTypeDeclaration abstractTypeDeclaration,
-			Annotation annotations,
+			Annotation[] annotations,
 			AnonymousClassDeclaration anonymousClassDeclarationOwner,
 			Modifier modifier, Block body,
-			SingleVariableDeclaration parameters, TypeAccess thrownExceptions,
-			TypeParameter typeParameters, MethodRef usagesInDocComments,
-			AbstractMethodInvocation usages, TypeAccess returnType,
+			SingleVariableDeclaration[] parameters, TypeAccess[] thrownExceptions,
+			TypeParameter[] typeParameters, MethodRef[] usagesInDocComments,
+			AbstractMethodInvocation[] usages, TypeAccess returnType,
 			MethodDeclaration redefinedMethodDeclaration,
-			MethodDeclaration redefinitions) {
+			MethodDeclaration[] redefinitions) {
 
 		super(id,name, proxy, extraArrayDimensions, comments,
 				originalCompilationUnit, originalClassFile, usagesInImports,

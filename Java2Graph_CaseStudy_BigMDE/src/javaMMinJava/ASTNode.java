@@ -13,7 +13,7 @@
 			
 			
 			
-			Comment comments; Boolean commentsIsComposed = true;
+			Comment[] comments; Boolean commentsIsComposed = true;
 			
 			CompilationUnit originalCompilationUnit; Boolean originalCompilationUnitIsComposed = false;
 			
@@ -26,7 +26,7 @@
 			public ASTNode(
 				
 				
-				Comment comments,				CompilationUnit originalCompilationUnit,				ClassFile originalClassFile ){
+				Comment[] comments,				CompilationUnit originalCompilationUnit,				ClassFile originalClassFile ){
 				
 				super(				);
 				
@@ -45,11 +45,11 @@
 			
 			
 			
-			public void setComments(Comment comments) {
+			public void setComments(Comment[] comments) {
 				this.comments = comments;
 			}
 				
-			public Comment getComments() {
+			public Comment[] getComments() {
 				return comments;
 			}
 			

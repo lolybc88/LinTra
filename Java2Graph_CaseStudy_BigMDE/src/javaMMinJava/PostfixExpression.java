@@ -24,7 +24,7 @@ public class PostfixExpression extends Expression
 				String id,				
 				String operator
 				,
-				Comment comments,				CompilationUnit originalCompilationUnit,				ClassFile originalClassFile,				Expression operand ){
+				Comment[] comments,				CompilationUnit originalCompilationUnit,				ClassFile originalClassFile,				Expression operand ){
 				
 				super(				
 				comments

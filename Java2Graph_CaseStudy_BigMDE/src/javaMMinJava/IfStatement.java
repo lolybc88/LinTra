@@ -26,7 +26,7 @@
 			public IfStatement(
 				String id,				
 				
-				Comment comments,				CompilationUnit originalCompilationUnit,				ClassFile originalClassFile,				Expression expression,				Statement thenStatement,				Statement elseStatement ){
+				Comment[] comments,				CompilationUnit originalCompilationUnit,				ClassFile originalClassFile,				Expression expression,				Statement thenStatement,				Statement elseStatement ){
 				
 				super(				
 				comments

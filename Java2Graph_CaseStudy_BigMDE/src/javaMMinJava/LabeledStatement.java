@@ -15,20 +15,20 @@ public class LabeledStatement extends NamedElement
 	Statement body;
 	Boolean bodyIsComposed = true;
 
-	BreakStatement usagesInBreakStatements;
+	BreakStatement[] usagesInBreakStatements;
 	Boolean usagesInBreakStatementsIsComposed = false;
 
-	ContinueStatement usagesInContinueStatements;
+	ContinueStatement[] usagesInContinueStatements;
 	Boolean usagesInContinueStatementsIsComposed = false;
 
 	public LabeledStatement() {
 	}
 
 	public LabeledStatement(String id, String name, Boolean proxy,
-			Comment comments, CompilationUnit originalCompilationUnit,
-			ClassFile originalClassFile, ImportDeclaration usagesInImports,
-			Statement body, BreakStatement usagesInBreakStatements,
-			ContinueStatement usagesInContinueStatements) {
+			Comment[] comments, CompilationUnit originalCompilationUnit,
+			ClassFile originalClassFile, ImportDeclaration[] usagesInImports,
+			Statement body, BreakStatement[] usagesInBreakStatements,
+			ContinueStatement[] usagesInContinueStatements) {
 
 		super(name, proxy, comments, originalCompilationUnit,
 				originalClassFile, usagesInImports);
@@ -65,20 +65,20 @@ public class LabeledStatement extends NamedElement
 	}
 
 	public void setUsagesInBreakStatements(
-			BreakStatement usagesInBreakStatements) {
+			BreakStatement[] usagesInBreakStatements) {
 		this.usagesInBreakStatements = usagesInBreakStatements;
 	}
 
-	public BreakStatement getUsagesInBreakStatements() {
+	public BreakStatement[] getUsagesInBreakStatements() {
 		return usagesInBreakStatements;
 	}
 
 	public void setUsagesInContinueStatements(
-			ContinueStatement usagesInContinueStatements) {
+			ContinueStatement[] usagesInContinueStatements) {
 		this.usagesInContinueStatements = usagesInContinueStatements;
 	}
 
-	public ContinueStatement getUsagesInContinueStatements() {
+	public ContinueStatement[] getUsagesInContinueStatements() {
 		return usagesInContinueStatements;
 	}
 

@@ -24,7 +24,7 @@
 			public InstanceofExpression(
 				String id,				
 				
-				Comment comments,				CompilationUnit originalCompilationUnit,				ClassFile originalClassFile,				TypeAccess rightOperand,				Expression leftOperand ){
+				Comment[] comments,				CompilationUnit originalCompilationUnit,				ClassFile originalClassFile,				TypeAccess rightOperand,				Expression leftOperand ){
 				
 				super(				
 				comments

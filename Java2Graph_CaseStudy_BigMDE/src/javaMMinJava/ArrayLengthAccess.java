@@ -18,7 +18,7 @@ public class ArrayLengthAccess extends Expression implements Serializable,
 
 	public ArrayLengthAccess(String id,
 
-	Comment comments, CompilationUnit originalCompilationUnit,
+	Comment[] comments, CompilationUnit originalCompilationUnit,
 			ClassFile originalClassFile, Expression array) {
 
 		super(comments, originalCompilationUnit, originalClassFile);

@@ -3,10 +3,8 @@ package javaMMinJava;
 import blackboard.IdentifiableElement;
 import java.io.Serializable;
 
-public class StringLiteral extends Expression
-		implements
-			Serializable,
-			IdentifiableElement {
+public class StringLiteral extends Expression implements Serializable,
+		IdentifiableElement {
 
 	private static final long serialVersionUID = 1L;
 
@@ -17,24 +15,16 @@ public class StringLiteral extends Expression
 	public StringLiteral() {
 	}
 
-	public StringLiteral(
-				String id,				
-				String escapedValue
-				,
-				Comment comments,				CompilationUnit originalCompilationUnit,				ClassFile originalClassFile ){
-				
-				super(				
-				comments
-				,				originalCompilationUnit
-				,				originalClassFile
-);
-				
-				this.id = id;
-				
-				
-				this.escapedValue = escapedValue ;
-				
-			}
+	public StringLiteral(String id, String escapedValue, Comment[] comments,
+			CompilationUnit originalCompilationUnit, ClassFile originalClassFile) {
+
+		super(comments, originalCompilationUnit, originalClassFile);
+
+		this.id = id;
+
+		this.escapedValue = escapedValue;
+
+	}
 
 	public String getId() {
 		return id;

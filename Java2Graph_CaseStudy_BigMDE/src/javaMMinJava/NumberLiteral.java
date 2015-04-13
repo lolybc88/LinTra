@@ -21,7 +21,7 @@ public class NumberLiteral extends Expression
 				String id,				
 				String tokenValue
 				,
-				Comment comments,				CompilationUnit originalCompilationUnit,				ClassFile originalClassFile ){
+				Comment[] comments,				CompilationUnit originalCompilationUnit,				ClassFile originalClassFile ){
 				
 				super(				
 				comments

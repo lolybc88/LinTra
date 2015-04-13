@@ -26,7 +26,7 @@
 			public EnhancedForStatement(
 				String id,				
 				
-				Comment comments,				CompilationUnit originalCompilationUnit,				ClassFile originalClassFile,				Statement body,				Expression expression,				SingleVariableDeclaration parameter ){
+				Comment[] comments,				CompilationUnit originalCompilationUnit,				ClassFile originalClassFile,				Statement body,				Expression expression,				SingleVariableDeclaration parameter ){
 				
 				super(				
 				comments

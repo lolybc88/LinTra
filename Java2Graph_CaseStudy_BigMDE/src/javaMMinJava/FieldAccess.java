@@ -24,7 +24,7 @@
 			public FieldAccess(
 				String id,				
 				
-				Comment comments,				CompilationUnit originalCompilationUnit,				ClassFile originalClassFile,				SingleVariableAccess field,				Expression expression ){
+				Comment[] comments,				CompilationUnit originalCompilationUnit,				ClassFile originalClassFile,				SingleVariableAccess field,				Expression expression ){
 				
 				super(				
 				comments

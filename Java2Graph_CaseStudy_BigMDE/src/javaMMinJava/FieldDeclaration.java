@@ -16,20 +16,20 @@ public class FieldDeclaration extends BodyDeclaration
 	TypeAccess type;
 	Boolean typeIsComposed = true;
 
-	VariableDeclarationFragment fragments;
+	VariableDeclarationFragment[] fragments;
 	Boolean fragmentsIsComposed = true;
 
 	public FieldDeclaration() {
 	}
 
 	public FieldDeclaration(String id, String name, Boolean proxy,
-			Comment comments, CompilationUnit originalCompilationUnit,
-			ClassFile originalClassFile, ImportDeclaration usagesInImports,
+			Comment[] comments, CompilationUnit originalCompilationUnit,
+			ClassFile originalClassFile, ImportDeclaration[] usagesInImports,
 			AbstractTypeDeclaration abstractTypeDeclaration,
-			Annotation annotations,
+			Annotation[] annotations,
 			AnonymousClassDeclaration anonymousClassDeclarationOwner,
 			Modifier modifier, TypeAccess type,
-			VariableDeclarationFragment fragments) {
+			VariableDeclarationFragment[] fragments) {
 
 		super(name, proxy, comments, originalCompilationUnit,
 				originalClassFile, usagesInImports, abstractTypeDeclaration,
@@ -66,11 +66,11 @@ public class FieldDeclaration extends BodyDeclaration
 		return type;
 	}
 
-	public void setFragments(VariableDeclarationFragment fragments) {
+	public void setFragments(VariableDeclarationFragment[] fragments) {
 		this.fragments = fragments;
 	}
 
-	public VariableDeclarationFragment getFragments() {
+	public VariableDeclarationFragment[] getFragments() {
 		return fragments;
 	}
 

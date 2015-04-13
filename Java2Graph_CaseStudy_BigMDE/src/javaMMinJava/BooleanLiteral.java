@@ -15,7 +15,7 @@ public class BooleanLiteral extends Expression implements Serializable,
 	public BooleanLiteral() {
 	}
 
-	public BooleanLiteral(String id, Boolean value, Comment comments,
+	public BooleanLiteral(String id, Boolean value, Comment[] comments,
 			CompilationUnit originalCompilationUnit, ClassFile originalClassFile) {
 
 		super(comments, originalCompilationUnit, originalClassFile);

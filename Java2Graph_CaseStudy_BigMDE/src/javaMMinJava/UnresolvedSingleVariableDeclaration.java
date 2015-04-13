@@ -19,10 +19,10 @@ public class UnresolvedSingleVariableDeclaration
 
 	public UnresolvedSingleVariableDeclaration(String id, String name,
 			Boolean proxy, int extraArrayDimensions, Boolean varargs,
-			Comment comments, CompilationUnit originalCompilationUnit,
-			ClassFile originalClassFile, ImportDeclaration usagesInImports,
-			Expression initializer, SingleVariableAccess usageInVariableAccess,
-			Modifier modifier, TypeAccess type, Annotation annotations,
+			Comment[] comments, CompilationUnit originalCompilationUnit,
+			ClassFile originalClassFile, ImportDeclaration[] usagesInImports,
+			Expression initializer, SingleVariableAccess[] usageInVariableAccess,
+			Modifier modifier, TypeAccess type, Annotation[] annotations,
 			AbstractMethodDeclaration methodDeclaration,
 			CatchClause catchClause, EnhancedForStatement enhancedForStatement) {
 

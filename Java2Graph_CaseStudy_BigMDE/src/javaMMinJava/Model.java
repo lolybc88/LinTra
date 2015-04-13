@@ -11,31 +11,31 @@ public class Model implements Serializable, IdentifiableElement {
 
 	String name;
 
-	Package ownedElements;
+	Package[] ownedElements;
 	Boolean ownedElementsIsComposed = true;
 
-	Type orphanTypes;
+	Type[] orphanTypes;
 	Boolean orphanTypesIsComposed = true;
 
-	UnresolvedItem unresolvedItems;
+	UnresolvedItem[] unresolvedItems;
 	Boolean unresolvedItemsIsComposed = true;
 
-	CompilationUnit compilationUnits;
+	CompilationUnit[] compilationUnits;
 	Boolean compilationUnitsIsComposed = true;
 
-	ClassFile classFiles;
+	ClassFile[] classFiles;
 	Boolean classFilesIsComposed = true;
 
-	Archive archives;
+	Archive[] archives;
 	Boolean archivesIsComposed = true;
 
 	public Model() {
 	}
 
-	public Model(String id, String name, Package ownedElements,
-			Type orphanTypes, UnresolvedItem unresolvedItems,
-			CompilationUnit compilationUnits, ClassFile classFiles,
-			Archive archives) {
+	public Model(String id, String name, Package[] ownedElements,
+			Type[] orphanTypes, UnresolvedItem[] unresolvedItems,
+			CompilationUnit[] compilationUnits, ClassFile[] classFiles,
+			Archive[] archives) {
 
 		super();
 
@@ -75,51 +75,51 @@ public class Model implements Serializable, IdentifiableElement {
 		return name;
 	}
 
-	public void setOwnedElements(Package ownedElements) {
+	public void setOwnedElements(Package[] ownedElements) {
 		this.ownedElements = ownedElements;
 	}
 
-	public Package getOwnedElements() {
+	public Package[] getOwnedElements() {
 		return ownedElements;
 	}
 
-	public void setOrphanTypes(Type orphanTypes) {
+	public void setOrphanTypes(Type[] orphanTypes) {
 		this.orphanTypes = orphanTypes;
 	}
 
-	public Type getOrphanTypes() {
+	public Type[] getOrphanTypes() {
 		return orphanTypes;
 	}
 
-	public void setUnresolvedItems(UnresolvedItem unresolvedItems) {
+	public void setUnresolvedItems(UnresolvedItem[] unresolvedItems) {
 		this.unresolvedItems = unresolvedItems;
 	}
 
-	public UnresolvedItem getUnresolvedItems() {
+	public UnresolvedItem[] getUnresolvedItems() {
 		return unresolvedItems;
 	}
 
-	public void setCompilationUnits(CompilationUnit compilationUnits) {
+	public void setCompilationUnits(CompilationUnit[] compilationUnits) {
 		this.compilationUnits = compilationUnits;
 	}
 
-	public CompilationUnit getCompilationUnits() {
+	public CompilationUnit[] getCompilationUnits() {
 		return compilationUnits;
 	}
 
-	public void setClassFiles(ClassFile classFiles) {
+	public void setClassFiles(ClassFile[] classFiles) {
 		this.classFiles = classFiles;
 	}
 
-	public ClassFile getClassFiles() {
+	public ClassFile[] getClassFiles() {
 		return classFiles;
 	}
 
-	public void setArchives(Archive archives) {
+	public void setArchives(Archive[] archives) {
 		this.archives = archives;
 	}
 
-	public Archive getArchives() {
+	public Archive[] getArchives() {
 		return archives;
 	}
 

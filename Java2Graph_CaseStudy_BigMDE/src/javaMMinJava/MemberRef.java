@@ -24,7 +24,7 @@
 			public MemberRef(
 				String id,				
 				
-				Comment comments,				CompilationUnit originalCompilationUnit,				ClassFile originalClassFile,				NamedElement member,				TypeAccess qualifier ){
+				Comment[] comments,				CompilationUnit originalCompilationUnit,				ClassFile originalClassFile,				NamedElement member,				TypeAccess qualifier ){
 				
 				super(				
 				comments

@@ -12,16 +12,16 @@ public class TypeParameter extends Type
 
 	String id, trgId;
 
-	TypeAccess bounds;
+	TypeAccess[] bounds;
 	Boolean boundsIsComposed = true;
 
 	public TypeParameter() {
 	}
 
 	public TypeParameter(String id, String name, Boolean proxy,
-			Comment comments, CompilationUnit originalCompilationUnit,
-			ClassFile originalClassFile, ImportDeclaration usagesInImports,
-			TypeAccess usagesInTypeAccess, TypeAccess bounds) {
+			Comment[] comments, CompilationUnit originalCompilationUnit,
+			ClassFile originalClassFile, ImportDeclaration[] usagesInImports,
+			TypeAccess[] usagesInTypeAccess, TypeAccess[] bounds) {
 
 		super(name, proxy, comments, originalCompilationUnit,
 				originalClassFile, usagesInImports, usagesInTypeAccess);
@@ -47,11 +47,11 @@ public class TypeParameter extends Type
 		this.trgId = trgId;
 	}
 
-	public void setBounds(TypeAccess bounds) {
+	public void setBounds(TypeAccess[] bounds) {
 		this.bounds = bounds;
 	}
 
-	public TypeAccess getBounds() {
+	public TypeAccess[] getBounds() {
 		return bounds;
 	}
 

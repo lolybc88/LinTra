@@ -16,8 +16,8 @@ public class UnresolvedItem extends NamedElement
 	}
 
 	public UnresolvedItem(String id, String name, Boolean proxy,
-			Comment comments, CompilationUnit originalCompilationUnit,
-			ClassFile originalClassFile, ImportDeclaration usagesInImports) {
+			Comment[] comments, CompilationUnit originalCompilationUnit,
+			ClassFile originalClassFile, ImportDeclaration[] usagesInImports) {
 
 		super(name, proxy, comments, originalCompilationUnit,
 				originalClassFile, usagesInImports);

@@ -21,7 +21,7 @@ public class CastExpression extends Expression implements Serializable,
 
 	public CastExpression(String id,
 
-	Comment comments, CompilationUnit originalCompilationUnit,
+	Comment[] comments, CompilationUnit originalCompilationUnit,
 			ClassFile originalClassFile, Expression expression, TypeAccess type) {
 
 		super(comments, originalCompilationUnit, originalClassFile);

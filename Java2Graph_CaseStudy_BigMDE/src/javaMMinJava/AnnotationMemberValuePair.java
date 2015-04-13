@@ -22,8 +22,8 @@ public class AnnotationMemberValuePair extends NamedElement
 	}
 
 	public AnnotationMemberValuePair(String id, String name, Boolean proxy,
-			Comment comments, CompilationUnit originalCompilationUnit,
-			ClassFile originalClassFile, ImportDeclaration usagesInImports,
+			Comment[] comments, CompilationUnit originalCompilationUnit,
+			ClassFile originalClassFile, ImportDeclaration[] usagesInImports,
 			AnnotationTypeMemberDeclaration member, Expression value) {
 
 		super(name, proxy, comments, originalCompilationUnit,

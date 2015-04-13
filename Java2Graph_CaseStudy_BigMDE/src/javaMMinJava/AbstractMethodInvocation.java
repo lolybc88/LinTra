@@ -22,7 +22,7 @@ public abstract class AbstractMethodInvocation extends ASTNode implements
 
 	public AbstractMethodInvocation(
 
-	Comment comments, CompilationUnit originalCompilationUnit,
+	Comment[] comments, CompilationUnit originalCompilationUnit,
 			ClassFile originalClassFile, AbstractMethodDeclaration method,
 			Expression arguments, TypeAccess typeArguments) {
 

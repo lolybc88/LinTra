@@ -22,7 +22,7 @@
 			public ContinueStatement(
 				String id,				
 				
-				Comment comments,				CompilationUnit originalCompilationUnit,				ClassFile originalClassFile,				LabeledStatement label ){
+				Comment[] comments,				CompilationUnit originalCompilationUnit,				ClassFile originalClassFile,				LabeledStatement label ){
 				
 				super(				
 				comments

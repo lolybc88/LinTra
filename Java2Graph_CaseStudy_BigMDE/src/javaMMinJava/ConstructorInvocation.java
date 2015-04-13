@@ -14,10 +14,10 @@ import java.io.Serializable;
 			AbstractMethodDeclaration method;
 			Boolean methodIsComposed = false;
 
-			Expression arguments;
+			Expression[] arguments;
 			Boolean argumentsIsComposed = true;
 
-			TypeAccess typeArguments;
+			TypeAccess[] typeArguments;
 			Boolean typeArgumentsIsComposed = true;
 			
 			
@@ -26,14 +26,13 @@ import java.io.Serializable;
 			
 			
 			public ConstructorInvocation(
-				String id,				
-				
-				Comment comments,				CompilationUnit originalCompilationUnit,				ClassFile originalClassFile,				AbstractMethodDeclaration method,				Expression arguments,				TypeAccess typeArguments ){
-				
-				super(				
-				comments
-				,				originalCompilationUnit
-				,				originalClassFile);
+String id,
+
+	Comment[] comments, CompilationUnit originalCompilationUnit,
+			ClassFile originalClassFile, AbstractMethodDeclaration method,
+			Expression[] arguments, TypeAccess[] typeArguments) {
+
+		super(comments, originalCompilationUnit,			originalClassFile);
 				
 				this.id = id;
 				this.method = method;
@@ -70,19 +69,19 @@ import java.io.Serializable;
 				return method;
 			}
 
-			public void setArguments(Expression arguments) {
+			public void setArguments(Expression[] arguments) {
 				this.arguments = arguments;
 			}
 
-			public Expression getArguments() {
+			public Expression[] getArguments() {
 				return arguments;
 			}
 
-			public void setTypeArguments(TypeAccess typeArguments) {
+			public void setTypeArguments(TypeAccess[] typeArguments) {
 				this.typeArguments = typeArguments;
 			}
 
-			public TypeAccess getTypeArguments() {
+			public TypeAccess[] getTypeArguments() {
 				return typeArguments;
 			}
 			

@@ -24,7 +24,7 @@
 			public DoStatement(
 				String id,				
 				
-				Comment comments,				CompilationUnit originalCompilationUnit,				ClassFile originalClassFile,				Expression expression,				Statement body ){
+				Comment[] comments,				CompilationUnit originalCompilationUnit,				ClassFile originalClassFile,				Expression expression,				Statement body ){
 				
 				super(				
 				comments

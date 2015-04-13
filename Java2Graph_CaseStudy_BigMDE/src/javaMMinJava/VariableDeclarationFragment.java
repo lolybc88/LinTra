@@ -19,10 +19,10 @@ public class VariableDeclarationFragment extends VariableDeclaration
 	}
 
 	public VariableDeclarationFragment(String id, String name, Boolean proxy,
-			int extraArrayDimensions, Comment comments,
+			int extraArrayDimensions, Comment[] comments,
 			CompilationUnit originalCompilationUnit,
-			ClassFile originalClassFile, ImportDeclaration usagesInImports,
-			Expression initializer, SingleVariableAccess usageInVariableAccess,
+			ClassFile originalClassFile, ImportDeclaration[] usagesInImports,
+			Expression initializer, SingleVariableAccess[] usageInVariableAccess,
 			AbstractVariablesContainer variablesContainer) {
 
 		super(name, proxy, extraArrayDimensions, comments,

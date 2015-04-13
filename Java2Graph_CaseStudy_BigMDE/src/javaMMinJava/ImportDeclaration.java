@@ -24,7 +24,7 @@
 				String id,				
 				Boolean static_,
 				
-				Comment comments,				CompilationUnit originalCompilationUnit,				ClassFile originalClassFile,				NamedElement importedElement ){
+				Comment[] comments,				CompilationUnit originalCompilationUnit,				ClassFile originalClassFile,				NamedElement importedElement ){
 				
 				super(				
 				comments

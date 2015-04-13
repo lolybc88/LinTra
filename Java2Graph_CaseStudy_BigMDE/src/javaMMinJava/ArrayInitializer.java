@@ -10,7 +10,7 @@ public class ArrayInitializer extends Expression implements Serializable,
 
 	String id, trgId;
 
-	Expression expressions;
+	Expression[] expressions;
 	Boolean expressionsIsComposed = true;
 
 	public ArrayInitializer() {
@@ -18,8 +18,8 @@ public class ArrayInitializer extends Expression implements Serializable,
 
 	public ArrayInitializer(String id,
 
-	Comment comments, CompilationUnit originalCompilationUnit,
-			ClassFile originalClassFile, Expression expressions) {
+	Comment[] comments, CompilationUnit originalCompilationUnit,
+			ClassFile originalClassFile, Expression[] expressions) {
 
 		super(comments, originalCompilationUnit, originalClassFile);
 
@@ -44,11 +44,11 @@ public class ArrayInitializer extends Expression implements Serializable,
 		this.trgId = trgId;
 	}
 
-	public void setExpressions(Expression expressions) {
+	public void setExpressions(Expression[] expressions) {
 		this.expressions = expressions;
 	}
 
-	public Expression getExpressions() {
+	public Expression[] getExpressions() {
 		return expressions;
 	}
 

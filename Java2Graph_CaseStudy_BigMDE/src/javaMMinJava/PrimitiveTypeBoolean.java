@@ -16,9 +16,9 @@ public class PrimitiveTypeBoolean extends PrimitiveType
 	}
 
 	public PrimitiveTypeBoolean(String id, String name, Boolean proxy,
-			Comment comments, CompilationUnit originalCompilationUnit,
-			ClassFile originalClassFile, ImportDeclaration usagesInImports,
-			TypeAccess usagesInTypeAccess) {
+			Comment[] comments, CompilationUnit originalCompilationUnit,
+			ClassFile originalClassFile, ImportDeclaration[] usagesInImports,
+			TypeAccess[] usagesInTypeAccess) {
 
 		super(id, name, proxy, comments, originalCompilationUnit,
 				originalClassFile, usagesInImports, usagesInTypeAccess);

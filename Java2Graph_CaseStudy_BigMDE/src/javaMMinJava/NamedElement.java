@@ -13,23 +13,19 @@ public abstract class NamedElement extends ASTNode
 	String name;
 	Boolean proxy;
 
-	ImportDeclaration usagesInImports;
+	ImportDeclaration[] usagesInImports;
 	Boolean usagesInImportsIsComposed = false;
 
 	public NamedElement() {
 	}
 
 	public NamedElement(
-				
-				String name,				Boolean proxy
-				,
-				Comment comments,				CompilationUnit originalCompilationUnit,				ClassFile originalClassFile,				ImportDeclaration usagesInImports ){
-				
-				super(				
-				comments
-				,				originalCompilationUnit
-				,				originalClassFile
-);
+
+	String name, Boolean proxy, Comment[] comments,
+			CompilationUnit originalCompilationUnit,
+			ClassFile originalClassFile, ImportDeclaration[] usagesInImports) {
+
+		super(comments, originalCompilationUnit, originalClassFile);
 				
 				
 				
@@ -56,11 +52,11 @@ public abstract class NamedElement extends ASTNode
 		return proxy;
 	}
 
-	public void setUsagesInImports(ImportDeclaration usagesInImports) {
+	public void setUsagesInImports(ImportDeclaration[] usagesInImports) {
 		this.usagesInImports = usagesInImports;
 	}
 
-	public ImportDeclaration getUsagesInImports() {
+	public ImportDeclaration[] getUsagesInImports() {
 		return usagesInImports;
 	}
 

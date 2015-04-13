@@ -18,7 +18,7 @@ public abstract class Comment extends ASTNode implements Serializable,
 	public Comment(
 
 	String content, Boolean enclosedByParent, Boolean prefixOfParent,
-			Comment comments, CompilationUnit originalCompilationUnit,
+			Comment[] comments, CompilationUnit originalCompilationUnit,
 			ClassFile originalClassFile) {
 
 		super(comments, originalCompilationUnit, originalClassFile);

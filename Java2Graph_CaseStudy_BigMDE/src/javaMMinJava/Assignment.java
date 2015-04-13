@@ -1,7 +1,9 @@
 package javaMMinJava;
 
 import blackboard.IdentifiableElement;
+
 import java.io.Serializable;
+import javaMM.AssignmentKind;
 
 public class Assignment extends Expression implements Serializable,
 		IdentifiableElement {
@@ -21,7 +23,7 @@ public class Assignment extends Expression implements Serializable,
 	public Assignment() {
 	}
 
-	public Assignment(String id, String operator, Comment comments,
+	public Assignment(String id, String operator, Comment[] comments,
 			CompilationUnit originalCompilationUnit,
 			ClassFile originalClassFile, Expression leftHandSide,
 			Expression rightHandSide) {

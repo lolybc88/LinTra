@@ -21,7 +21,7 @@ public class CatchClause extends Statement implements Serializable,
 
 	public CatchClause(String id,
 
-	Comment comments, CompilationUnit originalCompilationUnit,
+	Comment[] comments, CompilationUnit originalCompilationUnit,
 			ClassFile originalClassFile, SingleVariableDeclaration exception,
 			Block body) {
 

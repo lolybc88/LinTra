@@ -11,13 +11,13 @@ public class ManifestEntry implements Serializable, IdentifiableElement {
 
 	String name;
 
-	ManifestAttribute attributes;
+	ManifestAttribute[] attributes;
 	Boolean attributesIsComposed = true;
 
 	public ManifestEntry() {
 	}
 
-	public ManifestEntry(String id, String name, ManifestAttribute attributes) {
+	public ManifestEntry(String id, String name, ManifestAttribute[] attributes) {
 
 		super();
 
@@ -52,11 +52,11 @@ public class ManifestEntry implements Serializable, IdentifiableElement {
 		return name;
 	}
 
-	public void setAttributes(ManifestAttribute attributes) {
+	public void setAttributes(ManifestAttribute[] attributes) {
 		this.attributes = attributes;
 	}
 
-	public ManifestAttribute getAttributes() {
+	public ManifestAttribute[] getAttributes() {
 		return attributes;
 	}
 

@@ -21,10 +21,10 @@ public class WildCardType extends Type
 	}
 
 	public WildCardType(String id, String name, Boolean proxy,
-			Boolean upperBound, Comment comments,
+			Boolean upperBound, Comment[] comments,
 			CompilationUnit originalCompilationUnit,
-			ClassFile originalClassFile, ImportDeclaration usagesInImports,
-			TypeAccess usagesInTypeAccess, TypeAccess bound) {
+			ClassFile originalClassFile, ImportDeclaration[] usagesInImports,
+			TypeAccess[] usagesInTypeAccess, TypeAccess bound) {
 
 		super(name, proxy, comments, originalCompilationUnit,
 				originalClassFile, usagesInImports, usagesInTypeAccess);

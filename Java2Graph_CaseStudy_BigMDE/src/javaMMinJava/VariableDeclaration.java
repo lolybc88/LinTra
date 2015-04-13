@@ -15,7 +15,7 @@ public abstract class VariableDeclaration extends NamedElement
 	Expression initializer;
 	Boolean initializerIsComposed = true;
 
-	SingleVariableAccess usageInVariableAccess;
+	SingleVariableAccess[] usageInVariableAccess;
 	Boolean usageInVariableAccessIsComposed = false;
 
 	public VariableDeclaration() {
@@ -23,10 +23,10 @@ public abstract class VariableDeclaration extends NamedElement
 
 	public VariableDeclaration(
 
-	String name, Boolean proxy, int extraArrayDimensions, Comment comments,
+	String name, Boolean proxy, int extraArrayDimensions, Comment[] comments,
 			CompilationUnit originalCompilationUnit,
-			ClassFile originalClassFile, ImportDeclaration usagesInImports,
-			Expression initializer, SingleVariableAccess usageInVariableAccess) {
+			ClassFile originalClassFile, ImportDeclaration[] usagesInImports,
+			Expression initializer, SingleVariableAccess[] usageInVariableAccess) {
 
 		super(name, proxy, comments, originalCompilationUnit,
 				originalClassFile, usagesInImports);
@@ -54,11 +54,11 @@ public abstract class VariableDeclaration extends NamedElement
 	}
 
 	public void setUsageInVariableAccess(
-			SingleVariableAccess usageInVariableAccess) {
+			SingleVariableAccess[] usageInVariableAccess) {
 		this.usageInVariableAccess = usageInVariableAccess;
 	}
 
-	public SingleVariableAccess getUsageInVariableAccess() {
+	public SingleVariableAccess[] getUsageInVariableAccess() {
 		return usageInVariableAccess;
 	}
 

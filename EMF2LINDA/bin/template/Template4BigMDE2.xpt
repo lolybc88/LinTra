@@ -1,0 +1,22 @@
+«IMPORT ecore»
+
+«EXTENSION template::GeneratorExtensions»
+
+«DEFINE main FOR EPackage»
+«FILE "myfile.aux"»
+«EXPAND javaClass FOREACH this.eClassifiers.typeSelect(EClass)»
+«ENDFILE»
+«ENDDEFINE»
+
+«DEFINE javaClass FOR EClass»
+		«IF !this.abstract»
+			if (elem instanceof javaMM.«name») {
+				javaMM.«name» e = (javaMM.«name») elem;
+				return new javaMMinJava.«name»(map.get(e),
+			«FOREACH this.eAllStructuralFeatures.typeSelect(EAttribute) AS f SEPARATOR ','-»(javaMMinJava.«f.type()»«IF f.many»[]«ENDIF»)transformEMF2Java(e.«f.getter()»(),map)«ENDFOREACH»
+			«IF this.eAllStructuralFeatures.typeSelect(EReference).size>0»,
+			«FOREACH this.eAllStructuralFeatures.typeSelect(EReference) AS f SEPARATOR ','-»(javaMMinJava.«f.eReferenceType.name»«IF f.many»[]«ENDIF»)transformEMF2Java(e.«f.getter()»(),map)«ENDFOREACH»
+			«ENDIF»);
+			}		
+		«ENDIF»
+«ENDDEFINE»

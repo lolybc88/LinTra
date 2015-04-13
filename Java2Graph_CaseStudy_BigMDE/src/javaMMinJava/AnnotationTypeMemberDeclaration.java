@@ -1,6 +1,7 @@
 package javaMMinJava;
 
 import blackboard.IdentifiableElement;
+
 import java.io.Serializable;
 
 public class AnnotationTypeMemberDeclaration extends BodyDeclaration implements
@@ -16,21 +17,21 @@ public class AnnotationTypeMemberDeclaration extends BodyDeclaration implements
 	TypeAccess type;
 	Boolean typeIsComposed = true;
 
-	AnnotationMemberValuePair usages;
+	AnnotationMemberValuePair[] usages;
 	Boolean usagesIsComposed = false;
 
-	public AnnotationTypeMemberDeclaration() {
+	public AnnotationTypeMemberDeclaration(String string, String string2, boolean b, Comment[] comments, CompilationUnit compilationUnit, ClassFile classFile, ImportDeclaration[] importDeclarations, AbstractTypeDeclaration abstractTypeDeclaration, Annotation[] annotations, AnonymousClassDeclaration anonymousClassDeclaration, Modifier modifier, Expression expression, TypeAccess typeAccess, AnnotationMemberValuePair[] annotationMemberValuePairs) {
 	}
 
 	public AnnotationTypeMemberDeclaration(String id, String name,
-			Boolean proxy, Comment comments,
+			Boolean proxy, Comment[] comments,
 			CompilationUnit originalCompilationUnit,
-			ClassFile originalClassFile, ImportDeclaration usagesInImports,
+			ClassFile originalClassFile, ImportDeclaration[] usagesInImports,
 			AbstractTypeDeclaration abstractTypeDeclaration,
-			Annotation annotations,
+			Annotation[] annotations,
 			AnonymousClassDeclaration anonymousClassDeclarationOwner,
 			Modifier modifier, Expression default_, TypeAccess type,
-			AnnotationMemberValuePair usages) {
+			AnnotationMemberValuePair[] usages) {
 
 		super(name, proxy, comments, originalCompilationUnit,
 				originalClassFile, usagesInImports, abstractTypeDeclaration,
@@ -75,11 +76,11 @@ public class AnnotationTypeMemberDeclaration extends BodyDeclaration implements
 		return type;
 	}
 
-	public void setUsages(AnnotationMemberValuePair usages) {
+	public void setUsages(AnnotationMemberValuePair[] usages) {
 		this.usages = usages;
 	}
 
-	public AnnotationMemberValuePair getUsages() {
+	public AnnotationMemberValuePair[] getUsages() {
 		return usages;
 	}
 

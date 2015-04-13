@@ -16,7 +16,7 @@ public abstract class AbstractTypeQualifiedExpression extends Expression
 
 	public AbstractTypeQualifiedExpression(
 
-	Comment comments, CompilationUnit originalCompilationUnit,
+	Comment[] comments, CompilationUnit originalCompilationUnit,
 			ClassFile originalClassFile, TypeAccess qualifier) {
 
 		super(comments, originalCompilationUnit, originalClassFile);
