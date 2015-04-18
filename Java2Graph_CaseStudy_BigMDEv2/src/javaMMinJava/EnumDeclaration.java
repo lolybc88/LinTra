@@ -33,16 +33,16 @@ public class EnumDeclaration extends AbstractTypeDeclaration
 	public EnumDeclaration(String id, String[] commentsID,
 			String originalCompilationUnitID, String originalClassFileID,
 			String name, Boolean proxy, String[] usagesInImportsID,
-			String abstractTypeDeclarationID, String[] annotationsID,
+			String abstractTypeDeclarationID, AbstractTypeDeclaration abstractTypeDeclaration, String[] annotationsID,
 			String anonymousClassDeclarationOwnerID, String modifierID, Modifier modifier,
-			String[] usagesInTypeAccessID, String[] bodyDeclarationsID,
+			String[] usagesInTypeAccessID, String[] bodyDeclarationsID, BodyDeclaration[] bodyDeclarations,
 			String[] commentsBeforeBodyID, String[] commentsAfterBodyID,
 			String packageID, Package package_, String[] superInterfacesID,
 			String[] enumConstantsID) {
 		super(commentsID, originalCompilationUnitID, originalClassFileID, name,
-				proxy, usagesInImportsID, abstractTypeDeclarationID,
+				proxy, usagesInImportsID, abstractTypeDeclarationID, abstractTypeDeclaration,
 				annotationsID, anonymousClassDeclarationOwnerID, modifierID, modifier,
-				usagesInTypeAccessID, bodyDeclarationsID, commentsBeforeBodyID,
+				usagesInTypeAccessID, bodyDeclarationsID, bodyDeclarations, commentsBeforeBodyID,
 				commentsAfterBodyID, packageID, package_, superInterfacesID);
 
 		this.id = id;

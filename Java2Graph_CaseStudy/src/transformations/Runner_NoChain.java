@@ -35,14 +35,17 @@ public class Runner_NoChain {
 //				"/home/loli/IST_2014/eclip/ser/eclipseModel-0.5.ser",
 //				"/home/loli/IST_2014/eclip/ser/eclipseModel-1.0.ser",
 //				"/home/loli/IST_2014/eclip/ser/eclipseModel-1.5.ser",
-				"/home/loli/IST_2014/eclip/ser/eclipseModel-2.0.ser",
+//				"/home/loli/IST_2014/eclip/ser/eclipseModel-2.0.ser",
 //				"/home/loli/IST_2014/eclip/ser/eclipseModel-2.5.ser",
 //				"/home/loli/IST_2014/eclip/ser/eclipseModel-3.0.ser",
 //				"/home/loli/IST_2014/eclip/ser/eclipseModel-3.5.ser",
 //				"/home/loli/IST_2014/eclip/ser/eclipseModel-4.0.ser",
 //				"/home/loli/IST_2014/eclip/ser/eclipseModel-all.ser"
+				
+				"C:/Users/Atenea/Desktop/eclipseModel/eclipseModels-CaseStudy_v2/eclipseModel-0.1_v2.ser"
 				};
 
+		System.out.println("Only identifiers");
 		for (int k=0; k<model.length;k++){
 			System.out.println("** "+model[k]+ " **");
 			
@@ -52,15 +55,15 @@ public class Runner_NoChain {
 		
 		ITransformation t1 = new Java2Graph_NoChain(
 				mtLauncher1.getSrcArea(), mtLauncher1.getTrgArea());
-		
-		for (int i=0; i<20; i++){
+	
+		for (int i=0; i<1; i++){
 			
 		mtLauncher1.getTrgArea().clear();
 		
 		double time = mtLauncher1.launch(t1, LinTraParameters.NUMBER_OF_THREADS_T1);
 		
 //		System.out.println("\n\n------ SUMMARY ------\nNum elements src: " + mtLauncher1.getSrcArea().size());
-//		System.out.println("Num elements trg: " + mtLauncher1.getTrgArea().size());
+		System.out.println("Num elements trg: " + mtLauncher1.getTrgArea().size());
 //		System.out.println("Tranfo time: " + time + " secs.\n");
 		System.out.println(time);
 		}

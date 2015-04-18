@@ -250,7 +250,7 @@ public class HazelcastArea implements IArea {
 	private Collection<IdentifiableElement> takeAux(int n) {
 		LinkedList<IdentifiableElement> elems = new LinkedList<IdentifiableElement>();
 		if (area.keySet().size() < n){
-			elems = (LinkedList<IdentifiableElement>) area.values();
+			elems = new LinkedList<IdentifiableElement>(area.values());			
 			area.clear();
 		} else {
 			String[] keys = (String[]) area.keySet().toArray(); // I've decided to load the keys instead of the values directly because a set of String is not as heavy as a set of IdentifiableElements

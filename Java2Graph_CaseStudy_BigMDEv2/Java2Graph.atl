@@ -69,8 +69,7 @@ rule toEdge {
 			endif
 		else
 			false
-		endif
-		)
+		endif)
 	to
 		e: MM1!Edge (
 			source <- fd.abstractTypeDeclaration, -- class declaration that contains the field declaration

@@ -4,7 +4,7 @@ import runners.MTLauncher1Input1Output;
 import transfo.ITransformation;
 import transfo.LinTraParameters;
 
-public class Runner_NoChain {
+public class Runner_NoChain_v2 {
 
 	public static void main(String[] args) throws Exception {
 
@@ -42,9 +42,10 @@ public class Runner_NoChain {
 //				"/home/loli/IST_2014/eclip/ser/eclipseModel-4.0.ser",
 //				"/home/loli/IST_2014/eclip/ser/eclipseModel-all.ser"
 				
-				"C:/Users/Loli/Desktop/eclipseModel.ser"
+				"C:/Users/Atenea/Desktop/eclipseModel/eclipseModels-CaseStudy_v2/eclipseModel-3.0_v2.ser"
 				};
 
+		System.out.println("Identifiers + encapsulation");
 		for (int k=0; k<model.length;k++){
 			System.out.println("** "+model[k]+ " **");
 			
@@ -52,22 +53,23 @@ public class Runner_NoChain {
 		mtLauncher1.createBlackboard();
 		mtLauncher1.loadModel(model[k]);
 		
-		ITransformation t1 = new Java2Graph_NoChain(
+		ITransformation t1 = new Java2Graph_NoChain_v2(
 				mtLauncher1.getSrcArea(), mtLauncher1.getTrgArea());
 		
-		for (int i=0; i<1; i++){
+		for (int i=0; i<20; i++){
 			
 		mtLauncher1.getTrgArea().clear();
 		
 		double time = mtLauncher1.launch(t1, LinTraParameters.NUMBER_OF_THREADS_T1);
 		
-		System.out.println("\n\n------ SUMMARY ------\nNum elements src: " + mtLauncher1.getSrcArea().size());
-		System.out.println("Num elements trg: " + mtLauncher1.getTrgArea().size());
+//		System.out.println("\n\n------ SUMMARY (ids + encapsulation) ------\n);
+//		System.out.println("Num elements src: " + mtLauncher1.getSrcArea().size());
+//		System.out.println("Num elements trg: " + mtLauncher1.getTrgArea().size());
 //		System.out.println("Tranfo time: " + time + " secs.\n");
 		System.out.println(time);
 		}
-//		mtLauncher1.getTrg1Area().print();
-//		mtLauncher1.getTrg2Area().print();
+//		mtLauncher1.getSrcArea().print();
+//		mtLauncher1.getTrgArea().print();
 
 		/** Model 2 Text */
 //		 prefuseGraph_M2T(mtLauncher1.getTrg2Area(), "C:/Users/Loli/Desktop/javaDependencies.xml");

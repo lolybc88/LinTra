@@ -3,6 +3,7 @@ package javaMMinJava;
 import blackboard.IdentifiableElement;
 
 import java.io.Serializable;
+import java.util.Arrays;
 
 public class Package extends NamedElement implements Serializable,
 		IdentifiableElement {
@@ -112,16 +113,39 @@ public class Package extends NamedElement implements Serializable,
 		this.packageID = packageID;
 	}
 
-	public void setPackage_(Package package_) {
-		this.package_ = package_;
-	}
-
 	public String[] getUsagesInPackageAccessID() {
 		return usagesInPackageAccessID;
 	}
 
 	public void setUsagesInPackageAccessID(String[] usagesInPackageAccessID) {
 		this.usagesInPackageAccessID = usagesInPackageAccessID;
+	}
+
+	@Override
+	public String toString() {
+		return "Package [id=" + id + ", trgId=" + trgId + ", ownedElementsID="
+				+ Arrays.toString(ownedElementsID)
+				+ ", ownedElementsIsComposed=" + ownedElementsIsComposed
+				+ ", modelID=" + modelID + ", modelIsComposed="
+				+ modelIsComposed + ", ownedPackagesID="
+				+ Arrays.toString(ownedPackagesID)
+				+ ", ownedPackagesIsComposed=" + ownedPackagesIsComposed
+				+ ", packageID=" + packageID + ", \n\tpackage_=" + package_
+				+ ", packageIsComposed=" + packageIsComposed
+				+ ", usagesInPackageAccessID="
+				+ Arrays.toString(usagesInPackageAccessID)
+				+ ", usagesInPackageAccessIsComposed="
+				+ usagesInPackageAccessIsComposed + ", name=" + name
+				+ ", proxy=" + proxy + ", usagesInImportsID="
+				+ Arrays.toString(usagesInImportsID)
+				+ ", usagesInImportsIsComposed=" + usagesInImportsIsComposed
+				+ ", commentsID=" + Arrays.toString(commentsID)
+				+ ", commentsIsComposed=" + commentsIsComposed
+				+ ", originalCompilationUnitID=" + originalCompilationUnitID
+				+ ", originalCompilationUnitIsComposed="
+				+ originalCompilationUnitIsComposed + ", originalClassFileID="
+				+ originalClassFileID + ", originalClassFileIsComposed="
+				+ originalClassFileIsComposed + "]";
 	}
 
 }

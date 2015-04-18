@@ -4,13 +4,14 @@ import java.io.Serializable;
 
 import blackboard.IdentifiableElement;
 
-public class TypeAccess extends Expression implements Serializable, IdentifiableElement {
+public class TypeAccess extends Expression implements Serializable, IdentifiableElement, IType {
 
 	private static final long serialVersionUID = 1L;
 
 	String id;
 
 	String typeID;
+	IType type;
 	Boolean typeIsComposed = false;
 
 	String qualifierID;
@@ -33,12 +34,13 @@ public class TypeAccess extends Expression implements Serializable, Identifiable
 
 	public TypeAccess(String id, String[] commentsID,
 			String originalCompilationUnitID, String originalClassFileID,
-			String typeID, String qualifierID) {
+			String typeID, IType type, String qualifierID) {
 		super(commentsID, originalCompilationUnitID, originalClassFileID);
 
 		this.id = id;
 
 		this.typeID = typeID;
+		this.type = type;
 		this.qualifierID = qualifierID;
 	}
 
@@ -50,12 +52,20 @@ public class TypeAccess extends Expression implements Serializable, Identifiable
 		this.id = id;
 	}
 
-	public void setType(String typeID) {
+	public void setTypeId(String typeID) {
 		this.typeID = typeID;
 	}
-
-	public String getType() {
+	
+	public String getTypeId() {
 		return typeID;
+	}
+
+	public IType getType() {
+		return type;
+	}
+
+	public void setType(IType type) {
+		this.type = type;
 	}
 
 	public void setQualifier(String qualifierID) {

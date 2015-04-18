@@ -40,14 +40,14 @@ public class AnnotationTypeMemberDeclaration extends BodyDeclaration
 			String originalCompilationUnitID,
 			String originalClassFileID, 
 			String name, Boolean proxy, String[] usagesInImportsID, 
-			String abstractTypeDeclarationID, 
+			String abstractTypeDeclarationID, AbstractTypeDeclaration abstractTypeDeclaration,
 			String[] annotationsID,
 			String anonymousClassDeclarationOwnerID,
 			String modifierID, Modifier modifier,
 			String defaultID, String typeID, String[] usagesID) {
 		super(commentsID, originalCompilationUnitID, originalClassFileID,
 				name, proxy, usagesInImportsID,
-				abstractTypeDeclarationID, annotationsID,
+				abstractTypeDeclarationID, abstractTypeDeclaration, annotationsID,
 				anonymousClassDeclarationOwnerID, modifierID, modifier);
 
 		this.id = id;

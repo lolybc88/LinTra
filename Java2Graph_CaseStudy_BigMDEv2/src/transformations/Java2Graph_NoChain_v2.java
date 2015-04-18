@@ -3,33 +3,31 @@ package transformations;
 import java.util.Collection;
 import java.util.LinkedList;
 import java.util.List;
+
+import javaMMinJava.AbstractTypeDeclaration;
+import javaMMinJava.BodyDeclaration;
 import javaMMinJava.ClassDeclaration;
 import javaMMinJava.FieldDeclaration;
 import javaMMinJava.IType;
 import javaMMinJava.Modifier;
 import javaMMinJava.Package;
 import javaMMinJava.TypeAccess;
-
 import prefuseGraphInJava.Edge;
 import blackboard.BlackboardException;
 import blackboard.IArea;
 import blackboard.IdentifiableElement;
-import transfo.CurrentId;
 import transfo.IMaster;
 import transfo.ITransformation;
-import transfo.LinTraParameters;
-import transfo.ModelFlags;
-import transfo.Range;
 import transfo.TraceFunction;
 
-public class Java2Graph_NoChain implements ITransformation {
+public class Java2Graph_NoChain_v2 implements ITransformation {
 
 	private static final String TO_EDGE = "toEdge";
 	private static final String TO_NODE = "toNode";
 	
 	IArea srcArea, trgArea;
 
-	public Java2Graph_NoChain(IArea srcArea, IArea trgArea)
+	public Java2Graph_NoChain_v2(IArea srcArea, IArea trgArea)
 			throws BlackboardException {
 		this.srcArea = srcArea;
 		this.trgArea = trgArea;
@@ -41,8 +39,6 @@ public class Java2Graph_NoChain implements ITransformation {
 			Collection<IdentifiableElement> objs, IMaster masterNextTransfo) throws BlackboardException, InterruptedException {
 		
 		List<IdentifiableElement> elems = new LinkedList<IdentifiableElement>();
-		
-		List<IdentifiableElement> idCorrespondances = new LinkedList<IdentifiableElement>(); 
 		
 		for (IdentifiableElement ie : objs){
 			
@@ -62,27 +58,20 @@ public class Java2Graph_NoChain implements ITransformation {
 						
 				}
 			} else if (ie instanceof javaMMinJava.FieldDeclaration){
-				String typeAccess = ((FieldDeclaration) ie).getTypeID();		
+				TypeAccess ta = ((javaMMinJava.FieldDeclaration) ie).getType();		
 				
-				if (typeAccess!=null){
-					javaMMinJava.TypeAccess ta = (TypeAccess) readFromSource(typeAccess);
-					
-					if (ta!=null && ta.getType()!=null){
-						String typeId = ta.getType();
+					if (ta!=null && ta.getTypeId()!=null){
 	
-						IdentifiableElement el = readFromSource(typeId);
-						if (el instanceof IType){
-							javaMMinJava.IType t = (IType) el; 
+							javaMMinJava.IType t = (IType) ta.getType(); 
 						
 							if (t instanceof javaMMinJava.ClassDeclaration) {
 								
 								javaMMinJava.Package rootPackage = getRootPackage((ClassDeclaration)t);
+								
 								if (rootPackage==null || !rootPackage.getName().equals("java")){ //ignore the classes from Java such as Collection, String, etc.
 									
-									String atdId = ((javaMMinJava.FieldDeclaration) ie).getAbstractTypeDeclaration();
-									if (atdId != null){
-										IdentifiableElement atd = readFromSource(atdId);
-										
+									AbstractTypeDeclaration atd = ((javaMMinJava.FieldDeclaration) ie).getAbstractTypeDeclaration();
+									
 										if (atd instanceof javaMMinJava.ClassDeclaration){
 											
 											javaMMinJava.Package rootPackage2 = getRootPackage((ClassDeclaration)atd);
@@ -97,9 +86,7 @@ public class Java2Graph_NoChain implements ITransformation {
 										}
 									}
 								}
-							}
-						}
-					}
+					
 				}
 			}
 		}
@@ -112,13 +99,13 @@ public class Java2Graph_NoChain implements ITransformation {
 
 	private double computeSize(ClassDeclaration cd) throws BlackboardException, InterruptedException {
 		double size = 1.0;
-		String[] bdIds = cd.getBodyDeclarations();
-		for(String id : bdIds){
-			IdentifiableElement ie = readFromSource(id);
-			if (ie instanceof javaMMinJava.FieldDeclaration){
+		BodyDeclaration[] bds = cd.getBodyDeclarations();
+		if(bds!=null){
+		for(BodyDeclaration bd : bds){
+			if (bd instanceof javaMMinJava.FieldDeclaration){
 				size++;
 			}
-		}
+		}}
 		return size;
 	}
 
@@ -141,33 +128,16 @@ public class Java2Graph_NoChain implements ITransformation {
 	}
 	
 	private javaMMinJava.Package getRootPackage(ClassDeclaration cd) throws BlackboardException, InterruptedException{
-	/** Using the identifiers */
-		String pId = cd.getPackageID();
-		if (cd.getPackageID()!=null){
-			javaMMinJava.Package p = (Package) readFromSource(pId);
-			while (p!=null && p.getPackage()!=null){
-				pId = p.getPackageID();
-				p = (Package) readFromSource(pId);
-			}
-			return p;
-		} else {
-			return null;
+		Package p = cd.getPackage();
+		while (p != null && p.getPackage() != null) {
+			p = p.getPackage();
 		}
+		return p;
 	}
 	
-//	private javaMMinJava.Package getRootPackage(ClassDeclaration cd) throws BlackboardException, InterruptedException{
-//		Package p = cd.getPackage_();
-//		while (p != null && p.getPackage() != null) {
-//			p = p.getPackage();
-//		}
-//		return p;
-//	}
-	
 	private IdentifiableElement readFromSource(String id) throws BlackboardException, InterruptedException {
-		
 		IdentifiableElement e = srcArea.read(id);
 		return e;
-		
 	}
 
 }

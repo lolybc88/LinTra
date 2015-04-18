@@ -10,9 +10,13 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
+import javaMM.ClassDeclaration;
 import javaMM.JavaMMFactory;
 import javaMM.JavaMMPackage;
 import javaMM.Model;
+import javaMMinJava.AbstractTypeDeclaration;
+import javaMMinJava.BodyDeclaration;
+import javaMMinJava.IType;
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
@@ -24,13 +28,13 @@ import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 
 import blackboard.IdentifiableElement;
 
-public class ModelParser {
-
+public class CopyOfModelParser_v2 {
+	
 	public static void main(String[] args) throws IOException,
 			ClassNotFoundException {
-		eMFModel2LinTraModel("C:/Users/Loli/Desktop/eclipseModels2",
-				"C:/Users/Loli/Desktop/eclipseModel.ser");
-//		joinEMFModels("C:/Users/Loli/Desktop/eclipseModels2", "eclipseModel-all.xmi");
+		eMFModel2LinTraModel("C:/Users/Atenea/Desktop/eclipseModel/eclipseModels2",
+				"C:/Users/Atenea/Desktop/eclipseModel/eclipseModels-CaseStudy_v2/eclipseModel-1.0_v2.ser");
+//		joinEMFModels("C:/Users/Atenea/Desktop/eclipseModel/eclipseModels2", "eclipseModel-joined.xmi");
 		
 		System.out.println("\nDone!");
 	}
@@ -65,15 +69,22 @@ public class ModelParser {
 	    
 	}
 
-	public static Model getEMFModel(String pathXMI) throws IOException {
+	public static List<javaMM.Model> getEMFModel(String pathXMI) throws IOException {
 		JavaMMPackage.eINSTANCE.eClass();
 		Resource.Factory.Registry reg = Resource.Factory.Registry.INSTANCE;
 		Map<String, Object> m = reg.getExtensionToFactoryMap();
 		m.put("*", new XMIResourceFactoryImpl());
 		ResourceSet resSet = new ResourceSetImpl();
 		Resource resource = resSet.getResource(URI.createURI(pathXMI), true);
-		javaMM.Model javaModel = (javaMM.Model) resource.getContents().get(0);
-		return javaModel;
+		
+		List<Model> models = new LinkedList<Model>();
+		
+		for (EObject mod : resource.getContents()){
+			if (mod instanceof javaMM.Model){
+				models.add((javaMM.Model) mod);
+			}
+		}
+		return models;
 	}
 
 	public static List<Model> getEMFModels(String folderPath)
@@ -82,7 +93,7 @@ public class ModelParser {
 		File folder = new File(folderPath);
 		for (final File fileEntry : folder.listFiles()) {
 			if (!fileEntry.isDirectory()) {
-				models.add(getEMFModel("file:" + folderPath + "/" + fileEntry.getName()));
+				models.addAll(getEMFModel("file:" + folderPath + "/" + fileEntry.getName()));
 			}
 		}
 		return models;
@@ -123,12 +134,13 @@ public class ModelParser {
 		return elems;
 	}
 	
-	private static IdentifiableElement[] transformEMF2Java(EList<?> comments,
+	private static List<?> transformEMF2Java(EList<?> eObjects,
 			Map<EObject, String> map) {
-
-		// COMPLETE !!
-		
-		return null;
+		LinkedList<IdentifiableElement> elems = new LinkedList<IdentifiableElement>();
+		for (int i=0; i<eObjects.size(); i++){
+			elems.add(transformEMF2Java((EObject)eObjects.get(i), map));
+		}
+		return elems;
 	}
 
 	@SuppressWarnings("unchecked")
@@ -180,24 +192,18 @@ public class ModelParser {
 					map.get(e.getOriginalClassFile()),
 					e.getName(),
 					e.isProxy(),
-					toIds((EList<EObject>) (EList<?>) e.getUsagesInImports(),
-							map),
-					map.get(e.getAbstractTypeDeclaration()),
+					toIds((EList<EObject>) (EList<?>) e.getUsagesInImports(), map),
+					map.get(e.getAbstractTypeDeclaration()), null,
 					toIds((EList<EObject>) (EList<?>) e.getAnnotations(), map),
 					map.get(e.getAnonymousClassDeclarationOwner()),
 					map.get(e.getModifier()), (javaMMinJava.Modifier) transformEMF2Java(e.getModifier(), map),
-					toIds((EList<EObject>) (EList<?>) e.getUsagesInTypeAccess(),
-							map),
-					toIds((EList<EObject>) (EList<?>) e.getBodyDeclarations(),
-							map),
-					toIds((EList<EObject>) (EList<?>) e.getCommentsBeforeBody(),
-							map),
-					toIds((EList<EObject>) (EList<?>) e.getCommentsAfterBody(),
-							map),
-							map.get(e.getPackage()), (javaMMinJava.Package) transformEMF2Java(e.getPackage(),map),
-							toIds(
-							(EList<EObject>) (EList<?>) e.getSuperInterfaces(),
-							map));
+					toIds((EList<EObject>) (EList<?>) e.getUsagesInTypeAccess(), map),
+					toIds((EList<EObject>) (EList<?>) e.getBodyDeclarations(), map),
+					toBodyDeclarationArray(transformEMF2Java(e.getBodyDeclarations(),map)),
+					toIds((EList<EObject>) (EList<?>) e.getCommentsBeforeBody(), map),
+					toIds((EList<EObject>) (EList<?>) e.getCommentsAfterBody(), map),
+					map.get(e.getPackage()), (javaMMinJava.Package) transformEMF2Java(e.getPackage(),map),
+					toIds((EList<EObject>) (EList<?>) e.getSuperInterfaces(), map));
 		}
 		if (elem instanceof javaMM.AnnotationTypeMemberDeclaration) {
 			javaMM.AnnotationTypeMemberDeclaration e = (javaMM.AnnotationTypeMemberDeclaration) elem;
@@ -206,7 +212,7 @@ public class ModelParser {
 					map.get(e.getOriginalCompilationUnit()), map.get(e
 							.getOriginalClassFile()), e.getName(), e.isProxy(),
 					toIds((EList<EObject>) (EList<?>) e.getUsagesInImports(),
-							map), map.get(e.getAbstractTypeDeclaration()),
+							map), map.get(e.getAbstractTypeDeclaration()), null,
 					toIds((EList<EObject>) (EList<?>) e.getAnnotations(), map),
 					map.get(e.getAnonymousClassDeclarationOwner()), map.get(e
 							.getModifier()), (javaMMinJava.Modifier) transformEMF2Java(e.getModifier(), map), map.get(e.getDefault()), map.get(e
@@ -362,7 +368,7 @@ public class ModelParser {
 					map.get(e.getOriginalCompilationUnit()), map.get(e
 							.getOriginalClassFile()), e.getName(), e.isProxy(),
 					toIds((EList<EObject>) (EList<?>) e.getUsagesInImports(),
-							map), map.get(e.getAbstractTypeDeclaration()),
+							map), map.get(e.getAbstractTypeDeclaration()), null,
 					toIds((EList<EObject>) (EList<?>) e.getAnnotations(), map),
 					map.get(e.getAnonymousClassDeclarationOwner()), map.get(e
 							.getModifier()), (javaMMinJava.Modifier) transformEMF2Java(e.getModifier(), map), map.get(e.getBody()),
@@ -396,32 +402,8 @@ public class ModelParser {
 					toIds((EList<EObject>) (EList<?>) e.getTypeArguments(), map));
 		}
 		if (elem instanceof javaMM.ClassDeclaration) {
-			javaMM.ClassDeclaration e = (javaMM.ClassDeclaration) elem;
-			return new javaMMinJava.ClassDeclaration(
-					map.get(e),
-					toIds((EList<EObject>) (EList<?>) e.getComments(), map),
-					map.get(e.getOriginalCompilationUnit()),
-					map.get(e.getOriginalClassFile()),
-					e.getName(),
-					e.isProxy(),
-					toIds((EList<EObject>) (EList<?>) e.getUsagesInImports(),
-							map),
-					map.get(e.getAbstractTypeDeclaration()),
-					toIds((EList<EObject>) (EList<?>) e.getAnnotations(), map),
-					map.get(e.getAnonymousClassDeclarationOwner()),
-					map.get(e.getModifier()), (javaMMinJava.Modifier) transformEMF2Java(e.getModifier(), map),
-					toIds((EList<EObject>) (EList<?>) e.getUsagesInTypeAccess(),
-							map),
-					toIds((EList<EObject>) (EList<?>) e.getBodyDeclarations(),
-							map),
-					toIds((EList<EObject>) (EList<?>) e.getCommentsBeforeBody(),
-							map),
-					toIds((EList<EObject>) (EList<?>) e.getCommentsAfterBody(),
-							map), map.get(e.getPackage()), (javaMMinJava.Package) transformEMF2Java(e.getPackage(),map), toIds(
-							(EList<EObject>) (EList<?>) e.getSuperInterfaces(),
-							map), toIds(
-							(EList<EObject>) (EList<?>) e.getTypeParameters(),
-							map), map.get(e.getSuperClass()));
+			// I extracted a method because I will have to use it to avoid loops
+			return transformClassDeclaration(elem, map, true);
 		}
 		if (elem instanceof javaMM.CompilationUnit) {
 			javaMM.CompilationUnit e = (javaMM.CompilationUnit) elem;
@@ -473,7 +455,7 @@ public class ModelParser {
 					map.get(e.getOriginalCompilationUnit()), map.get(e
 							.getOriginalClassFile()), e.getName(), e.isProxy(),
 					toIds((EList<EObject>) (EList<?>) e.getUsagesInImports(),
-							map), map.get(e.getAbstractTypeDeclaration()),
+							map), map.get(e.getAbstractTypeDeclaration()), null,
 					toIds((EList<EObject>) (EList<?>) e.getAnnotations(), map),
 					map.get(e.getAnonymousClassDeclarationOwner()), map.get(e
 							.getModifier()), (javaMMinJava.Modifier) transformEMF2Java(e.getModifier(), map), e.getExtraArrayDimensions(),
@@ -494,14 +476,14 @@ public class ModelParser {
 					e.isProxy(),
 					toIds((EList<EObject>) (EList<?>) e.getUsagesInImports(),
 							map),
-					map.get(e.getAbstractTypeDeclaration()),
+					map.get(e.getAbstractTypeDeclaration()), null,
 					toIds((EList<EObject>) (EList<?>) e.getAnnotations(), map),
 					map.get(e.getAnonymousClassDeclarationOwner()),
 					map.get(e.getModifier()), (javaMMinJava.Modifier) transformEMF2Java(e.getModifier(), map),
 					toIds((EList<EObject>) (EList<?>) e.getUsagesInTypeAccess(),
 							map),
-					toIds((EList<EObject>) (EList<?>) e.getBodyDeclarations(),
-							map),
+					toIds((EList<EObject>) (EList<?>) e.getBodyDeclarations(), map),
+					toBodyDeclarationArray(transformEMF2Java(e.getBodyDeclarations(),map)),
 					toIds((EList<EObject>) (EList<?>) e.getCommentsBeforeBody(),
 							map),
 					toIds((EList<EObject>) (EList<?>) e.getCommentsAfterBody(),
@@ -531,14 +513,20 @@ public class ModelParser {
 			javaMM.FieldDeclaration e = (javaMM.FieldDeclaration) elem;
 			return new javaMMinJava.FieldDeclaration(map.get(e), toIds(
 					(EList<EObject>) (EList<?>) e.getComments(), map),
-					map.get(e.getOriginalCompilationUnit()), map.get(e
-							.getOriginalClassFile()), e.getName(), e.isProxy(),
-					toIds((EList<EObject>) (EList<?>) e.getUsagesInImports(),
-							map), map.get(e.getAbstractTypeDeclaration()),
+					map.get(e.getOriginalCompilationUnit()),
+					map.get(e.getOriginalClassFile()),
+					e.getName(),
+					e.isProxy(),
+					toIds((EList<EObject>) (EList<?>) e.getUsagesInImports(), map),
+					map.get(e.getAbstractTypeDeclaration()),
+					(javaMMinJava.AbstractTypeDeclaration) transformAbstractTypeDeclaration(e.getAbstractTypeDeclaration(), map, false),
 					toIds((EList<EObject>) (EList<?>) e.getAnnotations(), map),
-					map.get(e.getAnonymousClassDeclarationOwner()), map.get(e
-							.getModifier()),  (javaMMinJava.Modifier) transformEMF2Java(e.getModifier(), map), map.get(e.getType()), toIds(
-							(EList<EObject>) (EList<?>) e.getFragments(), map));
+					map.get(e.getAnonymousClassDeclarationOwner()),
+					map.get(e.getModifier()),
+					(javaMMinJava.Modifier) transformEMF2Java(e.getModifier(), map),
+					map.get(e.getType()),
+					(javaMMinJava.TypeAccess) transformEMF2Java(e.getType(), map),
+					toIds((EList<EObject>) (EList<?>) e.getFragments(), map));
 		}
 		if (elem instanceof javaMM.ForStatement) {
 			javaMM.ForStatement e = (javaMM.ForStatement) elem;
@@ -587,7 +575,7 @@ public class ModelParser {
 					map.get(e.getOriginalCompilationUnit()), map.get(e
 							.getOriginalClassFile()), e.getName(), e.isProxy(),
 					toIds((EList<EObject>) (EList<?>) e.getUsagesInImports(),
-							map), map.get(e.getAbstractTypeDeclaration()),
+							map), map.get(e.getAbstractTypeDeclaration()), null,
 					toIds((EList<EObject>) (EList<?>) e.getAnnotations(), map),
 					map.get(e.getAnonymousClassDeclarationOwner()), map.get(e
 							.getModifier()),  (javaMMinJava.Modifier) transformEMF2Java(e.getModifier(), map), map.get(e.getBody()));
@@ -611,14 +599,14 @@ public class ModelParser {
 					e.isProxy(),
 					toIds((EList<EObject>) (EList<?>) e.getUsagesInImports(),
 							map),
-					map.get(e.getAbstractTypeDeclaration()),
+					map.get(e.getAbstractTypeDeclaration()), null,
 					toIds((EList<EObject>) (EList<?>) e.getAnnotations(), map),
 					map.get(e.getAnonymousClassDeclarationOwner()),
 					map.get(e.getModifier()), (javaMMinJava.Modifier) transformEMF2Java(e.getModifier(), map),
 					toIds((EList<EObject>) (EList<?>) e.getUsagesInTypeAccess(),
 							map),
-					toIds((EList<EObject>) (EList<?>) e.getBodyDeclarations(),
-							map),
+					toIds((EList<EObject>) (EList<?>) e.getBodyDeclarations(), map),
+					toBodyDeclarationArray(transformEMF2Java(e.getBodyDeclarations(),map)),
 					toIds((EList<EObject>) (EList<?>) e.getCommentsBeforeBody(),
 							map),
 					toIds((EList<EObject>) (EList<?>) e.getCommentsAfterBody(),
@@ -690,7 +678,7 @@ public class ModelParser {
 					map.get(e.getOriginalCompilationUnit()), map.get(e
 							.getOriginalClassFile()), e.getName(), e.isProxy(),
 					toIds((EList<EObject>) (EList<?>) e.getUsagesInImports(),
-							map), map.get(e.getAbstractTypeDeclaration()),
+							map), map.get(e.getAbstractTypeDeclaration()), null,
 					toIds((EList<EObject>) (EList<?>) e.getAnnotations(), map),
 					map.get(e.getAnonymousClassDeclarationOwner()), map.get(e
 							.getModifier()),  (javaMMinJava.Modifier) transformEMF2Java(e.getModifier(), map), map.get(e.getBody()),
@@ -1119,11 +1107,22 @@ public class ModelParser {
 		}
 		if (elem instanceof javaMM.TypeAccess) {
 			javaMM.TypeAccess e = (javaMM.TypeAccess) elem;
-			return new javaMMinJava.TypeAccess(map.get(e), toIds(
-					(EList<EObject>) (EList<?>) e.getComments(), map),
-					map.get(e.getOriginalCompilationUnit()), map.get(e
-							.getOriginalClassFile()), map.get(e.getType()),
+			
+			IType t;
+			if (e.getType() instanceof javaMM.ClassDeclaration){
+				t = (IType) transformClassDeclaration(e.getType(), map, false); // loop
+			} else {
+				t = null; //(javaMMinJava.IType) transformEMF2Java(e.getType(), map);
+			}
+			
+			return new javaMMinJava.TypeAccess(map.get(e),
+					toIds((EList<EObject>) (EList<?>) e.getComments(), map),
+					map.get(e.getOriginalCompilationUnit()),
+					map.get(e.getOriginalClassFile()),
+					map.get(e.getType()),
+					t,
 					map.get(e.getQualifier()));
+			
 		}
 		if (elem instanceof javaMM.TypeDeclarationStatement) {
 			javaMM.TypeDeclarationStatement e = (javaMM.TypeDeclarationStatement) elem;
@@ -1183,14 +1182,14 @@ public class ModelParser {
 					e.isProxy(),
 					toIds((EList<EObject>) (EList<?>) e.getUsagesInImports(),
 							map),
-					map.get(e.getAbstractTypeDeclaration()),
+					map.get(e.getAbstractTypeDeclaration()), null,
 					toIds((EList<EObject>) (EList<?>) e.getAnnotations(), map),
 					map.get(e.getAnonymousClassDeclarationOwner()),
 					map.get(e.getModifier()), (javaMMinJava.Modifier) transformEMF2Java(e.getModifier(), map),
 					toIds((EList<EObject>) (EList<?>) e.getUsagesInTypeAccess(),
 							map),
-					toIds((EList<EObject>) (EList<?>) e.getBodyDeclarations(),
-							map),
+					toIds((EList<EObject>) (EList<?>) e.getBodyDeclarations(),map),
+					toBodyDeclarationArray(transformEMF2Java(e.getBodyDeclarations(),map)),
 					toIds((EList<EObject>) (EList<?>) e.getCommentsBeforeBody(),
 							map),
 					toIds((EList<EObject>) (EList<?>) e.getCommentsAfterBody(),
@@ -1206,7 +1205,7 @@ public class ModelParser {
 					map.get(e.getOriginalCompilationUnit()), map.get(e
 							.getOriginalClassFile()), e.getName(), e.isProxy(),
 					toIds((EList<EObject>) (EList<?>) e.getUsagesInImports(),
-							map), map.get(e.getAbstractTypeDeclaration()),
+							map), map.get(e.getAbstractTypeDeclaration()), null,
 					toIds((EList<EObject>) (EList<?>) e.getAnnotations(), map),
 					map.get(e.getAnonymousClassDeclarationOwner()), map.get(e
 							.getModifier()), (javaMMinJava.Modifier) transformEMF2Java(e.getModifier(), map), map.get(e.getDefault()), map.get(e
@@ -1224,14 +1223,14 @@ public class ModelParser {
 					e.isProxy(),
 					toIds((EList<EObject>) (EList<?>) e.getUsagesInImports(),
 							map),
-					map.get(e.getAbstractTypeDeclaration()),
+					map.get(e.getAbstractTypeDeclaration()), null,
 					toIds((EList<EObject>) (EList<?>) e.getAnnotations(), map),
 					map.get(e.getAnonymousClassDeclarationOwner()),
 					map.get(e.getModifier()), (javaMMinJava.Modifier) transformEMF2Java(e.getModifier(), map),
 					toIds((EList<EObject>) (EList<?>) e.getUsagesInTypeAccess(),
 							map),
-					toIds((EList<EObject>) (EList<?>) e.getBodyDeclarations(),
-							map),
+					toIds((EList<EObject>) (EList<?>) e.getBodyDeclarations(),map),
+					toBodyDeclarationArray(transformEMF2Java(e.getBodyDeclarations(),map)),
 					toIds((EList<EObject>) (EList<?>) e.getCommentsBeforeBody(),
 							map),
 					toIds((EList<EObject>) (EList<?>) e.getCommentsAfterBody(),
@@ -1252,14 +1251,14 @@ public class ModelParser {
 					e.isProxy(),
 					toIds((EList<EObject>) (EList<?>) e.getUsagesInImports(),
 							map),
-					map.get(e.getAbstractTypeDeclaration()),
+					map.get(e.getAbstractTypeDeclaration()), null,
 					toIds((EList<EObject>) (EList<?>) e.getAnnotations(), map),
 					map.get(e.getAnonymousClassDeclarationOwner()),
 					map.get(e.getModifier()), (javaMMinJava.Modifier) transformEMF2Java(e.getModifier(), map),
 					toIds((EList<EObject>) (EList<?>) e.getUsagesInTypeAccess(),
 							map),
-					toIds((EList<EObject>) (EList<?>) e.getBodyDeclarations(),
-							map),
+					toIds((EList<EObject>) (EList<?>) e.getBodyDeclarations(),map),
+					toBodyDeclarationArray(transformEMF2Java(e.getBodyDeclarations(),map)),
 					toIds((EList<EObject>) (EList<?>) e.getCommentsBeforeBody(),
 							map),
 					toIds((EList<EObject>) (EList<?>) e.getCommentsAfterBody(),
@@ -1280,14 +1279,14 @@ public class ModelParser {
 					e.isProxy(),
 					toIds((EList<EObject>) (EList<?>) e.getUsagesInImports(),
 							map),
-					map.get(e.getAbstractTypeDeclaration()),
+					map.get(e.getAbstractTypeDeclaration()), null,
 					toIds((EList<EObject>) (EList<?>) e.getAnnotations(), map),
 					map.get(e.getAnonymousClassDeclarationOwner()),
 					map.get(e.getModifier()), (javaMMinJava.Modifier) transformEMF2Java(e.getModifier(), map),
 					toIds((EList<EObject>) (EList<?>) e.getUsagesInTypeAccess(),
 							map),
-					toIds((EList<EObject>) (EList<?>) e.getBodyDeclarations(),
-							map),
+					toIds((EList<EObject>) (EList<?>) e.getBodyDeclarations(),map),
+					toBodyDeclarationArray(transformEMF2Java(e.getBodyDeclarations(),map)),
 					toIds((EList<EObject>) (EList<?>) e.getCommentsBeforeBody(),
 							map),
 					toIds((EList<EObject>) (EList<?>) e.getCommentsAfterBody(),
@@ -1317,7 +1316,7 @@ public class ModelParser {
 					map.get(e.getOriginalCompilationUnit()), map.get(e
 							.getOriginalClassFile()), e.getName(), e.isProxy(),
 					toIds((EList<EObject>) (EList<?>) e.getUsagesInImports(),
-							map), map.get(e.getAbstractTypeDeclaration()),
+							map), map.get(e.getAbstractTypeDeclaration()), null,
 					toIds((EList<EObject>) (EList<?>) e.getAnnotations(), map),
 					map.get(e.getAnonymousClassDeclarationOwner()), map.get(e
 							.getModifier()),  (javaMMinJava.Modifier) transformEMF2Java(e.getModifier(), map), map.get(e.getBody()),
@@ -1378,14 +1377,14 @@ public class ModelParser {
 					e.isProxy(),
 					toIds((EList<EObject>) (EList<?>) e.getUsagesInImports(),
 							map),
-					map.get(e.getAbstractTypeDeclaration()),
+					map.get(e.getAbstractTypeDeclaration()), null,
 					toIds((EList<EObject>) (EList<?>) e.getAnnotations(), map),
 					map.get(e.getAnonymousClassDeclarationOwner()),
 					map.get(e.getModifier()), (javaMMinJava.Modifier) transformEMF2Java(e.getModifier(), map),
 					toIds((EList<EObject>) (EList<?>) e.getUsagesInTypeAccess(),
 							map),
-					toIds((EList<EObject>) (EList<?>) e.getBodyDeclarations(),
-							map),
+					toIds((EList<EObject>) (EList<?>) e.getBodyDeclarations(),map),
+					toBodyDeclarationArray(transformEMF2Java(e.getBodyDeclarations(),map)),
 					toIds((EList<EObject>) (EList<?>) e.getCommentsBeforeBody(),
 							map),
 					toIds((EList<EObject>) (EList<?>) e.getCommentsAfterBody(),
@@ -1464,6 +1463,51 @@ public class ModelParser {
 		}
 
 		return null;
+	}
+
+	private static AbstractTypeDeclaration transformAbstractTypeDeclaration(
+			javaMM.AbstractTypeDeclaration abstractTypeDeclaration,
+			Map<EObject, String> map, boolean b) {
+		if (abstractTypeDeclaration instanceof ClassDeclaration){
+			return (AbstractTypeDeclaration) transformClassDeclaration(abstractTypeDeclaration, map, b);
+		}
+		return null;
+	}
+
+	private static IdentifiableElement transformClassDeclaration(EObject elem,
+			Map<EObject, String> map, boolean encapsulation) {
+		javaMM.ClassDeclaration e = (javaMM.ClassDeclaration) elem;
+		return new javaMMinJava.ClassDeclaration(
+				map.get(e),
+				toIds((EList<EObject>) (EList<?>) e.getComments(), map),
+				map.get(e.getOriginalCompilationUnit()),
+				map.get(e.getOriginalClassFile()),
+				e.getName(),
+				e.isProxy(),
+				toIds((EList<EObject>) (EList<?>) e.getUsagesInImports(), map),
+				map.get(e.getAbstractTypeDeclaration()), null,
+				toIds((EList<EObject>) (EList<?>) e.getAnnotations(), map),
+				map.get(e.getAnonymousClassDeclarationOwner()),
+				map.get(e.getModifier()), (javaMMinJava.Modifier) transformEMF2Java(e.getModifier(), map),
+				toIds((EList<EObject>) (EList<?>) e.getUsagesInTypeAccess(), map),
+				toIds((EList<EObject>) (EList<?>) e.getBodyDeclarations(), map),
+				encapsulation ? toBodyDeclarationArray(transformEMF2Java(e.getBodyDeclarations(),map)) : null,
+				toIds((EList<EObject>) (EList<?>) e.getCommentsBeforeBody(), map),
+				toIds((EList<EObject>) (EList<?>) e.getCommentsAfterBody(), map), map.get(e.getPackage()),
+				(javaMMinJava.Package) transformEMF2Java(e.getPackage(),map), toIds(
+						(EList<EObject>) (EList<?>) e.getSuperInterfaces(),
+						map), toIds(
+						(EList<EObject>) (EList<?>) e.getTypeParameters(),
+						map), map.get(e.getSuperClass()));
+	}
+
+	private static BodyDeclaration[] toBodyDeclarationArray(List<?> objs) {
+		BodyDeclaration[] bds = new BodyDeclaration[objs.size()];
+		for (int i = 0; i<objs.size(); i++){
+			bds[i] = (BodyDeclaration) objs.get(i);
+			i++;
+		}
+		return bds;
 	}
 
 	private static String[] toIds(EList<EObject> objs, Map<EObject, String> map) {

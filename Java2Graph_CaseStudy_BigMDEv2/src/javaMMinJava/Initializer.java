@@ -31,11 +31,11 @@ public class Initializer extends BodyDeclaration implements Serializable, Identi
 	public Initializer(String id, String[] commentsID,
 			String originalCompilationUnitID, String originalClassFileID,
 			String name, Boolean proxy, String[] usagesInImportsID,
-			String abstractTypeDeclarationID, String[] annotationsID,
+			String abstractTypeDeclarationID, AbstractTypeDeclaration abstractTypeDeclaration, String[] annotationsID,
 			String anonymousClassDeclarationOwnerID, String modifierID, Modifier modifier,
 			String bodyID) {
 		super(commentsID, originalCompilationUnitID, originalClassFileID, name,
-				proxy, usagesInImportsID, abstractTypeDeclarationID,
+				proxy, usagesInImportsID, abstractTypeDeclarationID, abstractTypeDeclaration,
 				annotationsID, anonymousClassDeclarationOwnerID, modifierID, modifier);
 
 		this.id = id;

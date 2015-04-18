@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 import blackboard.IdentifiableElement;
 
-public class UnresolvedItem extends NamedElement implements Serializable, IdentifiableElement {
+public class UnresolvedItem extends NamedElement implements Serializable, IdentifiableElement, IType {
 
 	private static final long serialVersionUID = 1L;
 

@@ -11,6 +11,7 @@ public abstract class BodyDeclaration extends NamedElement
 	private static final long serialVersionUID = 1L;
 
 	String abstractTypeDeclarationID;
+	AbstractTypeDeclaration abstractTypeDeclaration;
 	Boolean abstractTypeDeclarationIsComposed = false;
 
 	String[] annotationsID;
@@ -29,13 +30,14 @@ public abstract class BodyDeclaration extends NamedElement
 			String originalCompilationUnitID, 
 			String originalClassFileID,
 			String name, Boolean proxy, String[] usagesInImportsID,
-			String abstractTypeDeclarationID, String[] annotationsID,
+			String abstractTypeDeclarationID, AbstractTypeDeclaration abstractTypeDeclaration, String[] annotationsID,
 			String anonymousClassDeclarationOwnerID, String modifierID, Modifier modifier) {
 		
 		super(commentsID, originalCompilationUnitID, originalClassFileID, name,
 				proxy, usagesInImportsID);
 
 		this.abstractTypeDeclarationID = abstractTypeDeclarationID;
+		this.abstractTypeDeclaration = abstractTypeDeclaration;
 		
 		this.annotationsID = annotationsID;
 		
@@ -46,11 +48,11 @@ public abstract class BodyDeclaration extends NamedElement
 		this.modifier = modifier;
 	}
 
-	public void setAbstractTypeDeclaration(String abstractTypeDeclarationID) {
+	public void setAbstractTypeDeclarationID(String abstractTypeDeclarationID) {
 		this.abstractTypeDeclarationID = abstractTypeDeclarationID;
 	}
 
-	public String getAbstractTypeDeclaration() {
+	public String getAbstractTypeDeclarationID() {
 		return abstractTypeDeclarationID;
 	}
 
@@ -85,6 +87,15 @@ public abstract class BodyDeclaration extends NamedElement
 
 	public void setModifier(Modifier modifier) {
 		this.modifier = modifier;
+	}
+
+	public void setAbstractTypeDeclaration(
+			AbstractTypeDeclaration abstractTypeDeclaration) {
+		this.abstractTypeDeclaration = abstractTypeDeclaration;
+	}
+
+	public AbstractTypeDeclaration getAbstractTypeDeclaration() {
+		return abstractTypeDeclaration;
 	}
 
 }

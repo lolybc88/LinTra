@@ -178,12 +178,12 @@ public class Java2PrefuseGraph implements ITransformation {
 	}
 
 	private Range requestRangeOfIds(int numberOfIds) throws BlackboardException, InterruptedException {
-		CurrentId cid = (CurrentId) currentIdArea.take(LinTraParameters.MODEL_FLAGS_ID); 
+		CurrentId cid = (CurrentId) currentIdArea.take(LinTraParameters.CURRENT_AREA_ID); 
 		while (cid == null){
 //			System.out.println("T1 waiting");
 			//wait();
 //			System.out.println("T1 awakes");
-			cid = (CurrentId) currentIdArea.take(LinTraParameters.MODEL_FLAGS_ID);
+			cid = (CurrentId) currentIdArea.take(LinTraParameters.CURRENT_AREA_ID);
 		}
 		double id0 = cid.getCurrentId();
 		cid.increase(numberOfIds);

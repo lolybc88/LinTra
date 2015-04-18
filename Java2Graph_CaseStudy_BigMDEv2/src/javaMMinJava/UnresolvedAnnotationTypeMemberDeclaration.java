@@ -18,12 +18,12 @@ public class UnresolvedAnnotationTypeMemberDeclaration
 	public UnresolvedAnnotationTypeMemberDeclaration(String id,
 			String[] commentsID, String originalCompilationUnitID,
 			String originalClassFileID, String name, Boolean proxy,
-			String[] usagesInImportsID, String abstractTypeDeclarationID,
+			String[] usagesInImportsID, String abstractTypeDeclarationID, AbstractTypeDeclaration abstractTypeDeclaration,
 			String[] annotationsID, String anonymousClassDeclarationOwnerID,
 			String modifierID, Modifier modifier, String defaultID, String typeID,
 			String[] usagesID) {
 		super(id, commentsID, originalCompilationUnitID, originalClassFileID, name,
-				proxy, usagesInImportsID, abstractTypeDeclarationID,
+				proxy, usagesInImportsID, abstractTypeDeclarationID, abstractTypeDeclaration,
 				annotationsID, anonymousClassDeclarationOwnerID, modifierID, modifier,
 				defaultID, typeID, usagesID);
 
