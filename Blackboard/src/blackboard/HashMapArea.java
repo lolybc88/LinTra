@@ -252,7 +252,7 @@ public class HashMapArea implements IArea {
 	private synchronized Collection<IdentifiableElement> takeAux(int n) {
 		Collection<IdentifiableElement> elems = new LinkedList<IdentifiableElement>();
 		if (area.keySet().size() < n){
-			elems = area.values();
+			elems = new LinkedList<IdentifiableElement>(area.values());
 			area.clear();
 		} else {
 			String[] keys = toArray(area.keySet()); // I've decided to load the keys instead of the values directly because a set of String is not as heavy as a set of IdentifiableElements
@@ -314,12 +314,14 @@ public class HashMapArea implements IArea {
 	}
 
 	private synchronized void writeAllAux(Collection<IdentifiableElement> elems) {
+		
 		for (IdentifiableElement e : elems){
 			if (area.containsKey(e.getId())){
-				System.out.println("--->"+area.get(e.getId()) + " is being overwritten by " + e);
+//				System.out.println("--->"+area.get(e.getId()) + " is being overwritten by " + e);
 			}
 			area.put(e.getId(), e);
 		}
+		
 	}
 
 	@Override
