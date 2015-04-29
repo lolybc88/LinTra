@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xmi:XMI xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:abc="http://abc"
+    xsi:schemaLocation="http://abc ABC.ecore">
+  <abc:B name="myB"
+      a="/1"/>
+  <abc:A name="myA"/>
+  <abc:C name="myC1"/>
+  <abc:C name="myC2"/>
+  <abc:C name="myC3"/>
+</xmi:XMI>

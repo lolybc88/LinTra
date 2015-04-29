@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <workflow>
-	<property name="model" value="EMF2LINDA/input/q1mm.ecore" />
+	<property name="model" value="EMF2LINDA/input/ABC.ecore" />
 	<property name="src-gen" value="src-gen/" />
 	
 	<!-- set up EMF for standalone execution -->

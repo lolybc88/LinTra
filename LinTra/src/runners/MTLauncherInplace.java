@@ -7,6 +7,7 @@ import java.util.Collection;
 import java.util.LinkedList;
 import java.util.List;
 
+import transfo.CurrentId;
 import transfo.IMaster;
 import transfo.ITransformation;
 import transfo.Master_SingleMT;
@@ -19,7 +20,7 @@ import blackboard.IBlackboard.Policy;
 public class MTLauncherInplace {
 	
 	IBlackboard blackboard;
-	IArea workTODOArea, srcModelArea, trgModelArea;
+	IArea workTODOArea, srcModelArea, trgModelArea, currentIdArea, idCorrespondencesArea;
 	
 	public IArea getSrcArea(){
 		return srcModelArea;
@@ -33,7 +34,23 @@ public class MTLauncherInplace {
 		srcModelArea = srcArea;
 	}
 
-	public void createBlackboard(){
+	public IArea getCurrentIdArea() {
+		return currentIdArea;
+	}
+
+	public void setCurrentIdArea(IArea currentIdArea) {
+		this.currentIdArea = currentIdArea;
+	}
+
+	public IArea getIdCorrespondencesArea() {
+		return idCorrespondencesArea;
+	}
+
+	public void setIdCorrespondencesArea(IArea idCorrespondencesArea) {
+		this.idCorrespondencesArea = idCorrespondencesArea;
+	}
+
+	public void createBlackboard() throws BlackboardException{
 		blackboard = new HashMapBlackboard();
 //		blackboard = new HazelcastBlackboard();
 //		blackboard = new EhcacheBlackboard();
@@ -43,6 +60,13 @@ public class MTLauncherInplace {
 		workTODOArea = blackboard.createArea("processorSpace", Policy.LOCK_TO_READ);
 		srcModelArea = blackboard.createArea("processorSpace_Src", Policy.NEVER_LOCK);
 		trgModelArea = blackboard.createArea("processorSpace_Trg", Policy.NEVER_LOCK);
+		currentIdArea = blackboard.createArea("currentId1", Policy.LOCK_TO_READ); initializeCurrentIdArea(currentIdArea, 1.0);
+		idCorrespondencesArea = blackboard.createArea("idCorrespondences1", Policy.NEVER_LOCK);
+	}
+	
+	private void initializeCurrentIdArea(IArea currentIdArea, double firstIdAvailable) throws BlackboardException {
+		CurrentId cid = new CurrentId(firstIdAvailable);
+		currentIdArea.write(cid);
 	}
 	
 	public void loadModel(String[] modelPath) throws Exception {
@@ -55,6 +79,7 @@ public class MTLauncherInplace {
 		for (int i=0; i<modelPath.length; i++){
 			ts.get(i).join();
 		}
+		initializeCurrentIdArea(currentIdArea, srcModelArea.size()+1);
 	}
 	
 	public void loadModel(String modelPath) throws Exception {
