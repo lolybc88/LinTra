@@ -7,25 +7,22 @@ import java.io.ObjectInputStream;
 import java.util.LinkedList;
 import java.util.List;
 
+import runners.MTLauncher1Input1Output;
 import blackboard.BlackboardException;
 import blackboard.IArea;
 import blackboard.IdentifiableElement;
 
-public class ModelLoader_Single implements Runnable {
+public class ModelLoader_Single_Inplace extends ModelLoader_Single implements Runnable {
 
-	protected String modelPath;
-	protected IArea srcModelArea;
+	private  IArea trgModelArea;
 	
-	public ModelLoader_Single(String modelPath, IArea modelArea) {
-		this.modelPath = modelPath;
-		this.srcModelArea = modelArea;
+	public ModelLoader_Single_Inplace(String modelPath, IArea srcModelArea, IArea trgModelArea) {
+		super(modelPath, srcModelArea);
+		this.trgModelArea = trgModelArea;
 	}
 	
 	@Override
 	public void run() {
-		// ClassModelGeneration cmg = new ClassModelGeneration(area);
-		// cmg.loadModel(model, area);
-
 		try {
 			
 			FileInputStream fis = new FileInputStream(modelPath);
@@ -35,8 +32,8 @@ public class ModelLoader_Single implements Runnable {
 			try {
 
 				while (o != null) {
-					
 					srcModelArea.write((IdentifiableElement)o);
+					trgModelArea.write((IdentifiableElement)o);
 					o = ois.readObject();
 				}
 				ois.close();

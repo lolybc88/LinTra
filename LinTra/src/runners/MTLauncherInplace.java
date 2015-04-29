@@ -11,11 +11,12 @@ import transfo.IMaster;
 import transfo.ITransformation;
 import transfo.Master_SingleMT;
 import transfo.ModelLoader_Single;
+import transfo.ModelLoader_Single_Inplace;
 import transfo.Slave_SingleMT;
 import blackboard.*;
 import blackboard.IBlackboard.Policy;
 
-public class MTLauncher1Input1Output {
+public class MTLauncherInplace {
 	
 	IBlackboard blackboard;
 	IArea workTODOArea, srcModelArea, trgModelArea;
@@ -47,7 +48,7 @@ public class MTLauncher1Input1Output {
 	public void loadModel(String[] modelPath) throws Exception {
 		List<Thread> ts = new LinkedList<Thread>();
 		for (int i=0; i<modelPath.length; i++){
-			Thread t = new Thread(new ModelLoader_Single(modelPath[i], srcModelArea));
+			Thread t = new Thread(new ModelLoader_Single_Inplace(modelPath[i], srcModelArea, trgModelArea));
 			ts.add(t);
 			t.start();
 		}
@@ -57,7 +58,7 @@ public class MTLauncher1Input1Output {
 	}
 	
 	public void loadModel(String modelPath) throws Exception {
-		ModelLoader_Single mls = new ModelLoader_Single(modelPath, srcModelArea);
+		ModelLoader_Single mls = new ModelLoader_Single_Inplace(modelPath, srcModelArea, trgModelArea);
 		mls.run();
 	}
 	
@@ -110,5 +111,4 @@ public class MTLauncher1Input1Output {
 		ois.close();
 		fis.close();
 	}
-	
 }

@@ -1,0 +1,32 @@
+-- @atlcompiler emftvm
+-- @path UML=/Public2Private/metamodel/UMLSimp.ecore
+
+module UpdateUpdate_Case3;
+create OUT : UML refining IN : UML;
+
+helper def : empty : Sequence(UML!Property) = Sequence{};
+
+-- A rule assigns a null value to properties
+-- ATL throws the following execution error: Cannot assign null to multi-valued field Class::properties
+-- I think this is a general ATL problem, nothing related to the refining mode or some rule conflict. Check it anyway.
+rule Property {
+	from
+		p_src : UML!Property (
+			p_src.visibility = #public
+		)
+	to
+		p_trg : UML!Property (
+			visibility <- #private
+		)
+}
+
+rule Class {
+	from
+		c : UML!Class
+	to 
+		c1 : UML!Class (
+			name <- c.name,
+			properties <- OclUndefined
+		)
+}
+

@@ -1,0 +1,9 @@
+-- @atlcompiler emftvm
+-- @path UML=/Public2Private/metamodel/UMLSimp.ecore
+
+module DeleteUse_Case11;
+create OUT : UML refining IN : UML;
+
+-- Same case as InsertForbid. According to the sequence in which the rules are executed we have a kind of conflict or the other.
+-- As ATL only read the source model, the problem is the same, the classes are removed and the properties are created but not
+-- contained in any resource.

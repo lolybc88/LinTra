@@ -1,0 +1,25 @@
+-- @atlcompiler emftvm
+-- @path UML=/Public2Private/metamodel/UMLSimp.ecore
+
+module InsertForbid_Case1;
+create OUT : UML refining IN : UML;
+
+
+-- A rule adds a property to a class which is empty and another rule remove the empty classes
+-- An element matches both rules and that's forbidden by ATL
+rule AddAttr {
+	from
+		c : UML!Class (c.properties.oclIsUndefined() or c.properties.isEmpty())
+	to 
+		c1 : UML!Class (
+			name <- c.name,
+			properties <- Sequence{p}
+		),
+		p : UML!Property (
+			name <- c.name.concat('Prop')			
+		)
+}
+
+rule RemoveEmptyClass {
+	from c : UML!Class
+}

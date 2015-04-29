@@ -1,0 +1,29 @@
+-- @atlcompiler emftvm
+-- @path UML=/Public2Private/metamodel/UMLSimp.ecore
+
+module DeleteUpdate_Case2;
+create OUT : UML refining IN : UML;
+
+
+-- An element is modified by a rule and removed by another.
+-- The transfo only reads the source model so the visibility is changed AND the properties are removed. As a result, the properties
+-- are removed in the output model.
+
+rule Class {
+	from
+		c : UML!Class
+	to 
+		c1 : UML!Class (
+			name <- c.name
+		)
+	do {
+		for (prop in c1.properties) {
+			c.debug('executing this sentence');
+			prop.visibility <- #public;	
+		}
+	}
+}
+
+rule RemoveProperty {
+	from p : UML!Property
+}

@@ -1,0 +1,32 @@
+-- @atlcompiler emftvm
+-- @path UML=/Public2Private/metamodel/UMLSimp.ecore
+
+module UpdateUpdate_Case1;
+create OUT : UML refining IN : UML;
+
+helper def : empty : Sequence(UML!Property) = Sequence{};
+
+-- The visibility of a property is changed and the properties of a class are unlinked.
+-- The visibilities are updated and the properties are kept in the model but they are no linked to any class.
+-- As expected
+rule Property {
+	from
+		p_src : UML!Property (
+			p_src.visibility = #public
+		)
+	to
+		p_trg : UML!Property (
+			visibility <- #private
+		)
+}
+
+rule Class {
+	from
+		c : UML!Class
+	to 
+		c1 : UML!Class (
+			name <- c.name,
+			properties <- thisModule.empty
+		)
+}
+

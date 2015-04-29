@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:umlsimp="http://umlsimp/1.0" xsi:schemaLocation="http://umlsimp/1.0 ../metamodel/UMLSimp.ecore">
+  <umlsimp:Model>
+    <modelElements xsi:type="umlsimp:DataType" name="Integer"/>
+    <modelElements xsi:type="umlsimp:DataType" name="String"/>
+    <modelElements xsi:type="umlsimp:Class" name="Table"/>
+  </umlsimp:Model>
+  <umlsimp:Property name="color" type="/0/@modelElements.1" visibility="private"/>
+  <umlsimp:Property name="height" type="/0/@modelElements.0" visibility="private"/>
+</xmi:XMI>
