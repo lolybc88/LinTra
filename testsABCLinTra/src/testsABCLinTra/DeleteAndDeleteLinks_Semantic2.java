@@ -16,51 +16,58 @@ import transfo.LinTraParameters;
 import transfo.Range;
 import transfo.TraceFunction;
 
-public class CreationAndResolveTemp implements ITransformation {
+public class DeleteAndDeleteLinks_Semantic2 implements ITransformation {
 
 	private static final String A2AC = "a2ac";
-	IArea srcArea, trgArea, currentIdArea, idCorrespondencesArea;
+	IArea srcArea, trgArea, currentIdArea, idCorrespondencesArea, deletesArea;
 	
-	public CreationAndResolveTemp(IArea srcArea, IArea trgArea, IArea currentIdArea, IArea correspondencesArea) {
+	public DeleteAndDeleteLinks_Semantic2(IArea srcArea, IArea trgArea, IArea currentIdArea, IArea correspondencesArea, IArea deletesArea) {
 		this.srcArea = srcArea;
 		this.trgArea = trgArea;
 		this.currentIdArea = currentIdArea;
 		this.idCorrespondencesArea = correspondencesArea;
+		this.deletesArea = deletesArea;
 	}
 
 	@Override
 	public void transform(Collection<IdentifiableElement> objs,
 			IMaster masterNextTransfo) throws BlackboardException, InterruptedException {
 		
-		LinkedList<IdentifiableElement> outObjs = new LinkedList<IdentifiableElement>();
+		LinkedList<IdentifiableElement> createdElems = new LinkedList<IdentifiableElement>();
+		LinkedList<IdentifiableElement> modifiedElems = new LinkedList<IdentifiableElement>();
+		LinkedList<IdentifiableElement> deletedElems = new LinkedList<IdentifiableElement>();
+		
 		List<IdentifiableElement> idCorrespondances = new LinkedList<IdentifiableElement>();
-		int rangeNeeded = 0;
 		
 		for (IdentifiableElement ie : objs){
 			if (ie instanceof A){
-				A a = new A(ie.getId(), TraceFunction.create(ie.getId(), 1, A2AC), ((A) ie).getName(), TraceFunction.resolve(ie.getId(), 2, A2AC));
-				C c = new C("", TraceFunction.create(ie.getId(), 2, A2AC), "newC");
-				rangeNeeded++;
-				outObjs.add(a);
-				outObjs.add(c);
-			} else if (ie instanceof B){
-				B b = new B(ie.getId(), TraceFunction.create(ie.getId(), "b2Linked2C"), ((B) ie).getName(), TraceFunction.resolve(((B) ie).getA(), 2, A2AC), ((B) ie).getA());
-				outObjs.add(b);
+				A a = new A(ie.getId(), TraceFunction.create(ie.getId(), 1, A2AC), ((A) ie).getName(), ((A) ie).getC());
+				modifiedElems.add(a);
+			} else if (ie instanceof C){
+				deletedElems.add(ie);
 			}
 		}
 		
-		Range rangeOfIds = requestRangeOfIds(rangeNeeded);
-		for (IdentifiableElement ie : outObjs){
-			if (ie.getId().equals("")) {
+		Range rangeOfIds = requestRangeOfIds(createdElems.size());
+		for (IdentifiableElement ie : createdElems){
 				String id = Double.toString(rangeOfIds.getCurrent());
 				ie.setId(id);
 				idCorrespondances.add(new IdCorrespondence(ie.getTrgId(), id));
 				rangeOfIds.next();
-			}
 		}
 		idCorrespondencesArea.writeAll(idCorrespondances);
-		trgArea.writeAll(outObjs);
-		
+		trgArea.writeAll(createdElems);
+		trgArea.writeAll(modifiedElems);
+		trgArea.takeAll(ids(deletedElems));
+		deletesArea.writeAll(deletedElems);
+	}
+
+	private Collection<String> ids(LinkedList<IdentifiableElement> deletedElems) {
+		LinkedList<String> ids = new LinkedList<String>();
+		for (IdentifiableElement ie : deletedElems){
+			ids.add(ie.getId());
+		}
+		return ids;
 	}
 	
 	private Range requestRangeOfIds(int numberOfIds) throws BlackboardException, InterruptedException {

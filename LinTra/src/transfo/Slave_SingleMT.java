@@ -10,15 +10,14 @@ import blackboard.SearchByIdRange;
 public class Slave_SingleMT implements Runnable, ISlave {
 
 	int threadId;
-	IArea todoArea, srcArea, trgArea;
+	IArea todoArea, srcArea;
 	ITransformation transfoImpl;
 
 	public Slave_SingleMT(int threadId, ITransformation transfoImpl,
-			IArea todoArea, IArea srcArea, IArea trgModelArea) {
+			IArea todoArea, IArea srcArea) {
 		this.threadId = threadId;
 		this.todoArea = todoArea;
 		this.srcArea = srcArea;
-		this.trgArea = trgModelArea;
 		this.transfoImpl = transfoImpl;
 	}
 

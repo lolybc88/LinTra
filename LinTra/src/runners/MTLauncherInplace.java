@@ -20,7 +20,7 @@ import blackboard.IBlackboard.Policy;
 public class MTLauncherInplace {
 	
 	IBlackboard blackboard;
-	IArea workTODOArea, srcModelArea, trgModelArea, currentIdArea, idCorrespondencesArea;
+	IArea workTODOArea, srcModelArea, trgModelArea, currentIdArea, idCorrespondencesArea, deletesArea;
 	
 	public IArea getSrcArea(){
 		return srcModelArea;
@@ -50,6 +50,14 @@ public class MTLauncherInplace {
 		this.idCorrespondencesArea = idCorrespondencesArea;
 	}
 
+	public IArea getDeletesArea() {
+		return deletesArea;
+	}
+
+	public void setDeletesArea(IArea deletesArea) {
+		this.deletesArea = deletesArea;
+	}
+
 	public void createBlackboard() throws BlackboardException{
 		blackboard = new HashMapBlackboard();
 //		blackboard = new HazelcastBlackboard();
@@ -62,6 +70,7 @@ public class MTLauncherInplace {
 		trgModelArea = blackboard.createArea("processorSpace_Trg", Policy.NEVER_LOCK);
 		currentIdArea = blackboard.createArea("currentId1", Policy.LOCK_TO_READ); initializeCurrentIdArea(currentIdArea, 1.0);
 		idCorrespondencesArea = blackboard.createArea("idCorrespondences1", Policy.NEVER_LOCK);
+		deletesArea = blackboard.createArea("deletes", Policy.NEVER_LOCK);
 	}
 	
 	private void initializeCurrentIdArea(IArea currentIdArea, double firstIdAvailable) throws BlackboardException {
@@ -87,7 +96,7 @@ public class MTLauncherInplace {
 		mls.run();
 	}
 	
-	public double launch(ITransformation transfo, int numThreads) throws Exception{
+	public double launch(ITransformation transfo, ITransformation normalizeTransfo, int numThreads) throws Exception{
 		
 		double maxId = srcModelArea.size();
 		
@@ -98,7 +107,7 @@ public class MTLauncherInplace {
 		
 		List<Thread> ts = new LinkedList<Thread>();
 		for (int j=0; j<numThreads; j++){
-			Thread t = new Thread(new Slave_SingleMT(j, transfo, workTODOArea, srcModelArea, trgModelArea));
+			Thread t = new Thread(new Slave_SingleMT(j, transfo, workTODOArea, srcModelArea));
 			t.start();
 			ts.add(t);
     	}
@@ -107,7 +116,39 @@ public class MTLauncherInplace {
 		}
 		double timeF = (System.currentTimeMillis() - time0) / 1000;
 		
+		// Second phase in order to normalize the identifiers
+		if (normalizeTransfo!=null) { 
+			double timeNormalizing = normalizeIds(normalizeTransfo, numThreads);
+		}
+		
 		return timeF;
+	}
+
+	private double normalizeIds(ITransformation normalizationT, int numThreads) throws BlackboardException, InterruptedException {
+		/**
+		 * In-place model transformations need to execute a second phase where the output model is navigated 
+		 * in order to normalize its identifiers. 
+		 */
+		
+		double maxId = trgModelArea.size();
+		
+		IMaster master = new Master_SingleMT(workTODOArea, trgModelArea, numThreads);
+		((Master_SingleMT)master).organizeWork(trgModelArea, maxId);
+		
+		double time0 = System.currentTimeMillis();
+		
+		List<Thread> ts = new LinkedList<Thread>();
+		for (int j=0; j<numThreads; j++){
+			Thread t = new Thread(new Slave_SingleMT(j, normalizationT, workTODOArea, trgModelArea));
+			t.start();
+			ts.add(t);
+    	}
+		for (int j=0; j<ts.size(); j++){
+			ts.get(j).join();
+		}
+		double time = (System.currentTimeMillis() - time0) / 1000;
+		return time;
+		
 	}
 
 	public void destroy() {

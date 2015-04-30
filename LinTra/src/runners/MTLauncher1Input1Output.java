@@ -72,7 +72,7 @@ public class MTLauncher1Input1Output {
 		
 		List<Thread> ts = new LinkedList<Thread>();
 		for (int j=0; j<numThreads; j++){
-			Thread t = new Thread(new Slave_SingleMT(j, transfo, workTODOArea, srcModelArea, trgModelArea));
+			Thread t = new Thread(new Slave_SingleMT(j, transfo, workTODOArea, srcModelArea));
 			t.start();
 			ts.add(t);
     	}
