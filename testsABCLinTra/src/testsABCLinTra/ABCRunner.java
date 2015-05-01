@@ -18,7 +18,7 @@ public class ABCRunner {
 		createModel(mtli.getSrcArea(), mtli.getTrgArea(), mtli.getCurrentIdArea());
 		mtli.getSrcArea().print();
 		
-		ITransformation t = new CreatePlusDelete_Semantic2(mtli.getSrcArea(), mtli.getTrgArea(), mtli.getCurrentIdArea(), mtli.getIdCorrespondencesArea(), mtli.getDeletesArea());
+		ITransformation t = new ModifyProperties(mtli.getSrcArea(), mtli.getTrgArea(), mtli.getCurrentIdArea(), mtli.getIdCorrespondencesArea(), mtli.getDeletesArea());
 		/** Depending on the semantics we choose when deleting elements: */
 //		ITransformation st = null;
 		ITransformation st = new StandardizeReferencesAndRemoveLinks(mtli.getTrgArea(), mtli.getIdCorrespondencesArea(), mtli.getDeletesArea());
@@ -37,13 +37,13 @@ public class ABCRunner {
 
 	private static void createModel(IArea srcArea, IArea trgArea, IArea currentIdArea) throws BlackboardException {
 //		// Model for CreationAndResolveTemp
-		A a = new A("1.0", "", "myA", null); srcArea.write(a); trgArea.write(a);
-		B b = new B("2.0", "", "myB", null, "1.0"); srcArea.write(b); trgArea.write(b);
-		C c1 = new C("3.0", "", "myC1"); srcArea.write(c1); trgArea.write(c1);
-		C c2 = new C("4.0", "", "myC2"); srcArea.write(c2); trgArea.write(c2);
-		C c3 = new C("5.0", "", "myC3"); srcArea.write(c3); trgArea.write(c3);
-		CurrentId cid = new CurrentId(6.0);
-		currentIdArea.write(cid);
+//		A a = new A("1.0", "", "myA", null); srcArea.write(a); trgArea.write(a);
+//		B b = new B("2.0", "", "myB", null, "1.0"); srcArea.write(b); trgArea.write(b);
+//		C c1 = new C("3.0", "", "myC1"); srcArea.write(c1); trgArea.write(c1);
+//		C c2 = new C("4.0", "", "myC2"); srcArea.write(c2); trgArea.write(c2);
+//		C c3 = new C("5.0", "", "myC3"); srcArea.write(c3); trgArea.write(c3);
+//		CurrentId cid = new CurrentId(6.0);
+//		currentIdArea.write(cid);
 		
 		// Model for DeleteAndDeleteLinks
 //		A a = new A("1.0", "", "myA", "3.0"); srcArea.write(a); trgArea.write(a);
@@ -53,5 +53,12 @@ public class ABCRunner {
 //		C c3 = new C("5.0", "", "myC3"); srcArea.write(c3); trgArea.write(c3);
 //		CurrentId cid = new CurrentId(6.0);
 //		currentIdArea.write(cid);
+		
+		// Model for ModifyProperties
+		A a = new A("1.0", "", "myA", "3.0"); srcArea.write(a); trgArea.write(a);
+		B b = new B("2.0", "", "myB", null, "1.0"); srcArea.write(b); trgArea.write(b);
+		C c = new C("3.0", "", "myC"); srcArea.write(c); trgArea.write(c);
+		CurrentId cid = new CurrentId(4.0);
+		currentIdArea.write(cid);
 	}
 }

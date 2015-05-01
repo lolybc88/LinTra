@@ -16,13 +16,13 @@ import transfo.LinTraParameters;
 import transfo.Range;
 import transfo.TraceFunction;
 
-public class CreateAndResolveTemp implements ITransformation {
+public class ModifyProperties implements ITransformation {
 
 	private static final String BLINKED2C = "bLinked2C";
 	private static final String A2AC = "a2ac";
 	IArea srcArea, trgArea, currentIdArea, idCorrespondencesArea;
 	
-	public CreateAndResolveTemp(IArea srcArea, IArea trgArea, IArea currentIdArea, IArea correspondencesArea) {
+	public ModifyProperties(IArea srcArea, IArea trgArea, IArea currentIdArea, IArea correspondencesArea, IArea deletesArea) {
 		this.srcArea = srcArea;
 		this.trgArea = trgArea;
 		this.currentIdArea = currentIdArea;
@@ -39,13 +39,9 @@ public class CreateAndResolveTemp implements ITransformation {
 		List<IdentifiableElement> idCorrespondances = new LinkedList<IdentifiableElement>();
 		
 		for (IdentifiableElement ie : objs){
-			if (ie instanceof A){
-				A a = new A(ie.getId(), TraceFunction.create(ie.getId(), 1, A2AC), ((A) ie).getName(), TraceFunction.resolve(ie.getId(), 2, A2AC));
-				C c = new C("", TraceFunction.create(ie.getId(), 2, A2AC), "newC");
-				modifiedElems.add(a);
-				createdElems.add(c);
-			} else if (ie instanceof B){
-				B b = new B(ie.getId(), TraceFunction.create(ie.getId(), BLINKED2C), ((B) ie).getName(), TraceFunction.resolve(((B) ie).getA(), 2, A2AC), ((B) ie).getA());
+			if (ie instanceof B){
+				A a = (A) srcArea.read(((B) ie).getA());
+				B b = new B(ie.getId(), TraceFunction.create(ie.getId(), BLINKED2C), ((B) ie).getName()+"new", a.getC(), ((B) ie).getA());
 				modifiedElems.add(b);
 			}
 		}

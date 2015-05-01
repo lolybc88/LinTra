@@ -18,6 +18,7 @@ import transfo.TraceFunction;
 
 public class CreatePlusDelete_Semantic2 implements ITransformation {
 
+	private static final String BLINKED2C = "bLinked2C";
 	private static final String A2AC = "a2ac";
 	IArea srcArea, trgArea, currentIdArea, idCorrespondencesArea, deletesArea;
 	
@@ -46,7 +47,7 @@ public class CreatePlusDelete_Semantic2 implements ITransformation {
 				modifiedElems.add(a);
 				createdElems.add(c);
 			} else if (ie instanceof B){
-				B b = new B(ie.getId(), TraceFunction.create(ie.getId(), "b2Linked2C"), ((B) ie).getName(), TraceFunction.resolve(((B) ie).getA(), 2, A2AC), ((B) ie).getA());
+				B b = new B(ie.getId(), TraceFunction.create(ie.getId(), BLINKED2C), ((B) ie).getName(), TraceFunction.resolve(((B) ie).getA(), 2, A2AC), ((B) ie).getA());
 				modifiedElems.add(b);
 			} else if (ie instanceof C){
 				deletedElems.add(ie);
