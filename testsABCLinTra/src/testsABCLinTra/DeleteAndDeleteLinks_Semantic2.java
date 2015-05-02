@@ -19,7 +19,7 @@ import transfo.TraceFunction;
 public class DeleteAndDeleteLinks_Semantic2 implements ITransformation {
 
 	private static final String A2AC = "a2ac";
-	IArea srcArea, trgArea, currentIdArea, idCorrespondencesArea, deletesArea;
+	private IArea srcArea, trgArea, currentIdArea, idCorrespondencesArea, deletesArea;
 	
 	public DeleteAndDeleteLinks_Semantic2(IArea srcArea, IArea trgArea, IArea currentIdArea, IArea correspondencesArea, IArea deletesArea) {
 		this.srcArea = srcArea;

@@ -94,6 +94,7 @@ public class MTLauncherInplace {
 	public void loadModel(String modelPath) throws Exception {
 		ModelLoader_Single mls = new ModelLoader_Single_Inplace(modelPath, srcModelArea, trgModelArea);
 		mls.run();
+		initializeCurrentIdArea(currentIdArea, srcModelArea.size()+1);
 	}
 	
 	public double launch(ITransformation transfo, ITransformation normalizeTransfo, int numThreads) throws Exception{

@@ -26,10 +26,10 @@ public class HashMapArea implements IArea {
 	 */
 
 	private static final long serialVersionUID = 1L;
-	volatile String name;
-	volatile Policy policy;
-	volatile Semaphore semaphore;
-	volatile Map<String, IdentifiableElement> area;
+	private volatile String name;
+	private volatile Policy policy;
+	private volatile Semaphore semaphore;
+	private volatile Map<String, IdentifiableElement> area;
 
 	public HashMapArea(String name, Policy p) {
 		this.name = name;

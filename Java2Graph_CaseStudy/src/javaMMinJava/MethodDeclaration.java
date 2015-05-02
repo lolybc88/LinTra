@@ -1,6 +1,7 @@
 package javaMMinJava;
 
 import java.io.Serializable;
+import java.util.Arrays;
 
 import blackboard.IdentifiableElement;
 
@@ -101,6 +102,34 @@ public class MethodDeclaration extends AbstractMethodDeclaration
 
 	public String[] getRedefinitions() {
 		return redefinitionsID;
+	}
+
+	@Override
+	public String toString() {
+		return "MethodDeclaration [id=" + id + ", extraArrayDimensions="
+				+ extraArrayDimensions + ", returnTypeID=" + returnTypeID
+				+ ", returnTypeIsComposed=" + returnTypeIsComposed
+				+ ", redefinedMethodDeclarationID="
+				+ redefinedMethodDeclarationID + ", redefinitionsID="
+				+ Arrays.toString(redefinitionsID)
+				+ ", redefinitionsIsComposed=" + redefinitionsIsComposed
+				+ ", trgId=" + trgId + ", bodyID=" + bodyID + ", parametersID="
+				+ Arrays.toString(parametersID) + ", thrownExceptionsID="
+				+ Arrays.toString(thrownExceptionsID) + ", typeParametersID="
+				+ Arrays.toString(typeParametersID)
+				+ ", usagesInDocCommentsID="
+				+ Arrays.toString(usagesInDocCommentsID) + ", usagesID="
+				+ Arrays.toString(usagesID) + ", abstractTypeDeclarationID="
+				+ abstractTypeDeclarationID + ", annotationsID="
+				+ Arrays.toString(annotationsID) + ", annotationsIsComposed="
+				+ annotationsIsComposed + ", anonymousClassDeclarationOwnerID="
+				+ anonymousClassDeclarationOwnerID + ", modifierID="
+				+ modifierID + ", name=" + name + ", proxy=" + proxy
+				+ ", usagesInImportsID=" + Arrays.toString(usagesInImportsID)
+				+ ", commentsID=" + Arrays.toString(commentsID)
+				+ ", commentsIsComposed=" + commentsIsComposed
+				+ ", originalCompilationUnitID=" + originalCompilationUnitID
+				+ ", originalClassFileID=" + originalClassFileID + "]";
 	}
 
 }
