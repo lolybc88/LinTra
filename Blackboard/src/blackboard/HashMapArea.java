@@ -314,12 +314,18 @@ public class HashMapArea implements IArea {
 	}
 
 	private synchronized void writeAllAux(Collection<IdentifiableElement> elems) {
+		
 		for (IdentifiableElement e : elems){
+			try {
 			if (area.containsKey(e.getId())){
-				System.out.println("--->"+area.get(e.getId()) + " is being overwritten by " + e);
+//				System.out.println("--->"+area.get(e.getId()) + " is being overwritten by " + e);
 			}
 			area.put(e.getId(), e);
+		} catch (NullPointerException ex){
+			System.out.println("what's going on here? "+e.toString());
 		}
+		}
+		
 	}
 
 	@Override

@@ -132,7 +132,7 @@ public class Public2Private implements ITransformation {
 								// 
 							
 								ExpressionStatement exprStat = new ExpressionStatement("", null, ((javaMMinJava.FieldDeclaration) ie).getOriginalCompilationUnit(), null, assign.getTrgId());
-								exprStat.setTrgId(TraceFunction.create("", 13, PUBLIC2PRIVATE));
+								exprStat.setTrgId(TraceFunction.create(ie.getId(), 13, PUBLIC2PRIVATE));
 
 								javaMMinJava.Block block2 = new Block("", null, ((javaMMinJava.FieldDeclaration) ie).getOriginalCompilationUnit(), null, new String[] { exprStat.getTrgId() });
 								block2.setTrgId(TraceFunction.create(ie.getId(), 14, PUBLIC2PRIVATE));
