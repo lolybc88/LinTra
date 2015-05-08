@@ -191,5 +191,4 @@ public class Public2Private implements ITransformation {
 		currentIdArea.write(cid);
 		return r;
 	}
-
 }

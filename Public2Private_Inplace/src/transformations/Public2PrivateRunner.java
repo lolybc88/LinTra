@@ -16,9 +16,13 @@ public class Public2PrivateRunner {
 //		mtli.loadModel("C:/Users/Loli/Desktop/eclipseModel-0.1.ser");
 //		mtli.loadModel("C:/Users/Loli/Desktop/LinTraGit/Public2Private_Inplace/inModels/org.eclipse.ease.engine.javascript_java.ser");
 		
+	
+		ITransformation copy = new CopyToTrgSpace(mtli.getTrgArea());
+		double time1 = mtli.launch(copy, null, LinTraParameters.NUMBER_OF_THREADS_T1);
+		
 		ITransformation t = new Public2Private(mtli.getSrcArea(), mtli.getTrgArea(), mtli.getCurrentIdArea(), mtli.getIdCorrespondencesArea(), mtli.getDeletesArea());
-		double time = mtli.launch(t, null, LinTraParameters.NUMBER_OF_THREADS_T1);
-		System.out.println(time);
+		double time2 = mtli.launch(t, null, LinTraParameters.NUMBER_OF_THREADS_T1);
+		System.out.println(time1+time2);
 //		mtli.getSrcArea().print();
 		System.out.println(mtli.getSrcArea().size());
 		System.out.println(mtli.getTrgArea().size());

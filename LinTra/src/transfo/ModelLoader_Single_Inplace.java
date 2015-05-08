@@ -33,7 +33,7 @@ public class ModelLoader_Single_Inplace extends ModelLoader_Single implements Ru
 
 				while (o != null) {
 					srcModelArea.write((IdentifiableElement)o);
-					trgModelArea.write((IdentifiableElement)o);
+//					trgModelArea.write((IdentifiableElement)o);
 					o = ois.readObject();
 				}
 				ois.close();
