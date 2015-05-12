@@ -1,7 +1,5 @@
 package transformations;
 
-import java.io.ObjectInputStream.GetField;
-
 import runners.MTLauncherInplace;
 import transfo.ITransformation;
 import transfo.LinTraParameters;
@@ -16,7 +14,6 @@ public class Public2PrivateRunner {
 //		mtli.loadModel("C:/Users/Loli/Desktop/eclipseModel-0.1.ser");
 //		mtli.loadModel("C:/Users/Loli/Desktop/LinTraGit/Public2Private_Inplace/inModels/org.eclipse.ease.engine.javascript_java.ser");
 		
-	
 		ITransformation copy = new CopyToTrgSpace(mtli.getTrgArea());
 		double time1 = mtli.launch(copy, null, LinTraParameters.NUMBER_OF_THREADS_T1);
 		
