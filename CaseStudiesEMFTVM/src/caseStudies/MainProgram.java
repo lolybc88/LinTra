@@ -17,13 +17,46 @@ import ICMTAuthor.impl.ICMTAuthorPackageImpl;
 
 public class MainProgram {
 
-	public static void main(String[] args) throws MalformedURLException, InterruptedException, IOException, ATLCoreException {
+	public static void main(String[] args) throws Exception {
 		
-		imbd();
+//		imbd();
 		
 //		dblp();
 		
 //		java2graph();
+		
+		public2private();
+		
+	}
+
+	private static void public2private() throws Exception {
+		FileWriter fw = new FileWriter("/home/loli/execTime.txt");
+		BufferedWriter bw = new BufferedWriter(fw);
+		
+		
+		String[] cc = { "0.1"/*, "0.2", "0.5", "1.0", "1.5", "2.0", "2.5", "3.0", "3.5", "4.0", "all"*/ };
+		for (String c : cc) {
+			System.out.println("-- " + c + " --");
+			bw.write(c+"\n");
+
+			for (int i=0; i<1; i++){
+//				 String model = "file://C:/Users/Atenea/Desktop/eclipseModel/eclipseModels-CaseStudy/eclipseModel-"+c+".xmi";
+//				 String model = "file://C:/Users/Loli/Dropbox/PhD/Atenea02/wsLinTra/CaseStudies/eclipseModel-0.1.xmi";
+	
+				String model = "/home/loli/IST_2014/eclip/xmi/eclipseModel-" + c + ".xmi";
+//				String model = "file:C:/Users/Loli/Desktop/LinTraGit/CaseStudiesEMFTVM/public2private/Blackboard_java.xmi";
+				
+				TransfoRunnerInplaceEMFTVM tr2 = new TransfoRunnerInplaceEMFTVM();
+				double t = tr2.runTransformation(
+						"http://www.eclipse.org/MoDisco/Java/0.2.incubation/java", JavaMMPackage.eINSTANCE, "Java",
+						model, "public2private/out.xmi", "public2private/", "Public2Private");
+				
+				System.out.println(t);
+				bw.write(t+"\n");
+				bw.flush();
+			}
+		}
+		bw.close();
 		
 	}
 
