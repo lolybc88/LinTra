@@ -1,6 +1,7 @@
 package javaMMinJava;
 
 import java.io.Serializable;
+import java.util.Arrays;
 
 import blackboard.IdentifiableElement;
 
@@ -52,6 +53,15 @@ public class Block extends Statement implements Serializable, IdentifiableElemen
 
 	public String[] getStatements() {
 		return statementsID;
+	}
+
+	@Override
+	public String toString() {
+		return "Block [id=" + id + ", statementsID="
+				+ Arrays.toString(statementsID) + ", trgId=" + trgId
+				+ ", commentsID=" + Arrays.toString(commentsID)
+				+ ", originalCompilationUnitID=" + originalCompilationUnitID
+				+ ", originalClassFileID=" + originalClassFileID + "]";
 	}
 
 }

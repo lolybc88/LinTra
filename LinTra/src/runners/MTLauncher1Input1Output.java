@@ -1,11 +1,7 @@
 package runners;
 
-import java.io.EOFException;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.Collection;
 import java.util.LinkedList;
@@ -16,7 +12,6 @@ import transfo.ITransformation;
 import transfo.Master_SingleMT;
 import transfo.ModelLoader_Single;
 import transfo.Slave_SingleMT;
-import MavenPrj.MavenPrj.InfinispanBlackboard;
 import blackboard.*;
 import blackboard.IBlackboard.Policy;
 
@@ -77,7 +72,7 @@ public class MTLauncher1Input1Output {
 		
 		List<Thread> ts = new LinkedList<Thread>();
 		for (int j=0; j<numThreads; j++){
-			Thread t = new Thread(new Slave_SingleMT(j, transfo, workTODOArea, srcModelArea, trgModelArea));
+			Thread t = new Thread(new Slave_SingleMT(j, transfo, workTODOArea, srcModelArea));
 			t.start();
 			ts.add(t);
     	}

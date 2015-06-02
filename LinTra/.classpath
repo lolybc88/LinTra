@@ -16,6 +16,5 @@
 	<classpathentry kind="lib" path="lib/spring-expression-3.2.4.RELEASE.jar"/>
 	<classpathentry kind="lib" path="lib/spring-tx-3.2.4.RELEASE.jar"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/Blackboard"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/InfinispanBlackboard"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

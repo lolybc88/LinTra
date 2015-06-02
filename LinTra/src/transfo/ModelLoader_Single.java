@@ -13,12 +13,12 @@ import blackboard.IdentifiableElement;
 
 public class ModelLoader_Single implements Runnable {
 
-	private  String modelPath;
-	private  IArea modelArea;
+	protected String modelPath;
+	protected IArea srcModelArea;
 	
 	public ModelLoader_Single(String modelPath, IArea modelArea) {
 		this.modelPath = modelPath;
-		this.modelArea = modelArea;
+		this.srcModelArea = modelArea;
 	}
 	
 	@Override
@@ -36,7 +36,7 @@ public class ModelLoader_Single implements Runnable {
 
 				while (o != null) {
 					
-					modelArea.write((IdentifiableElement)o);
+					srcModelArea.write((IdentifiableElement)o);
 					o = ois.readObject();
 				}
 				ois.close();

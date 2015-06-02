@@ -1,6 +1,7 @@
 package javaMMinJava;
 
 import java.io.Serializable;
+import java.util.Arrays;
 
 import blackboard.IdentifiableElement;
 
@@ -64,6 +65,15 @@ public class FieldAccess extends Expression implements Serializable, Identifiabl
 
 	public String getExpression() {
 		return expressionID;
+	}
+
+	@Override
+	public String toString() {
+		return "FieldAccess [id=" + id + ", fieldID=" + fieldID
+				+ ", expressionID=" + expressionID + ", trgId=" + trgId
+				+ ", commentsID=" + Arrays.toString(commentsID)
+				+ ", originalCompilationUnitID=" + originalCompilationUnitID
+				+ ", originalClassFileID=" + originalClassFileID + "]";
 	}
 
 }

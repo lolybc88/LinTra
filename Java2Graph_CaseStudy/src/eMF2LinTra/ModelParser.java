@@ -28,8 +28,8 @@ public class ModelParser {
 
 	public static void main(String[] args) throws IOException,
 			ClassNotFoundException {
-		eMFModel2LinTraModel("C:/Users/Atenea/Desktop/eclipseModel/eclipseModels2",
-				"C:/Users/Atenea/Desktop/eclipseModel/eclipseModel.ser");
+		eMFModel2LinTraModel("C:/Users/Loli/Desktop/ee",
+				"C:/Users/Loli/Desktop/toyeclipseModel.ser");
 //		joinEMFModels("C:/Users/Atenea/Desktop/eclipseModel/eclipseModels2", "eclipseModel-all.xmi");
 		
 		System.out.println("\nDone!");

@@ -1,0 +1,23 @@
+-- @atlcompiler emftvm
+-- @path UML=/Public2Private/metamodel/UMLSimp.ecore
+
+module Try;
+create OUT : UML refining IN : UML;
+
+rule Property {
+	from
+		p_src : UML!Property
+	to
+		p_trg : UML!Property
+}
+
+rule Property2 {
+	from
+		p_src : UML!Property,
+		psrc2 : UML!Property
+	to
+		p_trg : UML!Property,
+		ptrg2 : UML!Property
+}
+
+

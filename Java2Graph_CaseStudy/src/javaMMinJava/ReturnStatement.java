@@ -1,6 +1,7 @@
 package javaMMinJava;
 
 import java.io.Serializable;
+import java.util.Arrays;
 
 import blackboard.IdentifiableElement;
 
@@ -52,6 +53,15 @@ public class ReturnStatement extends Statement implements Serializable, Identifi
 
 	public String getExpression() {
 		return expressionID;
+	}
+
+	@Override
+	public String toString() {
+		return "ReturnStatement [id=" + id + ", expressionID=" + expressionID
+				+ ", trgId=" + trgId + ", commentsID="
+				+ Arrays.toString(commentsID) + ", originalCompilationUnitID="
+				+ originalCompilationUnitID + ", originalClassFileID="
+				+ originalClassFileID + "]";
 	}
 
 }

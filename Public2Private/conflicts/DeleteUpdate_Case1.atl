@@ -1,0 +1,25 @@
+-- @atlcompiler emftvm
+-- @path UML=/Public2Private/metamodel/UMLSimp.ecore
+
+module UpdateDelete_Case1;
+create OUT : UML refining IN : UML;
+
+
+-- An element is modified by a rule and removed by another.
+-- As there are more then one in pattern matching the same element, ATL throws an error
+rule Property {
+	from
+		p_src : UML!Property (
+			p_src.visibility = #public
+		)
+	to
+		p_trg : UML!Property (
+			visibility <- #private
+		)
+}
+
+rule RemoveProperty {
+	from p : UML!Property
+}
+
+

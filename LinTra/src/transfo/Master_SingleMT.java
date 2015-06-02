@@ -11,17 +11,14 @@ public class Master_SingleMT implements IMaster {
 	public Master_SingleMT(IArea workTODOArea, IArea srcModelArea, int numThreads) {
 		this.workTODOArea = workTODOArea;
     	this.srcArea = srcModelArea;
-
     	this.numThreads = numThreads;
 	}
 	
 	public synchronized void organizeWork(IArea area, double maxId) throws BlackboardException {
-		
 		/* Inizialize workTODOArea */
     	ToDo todo = new ToDo();
     	double i = 0;
     	int increase = computeOptimalIncrease(numThreads, maxId, LinTraParameters.JOB_SIZE);
-    	
     	while(i<maxId){
     		todo.add(new Job(i+1, i+increase));
     		i=i+increase;

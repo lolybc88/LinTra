@@ -1,0 +1,33 @@
+-- @atlcompiler emftvm
+-- @path UML=/Public2Private/metamodel/UMLSimp.ecore
+
+module InsertForbid_Case2;
+create OUT : UML refining IN : UML;
+
+helper def : clazz : UML!Class = OclUndefined;
+
+
+-- One rule adds a property to a class, another rule removes all the classes.
+-- This time there is no overlapping matching. As only the source model is navigated, the result is that the transformation
+-- gives a wrong model. It deletes the classes and also add properties. As a result, there are properties that are not contained
+-- in a resource. 
+rule AddPropToAClass {
+	from
+		model : UML!Model
+	to 
+		model1 : UML!Model,
+		p : UML!Property (
+			name <- 'newProp'			
+		)
+	do {
+		for (c in model.modelElements->select(c | c.oclIsTypeOf(UML!Class))) {
+			thisModule.clazz <- c;
+			thisModule.clazz.properties <- thisModule.clazz.properties.append(p);
+			model1.modelElements <- model1.modelElements.append(c);
+		}
+	}
+}
+
+rule RemoveEmptyClass {
+	from c : UML!Class
+}

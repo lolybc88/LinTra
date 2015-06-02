@@ -1,0 +1,28 @@
+-- @atlcompiler emftvm
+-- @path ABC=/tests/ABC.ecore
+
+module linkToACreatedElement;
+create OUT : ABC refining IN : ABC;
+
+rule A2AC {
+	from
+		a : ABC!A
+	to 
+		a1 : ABC!A (
+			name <- a.name,
+			c <- c
+		),
+		c: ABC!C (
+			name <- 'newC'	
+		)
+}
+
+rule B2BLinkedToC {
+	from
+		b : ABC!B
+	to 
+		b1 : ABC!B (
+			a <- b.a,
+			c <- thisModule.resolveTemp(b.a, 'c')
+		)
+}

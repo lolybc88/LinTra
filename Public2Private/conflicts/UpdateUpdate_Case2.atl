@@ -1,0 +1,38 @@
+-- @atlcompiler emftvm
+-- @path UML=/Public2Private/metamodel/UMLSimp.ecore
+
+module UpdateUpdate_Case2;
+create OUT : UML refining IN : UML;
+
+helper def : empty : Sequence(UML!Property) = Sequence{};
+
+-- A rule modifies the attributes from public to private and another rule modifies them to public.
+-- After running the transfo all the attributes are public. The imperative block is executed in the second phase, when all the 
+-- objects have already been created. The transformation is executed without any warning or error thrown by ATL
+-- We could think of doing the same with a regular out-place transformation but it's not possible with this code as it navigates
+-- the output model and it is not allowed.
+rule Property {
+	from
+		p_src : UML!Property (
+			p_src.visibility = #public
+		)
+	to
+		p_trg : UML!Property (
+			visibility <- #private
+		)
+}
+
+rule Class {
+	from
+		c : UML!Class
+	to 
+		c1 : UML!Class (
+			name <- c.name
+		)
+	do {
+		for (prop in c1.properties) {
+			prop.visibility <- #public;	
+		}
+	}
+}
+

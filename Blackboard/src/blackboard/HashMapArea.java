@@ -26,10 +26,10 @@ public class HashMapArea implements IArea {
 	 */
 
 	private static final long serialVersionUID = 1L;
-	volatile String name;
-	volatile Policy policy;
-	volatile Semaphore semaphore;
-	volatile Map<String, IdentifiableElement> area;
+	private volatile String name;
+	private volatile Policy policy;
+	private volatile Semaphore semaphore;
+	private volatile Map<String, IdentifiableElement> area;
 
 	public HashMapArea(String name, Policy p) {
 		this.name = name;
@@ -316,12 +316,15 @@ public class HashMapArea implements IArea {
 	private synchronized void writeAllAux(Collection<IdentifiableElement> elems) {
 		
 		for (IdentifiableElement e : elems){
-			if (area.containsKey(e.getId())){
-//				System.out.println("--->"+area.get(e.getId()) + " is being overwritten by " + e);
+			try {
+				if (area.containsKey(e.getId())){
+	//				System.out.println("--->"+area.get(e.getId()) + " is being overwritten by " + e);
+				}
+				area.put(e.getId(), e);
+			} catch (NullPointerException ex){
+				System.out.println("what's going on here? "+e.toString());
 			}
-			area.put(e.getId(), e);
 		}
-		
 	}
 
 	@Override

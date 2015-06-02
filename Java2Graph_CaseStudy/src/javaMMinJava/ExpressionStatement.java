@@ -1,6 +1,7 @@
 package javaMMinJava;
 
 import java.io.Serializable;
+import java.util.Arrays;
 
 import blackboard.IdentifiableElement;
 
@@ -52,6 +53,15 @@ public class ExpressionStatement extends Statement implements Serializable, Iden
 
 	public String getExpression() {
 		return expressionID;
+	}
+
+	@Override
+	public String toString() {
+		return "ExpressionStatement [id=" + id + ", expressionID="
+				+ expressionID + ", trgId=" + trgId + ", commentsID="
+				+ Arrays.toString(commentsID) + ", originalCompilationUnitID="
+				+ originalCompilationUnitID + ", originalClassFileID="
+				+ originalClassFileID + "]";
 	}
 
 }

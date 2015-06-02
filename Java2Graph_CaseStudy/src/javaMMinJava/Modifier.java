@@ -6,6 +6,8 @@ import blackboard.IdentifiableElement;
 
 public class Modifier extends ASTNode implements Serializable, IdentifiableElement {
 
+	public static enum VisibilityKind {None, Public, Private, Protected}
+	
 	private static final long serialVersionUID = 1L;
 
 	String id;
@@ -179,4 +181,18 @@ public class Modifier extends ASTNode implements Serializable, IdentifiableEleme
 		return variableDeclarationExpressionID;
 	}
 
+	@Override
+	public String toString() {
+		return "Modifier [id=" + id + ", visibility=" + visibility
+				+ ", inheritance=" + inheritance + ", static_=" + static_
+				+ ", transient_=" + transient_ + ", volatile_=" + volatile_
+				+ ", native_=" + native_ + ", strictfp_=" + strictfp_
+				+ ", synchronized_=" + synchronized_ + ", bodyDeclarationID="
+				+ bodyDeclarationID + ", singleVariableDeclarationID="
+				+ singleVariableDeclarationID
+				+ ", variableDeclarationStatementID="
+				+ variableDeclarationStatementID
+				+ ", variableDeclarationExpressionID="
+				+ variableDeclarationExpressionID + ", trgId=" + trgId + "]";
+	}
 }
