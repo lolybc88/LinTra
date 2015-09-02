@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:DBLP="http://dblp.com">
+  <DBLP:InProceedings ee="http://dx.doi.org/10.1007/978-3-319-07956-1_26" url="db/conf/aaim/aaim2014.html#Xiao14" key="conf/aaim/Xiao14" authors="/7" mdate="2014-06-11" title="A New Linear Kernel for Undirected Planar Feedback Vertex Set: Smaller and Simpler." bootitle="AAIM" year="2014" fromPage="288" toPage="298"/>
+  <DBLP:InProceedings ee="http://ceur-ws.org/Vol-1277/5.pdf" url="db/conf/models/amt2014.html#TroyaWBV14" key="conf/models/TroyaWBV14" authors="/11 /16 /18 /8" mdate="2014-12-07" title="Towards Approximate Model Transformations." bootitle="AMT@MoDELS" year="2014" fromPage="44" toPage="53"/>
+  <DBLP:Article ee="http://dx.doi.org/10.1007/s10270-013-0377-x" url="db/journals/sosym/sosym14.html#VallecilloT15" key="journals/sosym/VallecilloT15" authors="/8 /14" mdate="2015-02-02" title="&#xA;Guest editorial to the special issue on &quot;modelling-foundations and applications&quot;.&#xA;" fromPage="339" toPage="341" number="1" journal="/19" volume="14" year="2015"/>
+  <DBLP:Book ee="http://www.crcpress.com/product/isbn/9781439866252" key="books/daglib/0030766" authors="/15 /5 /12 /8" mdate="2013-03-04" title="&#xA;Building Enterprise Systems with ODP - An Introduction to Open Distributed Processing.&#xA;" year="2011" publisher="/20" series="&#xA;Chapman and Hall / CRC innovations in software engineering and software development&#xA;" isbn="978-1-4398-6625-2"/>
+  <DBLP:InProceedings ee="http://dx.doi.org/10.5220/0004975107370745" url="&#xA;db/conf/closer/closer2014.html#Orue-EchevarriaABMLW14&#xA;" key="conf/closer/Orue-EchevarriaABMLW14" authors="/6 /17 /10 /13 /9 /16" mdate="2014-09-12" title="&#xA;Cloudifying Applications with ARTIST - A Global Modernization Approach to Move Applications onto the Cloud.&#xA;" bootitle="CLOSER" year="2014" fromPage="737" toPage="745"/>
+  <DBLP:Author name="Zoran Milosevic" records="/3"/>
+  <DBLP:Author name="Leire Orue-Echevarria" records="/4"/>
+  <DBLP:Author name="Mingyu Xiao" records="/0"/>
+  <DBLP:Author name="Antonio Vallecillo" records="/1 /2 /3"/>
+  <DBLP:Author name="Philip Langer" records="/4"/>
+  <DBLP:Author name="Hugo Bruneliere" records="/4"/>
+  <DBLP:Author name="Javier Troya" records="/1"/>
+  <DBLP:Author name="Akira Tanaka" records="/3"/>
+  <DBLP:Author name="Andreas Menychtas" records="/4"/>
+  <DBLP:Author name="Juha-Pekka Tolvanen" records="/2"/>
+  <DBLP:Author name="Peter F. Linington" records="/3"/>
+  <DBLP:Author name="Manuel Wimmer" records="/1 /4"/>
+  <DBLP:Author name="Juncal Alonso" records="/4"/>
+  <DBLP:Author name="Loli Burgueno" records="/1"/>
+  <DBLP:Journal name="Software and System Modeling" articles="/2"/>
+  <DBLP:Publisher name="CRC Press"/>
+</xmi:XMI>

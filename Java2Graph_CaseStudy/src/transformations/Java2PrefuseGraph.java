@@ -3,8 +3,6 @@ package transformations;
 import java.util.Collection;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.concurrent.Semaphore;
-
 import prefuseGraphInJava.Edge;
 import javaMMinJava.*;
 import javaMMinJava.Package;

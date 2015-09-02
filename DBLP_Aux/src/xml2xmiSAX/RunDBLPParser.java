@@ -8,7 +8,8 @@ public class RunDBLPParser {
 		
 		double time0 = System.currentTimeMillis();
 		
-		String pathXML = "C:/Users/Atenea/Desktop/DBLP/dblp-noHTMLEncoding.xml";
+		String pathXML = "C:/Users/Atenea/Desktop/DBLP/simpleDBLP.xml";
+//		String pathXML = "C:/Users/Atenea/Desktop/DBLP/dblp-noHTMLEncoding.xml";
 //		String pathXML = "/home/loli/IST_2014/dblp-noHTMLEncoding.xml";
 		
 		Xml2Model xml2M = new Xml2Model(pathXML);

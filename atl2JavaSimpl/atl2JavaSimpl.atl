@@ -1,0 +1,99 @@
+-- @path MM=/atl2JavaSimpl/ATL.ecore
+-- @path MM1=/atl2JavaSimpl/JavaSimplified.ecore
+
+module atl2JavaSimpl;
+create OUT : MM1 from IN : MM;
+
+helper def : forVar : MM1!Variable = OclUndefined;
+
+rule module2model {
+	from
+		module_ : MM!Module
+	to 
+		model : MM1!Model (
+			name <- module_.name,
+			packs <- Sequence{pack}
+		),
+		pack : MM1!Package (
+			name <- 'transformation',
+			ownedElems <- Sequence{clazz}
+		),
+		clazz : MM1!Class (
+			name <- module_.name,
+			methods <- Sequence{transformMethod}
+			-- variables <- 
+		),
+		transformMethod : MM1!Method (
+			name <- 'transform',
+			statements <- Sequence{for_, var}
+		),
+		for_ : MM1!ForStatement (
+			body <- block,
+			expression <- varAccess
+		),
+		block : MM1!Block (
+			statements <- module_.elements->select(c | c.oclIsTypeOf(MM!MatchedRule))	
+		),
+		varAccess : MM1!VariableAccess (
+			variable <- var
+		),
+		var : MM1!Variable (
+			name <- 'ie'
+			-- the type is IdentifiableElement, should I create it here? I'd better not.
+		)
+	do {
+		thisModule.forVar <- var;		
+	}
+}
+
+rule rule2if {
+	from
+		rule_ : MM!MatchedRule
+	to 
+		if_ : MM1!IfStatement (
+			expression <- exp,
+			body <- exprStatement
+		),
+		exp : MM1!InstanceOfExpression (
+			leftOperand <- varAccess, 
+			rightOperand <- rule_.inPattern.elements.at(1)
+		),
+		varAccess : MM1!VariableAccess (
+			variable <- thisModule.forVar
+		),
+		var : MM1!Variable (
+			modifier <- varModifier,
+			name <- rule_.name,
+			class <- thisModule.resolveTemp(rule_."module", 'clazz')
+		),
+		varModifier : MM1!Modifier (
+			isFinal <- true,
+			isStatic <- true,
+			visibility <- #private 
+		),
+		exprStatement : MM1!ExpressionStatement (
+			expression <-  rule_.outPattern.elements->select(e | e.oclIsTypeOf(MM!SimpleOutPatternElement))->at(1)			
+		)
+		
+}
+
+rule inMMElement2Class {
+	from
+		elem : MM!SimpleInPatternElement
+	to
+		clazz : MM1!Class (
+			name <- elem.type.name
+		)
+}
+
+rule outMMElement2class {
+	from
+		t : MM!SimpleOutPatternElement
+	to 
+		instance : MM1!ClassInstanceCreation (
+			type <- e
+		),
+		e : MM1!Class (
+			name <- t.type.name 
+		)
+}

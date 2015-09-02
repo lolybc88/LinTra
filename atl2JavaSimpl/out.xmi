@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:javas="http://javasimplified">
+  <javas:Model name="Java2Graph">
+    <packs name="transformation">
+      <ownedElems name="Java2Graph">
+        <variables name="toNode">
+          <modifier visibility="private" isStatic="true" isFinal="true"/>
+        </variables>
+        <variables name="toNode2">
+          <modifier visibility="private" isStatic="true" isFinal="true"/>
+        </variables>
+        <variables name="toEdge">
+          <modifier visibility="private" isStatic="true" isFinal="true"/>
+        </variables>
+        <methods name="transform">
+          <statements xsi:type="javas:ForStatement">
+            <body xsi:type="javas:Block">
+              <statements xsi:type="javas:IfStatement">
+                <expression xsi:type="javas:InstanceOfExpression" rightOperand="/1">
+                  <leftOperand xsi:type="javas:VariableAccess" variable="/0/@packs.0/@ownedElems.0/@methods.0/@statements.1"/>
+                </expression>
+                <body xsi:type="javas:ExpressionStatement">
+                  <expression xsi:type="javas:ClassInstanceCreation" type="/4"/>
+                </body>
+              </statements>
+              <statements xsi:type="javas:IfStatement">
+                <expression xsi:type="javas:InstanceOfExpression" rightOperand="/2">
+                  <leftOperand xsi:type="javas:VariableAccess" variable="/0/@packs.0/@ownedElems.0/@methods.0/@statements.1"/>
+                </expression>
+                <body xsi:type="javas:ExpressionStatement">
+                  <expression xsi:type="javas:ClassInstanceCreation" type="/5"/>
+                </body>
+              </statements>
+              <statements xsi:type="javas:IfStatement">
+                <expression xsi:type="javas:InstanceOfExpression" rightOperand="/3">
+                  <leftOperand xsi:type="javas:VariableAccess" variable="/0/@packs.0/@ownedElems.0/@methods.0/@statements.1"/>
+                </expression>
+                <body xsi:type="javas:ExpressionStatement">
+                  <expression xsi:type="javas:ClassInstanceCreation" type="/6"/>
+                </body>
+              </statements>
+            </body>
+            <expression xsi:type="javas:VariableAccess" variable="/0/@packs.0/@ownedElems.0/@methods.0/@statements.1"/>
+          </statements>
+          <statements xsi:type="javas:Variable" name="ie"/>
+        </methods>
+      </ownedElems>
+    </packs>
+  </javas:Model>
+  <javas:Class name="ClassDeclaration"/>
+  <javas:Class name="ClassDeclaration"/>
+  <javas:Class name="FieldDeclaration"/>
+  <javas:Class name="Node"/>
+  <javas:Class name="Node"/>
+  <javas:Class name="Edge"/>
+</xmi:XMI>

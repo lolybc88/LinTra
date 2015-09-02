@@ -1,0 +1,8 @@
+«IMPORT ATL»
+«IMPORT OCL»
+
+«DEFINE main FOR ATL::Module»
+«FILE "LinTraTransfo.java"»
+	module «this.name» 
+«ENDFILE»
+«ENDDEFINE»
