@@ -1,6 +1,7 @@
 package javaMMinJava;
 
 import java.io.Serializable;
+import java.util.Arrays;
 
 import blackboard.IdentifiableElement;
 
@@ -30,5 +31,25 @@ public abstract class Type extends NamedElement implements Serializable, Identif
 	public String[] getUsagesInTypeAccess() {
 		return usagesInTypeAccessID;
 	}
+
+	@Override
+	public String toString() {
+		return "Type [usagesInTypeAccessID="
+				+ Arrays.toString(usagesInTypeAccessID)
+				+ ", usagesInTypeAccessIsComposed="
+				+ usagesInTypeAccessIsComposed + ", name=" + name + ", proxy="
+				+ proxy + ", usagesInImportsID="
+				+ Arrays.toString(usagesInImportsID)
+				+ ", usagesInImportsIsComposed=" + usagesInImportsIsComposed
+				+ ", commentsID=" + Arrays.toString(commentsID)
+				+ ", commentsIsComposed=" + commentsIsComposed
+				+ ", originalCompilationUnitID=" + originalCompilationUnitID
+				+ ", originalCompilationUnitIsComposed="
+				+ originalCompilationUnitIsComposed + ", originalClassFileID="
+				+ originalClassFileID + ", originalClassFileIsComposed="
+				+ originalClassFileIsComposed + "]";
+	}
+	
+	
 
 }

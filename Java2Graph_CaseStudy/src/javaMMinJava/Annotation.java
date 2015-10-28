@@ -1,6 +1,7 @@
 package javaMMinJava;
 
 import java.io.Serializable;
+import java.util.Arrays;
 
 import blackboard.IdentifiableElement;
 
@@ -65,5 +66,22 @@ public class Annotation extends Expression implements Serializable, Identifiable
 	public String[] getValues() {
 		return valuesID;
 	}
+
+	@Override
+	public String toString() {
+		return "Annotation [id=" + id + ", typeID=" + typeID
+				+ ", typeIsComposed=" + typeIsComposed + ", valuesID="
+				+ Arrays.toString(valuesID) + ", valuesIsComposed="
+				+ valuesIsComposed + ", trgId=" + trgId + ", commentsID="
+				+ Arrays.toString(commentsID) + ", commentsIsComposed="
+				+ commentsIsComposed + ", originalCompilationUnitID="
+				+ originalCompilationUnitID
+				+ ", originalCompilationUnitIsComposed="
+				+ originalCompilationUnitIsComposed + ", originalClassFileID="
+				+ originalClassFileID + ", originalClassFileIsComposed="
+				+ originalClassFileIsComposed + "]";
+	}
+	
+	
 
 }

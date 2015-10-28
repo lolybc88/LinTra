@@ -1,6 +1,7 @@
 package javaMMinJava;
 
 import java.io.Serializable;
+import java.util.Arrays;
 
 import blackboard.IdentifiableElement;
 
@@ -52,6 +53,20 @@ public class TypeDeclarationStatement extends Statement implements Serializable,
 
 	public String getDeclaration() {
 		return declarationID;
+	}
+
+	@Override
+	public String toString() {
+		return "TypeDeclarationStatement [id=" + id + ", declarationID="
+				+ declarationID + ", declarationIsComposed="
+				+ declarationIsComposed + ", trgId=" + trgId + ", commentsID="
+				+ Arrays.toString(commentsID) + ", commentsIsComposed="
+				+ commentsIsComposed + ", originalCompilationUnitID="
+				+ originalCompilationUnitID
+				+ ", originalCompilationUnitIsComposed="
+				+ originalCompilationUnitIsComposed + ", originalClassFileID="
+				+ originalClassFileID + ", originalClassFileIsComposed="
+				+ originalClassFileIsComposed + "]";
 	}
 
 }

@@ -42,7 +42,9 @@ public class Runner_NoChain {
 //				"/home/loli/IST_2014/eclip/ser/eclipseModel-4.0.ser",
 //				"/home/loli/IST_2014/eclip/ser/eclipseModel-all.ser"
 				
-				"C:/Users/Atenea/Desktop/eclipseModel/eclipseModels-CaseStudy_v2/eclipseModel-0.1_v2.ser"
+				"C:/Users/Atenea/Desktop/eclipseModel/eclipseModels-CaseStudy/eclipseModel-all.ser"
+				
+//				"C:/Users/Atenea/Desktop/eclipseModel/eclipseModels-CaseStudy_v2/eclipseModel-0.1_v2.ser"
 				};
 
 		System.out.println("Only identifiers");
@@ -53,7 +55,7 @@ public class Runner_NoChain {
 		mtLauncher1.createBlackboard();
 		mtLauncher1.loadModel(model[k]);
 		
-		ITransformation t1 = new Java2Graph_NoChain(
+		ITransformation t1 = new JavaTests_NoChain(
 				mtLauncher1.getSrcArea(), mtLauncher1.getTrgArea());
 	
 		for (int i=0; i<1; i++){

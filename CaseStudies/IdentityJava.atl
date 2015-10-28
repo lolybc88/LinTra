@@ -4,17 +4,6 @@
 
 module IdentityJava;
 create OUT: MM1 from IN: MM;
-
-		 		
-
-		 		
-
-		 		
-
-		 		
-
-		 		
-
 		
 		rule Annotation{
 			from

@@ -1,6 +1,7 @@
 package javaMMinJava;
 
 import java.io.Serializable;
+import java.util.Arrays;
 
 import blackboard.IdentifiableElement;
 
@@ -55,6 +56,12 @@ public class AnnotationTypeDeclaration extends AbstractTypeDeclaration
 
 	public String[] getUsagesInTypeAccess() {
 		return usagesInTypeAccessID;
+	}
+
+	@Override
+	public String toString() {
+		return "AnnotationTypeDeclaration [id=" + id + ", trgId=" + trgId
+				+ ", name=" + name + "]";
 	}
 
 }

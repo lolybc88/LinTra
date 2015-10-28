@@ -1,6 +1,7 @@
 package javaMMinJava;
 
 import java.io.Serializable;
+import java.util.Arrays;
 
 import blackboard.IdentifiableElement;
 
@@ -41,6 +42,12 @@ public class UnresolvedItem extends NamedElement implements Serializable, Identi
 
 	public void setId(String id) {
 		this.id = id;
+	}
+
+	@Override
+	public String toString() {
+		return "UnresolvedItem [id=" + id + ", trgId=" + trgId + ", name="
+				+ name + "]";
 	}
 
 }

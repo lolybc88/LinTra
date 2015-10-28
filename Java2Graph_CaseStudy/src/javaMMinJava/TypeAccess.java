@@ -1,6 +1,7 @@
 package javaMMinJava;
 
 import java.io.Serializable;
+import java.util.Arrays;
 
 import blackboard.IdentifiableElement;
 
@@ -64,6 +65,21 @@ public class TypeAccess extends Expression implements Serializable, Identifiable
 
 	public String getQualifier() {
 		return qualifierID;
+	}
+
+	@Override
+	public String toString() {
+		return "TypeAccess [id=" + id + ", typeID=" + typeID
+				+ ", typeIsComposed=" + typeIsComposed + ", qualifierID="
+				+ qualifierID + ", qualifierIsComposed=" + qualifierIsComposed
+				+ ", trgId=" + trgId + ", commentsID="
+				+ Arrays.toString(commentsID) + ", commentsIsComposed="
+				+ commentsIsComposed + ", originalCompilationUnitID="
+				+ originalCompilationUnitID
+				+ ", originalCompilationUnitIsComposed="
+				+ originalCompilationUnitIsComposed + ", originalClassFileID="
+				+ originalClassFileID + ", originalClassFileIsComposed="
+				+ originalClassFileIsComposed + "]";
 	}
 
 }

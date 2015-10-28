@@ -1,6 +1,7 @@
 package javaMMinJava;
 
 import java.io.Serializable;
+import java.util.Arrays;
 
 import blackboard.IdentifiableElement;
 
@@ -104,5 +105,12 @@ public class CompilationUnit extends NamedElement implements Serializable, Ident
 	public String[] getTypes() {
 		return typesID;
 	}
+
+	@Override
+	public String toString() {
+		return "CompilationUnit [id=" + id + ", name=" + name + "]";
+	}
+	
+	
 
 }
