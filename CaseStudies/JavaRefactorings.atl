@@ -31,7 +31,7 @@ rule removeSingletonAnnotation {
 			usagesInImports <- c.usagesInImports,
 			usagesInTypeAccess <- c.usagesInTypeAccess
 		),
-		--- elements to add for: private static MyBinding instance = null;
+		--- elements to add for: private static ClassName instance = null;
 		fieldDeclSingleton : MM1!FieldDeclaration (
 			modifier <- modif,
 			type <- typeAccess,
@@ -53,7 +53,7 @@ rule removeSingletonAnnotation {
 		nullLiteral : MM1!NullLiteral (
 			originalCompilationUnit <- c.originalCompilationUnit
 		),
-		--- elements to add for: private MyBinding() { }
+		--- elements to add for: private ClassName() { }
 		constructor : MM1!ConstructorDeclaration (
 			modifier <- modC,
 			name <- c.name,
@@ -67,7 +67,7 @@ rule removeSingletonAnnotation {
 			originalCompilationUnit <- c.originalCompilationUnit			
 		),
 		--- elements to add for: 
-		--- public static MyBinding getMyBinding(){
+		--- public static ClassName getInstance(){
 		---	if (instance==null){
 		---		instance = new MyBinding();
 		---	}
@@ -167,10 +167,9 @@ rule privateConstructorDeclaration {
 			static <- c.modifier.static,
 			originalCompilationUnit <- c.originalCompilationUnit
 		),
-		-- creation of new method getInstance with the proper parameters (with the same parameters the constructor has)
+		--- creation of new method getInstance with the proper parameters (with the same parameters the constructor has)
 		getInstanceMethod : MM1!MethodDeclaration (
 			parameters <- c.parameters->collect(p | thisModule.createParams(p)),
-			body <- ifBlock,
 			name <- 'getInstance',
 			modifier <- modM,
 			originalCompilationUnit <- c.originalCompilationUnit,
@@ -216,6 +215,7 @@ rule privateConstructorDeclaration {
 		exprAssignment : MM1!Assignment (
 			leftHandSide <- singlVarAccess,
 			rightHandSide <- classInstanceCreation,
+			operator <- #ASSIGN,
 			originalCompilationUnit <- c.originalCompilationUnit
 		),
 		singlVarAccess : MM1!SingleVariableAccess (
@@ -250,11 +250,12 @@ lazy rule createParams {
 			originalCompilationUnit <- p.originalCompilationUnit,
 			varargs <- p.varargs,
 			initializer <- p.initializer,
-			modifier <- p.modifier
+			modifier <- p.modifier,
+			methodDeclaration <- thisModule.resolveTemp(p.methodDeclaration, 'getInstanceMethod')
 		)
 }
 
-rule ConstructorDeclaration{
+rule ConstructorDeclaration {
 			from
 			   inn : MM!ConstructorDeclaration (if not inn.abstractTypeDeclaration.oclIsUndefined() then 
 			   		not inn.abstractTypeDeclaration.annotations->exists(a | a.type.type.name = 'Singleton') else true endif)

@@ -318,7 +318,7 @@ public class HashMapArea implements IArea {
 		for (IdentifiableElement e : elems){
 			try {
 				if (area.containsKey(e.getId())){
-	//				System.out.println("--->"+area.get(e.getId()) + " is being overwritten by " + e);
+//					System.out.println("--->"+area.get(e.getId()) + " is being overwritten by " + e);
 				}
 				area.put(e.getId(), e);
 			} catch (NullPointerException ex){
