@@ -1,0 +1,67 @@
+<?xml version="1.0"?> 
+
+<!--
+	The following build script illustrates how to launch the example via ANT.
+	Ensure that External Tools Configuration specifies that the JRE to be used
+	is the same as the workspace.
+		1) Click External Tools Configuration... from the External Tools dropdown.
+		2) Select the ANT build for this build script.
+		3) Click the JRE tab.
+		4) Select the option that reads: "Run in the same JRE as the workspace."
+		5) Click Apply.
+		6) Click Run.
+-->
+
+<project default="main">
+	
+	<taskdef resource="net/sf/antcontrib/antlib.xml">
+	     <classpath>
+	         <fileset dir="${basedir}/ant.lib/"/>
+	     </classpath>
+	</taskdef>
+	
+	<!-- <property name='inputfile' value='/home/loli/IST_2014/eclip/xmi/eclipseModel-1.0.xmi' /> --> 
+	<property name='inputfile' value='eclipseModel-0.1.xmi' />
+	
+	<property name='outputfile' value='models/eclipse-out.xmi' />
+
+ 	<target name="main">
+ 		<epsilon.emf.register file="java.ecore"/>
+ 		 	
+ 		<for param="e" list="a,b,c,d,e,f,g,h,i,j">		  
+ 		<sequential>
+ 		
+ 			<epsilon.emf.loadModel name="javaMM"
+                                   modelFile="${inputfile}"
+                                   metamodelUri="http://www.eclipse.org/MoDisco/Java/0.2.incubation/java"
+                                   read="true" store="false"/>
+ 		
+ 			<epsilon.emf.loadModel name="javaMM2"
+                                   modelFile="${outputfile}"
+                                   metamodelUri="http://www.eclipse.org/MoDisco/Java/0.2.incubation/java"
+                                   read="false" store="false"/>
+ 			
+ 			<script language="javascript">
+ 				   project.setProperty('startTime', new Date().getTime());
+ 			</script>
+ 	
+			<epsilon.etl src="JavaRefactorings.etl">
+				<model ref="javaMM"/>
+				<model ref="javaMM2"/>
+			</epsilon.etl>
+		
+			<script language="javascript">
+					  project.setProperty('elapsedTime', new Date().getTime() - startTime)
+			</script>
+			<echo>Elapsed time: ${elapsedTime} ms</echo>
+					 	
+			<epsilon.disposeModel  model="javaMM"/>
+			<epsilon.disposeModel  model="javaMM2"/>
+
+		</sequential>
+		</for>
+		
+	</target>
+</project>
+
+

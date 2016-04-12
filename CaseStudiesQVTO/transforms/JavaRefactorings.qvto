@@ -1,0 +1,1660 @@
+modeltype JAVAMM uses javaMM('http://www.eclipse.org/MoDisco/Java/0.2.incubation/java');
+
+transformation JavaRefactorings(in java : JAVAMM, out JAVAMM);
+
+main() {
+
+		java.objects()[JAVAMM::ClassDeclaration]-> map removeSingletonAnnotation();
+		
+		java.objects()[JAVAMM::ClassDeclaration]-> map classDeclaration();
+		
+		java.objects()[JAVAMM::ConstructorDeclaration]-> map privateConstructorDeclaration();
+		
+		java.objects()[JAVAMM::ConstructorDeclaration]-> map constructorDeclaration();
+		
+		-----------------
+
+		java.objects()[JAVAMM::Annotation]-> map annotation(); 		
+
+		java.objects()[JAVAMM::Archive]-> map archive(); 		
+
+		java.objects()[JAVAMM::AssertStatement]-> map assertStatement(); 	
+
+		java.objects()[JAVAMM::AnnotationMemberValuePair]-> map annotationMemberValuePair(); 		
+
+		java.objects()[JAVAMM::AnnotationTypeDeclaration]-> map annotationTypeDeclaration(); 		
+
+		java.objects()[JAVAMM::AnnotationTypeMemberDeclaration]-> map annotationTypeMemberDeclaration(); 		
+
+		java.objects()[JAVAMM::AnonymousClassDeclaration]-> map anonymousClassDeclaration(); 		
+
+		java.objects()[JAVAMM::ArrayAccess]-> map arrayAccess(); 		
+
+		java.objects()[JAVAMM::ArrayCreation]-> map arrayCreation(); 		
+
+		java.objects()[JAVAMM::ArrayInitializer]-> map arrayInitializer(); 		
+
+		java.objects()[JAVAMM::ArrayLengthAccess]-> map arrayLengthAccess(); 		
+
+		java.objects()[JAVAMM::ArrayType]-> map arrayType(); 		
+
+		java.objects()[JAVAMM::Assignment]-> map assignment();	
+
+		java.objects()[JAVAMM::BooleanLiteral]-> map booleanLiteral(); 		
+
+		java.objects()[JAVAMM::BlockComment]-> map blockComment(); 		
+
+		java.objects()[JAVAMM::Block]-> map block();
+
+		java.objects()[JAVAMM::BreakStatement]-> map breakStatement(); 		
+
+		java.objects()[JAVAMM::CastExpression]-> map castExpression(); 		
+
+		java.objects()[JAVAMM::CatchClause]-> map catchClause(); 		
+
+		java.objects()[JAVAMM::CharacterLiteral]-> map characterLiteral(); 		
+
+		java.objects()[JAVAMM::ClassFile]-> map classFile(); 		
+
+		java.objects()[JAVAMM::ClassInstanceCreation]-> map classInstanceCreation(); 		 		
+
+		java.objects()[JAVAMM::ConditionalExpression]-> map conditionalExpression(); 		
+
+		java.objects()[JAVAMM::ConstructorInvocation]-> map constructorInvocation(); 		 		
+
+		java.objects()[JAVAMM::CompilationUnit]-> map compilationUnit(); 		
+
+		java.objects()[JAVAMM::ContinueStatement]-> map continueStatement(); 		
+
+		java.objects()[JAVAMM::DoStatement]-> map doStatement(); 		
+
+		java.objects()[JAVAMM::EmptyStatement]-> map emptyStatement(); 		
+
+		java.objects()[JAVAMM::EnhancedForStatement]-> map enhancedForStatement(); 		
+
+		java.objects()[JAVAMM::EnumConstantDeclaration]-> map enumConstantDeclaration(); 		
+
+		java.objects()[JAVAMM::EnumDeclaration]-> map enumDeclaration(); 		
+
+		java.objects()[JAVAMM::ExpressionStatement]-> map expressionStatement(); 		
+
+		java.objects()[JAVAMM::FieldAccess]-> map fieldAccess(); 		
+
+		java.objects()[JAVAMM::FieldDeclaration]-> map fieldDeclaration(); 		
+
+		java.objects()[JAVAMM::ForStatement]-> map forStatement(); 		
+
+		java.objects()[JAVAMM::IfStatement]-> map ifStatement(); 		
+
+		java.objects()[JAVAMM::ImportDeclaration]-> map importDeclaration(); 		
+
+		java.objects()[JAVAMM::InfixExpression]-> map infixExpression(); 		
+
+		java.objects()[JAVAMM::Initializer]-> map initializer(); 		
+
+		java.objects()[JAVAMM::InstanceofExpression]-> map instanceofExpression(); 		
+
+		java.objects()[JAVAMM::InterfaceDeclaration]-> map interfaceDeclaration(); 		
+
+		java.objects()[JAVAMM::Javadoc]-> map javadoc(); 		
+
+		java.objects()[JAVAMM::LabeledStatement]-> map labeledStatement(); 		
+
+		java.objects()[JAVAMM::LineComment]-> map lineComment(); 		
+
+		java.objects()[JAVAMM::Manifest]-> map manifest(); 		
+
+		java.objects()[JAVAMM::ManifestAttribute]-> map manifestAttribute(); 		
+
+		java.objects()[JAVAMM::ManifestEntry]-> map manifestEntry(); 		
+
+		java.objects()[JAVAMM::MemberRef]-> map memberRef(); 		
+
+		java.objects()[JAVAMM::MethodDeclaration]-> map methodDeclaration(); 		
+
+		java.objects()[JAVAMM::MethodInvocation]-> map methodInvocation(); 		
+
+		java.objects()[JAVAMM::MethodRef]-> map methodRef(); 		
+
+		java.objects()[JAVAMM::MethodRefParameter]-> map methodRefParameter(); 		
+
+		java.objects()[JAVAMM::Model]-> map model(); 		
+
+		java.objects()[JAVAMM::Modifier]-> map modifier(); 		
+
+		java.objects()[JAVAMM::NumberLiteral]-> map numberLiteral(); 		
+
+		java.objects()[JAVAMM::NullLiteral]-> map nullLiteral(); 		
+
+		java.objects()[JAVAMM::Package]-> map package(); 		
+
+		java.objects()[JAVAMM::PackageAccess]-> map packageAccess(); 		
+
+		java.objects()[JAVAMM::ParameterizedType]-> map parameterizedType(); 		
+
+		java.objects()[JAVAMM::ParenthesizedExpression]-> map parenthesizedExpression(); 		
+
+		java.objects()[JAVAMM::PostfixExpression]-> map postfixExpression(); 		
+
+		java.objects()[JAVAMM::PrefixExpression]-> map prefixExpression(); 		
+
+		java.objects()[JAVAMM::PrimitiveType]-> map primitiveType(); 		
+
+		java.objects()[JAVAMM::PrimitiveTypeBoolean]-> map primitiveTypeBoolean(); 		
+
+		java.objects()[JAVAMM::PrimitiveTypeByte]-> map primitiveTypeByte(); 		
+
+		java.objects()[JAVAMM::PrimitiveTypeChar]-> map primitiveTypeChar(); 		
+
+		java.objects()[JAVAMM::PrimitiveTypeDouble]-> map primitiveTypeDouble(); 		
+
+		java.objects()[JAVAMM::PrimitiveTypeShort]-> map primitiveTypeShort(); 		
+
+		java.objects()[JAVAMM::PrimitiveTypeFloat]-> map primitiveTypeFloat(); 		
+
+		java.objects()[JAVAMM::PrimitiveTypeInt]-> map primitiveTypeInt(); 		
+
+		java.objects()[JAVAMM::PrimitiveTypeLong]-> map primitiveTypeLong(); 		
+
+		java.objects()[JAVAMM::PrimitiveTypeVoid]-> map primitiveTypeVoid(); 		
+
+		java.objects()[JAVAMM::ReturnStatement]-> map returnStatement(); 		
+
+		java.objects()[JAVAMM::SingleVariableAccess]-> map singleVariableAccess(); 		
+
+		java.objects()[JAVAMM::SingleVariableDeclaration]-> map singleVariableDeclaration(); 		
+
+		java.objects()[JAVAMM::StringLiteral]-> map stringLiteral(); 		
+
+		java.objects()[JAVAMM::SuperConstructorInvocation]-> map superConstructorInvocation(); 		
+
+		java.objects()[JAVAMM::SuperFieldAccess]-> map superFieldAccess(); 		
+
+		java.objects()[JAVAMM::SuperMethodInvocation]-> map superMethodInvocation(); 		
+
+		java.objects()[JAVAMM::SwitchCase]-> map switchCase(); 		
+
+		java.objects()[JAVAMM::SwitchStatement]-> map switchStatement(); 		
+
+		java.objects()[JAVAMM::SynchronizedStatement]-> map synchronizedStatement(); 		
+
+		java.objects()[JAVAMM::TagElement]-> map tagElement(); 		
+
+		java.objects()[JAVAMM::TextElement]-> map textElement(); 		
+
+		java.objects()[JAVAMM::ThisExpression]-> map thisExpression(); 		
+
+		java.objects()[JAVAMM::ThrowStatement]-> map throwStatement(); 		
+
+		java.objects()[JAVAMM::TryStatement]-> map tryStatement(); 		
+
+		java.objects()[JAVAMM::TypeAccess]-> map typeAccess(); 		
+
+		java.objects()[JAVAMM::TypeDeclarationStatement]-> map typeDeclarationStatement(); 		
+
+		java.objects()[JAVAMM::TypeLiteral]-> map typeLiteral(); 		
+
+		java.objects()[JAVAMM::TypeParameter]-> map typeParameter(); 		
+
+		java.objects()[JAVAMM::UnresolvedItem]-> map unresolvedItem(); 		
+
+		java.objects()[JAVAMM::UnresolvedItemAccess]-> map unresolvedItemAccess(); 		
+
+		java.objects()[JAVAMM::UnresolvedAnnotationDeclaration]-> map unresolvedAnnotationDeclaration(); 		
+
+		java.objects()[JAVAMM::UnresolvedAnnotationTypeMemberDeclaration]-> map unresolvedAnnotationTypeMemberDeclaration(); 		
+
+		java.objects()[JAVAMM::UnresolvedClassDeclaration]-> map unresolvedClassDeclaration(); 		
+
+		java.objects()[JAVAMM::UnresolvedEnumDeclaration]-> map unresolvedEnumDeclaration(); 		
+
+		java.objects()[JAVAMM::UnresolvedInterfaceDeclaration]-> map unresolvedInterfaceDeclaration(); 		
+
+		java.objects()[JAVAMM::UnresolvedLabeledStatement]-> map unresolvedLabeledStatement(); 		
+
+		java.objects()[JAVAMM::UnresolvedMethodDeclaration]-> map unresolvedMethodDeclaration(); 		
+
+		java.objects()[JAVAMM::UnresolvedSingleVariableDeclaration]-> map unresolvedSingleVariableDeclaration(); 		
+
+		java.objects()[JAVAMM::UnresolvedType]-> map unresolvedType(); 		
+
+		java.objects()[JAVAMM::UnresolvedTypeDeclaration]-> map unresolvedTypeDeclaration(); 		
+
+		java.objects()[JAVAMM::UnresolvedVariableDeclarationFragment]-> map unresolvedVariableDeclarationFragment(); 		
+
+		java.objects()[JAVAMM::VariableDeclarationExpression]-> map variableDeclarationExpression(); 		
+
+		java.objects()[JAVAMM::VariableDeclarationFragment]-> map variableDeclarationFragment(); 		
+
+		java.objects()[JAVAMM::VariableDeclarationStatement]-> map variableDeclarationStatement(); 		
+
+		java.objects()[JAVAMM::WildCardType]-> map wildCardType(); 		
+
+		java.objects()[JAVAMM::WhileStatement]-> map whileStatement(); 		
+
+}
+
+mapping JAVAMM::ClassDeclaration::removeSingletonAnnotation() : c2 : JAVAMM::ClassDeclaration, fieldDeclSingleton : JAVAMM::FieldDeclaration
+when { self.annotations->exists(a | a.type.type.name = 'Singleton') } {
+	object c2 : JAVAMM::ClassDeclaration {
+		name := self.name;
+	};
+	object fieldDeclSingleton : JAVAMM::FieldDeclaration {
+		name := self.name;
+	};
+}
+
+mapping JAVAMM::ConstructorDeclaration::privateConstructorDeclaration() : c2 : JAVAMM::ConstructorDeclaration, modif : JAVAMM::Modifier
+when { not self.abstractTypeDeclaration.oclIsUndefined() and self.abstractTypeDeclaration.annotations->exists(a | a.type.type.name = 'Singleton') } {
+	object c2 : JAVAMM::ConstructorDeclaration {
+		name := self.name;
+	};
+	object modif : JAVAMM::Modifier {
+
+	};
+}
+
+mapping JAVAMM::SingleVariableDeclaration::createParam() : JAVAMM::SingleVariableDeclaration {
+	-- is this like this?
+}
+
+mapping JAVAMM::ClassDeclaration::classDeclaration() : JAVAMM::ClassDeclaration
+when { not self.annotations->exists(a | a.type.type.name = 'Singleton') }
+{
+		comments := self.comments;
+		originalCompilationUnit := self.originalCompilationUnit;
+		originalClassFile := self.originalClassFile;
+		name := self.name;				
+		proxy := self.proxy;				
+		usagesInImports := self.usagesInImports;
+		abstractTypeDeclaration := self.abstractTypeDeclaration;
+		annotations := self.annotations;
+		anonymousClassDeclarationOwner := self.anonymousClassDeclarationOwner;
+		modifier := self.modifier;
+		usagesInTypeAccess := self.usagesInTypeAccess;
+		bodyDeclarations := self.bodyDeclarations;
+		commentsBeforeBody := self.commentsBeforeBody;
+		commentsAfterBody := self.commentsAfterBody;
+		package := self.package;
+		superInterfaces := self.superInterfaces;
+		typeParameters := self.typeParameters;
+		superClass := self.superClass;				
+}
+
+mapping JAVAMM::ConstructorDeclaration::constructorDeclaration() : JAVAMM::ConstructorDeclaration
+when { self.abstractTypeDeclaration.oclIsUndefined() or not self.abstractTypeDeclaration.annotations->exists(a | a.type.type.name = 'Singleton') } {
+		comments := self.comments;
+		originalCompilationUnit := self.originalCompilationUnit;
+		originalClassFile := self.originalClassFile;
+		name := self.name;				
+		proxy := self.proxy;				
+		usagesInImports := self.usagesInImports;
+		abstractTypeDeclaration := self.abstractTypeDeclaration;
+		annotations := self.annotations;
+		anonymousClassDeclarationOwner := self.anonymousClassDeclarationOwner;
+		modifier := self.modifier;
+		body := self.body;
+		parameters := self.parameters;
+		thrownExceptions := self.thrownExceptions;
+		typeParameters := self.typeParameters;
+		usagesInDocComments := self.usagesInDocComments;
+		usages := self.usages;				
+}
+		
+		
+--------------------------------------
+
+		mapping JAVAMM::Annotation::annotation() : JAVAMM::Annotation {
+				comments := self.comments;
+				originalCompilationUnit := self.originalCompilationUnit;
+				originalClassFile := self.originalClassFile;
+				type := self.type;
+				values := self.values;				
+		}
+		
+		mapping JAVAMM::Archive::archive() : JAVAMM::Archive {
+				comments := self.comments;
+				originalCompilationUnit := self.originalCompilationUnit;
+				originalClassFile := self.originalClassFile;
+				name := self.name;				
+				proxy := self.proxy;				
+				usagesInImports := self.usagesInImports;
+				originalFilePath := self.originalFilePath;				
+				classFiles := self.classFiles;
+				manifest := self.manifest;				
+		}
+		
+		mapping JAVAMM::AssertStatement::assertStatement() : JAVAMM::AssertStatement {
+				comments := self.comments;
+				originalCompilationUnit := self.originalCompilationUnit;
+				originalClassFile := self.originalClassFile;
+				message := self.message;
+				expression := self.expression;				
+		}
+		 		
+		mapping JAVAMM::AnnotationMemberValuePair::annotationMemberValuePair() : JAVAMM::AnnotationMemberValuePair {
+				comments := self.comments;
+				originalCompilationUnit := self.originalCompilationUnit;
+				originalClassFile := self.originalClassFile;
+				name := self.name;				
+				proxy := self.proxy;				
+				usagesInImports := self.usagesInImports;
+				member := self.member;
+				value := self.value;				
+		}
+		
+		mapping JAVAMM::AnnotationTypeDeclaration::annotationTypeDeclaration() : JAVAMM::AnnotationTypeDeclaration {
+				comments := self.comments;
+				originalCompilationUnit := self.originalCompilationUnit;
+				originalClassFile := self.originalClassFile;
+				name := self.name;				
+				proxy := self.proxy;				
+				usagesInImports := self.usagesInImports;
+				abstractTypeDeclaration := self.abstractTypeDeclaration;
+				annotations := self.annotations;
+				anonymousClassDeclarationOwner := self.anonymousClassDeclarationOwner;
+				modifier := self.modifier;
+				usagesInTypeAccess := self.usagesInTypeAccess;
+				bodyDeclarations := self.bodyDeclarations;
+				commentsBeforeBody := self.commentsBeforeBody;
+				commentsAfterBody := self.commentsAfterBody;
+				package := self.package;
+				superInterfaces := self.superInterfaces;				
+		}
+		 		
+		mapping JAVAMM::AnnotationTypeMemberDeclaration::annotationTypeMemberDeclaration() : JAVAMM::AnnotationTypeMemberDeclaration {
+				comments := self.comments;
+				originalCompilationUnit := self.originalCompilationUnit;
+				originalClassFile := self.originalClassFile;
+				name := self.name;				
+				proxy := self.proxy;				
+				usagesInImports := self.usagesInImports;
+				abstractTypeDeclaration := self.abstractTypeDeclaration;
+				annotations := self.annotations;
+				anonymousClassDeclarationOwner := self.anonymousClassDeclarationOwner;
+				modifier := self.modifier;
+				_default := self._default;
+				type := self.type;
+				usages := self.usages;				
+		}
+		 		
+		mapping JAVAMM::AnonymousClassDeclaration::anonymousClassDeclaration() : JAVAMM::AnonymousClassDeclaration {
+				comments := self.comments;
+				originalCompilationUnit := self.originalCompilationUnit;
+				originalClassFile := self.originalClassFile;
+				bodyDeclarations := self.bodyDeclarations;
+				classInstanceCreation := self.classInstanceCreation;				
+		}
+		
+		mapping JAVAMM::ArrayAccess::arrayAccess() : JAVAMM::ArrayAccess {
+				comments := self.comments;
+				originalCompilationUnit := self.originalCompilationUnit;
+				originalClassFile := self.originalClassFile;
+				array := self.array;
+				index := self.index;				
+		}
+		
+		mapping JAVAMM::ArrayCreation::arrayCreation() : JAVAMM::ArrayCreation {
+				comments := self.comments;
+				originalCompilationUnit := self.originalCompilationUnit;
+				originalClassFile := self.originalClassFile;
+				dimensions := self.dimensions;
+				initializer := self.initializer;
+				type := self.type;				
+		}
+		 		
+		mapping JAVAMM::ArrayInitializer::arrayInitializer() : JAVAMM::ArrayInitializer {
+				comments := self.comments;
+				originalCompilationUnit := self.originalCompilationUnit;
+				originalClassFile := self.originalClassFile;
+				expressions := self.expressions;				
+		}
+		 		
+		mapping JAVAMM::ArrayLengthAccess::arrayLengthAccess() : JAVAMM::ArrayLengthAccess {
+				comments := self.comments;
+				originalCompilationUnit := self.originalCompilationUnit;
+				originalClassFile := self.originalClassFile;
+				array := self.array;				
+		}
+		
+		mapping JAVAMM::ArrayType::arrayType() : JAVAMM::ArrayType {
+				comments := self.comments;
+				originalCompilationUnit := self.originalCompilationUnit;
+				originalClassFile := self.originalClassFile;
+				name := self.name;				
+				proxy := self.proxy;				
+				usagesInImports := self.usagesInImports;
+				usagesInTypeAccess := self.usagesInTypeAccess;
+				dimensions := self.dimensions;				
+				elementType := self.elementType;				
+		}
+		 		
+		mapping JAVAMM::Assignment::assignment() : JAVAMM::Assignment {
+				comments := self.comments;
+				originalCompilationUnit := self.originalCompilationUnit;
+				originalClassFile := self.originalClassFile;
+				leftHandSide := self.leftHandSide;
+				operator := self.operator;				
+				rightHandSide := self.rightHandSide;				
+		}
+		
+		mapping JAVAMM::BooleanLiteral::booleanLiteral() : JAVAMM::BooleanLiteral {
+				comments := self.comments;
+				originalCompilationUnit := self.originalCompilationUnit;
+				originalClassFile := self.originalClassFile;
+				value := self.value;								
+		}
+		 		
+
+		
+		mapping JAVAMM::BlockComment::blockComment() : JAVAMM::BlockComment {
+				comments := self.comments;
+				originalCompilationUnit := self.originalCompilationUnit;
+				originalClassFile := self.originalClassFile;
+				content := self.content;				
+				enclosedByParent := self.enclosedByParent;				
+				prefixOfParent := self.prefixOfParent;								
+		}
+		 		
+
+		
+		mapping JAVAMM::Block::block() : JAVAMM::Block {
+				comments := self.comments;
+				originalCompilationUnit := self.originalCompilationUnit;
+				originalClassFile := self.originalClassFile;
+				statements := self.statements;				
+		}
+		 		
+
+		
+		mapping JAVAMM::BreakStatement::breakStatement() : JAVAMM::BreakStatement {
+				comments := self.comments;
+				originalCompilationUnit := self.originalCompilationUnit;
+				originalClassFile := self.originalClassFile;
+				label := self.label;				
+		}
+		 		
+
+		
+		mapping JAVAMM::CastExpression::castExpression() : JAVAMM::CastExpression {
+				comments := self.comments;
+				originalCompilationUnit := self.originalCompilationUnit;
+				originalClassFile := self.originalClassFile;
+				expression := self.expression;
+				type := self.type;				
+		}
+		 		
+
+		
+		mapping JAVAMM::CatchClause::catchClause() : JAVAMM::CatchClause {
+				comments := self.comments;
+				originalCompilationUnit := self.originalCompilationUnit;
+				originalClassFile := self.originalClassFile;
+				_exception := self._exception;
+				body := self.body;				
+		}
+		 		
+
+		
+		mapping JAVAMM::CharacterLiteral::characterLiteral() : JAVAMM::CharacterLiteral {
+				comments := self.comments;
+				originalCompilationUnit := self.originalCompilationUnit;
+				originalClassFile := self.originalClassFile;
+				escapedValue := self.escapedValue;								
+		}
+		 		
+
+		
+		mapping JAVAMM::ClassFile::classFile() : JAVAMM::ClassFile {
+				comments := self.comments;
+				originalCompilationUnit := self.originalCompilationUnit;
+				originalClassFile := self.originalClassFile;
+				name := self.name;				
+				proxy := self.proxy;				
+				usagesInImports := self.usagesInImports;
+				originalFilePath := self.originalFilePath;				
+				type := self.type;
+				attachedSource := self.attachedSource;
+				package := self.package;				
+		}
+		 		
+
+		
+		mapping JAVAMM::ClassInstanceCreation::classInstanceCreation() : JAVAMM::ClassInstanceCreation {
+				comments := self.comments;
+				originalCompilationUnit := self.originalCompilationUnit;
+				originalClassFile := self.originalClassFile;
+				method := self.method;
+				arguments := self.arguments;
+				typeArguments := self.typeArguments;
+				anonymousClassDeclaration := self.anonymousClassDeclaration;
+				expression := self.expression;
+				type := self.type;				
+		}
+		 		
+
+		
+		mapping JAVAMM::ConditionalExpression::conditionalExpression() : JAVAMM::ConditionalExpression {
+				comments := self.comments;
+				originalCompilationUnit := self.originalCompilationUnit;
+				originalClassFile := self.originalClassFile;
+				elseExpression := self.elseExpression;
+				expression := self.expression;
+				thenExpression := self.thenExpression;				
+		}
+		 		
+
+		
+		mapping JAVAMM::ConstructorInvocation::constructorInvocation() : JAVAMM::ConstructorInvocation {
+				comments := self.comments;
+				originalCompilationUnit := self.originalCompilationUnit;
+				originalClassFile := self.originalClassFile;
+				method := self.method;
+				arguments := self.arguments;
+				typeArguments := self.typeArguments;				
+		}
+		 		
+		mapping JAVAMM::CompilationUnit::compilationUnit() : JAVAMM::CompilationUnit {
+				comments := self.comments;
+				originalCompilationUnit := self.originalCompilationUnit;
+				originalClassFile := self.originalClassFile;
+				name := self.name;				
+				proxy := self.proxy;				
+				usagesInImports := self.usagesInImports;
+				originalFilePath := self.originalFilePath;				
+				commentList := self.commentList;
+				imports := self.imports;
+				package := self.package;
+				types := self.types;				
+		}
+		 		
+
+		
+		mapping JAVAMM::ContinueStatement::continueStatement() : JAVAMM::ContinueStatement {
+				comments := self.comments;
+				originalCompilationUnit := self.originalCompilationUnit;
+				originalClassFile := self.originalClassFile;
+				label := self.label;				
+		}
+		 		
+
+		
+		mapping JAVAMM::DoStatement::doStatement() : JAVAMM::DoStatement {
+				comments := self.comments;
+				originalCompilationUnit := self.originalCompilationUnit;
+				originalClassFile := self.originalClassFile;
+				expression := self.expression;
+				body := self.body;				
+		}
+		 		
+
+		
+		mapping JAVAMM::EmptyStatement::emptyStatement() : JAVAMM::EmptyStatement {
+				comments := self.comments;
+				originalCompilationUnit := self.originalCompilationUnit;
+				originalClassFile := self.originalClassFile;				
+		}
+		 		
+
+		
+		mapping JAVAMM::EnhancedForStatement::enhancedForStatement() : JAVAMM::EnhancedForStatement {
+				comments := self.comments;
+				originalCompilationUnit := self.originalCompilationUnit;
+				originalClassFile := self.originalClassFile;
+				body := self.body;
+				expression := self.expression;
+				parameter := self.parameter;				
+		}
+		 		
+
+		
+		mapping JAVAMM::EnumConstantDeclaration::enumConstantDeclaration() : JAVAMM::EnumConstantDeclaration {
+				comments := self.comments;
+				originalCompilationUnit := self.originalCompilationUnit;
+				originalClassFile := self.originalClassFile;
+				name := self.name;				
+				proxy := self.proxy;				
+				usagesInImports := self.usagesInImports;
+				abstractTypeDeclaration := self.abstractTypeDeclaration;
+				annotations := self.annotations;
+				anonymousClassDeclarationOwner := self.anonymousClassDeclarationOwner;
+				modifier := self.modifier;
+				extraArrayDimensions := self.extraArrayDimensions;				
+				initializer := self.initializer;
+				usageInVariableAccess := self.usageInVariableAccess;
+				anonymousClassDeclaration := self.anonymousClassDeclaration;
+				arguments := self.arguments;				
+		}
+		 		
+
+		
+		mapping JAVAMM::EnumDeclaration::enumDeclaration() : JAVAMM::EnumDeclaration {
+				comments := self.comments;
+				originalCompilationUnit := self.originalCompilationUnit;
+				originalClassFile := self.originalClassFile;
+				name := self.name;				
+				proxy := self.proxy;				
+				usagesInImports := self.usagesInImports;
+				abstractTypeDeclaration := self.abstractTypeDeclaration;
+				annotations := self.annotations;
+				anonymousClassDeclarationOwner := self.anonymousClassDeclarationOwner;
+				modifier := self.modifier;
+				usagesInTypeAccess := self.usagesInTypeAccess;
+				bodyDeclarations := self.bodyDeclarations;
+				commentsBeforeBody := self.commentsBeforeBody;
+				commentsAfterBody := self.commentsAfterBody;
+				package := self.package;
+				superInterfaces := self.superInterfaces;
+				enumConstants := self.enumConstants;				
+		}
+		 		
+
+		 		
+
+		
+		mapping JAVAMM::ExpressionStatement::expressionStatement() : JAVAMM::ExpressionStatement {
+				comments := self.comments;
+				originalCompilationUnit := self.originalCompilationUnit;
+				originalClassFile := self.originalClassFile;
+				expression := self.expression;				
+		}
+		 		
+
+		
+		mapping JAVAMM::FieldAccess::fieldAccess() : JAVAMM::FieldAccess {
+				comments := self.comments;
+				originalCompilationUnit := self.originalCompilationUnit;
+				originalClassFile := self.originalClassFile;
+				field := self.field;
+				expression := self.expression;				
+		}
+		 		
+
+		
+		mapping JAVAMM::FieldDeclaration::fieldDeclaration() : JAVAMM::FieldDeclaration {
+				comments := self.comments;
+				originalCompilationUnit := self.originalCompilationUnit;
+				originalClassFile := self.originalClassFile;
+				name := self.name;				
+				proxy := self.proxy;				
+				usagesInImports := self.usagesInImports;
+				abstractTypeDeclaration := self.abstractTypeDeclaration;
+				annotations := self.annotations;
+				anonymousClassDeclarationOwner := self.anonymousClassDeclarationOwner;
+				modifier := self.modifier;
+				type := self.type;
+				fragments := self.fragments;				
+		}
+		 		
+
+		
+		mapping JAVAMM::ForStatement::forStatement() : JAVAMM::ForStatement {
+				comments := self.comments;
+				originalCompilationUnit := self.originalCompilationUnit;
+				originalClassFile := self.originalClassFile;
+				expression := self.expression;
+				updaters := self.updaters;
+				initializers := self.initializers;
+				body := self.body;				
+		}
+		 		
+
+		
+		mapping JAVAMM::IfStatement::ifStatement() : JAVAMM::IfStatement {
+				comments := self.comments;
+				originalCompilationUnit := self.originalCompilationUnit;
+				originalClassFile := self.originalClassFile;
+				expression := self.expression;
+				thenStatement := self.thenStatement;
+				elseStatement := self.elseStatement;				
+		}
+		 		
+
+		
+		mapping JAVAMM::ImportDeclaration::importDeclaration() : JAVAMM::ImportDeclaration {
+				comments := self.comments;
+				originalCompilationUnit := self.originalCompilationUnit;
+				originalClassFile := self.originalClassFile;
+				_static := self._static;				
+				importedElement := self.importedElement;				
+		}
+		 		
+
+		
+		mapping JAVAMM::InfixExpression::infixExpression() : JAVAMM::InfixExpression {
+				comments := self.comments;
+				originalCompilationUnit := self.originalCompilationUnit;
+				originalClassFile := self.originalClassFile;
+				operator := self.operator;				
+				rightOperand := self.rightOperand;
+				leftOperand := self.leftOperand;
+				extendedOperands := self.extendedOperands;				
+		}
+		 		
+
+		
+		mapping JAVAMM::Initializer::initializer() : JAVAMM::Initializer {
+				comments := self.comments;
+				originalCompilationUnit := self.originalCompilationUnit;
+				originalClassFile := self.originalClassFile;
+				name := self.name;				
+				proxy := self.proxy;				
+				usagesInImports := self.usagesInImports;
+				abstractTypeDeclaration := self.abstractTypeDeclaration;
+				annotations := self.annotations;
+				anonymousClassDeclarationOwner := self.anonymousClassDeclarationOwner;
+				modifier := self.modifier;
+				body := self.body;				
+		}
+		 		
+
+		
+		mapping JAVAMM::InstanceofExpression::instanceofExpression() : JAVAMM::InstanceofExpression {
+				comments := self.comments;
+				originalCompilationUnit := self.originalCompilationUnit;
+				originalClassFile := self.originalClassFile;
+				rightOperand := self.rightOperand;
+				leftOperand := self.leftOperand;				
+		}
+		 		
+
+		
+		mapping JAVAMM::InterfaceDeclaration::interfaceDeclaration() : JAVAMM::InterfaceDeclaration {
+				comments := self.comments;
+				originalCompilationUnit := self.originalCompilationUnit;
+				originalClassFile := self.originalClassFile;
+				name := self.name;				
+				proxy := self.proxy;				
+				usagesInImports := self.usagesInImports;
+				abstractTypeDeclaration := self.abstractTypeDeclaration;
+				annotations := self.annotations;
+				anonymousClassDeclarationOwner := self.anonymousClassDeclarationOwner;
+				modifier := self.modifier;
+				usagesInTypeAccess := self.usagesInTypeAccess;
+				bodyDeclarations := self.bodyDeclarations;
+				commentsBeforeBody := self.commentsBeforeBody;
+				commentsAfterBody := self.commentsAfterBody;
+				package := self.package;
+				superInterfaces := self.superInterfaces;
+				typeParameters := self.typeParameters;				
+		}
+		 		
+
+		
+		mapping JAVAMM::Javadoc::javadoc() : JAVAMM::Javadoc {
+				comments := self.comments;
+				originalCompilationUnit := self.originalCompilationUnit;
+				originalClassFile := self.originalClassFile;
+				content := self.content;				
+				enclosedByParent := self.enclosedByParent;				
+				prefixOfParent := self.prefixOfParent;				
+				tags := self.tags;				
+		}
+		 		
+
+		
+		mapping JAVAMM::LabeledStatement::labeledStatement() : JAVAMM::LabeledStatement {
+				comments := self.comments;
+				originalCompilationUnit := self.originalCompilationUnit;
+				originalClassFile := self.originalClassFile;
+				name := self.name;				
+				proxy := self.proxy;				
+				usagesInImports := self.usagesInImports;
+				body := self.body;
+				usagesInBreakStatements := self.usagesInBreakStatements;
+				usagesInContinueStatements := self.usagesInContinueStatements;				
+		}
+		 		
+
+		
+		mapping JAVAMM::LineComment::lineComment() : JAVAMM::LineComment {
+				comments := self.comments;
+				originalCompilationUnit := self.originalCompilationUnit;
+				originalClassFile := self.originalClassFile;
+				content := self.content;				
+				enclosedByParent := self.enclosedByParent;				
+				prefixOfParent := self.prefixOfParent;								
+		}
+		 		
+
+		
+		mapping JAVAMM::Manifest::manifest() : JAVAMM::Manifest {
+				mainAttributes := self.mainAttributes;
+				entryAttributes := self.entryAttributes;				
+		}
+		 		
+
+		
+		mapping JAVAMM::ManifestAttribute::manifestAttribute() : JAVAMM::ManifestAttribute {
+				key := self.key;				
+				value := self.value;								
+		}
+		 		
+
+		
+		mapping JAVAMM::ManifestEntry::manifestEntry() : JAVAMM::ManifestEntry {
+				name := self.name;				
+				attributes := self.attributes;				
+		}
+		 		
+
+		
+		mapping JAVAMM::MemberRef::memberRef() : JAVAMM::MemberRef {
+				comments := self.comments;
+				originalCompilationUnit := self.originalCompilationUnit;
+				originalClassFile := self.originalClassFile;
+				member := self.member;
+				qualifier := self.qualifier;				
+		}
+		 		
+
+		
+		mapping JAVAMM::MethodDeclaration::methodDeclaration() : JAVAMM::MethodDeclaration {
+				comments := self.comments;
+				originalCompilationUnit := self.originalCompilationUnit;
+				originalClassFile := self.originalClassFile;
+				name := self.name;				
+				proxy := self.proxy;				
+				usagesInImports := self.usagesInImports;
+				abstractTypeDeclaration := self.abstractTypeDeclaration;
+				annotations := self.annotations;
+				anonymousClassDeclarationOwner := self.anonymousClassDeclarationOwner;
+				modifier := self.modifier;
+				body := self.body;
+				parameters := self.parameters;
+				thrownExceptions := self.thrownExceptions;
+				typeParameters := self.typeParameters;
+				usagesInDocComments := self.usagesInDocComments;
+				usages := self.usages;
+				extraArrayDimensions := self.extraArrayDimensions;				
+				returnType := self.returnType;
+				redefinedMethodDeclaration := self.redefinedMethodDeclaration;
+				redefinitions := self.redefinitions;				
+		}
+		 		
+
+		
+		mapping JAVAMM::MethodInvocation::methodInvocation() : JAVAMM::MethodInvocation {
+				comments := self.comments;
+				originalCompilationUnit := self.originalCompilationUnit;
+				originalClassFile := self.originalClassFile;
+				method := self.method;
+				arguments := self.arguments;
+				typeArguments := self.typeArguments;
+				expression := self.expression;				
+		}
+		 		
+
+		
+		mapping JAVAMM::MethodRef::methodRef() : JAVAMM::MethodRef {
+				comments := self.comments;
+				originalCompilationUnit := self.originalCompilationUnit;
+				originalClassFile := self.originalClassFile;
+				method := self.method;
+				qualifier := self.qualifier;
+				parameters := self.parameters;				
+		}
+		 		
+
+		
+		mapping JAVAMM::MethodRefParameter::methodRefParameter() : JAVAMM::MethodRefParameter {
+				comments := self.comments;
+				originalCompilationUnit := self.originalCompilationUnit;
+				originalClassFile := self.originalClassFile;
+				name := self.name;				
+				varargs := self.varargs;				
+				type := self.type;				
+		}
+		 		
+
+		
+		mapping JAVAMM::Model::model() : JAVAMM::Model {
+				name := self.name;				
+				ownedElements := self.ownedElements;
+				orphanTypes := self.orphanTypes;
+				unresolvedItems := self.unresolvedItems;
+				compilationUnits := self.compilationUnits;
+				classFiles := self.classFiles;
+				archives := self.archives;				
+		}
+		 		
+
+		
+		mapping JAVAMM::Modifier::modifier() : JAVAMM::Modifier {
+				comments := self.comments;
+				originalCompilationUnit := self.originalCompilationUnit;
+				originalClassFile := self.originalClassFile;
+				visibility := self.visibility;				
+				inheritance := self.inheritance;				
+				_static := self._static;				
+				transient := self.transient;				
+				volatile := self.volatile;				
+				native := self.native;				
+				strictfp := self.strictfp;				
+				synchronized := self.synchronized;				
+				bodyDeclaration := self.bodyDeclaration;
+				singleVariableDeclaration := self.singleVariableDeclaration;
+				variableDeclarationStatement := self.variableDeclarationStatement;
+				variableDeclarationExpression := self.variableDeclarationExpression;				
+		}
+		 		
+
+		 		
+
+		 		
+
+		
+		mapping JAVAMM::NumberLiteral::numberLiteral() : JAVAMM::NumberLiteral {
+				comments := self.comments;
+				originalCompilationUnit := self.originalCompilationUnit;
+				originalClassFile := self.originalClassFile;
+				tokenValue := self.tokenValue;								
+		}
+		 		
+
+		
+		mapping JAVAMM::NullLiteral::nullLiteral() : JAVAMM::NullLiteral {
+				comments := self.comments;
+				originalCompilationUnit := self.originalCompilationUnit;
+				originalClassFile := self.originalClassFile;				
+		}
+		 		
+
+		
+		mapping JAVAMM::Package::package() : JAVAMM::Package {
+				comments := self.comments;
+				originalCompilationUnit := self.originalCompilationUnit;
+				originalClassFile := self.originalClassFile;
+				name := self.name;				
+				proxy := self.proxy;				
+				usagesInImports := self.usagesInImports;
+				ownedElements := self.ownedElements;
+				model := self.model;
+				ownedPackages := self.ownedPackages;
+				package := self.package;
+				usagesInPackageAccess := self.usagesInPackageAccess;				
+		}
+		 		
+
+		
+		mapping JAVAMM::PackageAccess::packageAccess() : JAVAMM::PackageAccess {
+				comments := self.comments;
+				originalCompilationUnit := self.originalCompilationUnit;
+				originalClassFile := self.originalClassFile;
+				package := self.package;
+				qualifier := self.qualifier;				
+		}
+		 		
+
+		
+		mapping JAVAMM::ParameterizedType::parameterizedType() : JAVAMM::ParameterizedType {
+				comments := self.comments;
+				originalCompilationUnit := self.originalCompilationUnit;
+				originalClassFile := self.originalClassFile;
+				name := self.name;				
+				proxy := self.proxy;				
+				usagesInImports := self.usagesInImports;
+				usagesInTypeAccess := self.usagesInTypeAccess;
+				type := self.type;
+				typeArguments := self.typeArguments;				
+		}
+		 		
+
+		
+		mapping JAVAMM::ParenthesizedExpression::parenthesizedExpression() : JAVAMM::ParenthesizedExpression {
+				comments := self.comments;
+				originalCompilationUnit := self.originalCompilationUnit;
+				originalClassFile := self.originalClassFile;
+				expression := self.expression;				
+		}
+		 		
+
+		
+		mapping JAVAMM::PostfixExpression::postfixExpression() : JAVAMM::PostfixExpression {
+				comments := self.comments;
+				originalCompilationUnit := self.originalCompilationUnit;
+				originalClassFile := self.originalClassFile;
+				operator := self.operator;				
+				operand := self.operand;				
+		}
+		 		
+
+		
+		mapping JAVAMM::PrefixExpression::prefixExpression() : JAVAMM::PrefixExpression {
+				comments := self.comments;
+				originalCompilationUnit := self.originalCompilationUnit;
+				originalClassFile := self.originalClassFile;
+				operator := self.operator;				
+				operand := self.operand;				
+		}
+		 		
+
+		
+		mapping JAVAMM::PrimitiveType::primitiveType() : JAVAMM::PrimitiveType {
+				comments := self.comments;
+				originalCompilationUnit := self.originalCompilationUnit;
+				originalClassFile := self.originalClassFile;
+				name := self.name;				
+				proxy := self.proxy;				
+				usagesInImports := self.usagesInImports;
+				usagesInTypeAccess := self.usagesInTypeAccess;				
+		}
+		 		
+
+		
+		mapping JAVAMM::PrimitiveTypeBoolean::primitiveTypeBoolean() : JAVAMM::PrimitiveTypeBoolean {
+				comments := self.comments;
+				originalCompilationUnit := self.originalCompilationUnit;
+				originalClassFile := self.originalClassFile;
+				name := self.name;				
+				proxy := self.proxy;				
+				usagesInImports := self.usagesInImports;
+				usagesInTypeAccess := self.usagesInTypeAccess;				
+		}
+		 		
+
+		
+		mapping JAVAMM::PrimitiveTypeByte::primitiveTypeByte() : JAVAMM::PrimitiveTypeByte {
+				comments := self.comments;
+				originalCompilationUnit := self.originalCompilationUnit;
+				originalClassFile := self.originalClassFile;
+				name := self.name;				
+				proxy := self.proxy;				
+				usagesInImports := self.usagesInImports;
+				usagesInTypeAccess := self.usagesInTypeAccess;				
+		}
+		 		
+
+		
+		mapping JAVAMM::PrimitiveTypeChar::primitiveTypeChar() : JAVAMM::PrimitiveTypeChar {
+				comments := self.comments;
+				originalCompilationUnit := self.originalCompilationUnit;
+				originalClassFile := self.originalClassFile;
+				name := self.name;				
+				proxy := self.proxy;				
+				usagesInImports := self.usagesInImports;
+				usagesInTypeAccess := self.usagesInTypeAccess;				
+		}
+		 		
+
+		
+		mapping JAVAMM::PrimitiveTypeDouble::primitiveTypeDouble() : JAVAMM::PrimitiveTypeDouble {
+				comments := self.comments;
+				originalCompilationUnit := self.originalCompilationUnit;
+				originalClassFile := self.originalClassFile;
+				name := self.name;				
+				proxy := self.proxy;				
+				usagesInImports := self.usagesInImports;
+				usagesInTypeAccess := self.usagesInTypeAccess;				
+		}
+		 		
+
+		
+		mapping JAVAMM::PrimitiveTypeShort::primitiveTypeShort() : JAVAMM::PrimitiveTypeShort {
+				comments := self.comments;
+				originalCompilationUnit := self.originalCompilationUnit;
+				originalClassFile := self.originalClassFile;
+				name := self.name;				
+				proxy := self.proxy;				
+				usagesInImports := self.usagesInImports;
+				usagesInTypeAccess := self.usagesInTypeAccess;				
+		}
+		 		
+
+		
+		mapping JAVAMM::PrimitiveTypeFloat::primitiveTypeFloat() : JAVAMM::PrimitiveTypeFloat {
+				comments := self.comments;
+				originalCompilationUnit := self.originalCompilationUnit;
+				originalClassFile := self.originalClassFile;
+				name := self.name;				
+				proxy := self.proxy;				
+				usagesInImports := self.usagesInImports;
+				usagesInTypeAccess := self.usagesInTypeAccess;				
+		}
+		 		
+
+		
+		mapping JAVAMM::PrimitiveTypeInt::primitiveTypeInt() : JAVAMM::PrimitiveTypeInt {
+				comments := self.comments;
+				originalCompilationUnit := self.originalCompilationUnit;
+				originalClassFile := self.originalClassFile;
+				name := self.name;				
+				proxy := self.proxy;				
+				usagesInImports := self.usagesInImports;
+				usagesInTypeAccess := self.usagesInTypeAccess;				
+		}
+		 		
+
+		
+		mapping JAVAMM::PrimitiveTypeLong::primitiveTypeLong() : JAVAMM::PrimitiveTypeLong {
+				comments := self.comments;
+				originalCompilationUnit := self.originalCompilationUnit;
+				originalClassFile := self.originalClassFile;
+				name := self.name;				
+				proxy := self.proxy;				
+				usagesInImports := self.usagesInImports;
+				usagesInTypeAccess := self.usagesInTypeAccess;				
+		}
+		 		
+
+		
+		mapping JAVAMM::PrimitiveTypeVoid::primitiveTypeVoid() : JAVAMM::PrimitiveTypeVoid {
+				comments := self.comments;
+				originalCompilationUnit := self.originalCompilationUnit;
+				originalClassFile := self.originalClassFile;
+				name := self.name;				
+				proxy := self.proxy;				
+				usagesInImports := self.usagesInImports;
+				usagesInTypeAccess := self.usagesInTypeAccess;				
+		}
+		 		
+
+		
+		mapping JAVAMM::ReturnStatement::returnStatement() : JAVAMM::ReturnStatement {
+				comments := self.comments;
+				originalCompilationUnit := self.originalCompilationUnit;
+				originalClassFile := self.originalClassFile;
+				expression := self.expression;				
+		}
+		 		
+
+		
+		mapping JAVAMM::SingleVariableAccess::singleVariableAccess() : JAVAMM::SingleVariableAccess {
+				comments := self.comments;
+				originalCompilationUnit := self.originalCompilationUnit;
+				originalClassFile := self.originalClassFile;
+				variable := self.variable;
+				qualifier := self.qualifier;				
+		}
+		 		
+
+		
+		mapping JAVAMM::SingleVariableDeclaration::singleVariableDeclaration() : JAVAMM::SingleVariableDeclaration {
+				comments := self.comments;
+				originalCompilationUnit := self.originalCompilationUnit;
+				originalClassFile := self.originalClassFile;
+				name := self.name;				
+				proxy := self.proxy;				
+				usagesInImports := self.usagesInImports;
+				extraArrayDimensions := self.extraArrayDimensions;				
+				initializer := self.initializer;
+				usageInVariableAccess := self.usageInVariableAccess;
+				modifier := self.modifier;
+				varargs := self.varargs;				
+				type := self.type;
+				annotations := self.annotations;
+				methodDeclaration := self.methodDeclaration;
+				catchClause := self.catchClause;
+				enhancedForStatement := self.enhancedForStatement;				
+		}
+		 		
+
+		 		
+
+		
+		mapping JAVAMM::StringLiteral::stringLiteral() : JAVAMM::StringLiteral {
+				comments := self.comments;
+				originalCompilationUnit := self.originalCompilationUnit;
+				originalClassFile := self.originalClassFile;
+				escapedValue := self.escapedValue;								
+		}
+		 		
+
+		
+		mapping JAVAMM::SuperConstructorInvocation::superConstructorInvocation() : JAVAMM::SuperConstructorInvocation {
+				comments := self.comments;
+				originalCompilationUnit := self.originalCompilationUnit;
+				originalClassFile := self.originalClassFile;
+				method := self.method;
+				arguments := self.arguments;
+				typeArguments := self.typeArguments;
+				expression := self.expression;				
+		}
+		 		
+
+		
+		mapping JAVAMM::SuperFieldAccess::superFieldAccess() : JAVAMM::SuperFieldAccess {
+				comments := self.comments;
+				originalCompilationUnit := self.originalCompilationUnit;
+				originalClassFile := self.originalClassFile;
+				qualifier := self.qualifier;
+				field := self.field;				
+		}
+		 		
+
+		
+		mapping JAVAMM::SuperMethodInvocation::superMethodInvocation() : JAVAMM::SuperMethodInvocation {
+				comments := self.comments;
+				originalCompilationUnit := self.originalCompilationUnit;
+				originalClassFile := self.originalClassFile;
+				qualifier := self.qualifier;
+				method := self.method;
+				arguments := self.arguments;
+				typeArguments := self.typeArguments;				
+		}
+		 		
+
+		
+		mapping JAVAMM::SwitchCase::switchCase() : JAVAMM::SwitchCase {
+				comments := self.comments;
+				originalCompilationUnit := self.originalCompilationUnit;
+				originalClassFile := self.originalClassFile;
+				_default := self._default;				
+				expression := self.expression;				
+		}
+		 		
+
+		
+		mapping JAVAMM::SwitchStatement::switchStatement() : JAVAMM::SwitchStatement {
+				comments := self.comments;
+				originalCompilationUnit := self.originalCompilationUnit;
+				originalClassFile := self.originalClassFile;
+				expression := self.expression;
+				statements := self.statements;				
+		}
+		 		
+
+		
+		mapping JAVAMM::SynchronizedStatement::synchronizedStatement() : JAVAMM::SynchronizedStatement {
+				comments := self.comments;
+				originalCompilationUnit := self.originalCompilationUnit;
+				originalClassFile := self.originalClassFile;
+				body := self.body;
+				expression := self.expression;				
+		}
+		 		
+
+		
+		mapping JAVAMM::TagElement::tagElement() : JAVAMM::TagElement {
+				comments := self.comments;
+				originalCompilationUnit := self.originalCompilationUnit;
+				originalClassFile := self.originalClassFile;
+				tagName := self.tagName;				
+				fragments := self.fragments;				
+		}
+		 		
+
+		
+		mapping JAVAMM::TextElement::textElement() : JAVAMM::TextElement {
+				comments := self.comments;
+				originalCompilationUnit := self.originalCompilationUnit;
+				originalClassFile := self.originalClassFile;
+				text := self.text;								
+		}
+		 		
+
+		
+		mapping JAVAMM::ThisExpression::thisExpression() : JAVAMM::ThisExpression {
+				comments := self.comments;
+				originalCompilationUnit := self.originalCompilationUnit;
+				originalClassFile := self.originalClassFile;
+				qualifier := self.qualifier;				
+		}
+		 		
+
+		
+		mapping JAVAMM::ThrowStatement::throwStatement() : JAVAMM::ThrowStatement {
+				comments := self.comments;
+				originalCompilationUnit := self.originalCompilationUnit;
+				originalClassFile := self.originalClassFile;
+				expression := self.expression;				
+		}
+		 		
+
+		
+		mapping JAVAMM::TryStatement::tryStatement() : JAVAMM::TryStatement {
+				comments := self.comments;
+				originalCompilationUnit := self.originalCompilationUnit;
+				originalClassFile := self.originalClassFile;
+				body := self.body;
+				finally := self.finally;
+				catchClauses := self.catchClauses;				
+		}
+		 		
+
+		 		
+
+		
+		mapping JAVAMM::TypeAccess::typeAccess() : JAVAMM::TypeAccess {
+				comments := self.comments;
+				originalCompilationUnit := self.originalCompilationUnit;
+				originalClassFile := self.originalClassFile;
+				type := self.type;
+				qualifier := self.qualifier;				
+		}
+		 		
+
+		 		
+
+		
+		mapping JAVAMM::TypeDeclarationStatement::typeDeclarationStatement() : JAVAMM::TypeDeclarationStatement {
+				comments := self.comments;
+				originalCompilationUnit := self.originalCompilationUnit;
+				originalClassFile := self.originalClassFile;
+				declaration := self.declaration;				
+		}
+		 		
+
+		
+		mapping JAVAMM::TypeLiteral::typeLiteral() : JAVAMM::TypeLiteral {
+				comments := self.comments;
+				originalCompilationUnit := self.originalCompilationUnit;
+				originalClassFile := self.originalClassFile;
+				type := self.type;				
+		}
+		 		
+
+		
+		mapping JAVAMM::TypeParameter::typeParameter() : JAVAMM::TypeParameter {
+				comments := self.comments;
+				originalCompilationUnit := self.originalCompilationUnit;
+				originalClassFile := self.originalClassFile;
+				name := self.name;				
+				proxy := self.proxy;				
+				usagesInImports := self.usagesInImports;
+				usagesInTypeAccess := self.usagesInTypeAccess;
+				bounds := self.bounds;				
+		}
+		 		
+
+		
+		mapping JAVAMM::UnresolvedItem::unresolvedItem() : JAVAMM::UnresolvedItem {
+				comments := self.comments;
+				originalCompilationUnit := self.originalCompilationUnit;
+				originalClassFile := self.originalClassFile;
+				name := self.name;				
+				proxy := self.proxy;				
+				usagesInImports := self.usagesInImports;				
+		}
+		 		
+
+		
+		mapping JAVAMM::UnresolvedItemAccess::unresolvedItemAccess() : JAVAMM::UnresolvedItemAccess {
+				comments := self.comments;
+				originalCompilationUnit := self.originalCompilationUnit;
+				originalClassFile := self.originalClassFile;
+				element := self.element;
+				qualifier := self.qualifier;				
+		}
+		 		
+
+		
+		mapping JAVAMM::UnresolvedAnnotationDeclaration::unresolvedAnnotationDeclaration() : JAVAMM::UnresolvedAnnotationDeclaration {
+				comments := self.comments;
+				originalCompilationUnit := self.originalCompilationUnit;
+				originalClassFile := self.originalClassFile;
+				name := self.name;				
+				proxy := self.proxy;				
+				usagesInImports := self.usagesInImports;
+				abstractTypeDeclaration := self.abstractTypeDeclaration;
+				annotations := self.annotations;
+				anonymousClassDeclarationOwner := self.anonymousClassDeclarationOwner;
+				modifier := self.modifier;
+				usagesInTypeAccess := self.usagesInTypeAccess;
+				bodyDeclarations := self.bodyDeclarations;
+				commentsBeforeBody := self.commentsBeforeBody;
+				commentsAfterBody := self.commentsAfterBody;
+				package := self.package;
+				superInterfaces := self.superInterfaces;				
+		}
+		 		
+
+		
+		mapping JAVAMM::UnresolvedAnnotationTypeMemberDeclaration::unresolvedAnnotationTypeMemberDeclaration() : JAVAMM::UnresolvedAnnotationTypeMemberDeclaration {
+				comments := self.comments;
+				originalCompilationUnit := self.originalCompilationUnit;
+				originalClassFile := self.originalClassFile;
+				name := self.name;				
+				proxy := self.proxy;				
+				usagesInImports := self.usagesInImports;
+				abstractTypeDeclaration := self.abstractTypeDeclaration;
+				annotations := self.annotations;
+				anonymousClassDeclarationOwner := self.anonymousClassDeclarationOwner;
+				modifier := self.modifier;
+				_default := self._default;
+				type := self.type;
+				usages := self.usages;				
+		}
+		 		
+
+		
+		mapping JAVAMM::UnresolvedClassDeclaration::unresolvedClassDeclaration() : JAVAMM::UnresolvedClassDeclaration {
+				comments := self.comments;
+				originalCompilationUnit := self.originalCompilationUnit;
+				originalClassFile := self.originalClassFile;
+				name := self.name;				
+				proxy := self.proxy;				
+				usagesInImports := self.usagesInImports;
+				abstractTypeDeclaration := self.abstractTypeDeclaration;
+				annotations := self.annotations;
+				anonymousClassDeclarationOwner := self.anonymousClassDeclarationOwner;
+				modifier := self.modifier;
+				usagesInTypeAccess := self.usagesInTypeAccess;
+				bodyDeclarations := self.bodyDeclarations;
+				commentsBeforeBody := self.commentsBeforeBody;
+				commentsAfterBody := self.commentsAfterBody;
+				package := self.package;
+				superInterfaces := self.superInterfaces;
+				typeParameters := self.typeParameters;
+				superClass := self.superClass;				
+		}
+		 		
+
+		
+		mapping JAVAMM::UnresolvedEnumDeclaration::unresolvedEnumDeclaration() : JAVAMM::UnresolvedEnumDeclaration {
+				comments := self.comments;
+				originalCompilationUnit := self.originalCompilationUnit;
+				originalClassFile := self.originalClassFile;
+				name := self.name;				
+				proxy := self.proxy;				
+				usagesInImports := self.usagesInImports;
+				abstractTypeDeclaration := self.abstractTypeDeclaration;
+				annotations := self.annotations;
+				anonymousClassDeclarationOwner := self.anonymousClassDeclarationOwner;
+				modifier := self.modifier;
+				usagesInTypeAccess := self.usagesInTypeAccess;
+				bodyDeclarations := self.bodyDeclarations;
+				commentsBeforeBody := self.commentsBeforeBody;
+				commentsAfterBody := self.commentsAfterBody;
+				package := self.package;
+				superInterfaces := self.superInterfaces;
+				enumConstants := self.enumConstants;				
+		}
+		 		
+
+		
+		mapping JAVAMM::UnresolvedInterfaceDeclaration::unresolvedInterfaceDeclaration() : JAVAMM::UnresolvedInterfaceDeclaration {
+				comments := self.comments;
+				originalCompilationUnit := self.originalCompilationUnit;
+				originalClassFile := self.originalClassFile;
+				name := self.name;				
+				proxy := self.proxy;				
+				usagesInImports := self.usagesInImports;
+				abstractTypeDeclaration := self.abstractTypeDeclaration;
+				annotations := self.annotations;
+				anonymousClassDeclarationOwner := self.anonymousClassDeclarationOwner;
+				modifier := self.modifier;
+				usagesInTypeAccess := self.usagesInTypeAccess;
+				bodyDeclarations := self.bodyDeclarations;
+				commentsBeforeBody := self.commentsBeforeBody;
+				commentsAfterBody := self.commentsAfterBody;
+				package := self.package;
+				superInterfaces := self.superInterfaces;
+				typeParameters := self.typeParameters;				
+		}
+		 		
+
+		
+		mapping JAVAMM::UnresolvedLabeledStatement::unresolvedLabeledStatement() : JAVAMM::UnresolvedLabeledStatement {
+				comments := self.comments;
+				originalCompilationUnit := self.originalCompilationUnit;
+				originalClassFile := self.originalClassFile;
+				name := self.name;				
+				proxy := self.proxy;				
+				usagesInImports := self.usagesInImports;
+				body := self.body;
+				usagesInBreakStatements := self.usagesInBreakStatements;
+				usagesInContinueStatements := self.usagesInContinueStatements;				
+		}
+		 		
+
+		
+		mapping JAVAMM::UnresolvedMethodDeclaration::unresolvedMethodDeclaration() : JAVAMM::UnresolvedMethodDeclaration {
+				comments := self.comments;
+				originalCompilationUnit := self.originalCompilationUnit;
+				originalClassFile := self.originalClassFile;
+				name := self.name;				
+				proxy := self.proxy;				
+				usagesInImports := self.usagesInImports;
+				abstractTypeDeclaration := self.abstractTypeDeclaration;
+				annotations := self.annotations;
+				anonymousClassDeclarationOwner := self.anonymousClassDeclarationOwner;
+				modifier := self.modifier;
+				body := self.body;
+				parameters := self.parameters;
+				thrownExceptions := self.thrownExceptions;
+				typeParameters := self.typeParameters;
+				usagesInDocComments := self.usagesInDocComments;
+				usages := self.usages;
+				extraArrayDimensions := self.extraArrayDimensions;				
+				returnType := self.returnType;
+				redefinedMethodDeclaration := self.redefinedMethodDeclaration;
+				redefinitions := self.redefinitions;				
+		}
+		 		
+
+		
+		mapping JAVAMM::UnresolvedSingleVariableDeclaration::unresolvedSingleVariableDeclaration() : JAVAMM::UnresolvedSingleVariableDeclaration {
+				comments := self.comments;
+				originalCompilationUnit := self.originalCompilationUnit;
+				originalClassFile := self.originalClassFile;
+				name := self.name;				
+				proxy := self.proxy;				
+				usagesInImports := self.usagesInImports;
+				extraArrayDimensions := self.extraArrayDimensions;				
+				initializer := self.initializer;
+				usageInVariableAccess := self.usageInVariableAccess;
+				modifier := self.modifier;
+				varargs := self.varargs;				
+				type := self.type;
+				annotations := self.annotations;
+				methodDeclaration := self.methodDeclaration;
+				catchClause := self.catchClause;
+				enhancedForStatement := self.enhancedForStatement;				
+		}
+		 		
+
+		
+		mapping JAVAMM::UnresolvedType::unresolvedType() : JAVAMM::UnresolvedType {
+				comments := self.comments;
+				originalCompilationUnit := self.originalCompilationUnit;
+				originalClassFile := self.originalClassFile;
+				name := self.name;				
+				proxy := self.proxy;				
+				usagesInImports := self.usagesInImports;
+				usagesInTypeAccess := self.usagesInTypeAccess;				
+		}
+		 		
+
+		
+		mapping JAVAMM::UnresolvedTypeDeclaration::unresolvedTypeDeclaration() : JAVAMM::UnresolvedTypeDeclaration {
+				comments := self.comments;
+				originalCompilationUnit := self.originalCompilationUnit;
+				originalClassFile := self.originalClassFile;
+				name := self.name;				
+				proxy := self.proxy;				
+				usagesInImports := self.usagesInImports;
+				abstractTypeDeclaration := self.abstractTypeDeclaration;
+				annotations := self.annotations;
+				anonymousClassDeclarationOwner := self.anonymousClassDeclarationOwner;
+				modifier := self.modifier;
+				usagesInTypeAccess := self.usagesInTypeAccess;
+				bodyDeclarations := self.bodyDeclarations;
+				commentsBeforeBody := self.commentsBeforeBody;
+				commentsAfterBody := self.commentsAfterBody;
+				package := self.package;
+				superInterfaces := self.superInterfaces;				
+		}
+		 		
+
+		
+		mapping JAVAMM::UnresolvedVariableDeclarationFragment::unresolvedVariableDeclarationFragment() : JAVAMM::UnresolvedVariableDeclarationFragment {
+				comments := self.comments;
+				originalCompilationUnit := self.originalCompilationUnit;
+				originalClassFile := self.originalClassFile;
+				name := self.name;				
+				proxy := self.proxy;				
+				usagesInImports := self.usagesInImports;
+				extraArrayDimensions := self.extraArrayDimensions;				
+				initializer := self.initializer;
+				usageInVariableAccess := self.usageInVariableAccess;
+				variablesContainer := self.variablesContainer;				
+		}
+		 		
+
+		 		
+
+		
+		mapping JAVAMM::VariableDeclarationExpression::variableDeclarationExpression() : JAVAMM::VariableDeclarationExpression {
+				comments := self.comments;
+				originalCompilationUnit := self.originalCompilationUnit;
+				originalClassFile := self.originalClassFile;
+				type := self.type;
+				fragments := self.fragments;
+				modifier := self.modifier;
+				annotations := self.annotations;				
+		}
+		 		
+
+		
+		mapping JAVAMM::VariableDeclarationFragment::variableDeclarationFragment() : JAVAMM::VariableDeclarationFragment {
+				comments := self.comments;
+				originalCompilationUnit := self.originalCompilationUnit;
+				originalClassFile := self.originalClassFile;
+				name := self.name;				
+				proxy := self.proxy;				
+				usagesInImports := self.usagesInImports;
+				extraArrayDimensions := self.extraArrayDimensions;				
+				initializer := self.initializer;
+				usageInVariableAccess := self.usageInVariableAccess;
+				variablesContainer := self.variablesContainer;				
+		}
+		 		
+
+		
+		mapping JAVAMM::VariableDeclarationStatement::variableDeclarationStatement() : JAVAMM::VariableDeclarationStatement {
+				comments := self.comments;
+				originalCompilationUnit := self.originalCompilationUnit;
+				originalClassFile := self.originalClassFile;
+				type := self.type;
+				fragments := self.fragments;
+				extraArrayDimensions := self.extraArrayDimensions;				
+				modifier := self.modifier;
+				annotations := self.annotations;				
+		}
+		 		
+
+		
+		mapping JAVAMM::WildCardType::wildCardType() : JAVAMM::WildCardType {
+				comments := self.comments;
+				originalCompilationUnit := self.originalCompilationUnit;
+				originalClassFile := self.originalClassFile;
+				name := self.name;				
+				proxy := self.proxy;				
+				usagesInImports := self.usagesInImports;
+				usagesInTypeAccess := self.usagesInTypeAccess;
+				upperBound := self.upperBound;				
+				bound := self.bound;				
+		}
+		 		
+
+		
+		mapping JAVAMM::WhileStatement::whileStatement() : JAVAMM::WhileStatement {
+				comments := self.comments;
+				originalCompilationUnit := self.originalCompilationUnit;
+				originalClassFile := self.originalClassFile;
+				expression := self.expression;
+				body := self.body;				
+		}
+		 		
+

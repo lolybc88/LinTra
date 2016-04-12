@@ -33,10 +33,31 @@ public class QVTRunner {
 
 //		benchmarkDBLP();
 		
-		benchmarkJava2Graph();
+//		benchmarkJava2Graph();
+		
+		benchmarkJavaRefactorings();
 		
 	}
 	
+	private static void benchmarkJavaRefactorings() throws Exception {
+		JavaMMPackage.eINSTANCE.eClass();
+		
+		String[] cc = {"0.1", "0.2", "0.5", "1.0", "1.5", "2.0", "2.5", "3.0", "3.5", "4.0", "all"};
+		for (String c : cc) {
+			System.out.println("-- " + c + " --");
+
+			 String transfo = "file://C:/Users/Atenea/Desktop/Gits/LinTraGit/CaseStudiesQVTO/transforms/JavaRefactorings.qvto";
+			 String model = "file://C:/Users/Atenea/Desktop/eclipseModel/eclipseModels-CaseStudy/eclipseModel-0.1.xmi";
+//			 String model = "file://C:/Users/Loli/Dropbox/PhD/Atenea02/wsLinTra/CaseStudies/eclipseModel-0.1.xmi";
+
+//			String transfo = "file:/home/loli/Dropbox/atenea02.gisum/wsLinTra/CaseStudiesQVTO/transforms/JavaRefactorings.qvto";
+//			String model = "/home/loli/IST_2014/eclip/xmi/eclipseModel-" + c + ".xmi";
+
+			QVTRunner runner = new QVTRunner();
+			runner.runNtimes(model, transfo, 10);
+		}
+	}
+
 	private static void benchmarkJava2Graph() throws Exception {
 		
 		JavaMMPackage.eINSTANCE.eClass();
