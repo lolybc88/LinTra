@@ -314,6 +314,12 @@ public class CopyOfHashMapArea implements IArea {
 		area.clear();
 		return area.keySet().size()==0;
 	}
+	
+	@Override
+	public void destroy() {
+		area.clear();
+		area = null;
+	}
 
 	@Override
 	public synchronized void print() {

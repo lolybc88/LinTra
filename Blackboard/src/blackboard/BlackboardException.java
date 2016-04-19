@@ -2,6 +2,14 @@ package blackboard;
 
 public class BlackboardException extends Exception {
 
+	public BlackboardException(){
+		super();
+	}
+	
+	public BlackboardException(String msg) {
+		super(msg);
+	}
+
 	/**
 	 * 
 	 */

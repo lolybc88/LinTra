@@ -1,4 +1,4 @@
-package runners;
+package distributed;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -7,19 +7,27 @@ import java.util.Collection;
 import java.util.LinkedList;
 import java.util.List;
 
+import distributedBlackboard.DistributedBlackboard;
 import transfo.IMaster;
 import transfo.ITransformation;
 import transfo.Master_SingleMT;
 import transfo.ModelLoader_Single;
 import transfo.Slave_SingleMT;
-import MavenPrj.MavenPrj.InfinispanBlackboard;
 import blackboard.*;
 import blackboard.IBlackboard.Policy;
 
-public class MTLauncher1Input1Output {
+public class MTLauncher1Input1OutputDistributed {
 	
-	IBlackboard blackboard;
+	DistributedBlackboard blackboard;
 	IArea workTODOArea, srcModelArea, trgModelArea;
+	private String remoteAreaIP;
+	private int srcModelAreaPort, trgModelAreaPort;
+	
+	public MTLauncher1Input1OutputDistributed(String remoteAreaIP, int srcModelAreaPort, int trgModelAreaPort) {
+		this.remoteAreaIP = remoteAreaIP;
+		this.srcModelAreaPort = srcModelAreaPort;
+		this.trgModelAreaPort = trgModelAreaPort;
+	}
 	
 	public IArea getSrcArea(){
 		return srcModelArea;
@@ -34,15 +42,16 @@ public class MTLauncher1Input1Output {
 	}
 
 	public void createBlackboard(){
-		blackboard = new HashMapBlackboard();
+//		blackboard = new HashMapBlackboard();
 //		blackboard = new HazelcastBlackboard();
 //		blackboard = new EhcacheBlackboard();
 //		blackboard = new GigaSpacesBlackboard();
 //		blackboard = new InfinispanBlackboard();
 //		blackboard = new CoherenceBlackboard();
-		workTODOArea = blackboard.createArea("processorSpace", Policy.LOCK_TO_READ);
-		srcModelArea = blackboard.createArea("processorSpace_Src", Policy.NEVER_LOCK);
-		trgModelArea = blackboard.createArea("processorSpace_Trg", Policy.NEVER_LOCK);
+		blackboard = new DistributedBlackboard(remoteAreaIP);
+		workTODOArea = blackboard.createLocalArea("processorSpace", Policy.LOCK_TO_READ);
+		srcModelArea = blackboard.createArea("processorSpace_Src", Policy.NEVER_LOCK, srcModelAreaPort);
+		trgModelArea = blackboard.createArea("processorSpace_Trg", Policy.NEVER_LOCK, trgModelAreaPort);
 	}
 	
 	public void loadModel(String[] modelPath) throws Exception {

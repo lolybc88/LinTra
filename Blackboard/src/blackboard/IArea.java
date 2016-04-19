@@ -104,6 +104,12 @@ public interface IArea extends Serializable {
 	public boolean clear();
 	
 	/**
+	 * Remove all the elements and destroy the area
+	 * @return true if the elements were successfully removed or false otherwise
+	 */
+	public void destroy();
+	
+	/**
 	 * Print all the elements
 	 */
 	public void print();

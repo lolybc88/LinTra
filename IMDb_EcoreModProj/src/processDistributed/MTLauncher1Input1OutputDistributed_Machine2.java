@@ -1,4 +1,4 @@
-package runners;
+package processDistributed;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -12,14 +12,28 @@ import transfo.ITransformation;
 import transfo.Master_SingleMT;
 import transfo.ModelLoader_Single;
 import transfo.Slave_SingleMT;
-import MavenPrj.MavenPrj.InfinispanBlackboard;
 import blackboard.*;
 import blackboard.IBlackboard.Policy;
 
-public class MTLauncher1Input1Output {
+public class MTLauncher1Input1OutputDistributed_Machine2 {
 	
-	IBlackboard blackboard;
+	DistributedBlackboard_Machine2 blackboard;
 	IArea workTODOArea, srcModelArea, trgModelArea;
+	private String remoteAreaIP;
+	private int srcModelAreaPort_M1, trgModelAreaPort_M1, todoModelAreaPort_M1,
+		srcModelAreaPort_M2, trgModelAreaPort_M2;
+	
+	public MTLauncher1Input1OutputDistributed_Machine2(String remoteAreaIP,
+			int srcModelAreaPort_M1, int trgModelAreaPort_M1, int todoModelAreaPort_M1,
+			int srcModelAreaPort_M2, int trgModelAreaPort_M2) {
+		this.remoteAreaIP = remoteAreaIP;
+		this.srcModelAreaPort_M1 = srcModelAreaPort_M1;
+		this.trgModelAreaPort_M1 = trgModelAreaPort_M1;
+		this.todoModelAreaPort_M1 = todoModelAreaPort_M1;
+		this.srcModelAreaPort_M2 = srcModelAreaPort_M2;
+		this.trgModelAreaPort_M2 = trgModelAreaPort_M2;
+		
+	}
 	
 	public IArea getSrcArea(){
 		return srcModelArea;
@@ -33,18 +47,22 @@ public class MTLauncher1Input1Output {
 		srcModelArea = srcArea;
 	}
 
-	public void createBlackboard(){
-		blackboard = new HashMapBlackboard();
-//		blackboard = new HazelcastBlackboard();
-//		blackboard = new EhcacheBlackboard();
-//		blackboard = new GigaSpacesBlackboard();
-//		blackboard = new InfinispanBlackboard();
-//		blackboard = new CoherenceBlackboard();
-		workTODOArea = blackboard.createArea("processorSpace", Policy.LOCK_TO_READ);
-		srcModelArea = blackboard.createArea("processorSpace_Src", Policy.NEVER_LOCK);
-		trgModelArea = blackboard.createArea("processorSpace_Trg", Policy.NEVER_LOCK);
+	public void createBlackboard() throws BlackboardException{
+		blackboard = new DistributedBlackboard_Machine2(remoteAreaIP);
+		workTODOArea = blackboard.createRemoteArea("processorSpace", Policy.LOCK_TO_READ, todoModelAreaPort_M1);
+		
+		srcModelArea = blackboard.createArea("processorSpace_Src", Policy.NEVER_LOCK, srcModelAreaPort_M1);
+		createServerForArea(srcModelArea, srcModelAreaPort_M2);
+		
+		trgModelArea = blackboard.createArea("processorSpace_Trg", Policy.NEVER_LOCK, trgModelAreaPort_M1);
+		createServerForArea(trgModelArea, trgModelAreaPort_M2);
 	}
 	
+	private void createServerForArea(IArea area, int port) throws BlackboardException {
+		Thread t = new Thread(new AreaServer(area, port));
+		t.start();
+	}
+
 	public void loadModel(String[] modelPath) throws Exception {
 		List<Thread> ts = new LinkedList<Thread>();
 		for (int i=0; i<modelPath.length; i++){
@@ -63,12 +81,7 @@ public class MTLauncher1Input1Output {
 	}
 	
 	public double launch(ITransformation transfo, int numThreads) throws Exception{
-		
-		double maxId = srcModelArea.size();
-		
-		IMaster master = new Master_SingleMT(workTODOArea, srcModelArea, numThreads);
-		((Master_SingleMT)master).organizeWork(srcModelArea, maxId);
-		
+				
 		double time0 = System.currentTimeMillis();
 		
 		List<Thread> ts = new LinkedList<Thread>();

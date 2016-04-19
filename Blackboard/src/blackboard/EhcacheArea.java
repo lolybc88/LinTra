@@ -299,6 +299,11 @@ public class EhcacheArea implements IArea {
 //		manager.shutdown();
 		return true;
 	}
+	
+	@Override
+	public void destroy() {
+		area.dispose();
+	}
 
 	@SuppressWarnings("unchecked")
 	@Override
