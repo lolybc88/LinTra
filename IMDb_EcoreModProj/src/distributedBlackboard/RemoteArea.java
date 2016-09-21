@@ -54,6 +54,10 @@ public class RemoteArea implements Runnable {
 					area.clear();
 				} else if (((String)o).equals(CommunProtocolKeyWords.SIZE)) {
 					oos.writeObject((Integer)area.size());
+				} else if (((String)o).equals(CommunProtocolKeyWords.TAKE)){
+					String id = (String) ois.readObject();
+					Object elem = area.take(id);
+					oos.writeObject(elem);
 				} else {
 					// An identifier has been received, the corresponding object must be sent
 					String id = (String) o;
@@ -77,7 +81,7 @@ public class RemoteArea implements Runnable {
 						for (String id : ids){
 							IdentifiableElement e = area.read(id);
 							if (id!=null){
-								elems.add(area.read(id));
+								elems.add(e);
 							}
 						}
 						oos.writeObject(elems);

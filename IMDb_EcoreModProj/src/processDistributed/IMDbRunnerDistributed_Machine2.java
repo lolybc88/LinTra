@@ -32,20 +32,29 @@ public class IMDbRunnerDistributed_Machine2 {
 	public static void main(String[] args) throws Exception {
 		
 		MTLauncher1Input1OutputDistributed_Machine2 mtLauncher =
-				new MTLauncher1Input1OutputDistributed_Machine2("localhost", 9895, 9894, 9893, 9896, 9897);
+				new MTLauncher1Input1OutputDistributed_Machine2("192.168.1.4", 9895, 9894, 9893, 9892, 9896, 9897);
 		
-		Thread.sleep(9000);
+		mtLauncher.createBlackboard();
+		mtLauncher.createServers();
 		
+		Thread.sleep(3000);
+		
+		mtLauncher.connectToRemoteSubAreas();
+		
+		Thread.sleep(3000);
+	
 		int numThreads = LinTraParameters.NUMBER_OF_THREADS_T1;
 		
 		double time = mtLauncher.launch(new Identity(mtLauncher.getSrcArea(), mtLauncher.getTrgArea()), numThreads);
 		System.out.println(time);
 		
+		Thread.sleep(10000);
+		
 		System.out.println("Num elements src: " + mtLauncher.getSrcArea().size());
 		System.out.println("Num elements trg: " + mtLauncher.getTrgArea().size());
-			
-		mtLauncher.getSrcArea().clear();
-		mtLauncher.getTrgArea().clear();
 		
+//		mtLauncher.getSrcArea().clear();
+//		mtLauncher.getTrgArea().clear();
+				
 	}
 }

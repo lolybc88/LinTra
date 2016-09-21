@@ -25,19 +25,19 @@ public class DistributedBlackboard_Machine1 implements IBlackboard {
 	}
 	
 	@Override
-	public IArea createArea(String name, Policy p) {
-		return null;
-	}
-	
-	public synchronized IArea createArea(String name, Policy p, int remoteSubAreaPort) {
+	public synchronized IArea createArea(String name, Policy p) {
 		IArea hsA = null;
 		try {
-			hsA = new DistributedArea_Machine1(name, p, remoteSubAreaIP, remoteSubAreaPort);
+			hsA = new DistributedArea_Machine1(name, p);
 			areas.add(hsA);
 		} catch (BlackboardException e) {
 			e.printStackTrace();
 		}
 		return hsA;
+	}
+	
+	public void connectToRemoteSubArea(DistributedArea_Machine1 area, String remoteSubAreaIP, int remoteSubAreaPort) throws BlackboardException{
+		area.connectToRemoteSubArea(remoteSubAreaIP, remoteSubAreaPort);
 	}
 	
 	public synchronized IArea createLocalArea(String name, Policy p) {

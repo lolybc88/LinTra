@@ -299,7 +299,7 @@ public class DistributedArea implements IArea {
 		try {
 			oos.writeObject(elem);
 			Object o = ois.readObject();
-			if (!(o instanceof String) || !(o.equals("ok"))){
+			if (!(o instanceof String) || !(o.equals(CommunProtocolKeyWords.OK))){
 				throw new BlackboardException();
 			}
 		} catch (IOException | ClassNotFoundException e) {

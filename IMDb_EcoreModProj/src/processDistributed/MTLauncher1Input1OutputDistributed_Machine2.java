@@ -7,9 +7,7 @@ import java.util.Collection;
 import java.util.LinkedList;
 import java.util.List;
 
-import transfo.IMaster;
 import transfo.ITransformation;
-import transfo.Master_SingleMT;
 import transfo.ModelLoader_Single;
 import transfo.Slave_SingleMT;
 import blackboard.*;
@@ -20,16 +18,17 @@ public class MTLauncher1Input1OutputDistributed_Machine2 {
 	DistributedBlackboard_Machine2 blackboard;
 	IArea workTODOArea, srcModelArea, trgModelArea;
 	private String remoteAreaIP;
-	private int srcModelAreaPort_M1, trgModelAreaPort_M1, todoModelAreaPort_M1,
+	private int srcModelAreaPort_M1, trgModelAreaPort_M1, todoModelAreaPort_M1, todoModelAreaPort_M2,
 		srcModelAreaPort_M2, trgModelAreaPort_M2;
 	
 	public MTLauncher1Input1OutputDistributed_Machine2(String remoteAreaIP,
-			int srcModelAreaPort_M1, int trgModelAreaPort_M1, int todoModelAreaPort_M1,
+			int srcModelAreaPort_M1, int trgModelAreaPort_M1, int todoModelAreaPort_M1, int todoModelAreaPort_M2,
 			int srcModelAreaPort_M2, int trgModelAreaPort_M2) {
 		this.remoteAreaIP = remoteAreaIP;
 		this.srcModelAreaPort_M1 = srcModelAreaPort_M1;
 		this.trgModelAreaPort_M1 = trgModelAreaPort_M1;
 		this.todoModelAreaPort_M1 = todoModelAreaPort_M1;
+		this.todoModelAreaPort_M2 = todoModelAreaPort_M2;
 		this.srcModelAreaPort_M2 = srcModelAreaPort_M2;
 		this.trgModelAreaPort_M2 = trgModelAreaPort_M2;
 		
@@ -49,18 +48,28 @@ public class MTLauncher1Input1OutputDistributed_Machine2 {
 
 	public void createBlackboard() throws BlackboardException{
 		blackboard = new DistributedBlackboard_Machine2(remoteAreaIP);
-		workTODOArea = blackboard.createRemoteArea("processorSpace", Policy.LOCK_TO_READ, todoModelAreaPort_M1);
-		
-		srcModelArea = blackboard.createArea("processorSpace_Src", Policy.NEVER_LOCK, srcModelAreaPort_M1);
-		createServerForArea(srcModelArea, srcModelAreaPort_M2);
-		
-		trgModelArea = blackboard.createArea("processorSpace_Trg", Policy.NEVER_LOCK, trgModelAreaPort_M1);
-		createServerForArea(trgModelArea, trgModelAreaPort_M2);
+		workTODOArea = blackboard.createArea("processorSpace", Policy.LOCK_TO_READ);
+		srcModelArea = blackboard.createArea("processorSpace_Src", Policy.NEVER_LOCK);
+		trgModelArea = blackboard.createArea("processorSpace_Trg", Policy.NEVER_LOCK);
 	}
 	
-	private void createServerForArea(IArea area, int port) throws BlackboardException {
-		Thread t = new Thread(new AreaServer(area, port));
+	private void createServerForArea(DistributedArea_Machine2 area, int port) throws BlackboardException {
+		Thread t = new Thread(new AreaServer(area.getLocalSubArea(), port));
 		t.start();
+	}
+	
+	public void createServers() throws BlackboardException{
+		// We need to create this server associated to the area for other machines to get connected to this machine and access its content
+		createServerForArea((DistributedArea_Machine2)workTODOArea, todoModelAreaPort_M2);
+		createServerForArea((DistributedArea_Machine2)srcModelArea, srcModelAreaPort_M2);
+		createServerForArea((DistributedArea_Machine2)trgModelArea, trgModelAreaPort_M2);
+	}
+	
+	public void connectToRemoteSubAreas() throws BlackboardException{
+//		((RemoteArea)workTODOArea).connectToRemoteSubArea(remoteAreaIP, todoModelAreaPort_M1);
+		((DistributedArea_Machine2)workTODOArea).connectToRemoteSubArea(remoteAreaIP, todoModelAreaPort_M1);
+		((DistributedArea_Machine2)srcModelArea).connectToRemoteSubArea(remoteAreaIP, srcModelAreaPort_M1);
+		((DistributedArea_Machine2)trgModelArea).connectToRemoteSubArea(remoteAreaIP, trgModelAreaPort_M1);
 	}
 
 	public void loadModel(String[] modelPath) throws Exception {

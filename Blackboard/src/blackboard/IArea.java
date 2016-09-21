@@ -3,7 +3,13 @@ package blackboard;
 import java.io.Serializable;
 import java.util.Collection;
 
+import blackboard.IBlackboard.Policy;
+
 public interface IArea extends Serializable {
+	
+	public String getName();
+	
+	public Policy getPolicy();
 	
 	/**
 	 * Read the element with identifier id

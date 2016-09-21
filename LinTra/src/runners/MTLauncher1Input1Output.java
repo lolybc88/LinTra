@@ -12,7 +12,7 @@ import transfo.ITransformation;
 import transfo.Master_SingleMT;
 import transfo.ModelLoader_Single;
 import transfo.Slave_SingleMT;
-import MavenPrj.MavenPrj.InfinispanBlackboard;
+//import MavenPrj.MavenPrj.InfinispanBlackboard;
 import blackboard.*;
 import blackboard.IBlackboard.Policy;
 

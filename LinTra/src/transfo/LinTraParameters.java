@@ -4,7 +4,7 @@ public class LinTraParameters {
 
 	/** Configurable parameters */
 	public static final int MODEL_CHUNK_SIZE = 50000;
-	public static final int JOB_SIZE = 5000;
+	public static final int JOB_SIZE = 500;
 	public static final int NUMBER_OF_THREADS_T1 = 16; //Runtime.getRuntime().availableProcessors();
 	public static final int NUMBER_OF_THREADS_T2 = 16;
 	public static final boolean T1_AND_THEN_T2 = false; // the opposite is T1_T2_IN_PARALELL

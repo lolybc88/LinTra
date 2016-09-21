@@ -30,6 +30,7 @@ public class Slave_SingleMT implements Runnable, ISlave {
 				Collection<IdentifiableElement> objs = srcArea.read(
 						new SearchByIdRange(we.getMinID(), we.getMaxID(), true));
 				transfoImpl.transform(objs, null);
+				System.out.println("Slave "+threadId+" transformed elements");
 				we = askForWork();
 			}
 		} catch (Exception e) {

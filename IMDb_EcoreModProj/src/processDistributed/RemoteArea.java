@@ -49,13 +49,15 @@ public class RemoteArea implements IArea {
 	InputStream is;
 	ObjectInputStream ois;
 
-	public RemoteArea(String name, Policy p, String remoteAreaIP, int remoteAreaPort) throws BlackboardException {
+	public RemoteArea(String name, Policy p) throws BlackboardException {
 		this.name = name;
 		this.policy = p;
 		semaphore = new Semaphore(1, true);
-		
+	}
+	
+	public void connectToRemoteSubArea(String remoteSubAreaIP, int remoteSubAreaPort) throws BlackboardException{
 		try {
-			s = new Socket(remoteAreaIP, remoteAreaPort);
+			s = new Socket(remoteSubAreaIP, remoteSubAreaPort);
 			os = s.getOutputStream();
 			oos = new ObjectOutputStream(os);
 			is = s.getInputStream();
@@ -204,8 +206,37 @@ public class RemoteArea implements IArea {
 
 	@Override
 	public synchronized IdentifiableElement take(String id) throws BlackboardException {
-		// TO BE COMPLETED
-		return null;
+		IdentifiableElement ie = null;
+		try{
+			if (policy.equals(Policy.ALWAYS_LOCK) || policy.equals(Policy.LOCK_TO_READ)){
+				semaphore.acquire();
+				ie = takeFromRemoteArea(id);
+				semaphore.release();
+			} else {
+				ie = takeFromRemoteArea(id);
+			}
+			return ie;
+		} catch (InterruptedException e){
+			throw new BlackboardException();
+		} catch (NullPointerException e){
+			e.printStackTrace();
+			return null;
+		}
+	}
+
+	private IdentifiableElement takeFromRemoteArea(String id) throws BlackboardException {
+		IdentifiableElement ie = null;
+		try {
+			oos.writeObject(CommunProtocolKeyWords.TAKE);
+			oos.writeObject(new String(id));
+			ie = (IdentifiableElement) ois.readObject();	
+		} catch (IOException e) {
+			e.printStackTrace();
+			throw new BlackboardException();
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		return ie;
 	}
 
 	@Override
@@ -253,7 +284,7 @@ public class RemoteArea implements IArea {
 		try {
 			oos.writeObject(elem);
 			Object o = ois.readObject();
-			if (!(o instanceof String) || !(o.equals("ok"))){
+			if (!(o instanceof String) || !(o.equals(CommunProtocolKeyWords.OK))){
 				throw new BlackboardException();
 			}
 		} catch (IOException | ClassNotFoundException e) {

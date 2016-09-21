@@ -50,12 +50,15 @@ public class DistributedArea_Machine2 implements IArea {
 	InputStream is;
 	ObjectInputStream ois;
 
-	public DistributedArea_Machine2(String name, Policy p, String remoteSubAreaIP, int remoteSubAreaPort) throws BlackboardException {
+	public DistributedArea_Machine2(String name, Policy p) throws BlackboardException {
 		this.name = name;
 		this.policy = p;
 		semaphore = new Semaphore(1, true);
 		localSubArea = new ConcurrentHashMap<String, IdentifiableElement>();
 		
+	}
+	
+	public void connectToRemoteSubArea(String remoteSubAreaIP, int remoteSubAreaPort) throws BlackboardException{
 		try {
 			s = new Socket(remoteSubAreaIP, remoteSubAreaPort);
 			os = s.getOutputStream();
@@ -98,6 +101,10 @@ public class DistributedArea_Machine2 implements IArea {
 
 	public synchronized void setArea(Map<String, IdentifiableElement> area) {
 		this.localSubArea = area;
+	}
+	
+	public Map<String, IdentifiableElement> getLocalSubArea(){
+		return localSubArea;
 	}
 
 	@Override
@@ -245,8 +252,52 @@ public class DistributedArea_Machine2 implements IArea {
 
 	@Override
 	public synchronized IdentifiableElement take(String id) throws BlackboardException {
-		// TO BE COMPLETED
-		return null;
+		int machine = routingFunction(id);
+		IdentifiableElement ie = null;
+		try{
+			if (policy.equals(Policy.ALWAYS_LOCK) || policy.equals(Policy.LOCK_TO_READ)){
+				semaphore.acquire();
+				ie = takeAux(id, machine);
+				semaphore.release();
+			} else {
+				ie = takeAux(id, machine);
+			}
+			return ie;
+		} catch (InterruptedException e){
+			throw new BlackboardException();
+		} catch (NullPointerException e){
+			e.printStackTrace();
+			return null;
+		}
+	}
+
+	private IdentifiableElement takeAux(String id, int machine) throws BlackboardException {
+		IdentifiableElement e = null;
+		if (machine == 0){
+			e = takeFromRemoteArea(id);
+		} else if (machine == 1){
+			e = takeFromLocalArea(id);
+		}
+		return e;
+	}
+
+	private IdentifiableElement takeFromLocalArea(String id) {
+		return localSubArea.remove(id);
+	}
+	
+	private IdentifiableElement takeFromRemoteArea(String id) throws BlackboardException {
+		IdentifiableElement ie = null;
+		try {
+			oos.writeObject(CommunProtocolKeyWords.TAKE);
+			oos.writeObject(new String(id));
+			ie = (IdentifiableElement) ois.readObject();	
+		} catch (IOException e) {
+			e.printStackTrace();
+			throw new BlackboardException();
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		return ie;
 	}
 
 	@Override
@@ -300,11 +351,11 @@ public class DistributedArea_Machine2 implements IArea {
 	public synchronized void writeIntoRemoteArea(IdentifiableElement elem) throws BlackboardException {	
 		try {
 			oos.writeObject(elem);
-			Object o = ois.readObject();
-			if (!(o instanceof String) || !(o.equals("ok"))){
-				throw new BlackboardException();
-			}
-		} catch (IOException | ClassNotFoundException e) {
+//			Object o = ois.readObject();
+//			if (!(o instanceof String) || !(o.equals(CommunProtocolKeyWords.OK))){
+//				throw new BlackboardException();
+//			}
+		} catch (IOException e) {
 			e.printStackTrace();
 			throw new BlackboardException();
 		}

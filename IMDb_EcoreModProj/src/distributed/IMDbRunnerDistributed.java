@@ -30,7 +30,6 @@ public class IMDbRunnerDistributed {
 
 	public static void main(String[] args) throws Exception {
 		
-		
 //		MTLauncher1Input1Output mtLauncher = new MTLauncher1Input1Output();
 		MTLauncher1Input1OutputDistributed mtLauncher = new MTLauncher1Input1OutputDistributed("192.168.1.14", 9896, 9897);
 		mtLauncher.createBlackboard();
